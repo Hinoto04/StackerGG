@@ -1,4 +1,48 @@
 export type CardImageQuality = "list" | "detail";
+export const CARD_TYPES = ["MAIN", "SUB", "ACTIVE"] as const;
+export type CardType = (typeof CARD_TYPES)[number];
+
+export const DEFAULT_LIST_RARITY = "N";
+export const RARITY_SORT_ORDER = ["N", "R", "SR", "UR", "SP", "HI"] as const;
+const CARD_TYPE_EXTRA_RARITIES: Record<CardType, readonly string[]> = {
+  MAIN: ["UR", "MSP"],
+  SUB: ["UR", "SSP"],
+  ACTIVE: ["ASP"],
+};
+
+export function normalizeCardType(cardType: string) {
+  return cardType.trim().toUpperCase();
+}
+
+export function normalizeRarity(rarity: string) {
+  return rarity.trim().toUpperCase();
+}
+
+export function isCardType(cardType: string): cardType is CardType {
+  return CARD_TYPES.includes(cardType as CardType);
+}
+
+export function getAllowedRaritiesForCardType(cardType: string) {
+  const normalizedCardType = normalizeCardType(cardType);
+
+  if (!isCardType(normalizedCardType)) {
+    return [];
+  }
+
+  return ["N", "R", "SR", ...CARD_TYPE_EXTRA_RARITIES[normalizedCardType], "HI"];
+}
+
+export function getRaritySortRank(rarity: string) {
+  const normalized = normalizeRarity(rarity);
+  const rarityKey = normalized.endsWith("SP") ? "SP" : normalized;
+  const index = RARITY_SORT_ORDER.indexOf(rarityKey as (typeof RARITY_SORT_ORDER)[number]);
+
+  return index === -1 ? RARITY_SORT_ORDER.length : index;
+}
+
+export function compareRarities(a: string, b: string) {
+  return getRaritySortRank(a) - getRaritySortRank(b) || normalizeRarity(a).localeCompare(normalizeRarity(b));
+}
 
 export interface CardRecord {
   /**
@@ -13,11 +57,6 @@ export interface CardRecord {
   name: string;
 
   /**
-   * 효과 - 줄바꿈을 포함할 수 있는 긴 텍스트
-   */
-  effect: string;
-
-  /**
    * 카드 타입 - 짧은 텍스트
    */
   cardType: string;
@@ -29,8 +68,38 @@ export interface CardRecord {
   power: number | null;
 
   /**
+   * 액티브 코스트 - 짧은 텍스트
+   */
+  activeCost: string;
+
+  /**
+   * 액티브 효과 - 줄바꿈을 포함할 수 있는 긴 텍스트
+   */
+  activeEffect: string;
+
+  /**
+   * 메인 코스트 - MAIN 카드만 사용합니다.
+   */
+  mainCost: string | null;
+
+  /**
+   * 메인 효과 - MAIN 카드만 사용합니다.
+   */
+  mainEffect: string | null;
+
+  /**
+   * 서브 코스트 - SUB 카드만 사용합니다.
+   */
+  subCost: string | null;
+
+  /**
+   * 서브 효과 - SUB 카드만 사용합니다.
+   */
+  subEffect: string | null;
+
+  /**
    * 카드 목록 대표 이미지에 사용할 수록 번호입니다.
-   * 목록 이미지는 이 값과 레어도 N을 조합합니다.
+   * 수록 레어도 정보가 없을 때 기본 대표 이미지 경로에 사용합니다.
    */
   collectionNumber: string;
 }
@@ -92,9 +161,7 @@ export interface CardReleaseRecord {
 }
 
 export const STACKER_IMAGE_BASE_URL =
-  process.env.NEXT_PUBLIC_CARD_IMAGE_BASE_URL ?? "https://images.hinoto.kr/stackerbattle";
-export const DEFAULT_LIST_RARITY = "N";
-
+  process.env.NEXT_PUBLIC_CARD_IMAGE_BASE_URL ?? "https://images.hinoto.kr/StackerBattle";
 export function createCardReleaseId(collectionNumber: string, rarity: string) {
   return `${collectionNumber}-${rarity}`;
 }
@@ -106,8 +173,25 @@ export function getCardImageUrl(collectionNumber: string, rarity: string, qualit
   return `${STACKER_IMAGE_BASE_URL}/${folder}/${fileName}.webp`;
 }
 
-export function getRepresentativeCardImageUrl(card: Pick<CardRecord, "collectionNumber">, quality: CardImageQuality) {
-  return getCardImageUrl(card.collectionNumber, DEFAULT_LIST_RARITY, quality);
+export function getRepresentativeCardRelease(
+  card: Pick<CardRecord, "collectionNumber"> & {
+    releases?: readonly Pick<CardReleaseRecord, "collectionNumber" | "rarity">[];
+  },
+) {
+  const sortedReleases = [...(card.releases ?? [])].sort(
+    (a, b) => compareRarities(a.rarity, b.rarity) || a.collectionNumber.localeCompare(b.collectionNumber),
+  );
+
+  return sortedReleases[0] ?? { collectionNumber: card.collectionNumber, rarity: DEFAULT_LIST_RARITY };
+}
+
+export function getRepresentativeCardImageUrl(
+  card: Pick<CardRecord, "collectionNumber"> & {
+    releases?: readonly Pick<CardReleaseRecord, "collectionNumber" | "rarity">[];
+  },
+  quality: CardImageQuality,
+) {
+  return getReleaseCardImageUrl(getRepresentativeCardRelease(card), quality);
 }
 
 export function getReleaseCardImageUrl(release: Pick<CardReleaseRecord, "collectionNumber" | "rarity">, quality: CardImageQuality) {
@@ -127,33 +211,53 @@ export const cards: CardRecord[] = [
   {
     id: "BP01-KR01",
     name: "카드명 예시 1",
-    effect: "효과 텍스트를 입력합니다.\n줄바꿈이 필요한 경우 그대로 저장합니다.",
-    cardType: "main",
+    cardType: "MAIN",
     power: 2,
+    activeCost: "1",
+    activeEffect: "액티브 효과 텍스트를 입력합니다.",
+    mainCost: "2",
+    mainEffect: "메인 효과 텍스트를 입력합니다.",
+    subCost: null,
+    subEffect: null,
     collectionNumber: "BP01-KR01",
   },
   {
     id: "BP01-KR02",
     name: "카드명 예시 2",
-    effect: "효과 텍스트를 입력합니다.",
-    cardType: "sub",
+    cardType: "SUB",
     power: null,
+    activeCost: "1",
+    activeEffect: "액티브 효과 텍스트를 입력합니다.",
+    mainCost: null,
+    mainEffect: null,
+    subCost: "1",
+    subEffect: "서브 효과 텍스트를 입력합니다.",
     collectionNumber: "BP01-KR02",
   },
   {
     id: "BP01-KR03",
     name: "카드명 예시 3",
-    effect: "효과 텍스트를 입력합니다.",
-    cardType: "active",
+    cardType: "ACTIVE",
     power: null,
+    activeCost: "1",
+    activeEffect: "액티브 효과 텍스트를 입력합니다.",
+    mainCost: null,
+    mainEffect: null,
+    subCost: null,
+    subEffect: null,
     collectionNumber: "BP01-KR03",
   },
   {
     id: "BP01-KR04",
     name: "카드명 예시 4",
-    effect: "효과 텍스트를 입력합니다.",
-    cardType: "main",
+    cardType: "MAIN",
     power: 3,
+    activeCost: "1",
+    activeEffect: "액티브 효과 텍스트를 입력합니다.",
+    mainCost: "3",
+    mainEffect: "메인 효과 텍스트를 입력합니다.",
+    subCost: null,
+    subEffect: null,
     collectionNumber: "BP01-KR04",
   },
 ];
