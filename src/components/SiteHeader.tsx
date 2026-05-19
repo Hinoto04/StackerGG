@@ -29,7 +29,6 @@ export async function SiteHeader({ active }: { active?: ActiveNav }) {
         </a>
       </nav>
       <div className="account-actions">
-        <button type="button">라이트</button>
         {user ? (
           <>
             <span className="account-name">{user.displayName || user.loginId}</span>

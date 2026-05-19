@@ -288,6 +288,61 @@ textarea {
   margin-top: 12px;
 }
 
+.filter-details {
+  margin-top: 12px;
+}
+
+.filter-summary {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  color: var(--text);
+  background: var(--surface);
+  cursor: pointer;
+  list-style: none;
+}
+
+.filter-summary::-webkit-details-marker {
+  display: none;
+}
+
+.filter-summary:hover {
+  border-color: rgba(228, 184, 95, 0.82);
+  color: var(--accent);
+}
+
+.filter-summary > span:first-child {
+  font-weight: 900;
+}
+
+.filter-summary strong {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 850;
+}
+
+.filter-summary-state {
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.filter-summary-state::before {
+  content: "열기";
+}
+
+.filter-details[open] .filter-summary-state::before {
+  content: "접기";
+}
+
 .filter-field {
   display: grid;
   gap: 7px;
@@ -1766,16 +1821,16 @@ textarea {
   right: 5.8%;
   z-index: 2;
   display: inline-grid;
-  min-width: 34px;
-  height: 34px;
+  min-width: clamp(40px, 24cqi, 56px);
+  height: clamp(40px, 24cqi, 56px);
   place-items: center;
-  border: 1px solid rgba(228, 184, 95, 0.78);
+  border: 2px solid rgba(255, 239, 196, 0.72);
   border-radius: 999px;
-  padding: 0 8px;
+  padding: 0 10px;
   color: #17130c;
   background: var(--accent);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.36);
-  font-size: 0.9rem;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.42);
+  font-size: clamp(1rem, 10cqi, 1.35rem);
   font-weight: 950;
 }
 
@@ -1867,7 +1922,7 @@ textarea {
   }
 
   .deck-detail-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .filter-grid {
@@ -1902,7 +1957,7 @@ textarea {
   }
 
   .release-image-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .preview-image-frame {
@@ -1910,7 +1965,7 @@ textarea {
   }
 
   .card-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1927,16 +1982,27 @@ textarea {
     flex: 1;
   }
 
-  .filter-grid,
   .field-grid,
   .deck-toolbar,
   .deck-count-grid,
   .cost-distribution-grid,
-  .detail-stat-grid,
-  .release-image-grid,
-  .deck-detail-grid,
-  .card-grid {
+  .detail-stat-grid {
     grid-template-columns: 1fr;
+  }
+
+  .filter-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .release-image-grid,
+  .deck-detail-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
   }
 
   .deck-card-list {

@@ -238,6 +238,14 @@ export default async function HomePage({
   const selectedPower = getParam(params, "power").trim();
   const selectedSort = getSortKey(params);
   const selectedDirection = getSortDirection(params);
+  const activeFilterCount = [
+    selectedCardType,
+    selectedCost,
+    selectedPackId,
+    selectedPower,
+    selectedSort !== "collectionNumber" ? selectedSort : "",
+    selectedDirection !== "asc" ? selectedDirection : "",
+  ].filter(Boolean).length;
   const [{ items: filteredCards, total }, { packs, powers, costs }] = await Promise.all([getCards(params), getFilterOptions()]);
 
   return (
@@ -270,73 +278,81 @@ export default async function HomePage({
               초기화
             </a>
           </div>
-          <div className="filter-grid">
-            <label className="filter-field">
-              <span>타입</span>
-              <select name="cardType" defaultValue={selectedCardType}>
-                <option value="">전체</option>
-                {CARD_TYPES.map((type) => (
-                  <option key={type} value={type}>
-                    {type}
-                  </option>
-                ))}
-              </select>
-            </label>
+          <details className="filter-details" open={activeFilterCount > 0}>
+            <summary className="filter-summary">
+              <span>필터</span>
+              <strong>{activeFilterCount > 0 ? `${activeFilterCount}개 적용 중` : "전체 카드"}</strong>
+              <span className="filter-summary-state" aria-hidden="true" />
+            </summary>
 
-            <label className="filter-field">
-              <span>코스트</span>
-              <select name="cost" defaultValue={selectedCost}>
-                <option value="">전체</option>
-                {costs.map((cost) => (
-                  <option key={cost} value={cost}>
-                    {cost}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <div className="filter-grid">
+              <label className="filter-field">
+                <span>타입</span>
+                <select name="cardType" defaultValue={selectedCardType}>
+                  <option value="">전체</option>
+                  {CARD_TYPES.map((type) => (
+                    <option key={type} value={type}>
+                      {type}
+                    </option>
+                  ))}
+                </select>
+              </label>
 
-            <label className="filter-field">
-              <span>수록 팩</span>
-              <select name="packId" defaultValue={selectedPackId}>
-                <option value="">전체</option>
-                {packs.map((pack) => (
-                  <option key={pack.id} value={pack.id}>
-                    {pack.codePrefix} · {pack.name}
-                  </option>
-                ))}
-              </select>
-            </label>
+              <label className="filter-field">
+                <span>코스트</span>
+                <select name="cost" defaultValue={selectedCost}>
+                  <option value="">전체</option>
+                  {costs.map((cost) => (
+                    <option key={cost} value={cost}>
+                      {cost}
+                    </option>
+                  ))}
+                </select>
+              </label>
 
-            <label className="filter-field">
-              <span>파워</span>
-              <select name="power" defaultValue={selectedPower}>
-                <option value="">전체</option>
-                {powers.map((power) => (
-                  <option key={power} value={power}>
-                    {power}
-                  </option>
-                ))}
-              </select>
-            </label>
+              <label className="filter-field">
+                <span>수록 팩</span>
+                <select name="packId" defaultValue={selectedPackId}>
+                  <option value="">전체</option>
+                  {packs.map((pack) => (
+                    <option key={pack.id} value={pack.id}>
+                      {pack.codePrefix} · {pack.name}
+                    </option>
+                  ))}
+                </select>
+              </label>
 
-            <label className="filter-field">
-              <span>정렬</span>
-              <select name="sort" defaultValue={selectedSort}>
-                <option value="collectionNumber">수록 번호</option>
-                <option value="releaseDate">출시순</option>
-                <option value="cost">코스트</option>
-                <option value="power">파워</option>
-              </select>
-            </label>
+              <label className="filter-field">
+                <span>파워</span>
+                <select name="power" defaultValue={selectedPower}>
+                  <option value="">전체</option>
+                  {powers.map((power) => (
+                    <option key={power} value={power}>
+                      {power}
+                    </option>
+                  ))}
+                </select>
+              </label>
 
-            <label className="filter-field">
-              <span>방향</span>
-              <select name="direction" defaultValue={selectedDirection}>
-                <option value="asc">오름차순</option>
-                <option value="desc">내림차순</option>
-              </select>
-            </label>
-          </div>
+              <label className="filter-field">
+                <span>정렬</span>
+                <select name="sort" defaultValue={selectedSort}>
+                  <option value="collectionNumber">수록 번호</option>
+                  <option value="releaseDate">출시순</option>
+                  <option value="cost">코스트</option>
+                  <option value="power">파워</option>
+                </select>
+              </label>
+
+              <label className="filter-field">
+                <span>방향</span>
+                <select name="direction" defaultValue={selectedDirection}>
+                  <option value="asc">오름차순</option>
+                  <option value="desc">내림차순</option>
+                </select>
+              </label>
+            </div>
+          </details>
         </form>
 
         {filteredCards.length > 0 ? (
