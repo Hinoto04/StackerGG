@@ -17,6 +17,7 @@ export async function updateCardAction(formData: FormData) {
   const id = getText(formData, "id");
   const name = getText(formData, "name");
   const collectionNumber = getText(formData, "collectionNumber").toUpperCase();
+  const tags = getText(formData, "tags");
   const cardType = normalizeCardType(getText(formData, "cardType"));
   const powerRaw = getText(formData, "power");
   const activeCost = getText(formData, "activeCost");
@@ -62,6 +63,7 @@ export async function updateCardAction(formData: FormData) {
       subCost: cardType === "SUB" ? subCost : null,
       subEffect: cardType === "SUB" ? subEffect : null,
       collectionNumber,
+      tags,
     },
   });
 

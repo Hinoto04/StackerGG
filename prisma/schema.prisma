@@ -18,6 +18,7 @@ model Card {
   subCost          String?       @map("sub_cost")
   subEffect        String?       @map("sub_effect")
   collectionNumber String        @unique @map("collection_number")
+  tags             String        @default("")
   releases         CardRelease[]
   deckItems        DeckCard[]
 

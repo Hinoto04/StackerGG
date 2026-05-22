@@ -1,0 +1,2 @@
+ALTER TABLE "cards"
+ADD COLUMN "tags" text NOT NULL DEFAULT '';

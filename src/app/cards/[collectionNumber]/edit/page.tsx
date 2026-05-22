@@ -92,6 +92,10 @@ export default async function EditCardPage({
               <span>파워</span>
               <input min="0" name="power" type="number" defaultValue={card.power ?? ""} />
             </label>
+            <label className="field wide-field">
+              <span>카드 태그</span>
+              <input name="tags" placeholder="예: A/B/C/" type="text" defaultValue={card.tags} />
+            </label>
             <label className="field">
               <span>액티브 코스트</span>
               <input name="activeCost" required type="text" defaultValue={card.activeCost} />

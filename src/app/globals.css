@@ -630,6 +630,7 @@ textarea {
 }
 
 .card-tile {
+  position: relative;
   display: flex;
   min-height: 100%;
   overflow: hidden;
@@ -640,10 +641,40 @@ textarea {
   transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
 }
 
+.card-tile-main {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
 .card-tile:hover {
   border-color: rgba(228, 184, 95, 0.8);
   box-shadow: 0 14px 50px rgba(0, 0, 0, 0.32);
   transform: translateY(-2px);
+}
+
+.card-tile-edit {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 3;
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(228, 184, 95, 0.78);
+  border-radius: var(--radius);
+  padding: 0 11px;
+  color: #17130c;
+  background: rgba(228, 184, 95, 0.94);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.34);
+  font-size: 0.82rem;
+  font-weight: 950;
+  text-decoration: none;
+}
+
+.card-tile-edit:hover {
+  background: var(--accent-strong);
 }
 
 .card-image-frame {
@@ -974,6 +1005,16 @@ textarea {
   line-height: 1.1;
 }
 
+.card-tag-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 850;
+  line-height: 1.45;
+}
+
 .detail-stat-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1110,6 +1151,46 @@ textarea {
 .release-row span {
   color: var(--muted);
   font-size: 0.86rem;
+}
+
+.field-deck-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px;
+  color: inherit;
+  background: var(--surface);
+  text-decoration: none;
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.field-deck-row:hover {
+  border-color: rgba(94, 196, 180, 0.72);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
+  transform: translateY(-1px);
+}
+
+.field-deck-row > div:first-child {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.field-deck-row strong {
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  font-weight: 920;
+}
+
+.field-deck-row span:not(.chip) {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.86rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .rarity-chip {

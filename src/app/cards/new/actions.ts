@@ -8,6 +8,7 @@ import { prisma } from "@/lib/prisma";
 export type CardFormField =
   | "name"
   | "collectionNumber"
+  | "tags"
   | "cardType"
   | "power"
   | "activeCost"
@@ -49,6 +50,7 @@ export async function createCardAction(_previousState: CardFormState, formData: 
   const name = getText(formData, "name");
   const cardType = normalizeCardType(getText(formData, "cardType"));
   const collectionNumber = getText(formData, "collectionNumber").toUpperCase();
+  const tags = getText(formData, "tags");
   const powerRaw = getText(formData, "power");
   const activeCost = getText(formData, "activeCost");
   const activeEffect = getText(formData, "activeEffect");
@@ -186,6 +188,7 @@ export async function createCardAction(_previousState: CardFormState, formData: 
           subCost: cardType === "SUB" ? subCost : null,
           subEffect: cardType === "SUB" ? subEffect : null,
           collectionNumber,
+          tags,
         },
         select: {
           id: true,

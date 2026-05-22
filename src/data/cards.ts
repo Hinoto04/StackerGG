@@ -102,6 +102,12 @@ export interface CardRecord {
    * 수록 레어도 정보가 없을 때 기본 대표 이미지 경로에 사용합니다.
    */
   collectionNumber: string;
+
+  /**
+   * 카드 검색과 분류에 사용하는 슬래시 구분 태그입니다.
+   * 예: A/B/C/
+   */
+  tags: string;
 }
 
 export interface PackRecord {
@@ -220,6 +226,7 @@ export const cards: CardRecord[] = [
     subCost: null,
     subEffect: null,
     collectionNumber: "BP01-KR01",
+    tags: "",
   },
   {
     id: "BP01-KR02",
@@ -233,6 +240,7 @@ export const cards: CardRecord[] = [
     subCost: "1",
     subEffect: "서브 효과 텍스트를 입력합니다.",
     collectionNumber: "BP01-KR02",
+    tags: "",
   },
   {
     id: "BP01-KR03",
@@ -246,6 +254,7 @@ export const cards: CardRecord[] = [
     subCost: null,
     subEffect: null,
     collectionNumber: "BP01-KR03",
+    tags: "",
   },
   {
     id: "BP01-KR04",
@@ -259,6 +268,7 @@ export const cards: CardRecord[] = [
     subCost: null,
     subEffect: null,
     collectionNumber: "BP01-KR04",
+    tags: "",
   },
 ];
 

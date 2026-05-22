@@ -1,6 +1,7 @@
 import { CardImage } from "@/components/CardImage";
 import { SiteHeader } from "@/components/SiteHeader";
 import { CARD_TYPES, getRepresentativeCardImageUrl, type CardRecord, type CardReleaseRecord } from "@/data/cards";
+import { getCurrentUser, isAdmin } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import type { Prisma } from "@prisma/client";
 
@@ -9,7 +10,7 @@ type CardListRelease = Pick<CardReleaseRecord, "collectionNumber" | "rarity">;
 type CardListItem = Pick<CardRecord, "id" | "name" | "collectionNumber"> & {
   releases: CardListRelease[];
 };
-type SortKey = "collectionNumber" | "cost" | "power" | "releaseDate";
+type SortKey = "default" | "collectionNumber" | "cost" | "power" | "releaseDate";
 type SortDirection = "asc" | "desc";
 
 interface CardQueryRelease extends CardListRelease {
@@ -24,6 +25,7 @@ interface CardQueryItem extends Omit<CardListItem, "releases"> {
   subCost: string | null;
   power: number | null;
   cardType: string;
+  tags: string;
   releases: CardQueryRelease[];
 }
 
@@ -36,7 +38,7 @@ function getParam(params: SearchParams, key: string) {
 
 function getSortKey(params: SearchParams): SortKey {
   const value = getParam(params, "sort");
-  return value === "cost" || value === "power" || value === "releaseDate" ? value : "collectionNumber";
+  return value === "collectionNumber" || value === "cost" || value === "power" || value === "releaseDate" ? value : "default";
 }
 
 function getSortDirection(params: SearchParams): SortDirection {
@@ -64,6 +66,49 @@ function getPrimaryCost(card: CardQueryItem) {
   return toNumber(card.activeCost);
 }
 
+function getPrimaryCostText(card: CardQueryItem) {
+  if (card.cardType === "MAIN") {
+    return card.mainCost;
+  }
+
+  if (card.cardType === "SUB") {
+    return card.subCost;
+  }
+
+  return card.activeCost;
+}
+
+function getTypeRank(cardType: string) {
+  const index = CARD_TYPES.indexOf(cardType as (typeof CARD_TYPES)[number]);
+  return index === -1 ? CARD_TYPES.length : index;
+}
+
+function getCostRank(value: string | null) {
+  const normalized = value?.trim() || "0";
+  const numericCost = Number(normalized);
+
+  if (Number.isFinite(numericCost)) {
+    return {
+      bucket: 0,
+      number: numericCost,
+      text: normalized,
+    };
+  }
+
+  return {
+    bucket: 1,
+    number: 0,
+    text: normalized,
+  };
+}
+
+function compareCostText(a: string | null, b: string | null) {
+  const aRank = getCostRank(a);
+  const bRank = getCostRank(b);
+
+  return aRank.bucket - bRank.bucket || aRank.number - bRank.number || aRank.text.localeCompare(bRank.text);
+}
+
 function getFirstReleaseTime(card: CardQueryItem) {
   const releaseTimes = card.releases.map((release) => release.pack.releaseDate.getTime());
   return releaseTimes.length > 0 ? Math.min(...releaseTimes) : null;
@@ -89,7 +134,13 @@ function sortCards(items: CardQueryItem[], sort: SortKey, direction: SortDirecti
   return [...items].sort((a, b) => {
     let result = 0;
 
-    if (sort === "cost") {
+    if (sort === "default") {
+      result =
+        getTypeRank(a.cardType) - getTypeRank(b.cardType) ||
+        compareCostText(getPrimaryCostText(a), getPrimaryCostText(b)) ||
+        compareCostText(a.activeCost, b.activeCost) ||
+        a.name.localeCompare(b.name, "ko-KR");
+    } else if (sort === "cost") {
       result = compareNullableNumber(getPrimaryCost(a), getPrimaryCost(b), direction);
     } else if (sort === "power") {
       result = compareNullableNumber(a.power, b.power, direction);
@@ -99,7 +150,7 @@ function sortCards(items: CardQueryItem[], sort: SortKey, direction: SortDirecti
       result = direction === "asc" ? a.collectionNumber.localeCompare(b.collectionNumber) : b.collectionNumber.localeCompare(a.collectionNumber);
     }
 
-    return result || a.collectionNumber.localeCompare(b.collectionNumber) || a.name.localeCompare(b.name);
+    return result || a.collectionNumber.localeCompare(b.collectionNumber) || a.name.localeCompare(b.name, "ko-KR");
   });
 }
 
@@ -110,7 +161,7 @@ async function getCards(params: SearchParams) {
   const packId = getParam(params, "packId").trim();
   const power = getParam(params, "power").trim();
   const sort = getSortKey(params);
-  const direction = getSortDirection(params);
+  const direction = sort === "default" ? "asc" : getSortDirection(params);
   const and: Prisma.CardWhereInput[] = [];
 
   if (keyword) {
@@ -119,6 +170,7 @@ async function getCards(params: SearchParams) {
         { name: { contains: keyword, mode: "insensitive" } },
         { collectionNumber: { contains: keyword, mode: "insensitive" } },
         { cardType: { contains: keyword, mode: "insensitive" } },
+        { tags: { contains: keyword, mode: "insensitive" } },
       ],
     });
   }
@@ -158,6 +210,7 @@ async function getCards(params: SearchParams) {
         name: true,
         collectionNumber: true,
         cardType: true,
+        tags: true,
         power: true,
         activeCost: true,
         mainCost: true,
@@ -212,16 +265,24 @@ async function getFilterOptions() {
   return { packs, powers, costs };
 }
 
-function CardTile({ card }: { card: CardListItem }) {
+function CardTile({ canEdit, card }: { canEdit: boolean; card: CardListItem }) {
   const imageUrl = getRepresentativeCardImageUrl(card, "list");
   const detailUrl = `/cards/${encodeURIComponent(card.collectionNumber)}`;
+  const editUrl = `${detailUrl}/edit`;
 
   return (
-    <a className="card-tile" href={detailUrl} aria-label={`${card.name} 상세 보기`}>
-      <div className="card-image-frame">
-        <CardImage src={imageUrl} alt={card.name} />
-      </div>
-    </a>
+    <article className="card-tile">
+      <a className="card-tile-main" href={detailUrl} aria-label={`${card.name} 상세 보기`}>
+        <div className="card-image-frame">
+          <CardImage src={imageUrl} alt={card.name} />
+        </div>
+      </a>
+      {canEdit ? (
+        <a className="card-tile-edit" href={editUrl} aria-label={`${card.name} 수정`}>
+          수정
+        </a>
+      ) : null}
+    </article>
   );
 }
 
@@ -237,16 +298,17 @@ export default async function HomePage({
   const selectedPackId = getParam(params, "packId").trim();
   const selectedPower = getParam(params, "power").trim();
   const selectedSort = getSortKey(params);
-  const selectedDirection = getSortDirection(params);
+  const selectedDirection = selectedSort === "default" ? "asc" : getSortDirection(params);
   const activeFilterCount = [
     selectedCardType,
     selectedCost,
     selectedPackId,
     selectedPower,
-    selectedSort !== "collectionNumber" ? selectedSort : "",
-    selectedDirection !== "asc" ? selectedDirection : "",
+    selectedSort !== "default" ? selectedSort : "",
+    selectedSort !== "default" && selectedDirection !== "asc" ? selectedDirection : "",
   ].filter(Boolean).length;
-  const [{ items: filteredCards, total }, { packs, powers, costs }] = await Promise.all([getCards(params), getFilterOptions()]);
+  const [{ items: filteredCards, total }, { packs, powers, costs }, user] = await Promise.all([getCards(params), getFilterOptions(), getCurrentUser()]);
+  const admin = isAdmin(user);
 
   return (
     <>
@@ -337,6 +399,7 @@ export default async function HomePage({
               <label className="filter-field">
                 <span>정렬</span>
                 <select name="sort" defaultValue={selectedSort}>
+                  <option value="default">기본 정렬</option>
                   <option value="collectionNumber">수록 번호</option>
                   <option value="releaseDate">출시순</option>
                   <option value="cost">코스트</option>
@@ -358,7 +421,7 @@ export default async function HomePage({
         {filteredCards.length > 0 ? (
           <section className="card-grid" aria-label="카드 목록">
             {filteredCards.map((card) => (
-              <CardTile card={card} key={card.id} />
+              <CardTile canEdit={admin} card={card} key={card.id} />
             ))}
           </section>
         ) : (

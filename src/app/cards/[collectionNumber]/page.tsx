@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { CardImage } from "@/components/CardImage";
 import { SiteHeader } from "@/components/SiteHeader";
-import { compareRarities, DEFAULT_LIST_RARITY, getReleaseCardImageUrl, getRepresentativeCardRelease } from "@/data/cards";
+import { compareRarities, getReleaseCardImageUrl, getRepresentativeCardRelease } from "@/data/cards";
 import { getCurrentUser, isAdmin } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
@@ -28,8 +28,36 @@ type ReleaseGroup = {
   releases: ReleaseItem[];
 };
 
+type CardAdoptionStats = {
+  adoptedDecks: number;
+  calculatedAt: Date;
+  rate: number;
+  totalDecks: number;
+};
+
+type CardAdoptionCacheEntry = {
+  expiresAt: number;
+  stats: CardAdoptionStats;
+};
+
+const CARD_ADOPTION_CACHE_TTL_MS = 60 * 60 * 1000;
+const globalForCardAdoption = globalThis as unknown as {
+  cardAdoptionCache?: Map<string, CardAdoptionCacheEntry>;
+};
+
 function formatDate(date: Date) {
   return date.toISOString().slice(0, 10);
+}
+
+function formatAdoptionRate(rate: number) {
+  return `${rate.toFixed(rate >= 10 ? 1 : 2)}%`;
+}
+
+function getCardTags(tags: string) {
+  return tags
+    .split("/")
+    .map((tag) => tag.trim())
+    .filter(Boolean);
 }
 
 function getTypeName(cardType: string) {
@@ -124,6 +152,67 @@ async function getCard(collectionNumber: string) {
   });
 }
 
+async function getCardAdoptionStats(cardId: string): Promise<CardAdoptionStats> {
+  const cache = globalForCardAdoption.cardAdoptionCache ?? new Map<string, CardAdoptionCacheEntry>();
+  globalForCardAdoption.cardAdoptionCache = cache;
+
+  const cached = cache.get(cardId);
+  if (cached && cached.expiresAt > Date.now()) {
+    return cached.stats;
+  }
+
+  const [totalDecks, adoptedDecks] = await Promise.all([
+    prisma.deck.count(),
+    prisma.deckCard.count({
+      where: {
+        cardId,
+      },
+    }),
+  ]);
+  const stats = {
+    adoptedDecks,
+    calculatedAt: new Date(),
+    rate: totalDecks > 0 ? (adoptedDecks / totalDecks) * 100 : 0,
+    totalDecks,
+  };
+
+  cache.set(cardId, {
+    expiresAt: Date.now() + CARD_ADOPTION_CACHE_TTL_MS,
+    stats,
+  });
+
+  return stats;
+}
+
+async function getMainFieldDecks(cardId: string) {
+  const items = await prisma.deckCard.findMany({
+    where: {
+      cardId,
+      isField: true,
+      slotType: "MAIN",
+    },
+    select: {
+      id: true,
+      deck: {
+        select: {
+          id: true,
+          name: true,
+          author: {
+            select: {
+              loginId: true,
+              displayName: true,
+            },
+          },
+        },
+      },
+    },
+  });
+
+  return items
+    .map((item) => item.deck)
+    .sort((a, b) => a.name.localeCompare(b.name, "ko-KR") || a.id.localeCompare(b.id));
+}
+
 export default async function CardDetailPage({ params }: { params: Promise<RouteParams> }) {
   const { collectionNumber } = await params;
   const card = await getCard(decodeURIComponent(collectionNumber));
@@ -139,8 +228,13 @@ export default async function CardDetailPage({ params }: { params: Promise<Route
     releases: sortedReleases,
   });
   const representativeImageUrl = getReleaseCardImageUrl(representativeRelease, "detail");
-  const user = await getCurrentUser();
+  const [user, adoptionStats, mainFieldDecks] = await Promise.all([
+    getCurrentUser(),
+    getCardAdoptionStats(card.id),
+    card.cardType === "MAIN" ? getMainFieldDecks(card.id) : Promise.resolve([]),
+  ]);
   const admin = isAdmin(user);
+  const cardTags = getCardTags(card.tags);
 
   return (
     <>
@@ -157,6 +251,13 @@ export default async function CardDetailPage({ params }: { params: Promise<Route
           <div className="detail-info">
             <div className="kicker">CARD DETAIL</div>
             <h1>{card.name}</h1>
+            {cardTags.length > 0 ? (
+              <div className="card-tag-line" aria-label="카드 태그">
+                {cardTags.map((tag) => (
+                  <span key={tag}>#{tag}</span>
+                ))}
+              </div>
+            ) : null}
             <div className="chip-row">
               <span className="chip">{card.collectionNumber}</span>
               <span className="chip">{getTypeName(card.cardType)}</span>
@@ -178,8 +279,8 @@ export default async function CardDetailPage({ params }: { params: Promise<Route
                 <strong>{card.power ?? "-"}</strong>
               </div>
               <div>
-                <span>대표 레어도</span>
-                <strong>{representativeRelease?.rarity ?? DEFAULT_LIST_RARITY}</strong>
+                <span>채용률</span>
+                <strong>{formatAdoptionRate(adoptionStats.rate)}</strong>
               </div>
               <div>
                 <span>수록 번호</span>
@@ -194,6 +295,41 @@ export default async function CardDetailPage({ params }: { params: Promise<Route
             </div>
           </div>
         </section>
+
+        {card.cardType === "MAIN" ? (
+          <section className="detail-section">
+            <div className="section-heading">
+              <div>
+                <div className="kicker">FIELD DECKS</div>
+                <h2>필드 메인 채용 덱</h2>
+              </div>
+              <span className="chip">{mainFieldDecks.length}개</span>
+            </div>
+
+            {mainFieldDecks.length > 0 ? (
+              <div className="release-table" aria-label="필드 메인으로 세운 덱">
+                {mainFieldDecks.map((deck) => {
+                  const authorLabel = deck.author.displayName || deck.author.loginId;
+
+                  return (
+                    <a className="field-deck-row" href={`/decks/${deck.id}`} key={deck.id}>
+                      <div>
+                        <strong>{deck.name}</strong>
+                        <span>{authorLabel}</span>
+                      </div>
+                      <span className="chip">상세 보기</span>
+                    </a>
+                  );
+                })}
+              </div>
+            ) : (
+              <section className="empty-panel">
+                <strong>필드 메인으로 세운 덱이 없습니다.</strong>
+                <p>이 메인 카드를 필드 카드로 지정한 덱이 아직 없습니다.</p>
+              </section>
+            )}
+          </section>
+        ) : null}
 
         <section className="detail-section">
           <div className="section-heading">

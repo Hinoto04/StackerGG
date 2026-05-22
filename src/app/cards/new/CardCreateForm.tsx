@@ -176,6 +176,17 @@ export function CardCreateForm({ packs }: CardCreateFormProps) {
               />
               <FieldError id={errorId("power")} message={state.fieldErrors.power} />
             </label>
+
+            <label className="field wide-field">
+              <span>카드 태그</span>
+              <input
+                aria-describedby={state.fieldErrors.tags ? errorId("tags") : undefined}
+                name="tags"
+                placeholder="예: A/B/C/"
+                type="text"
+              />
+              <FieldError id={errorId("tags")} message={state.fieldErrors.tags} />
+            </label>
           </div>
 
         </div>
