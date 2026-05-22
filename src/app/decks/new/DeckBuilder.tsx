@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useMemo, useState, type DragEvent } from "react";
+import { useActionState, useMemo, useState, type DragEvent, type KeyboardEvent } from "react";
 import { CardImage } from "@/components/CardImage";
 import { CARD_TYPES, getRepresentativeCardImageUrl, type CardType } from "@/data/cards";
 import { createDeckAction, type DeckFormField, type DeckFormState } from "./actions";
@@ -26,6 +26,7 @@ export type DeckItem = {
   cardId: string;
   slotType: CardType;
   quantity: number;
+  isField: boolean;
 };
 
 type DeckAction = (previousState: DeckFormState, formData: FormData) => Promise<DeckFormState>;
@@ -45,6 +46,12 @@ const DECK_LIMITS: Record<CardType, number> = {
   MAIN: 3,
   SUB: 9,
   ACTIVE: 21,
+};
+
+const FIELD_LIMITS: Record<CardType, number> = {
+  MAIN: 1,
+  SUB: 3,
+  ACTIVE: 0,
 };
 
 const TYPE_LABELS: Record<CardType, string> = {
@@ -71,6 +78,58 @@ function getCardCost(card: BuilderCard) {
   return card.activeCost || "";
 }
 
+function getCardCostLabel(card: BuilderCard) {
+  return getCardCost(card).trim() || "0";
+}
+
+function getActiveCostLabel(card: BuilderCard) {
+  return card.activeCost.trim() || "0";
+}
+
+function getCostRank(card: BuilderCard) {
+  const cost = getCardCostLabel(card);
+  const numericCost = Number(cost);
+
+  if (Number.isFinite(numericCost)) {
+    return {
+      bucket: 0,
+      number: numericCost,
+      text: cost,
+    };
+  }
+
+  return {
+    bucket: 1,
+    number: 0,
+    text: cost,
+  };
+}
+
+function compareCardsByCostThenName(a: BuilderCard, b: BuilderCard) {
+  const aRank = getCostRank(a);
+  const bRank = getCostRank(b);
+
+  return (
+    CARD_TYPES.indexOf(a.cardType) - CARD_TYPES.indexOf(b.cardType) ||
+    aRank.bucket - bRank.bucket ||
+    aRank.number - bRank.number ||
+    aRank.text.localeCompare(bRank.text) ||
+    a.name.localeCompare(b.name, "ko-KR") ||
+    a.collectionNumber.localeCompare(b.collectionNumber)
+  );
+}
+
+function compareDeckItemsByCard(a: DeckItem, b: DeckItem, cardsById: Map<string, BuilderCard>) {
+  const aCard = cardsById.get(a.cardId);
+  const bCard = cardsById.get(b.cardId);
+
+  if (!aCard || !bCard) {
+    return 0;
+  }
+
+  return compareCardsByCostThenName(aCard, bCard);
+}
+
 function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) {
     return null;
@@ -95,6 +154,13 @@ function getEmptyCounts(): Record<CardType, number> {
   };
 }
 
+function normalizeInitialItems(items: DeckItem[]) {
+  return items.map((item) => ({
+    ...item,
+    isField: item.slotType === "ACTIVE" ? false : Boolean(item.isField),
+  }));
+}
+
 export function DeckBuilder({
   action = createDeckAction,
   cards,
@@ -111,7 +177,7 @@ export function DeckBuilder({
   const [cardTypeFilter, setCardTypeFilter] = useState<CardType | "">("");
   const [costFilter, setCostFilter] = useState("");
   const [powerFilter, setPowerFilter] = useState("");
-  const [deckItems, setDeckItems] = useState<DeckItem[]>(initialItems);
+  const [deckItems, setDeckItems] = useState<DeckItem[]>(() => normalizeInitialItems(initialItems));
   const [dragCardId, setDragCardId] = useState<string | null>(null);
 
   const cardsById = useMemo(() => new Map(cards.map((card) => [card.id, card])), [cards]);
@@ -129,32 +195,45 @@ export function DeckBuilder({
 
     return nextCounts;
   }, [deckItems]);
+  const fieldCounts = useMemo(() => {
+    const nextCounts = getEmptyCounts();
+
+    for (const item of deckItems) {
+      if (item.isField) {
+        nextCounts[item.slotType] += 1;
+      }
+    }
+
+    return nextCounts;
+  }, [deckItems]);
   const filteredCards = useMemo(() => {
     const normalizedKeyword = keyword.trim().toLowerCase();
 
-    return cards.filter((card) => {
-      if (normalizedKeyword) {
-        const text = [card.name, card.collectionNumber, card.cardType].join(" ").toLowerCase();
+    return cards
+      .filter((card) => {
+        if (normalizedKeyword) {
+          const text = [card.name, card.collectionNumber, card.cardType].join(" ").toLowerCase();
 
-        if (!text.includes(normalizedKeyword)) {
+          if (!text.includes(normalizedKeyword)) {
+            return false;
+          }
+        }
+
+        if (cardTypeFilter && card.cardType !== cardTypeFilter) {
           return false;
         }
-      }
 
-      if (cardTypeFilter && card.cardType !== cardTypeFilter) {
-        return false;
-      }
+        if (costFilter && getCardCost(card) !== costFilter) {
+          return false;
+        }
 
-      if (costFilter && getCardCost(card) !== costFilter) {
-        return false;
-      }
+        if (powerFilter && String(card.power ?? "") !== powerFilter) {
+          return false;
+        }
 
-      if (powerFilter && String(card.power ?? "") !== powerFilter) {
-        return false;
-      }
-
-      return true;
-    });
+        return true;
+      })
+      .sort(compareCardsByCostThenName);
   }, [cardTypeFilter, cards, costFilter, keyword, powerFilter]);
 
   const isDeckComplete = CARD_TYPES.every((type) => counts[type] === DECK_LIMITS[type]);
@@ -187,7 +266,7 @@ export function DeckBuilder({
         return current.map((item) => (item.cardId === card.id ? { ...item, quantity: item.quantity + 1 } : item));
       }
 
-      return [...current, { cardId: card.id, slotType: card.cardType, quantity: 1 }];
+      return [...current, { cardId: card.id, slotType: card.cardType, quantity: 1, isField: false }];
     });
   }
 
@@ -268,12 +347,65 @@ export function DeckBuilder({
     setDeckItems((current) => current.filter((item) => item.cardId !== cardId));
   }
 
+  function toggleFieldCard(cardId: string) {
+    const target = deckItems.find((item) => item.cardId === cardId);
+
+    if (!target || target.slotType === "ACTIVE") {
+      return;
+    }
+
+    setDeckItems((current) => {
+      if (target.slotType === "MAIN") {
+        return current.map((item) => {
+          if (item.slotType !== "MAIN") {
+            return item;
+          }
+
+          if (item.cardId === cardId) {
+            return { ...item, isField: !item.isField };
+          }
+
+          return { ...item, isField: false };
+        });
+      }
+
+      const selectedSubCount = current.filter((item) => item.slotType === "SUB" && item.isField).length;
+
+      return current.map((item) => {
+        if (item.cardId !== cardId) {
+          return item;
+        }
+
+        if (!item.isField && selectedSubCount >= FIELD_LIMITS.SUB) {
+          return item;
+        }
+
+        return { ...item, isField: !item.isField };
+      });
+    });
+  }
+
+  function handleSelectedCardKeyDown(event: KeyboardEvent<HTMLElement>, item: DeckItem) {
+    if (event.currentTarget !== event.target) {
+      return;
+    }
+
+    if (item.slotType === "ACTIVE") {
+      return;
+    }
+
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      toggleFieldCard(item.cardId);
+    }
+  }
+
   function resetDeck() {
     setDeckItems([]);
   }
 
   function getItemsByType(type: CardType) {
-    return deckItems.filter((item) => item.slotType === type);
+    return deckItems.filter((item) => item.slotType === type).sort((a, b) => compareDeckItemsByCard(a, b, cardsById));
   }
 
   return (
@@ -354,6 +486,8 @@ export function DeckBuilder({
           <div className="deck-card-list" aria-label="검색된 카드">
             {filteredCards.map((card) => {
               const imageUrl = getRepresentativeCardImageUrl(card, "list");
+              const cost = getCardCostLabel(card);
+              const activeCost = getActiveCostLabel(card);
 
               return (
                 <button
@@ -367,8 +501,10 @@ export function DeckBuilder({
                   onDragStart={(event) => handleDragStart(event, card)}
                   type="button"
                 >
-                  <div className="deck-card-thumb">
+                  <div className="deck-card-thumb" data-card-type={card.cardType}>
                     <CardImage src={imageUrl} alt={card.name} />
+                    <span className="deck-builder-cost-badge">{cost}</span>
+                    {card.cardType !== "ACTIVE" ? <span className="deck-builder-active-cost-badge">{activeCost}</span> : null}
                   </div>
                   <strong>{card.name}</strong>
                 </button>
@@ -416,6 +552,7 @@ export function DeckBuilder({
                 <h3>{TYPE_LABELS[type]}</h3>
                 <span>
                   {counts[type]} / {DECK_LIMITS[type]}
+                  {FIELD_LIMITS[type] > 0 ? ` · 필드 ${fieldCounts[type]} / ${FIELD_LIMITS[type]}` : ""}
                 </span>
               </div>
               <div className="deck-selected-list">
@@ -427,17 +564,33 @@ export function DeckBuilder({
                       return null;
                     }
 
+                    const canToggleField = item.slotType !== "ACTIVE";
+                    const selectedCardClass = item.isField ? "deck-selected-card field-card" : "deck-selected-card";
+                    const cost = getCardCostLabel(card);
+                    const activeCost = getActiveCostLabel(card);
+
                     return (
-                      <article className="deck-selected-card" key={item.cardId}>
-                        <div className="deck-selected-thumb">
+                      <article
+                        aria-pressed={canToggleField ? item.isField : undefined}
+                        className={selectedCardClass}
+                        key={item.cardId}
+                        onClick={canToggleField ? () => toggleFieldCard(item.cardId) : undefined}
+                        onKeyDown={canToggleField ? (event) => handleSelectedCardKeyDown(event, item) : undefined}
+                        role={canToggleField ? "button" : undefined}
+                        tabIndex={canToggleField ? 0 : undefined}
+                      >
+                        <div className="deck-selected-thumb" data-card-type={card.cardType}>
                           <CardImage src={getRepresentativeCardImageUrl(card, "list")} alt={card.name} />
+                          <span className="deck-builder-cost-badge">{cost}</span>
+                          {card.cardType !== "ACTIVE" ? <span className="deck-builder-active-cost-badge">{activeCost}</span> : null}
                           {item.quantity > 1 ? <span className="deck-quantity-badge">×{item.quantity}</span> : null}
+                          {item.isField ? <span className="deck-field-badge">필드</span> : null}
                         </div>
                         <div className="deck-selected-info">
                           <strong>{card.name}</strong>
                         </div>
                         {item.slotType === "ACTIVE" ? (
-                          <div className="quantity-controls">
+                          <div className="quantity-controls" onClick={(event) => event.stopPropagation()}>
                             <button aria-label={`${card.name} 1장 제거`} onClick={() => removeOne(item.cardId)} type="button">
                               -
                             </button>
@@ -449,7 +602,15 @@ export function DeckBuilder({
                             </button>
                           </div>
                         ) : (
-                          <button className="deck-remove-button" aria-label={`${card.name} 제거`} onClick={() => removeAll(item.cardId)} type="button">
+                          <button
+                            className="deck-remove-button"
+                            aria-label={`${card.name} 제거`}
+                            onClick={(event) => {
+                              event.stopPropagation();
+                              removeAll(item.cardId);
+                            }}
+                            type="button"
+                          >
                             ×
                           </button>
                         )}

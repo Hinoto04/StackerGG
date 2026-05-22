@@ -1,7 +1,8 @@
 import { createHash, randomBytes } from "node:crypto";
 import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { GOOGLE_OAUTH_COOKIE_NAME } from "@/lib/oauth";
+import { createLoginHref, getSafeRedirectPath } from "@/lib/redirect";
 
 const GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 
@@ -17,11 +18,15 @@ function createCodeChallenge(verifier: string) {
   return base64Url(createHash("sha256").update(verifier).digest());
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   const clientId = process.env.GOOGLE_CLIENT_ID;
+  const nextPath = getSafeRedirectPath(request.nextUrl.searchParams.get("next"));
 
   if (!clientId) {
-    return NextResponse.redirect(new URL("/login?oauth=missing_google_client_id", getBaseUrl()));
+    const loginUrl = new URL(createLoginHref(nextPath), getBaseUrl());
+    loginUrl.searchParams.set("oauth", "missing_google_client_id");
+
+    return NextResponse.redirect(loginUrl);
   }
 
   const state = base64Url(randomBytes(24));
@@ -39,7 +44,7 @@ export async function GET() {
   });
 
   const cookieStore = await cookies();
-  cookieStore.set(GOOGLE_OAUTH_COOKIE_NAME, JSON.stringify({ state, codeVerifier }), {
+  cookieStore.set(GOOGLE_OAUTH_COOKIE_NAME, JSON.stringify({ state, codeVerifier, nextPath }), {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",

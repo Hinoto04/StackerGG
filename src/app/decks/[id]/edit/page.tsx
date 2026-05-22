@@ -84,6 +84,7 @@ async function getDeck(id: string) {
       cardId: true,
       slotType: true,
       quantity: true,
+      isField: true,
     },
   });
 
@@ -93,7 +94,7 @@ async function getDeck(id: string) {
   };
 }
 
-function getInitialItems(items: { cardId: string; slotType: string; quantity: number }[]): DeckItem[] {
+function getInitialItems(items: { cardId: string; slotType: string; quantity: number; isField: boolean }[]): DeckItem[] {
   return items.flatMap((item) => {
     if (!isCardType(item.slotType)) {
       return [];
@@ -104,6 +105,7 @@ function getInitialItems(items: { cardId: string; slotType: string; quantity: nu
         cardId: item.cardId,
         slotType: item.slotType,
         quantity: item.quantity,
+        isField: item.isField,
       },
     ];
   });

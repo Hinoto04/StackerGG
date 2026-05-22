@@ -7,8 +7,18 @@ export const dynamic = "force-dynamic";
 
 type DeckListItem = Awaited<ReturnType<typeof getDecks>>[number];
 
-async function getDecks() {
+async function getDecks(query: string) {
+  const keyword = query.trim();
+
   return prisma.deck.findMany({
+    where: keyword
+      ? {
+          name: {
+            contains: keyword,
+            mode: "insensitive",
+          },
+        }
+      : undefined,
     orderBy: [{ name: "asc" }, { id: "asc" }],
     select: {
       id: true,
@@ -21,14 +31,16 @@ async function getDecks() {
       },
       items: {
         where: {
-          slotType: "MAIN",
+          OR: [{ isField: true }, { slotType: "MAIN" }],
         },
         orderBy: {
           displayOrder: "asc",
         },
-        take: 3,
         select: {
           id: true,
+          slotType: true,
+          displayOrder: true,
+          isField: true,
           card: {
             select: {
               id: true,
@@ -48,8 +60,32 @@ async function getDecks() {
   });
 }
 
+function getPreviewItems(deck: DeckListItem) {
+  const fieldItems = deck.items
+    .filter((item) => item.isField)
+    .sort((a, b) => {
+      const typeOrder = (a.slotType === "MAIN" ? 0 : 1) - (b.slotType === "MAIN" ? 0 : 1);
+
+      return typeOrder || a.displayOrder - b.displayOrder;
+    })
+    .slice(0, 4);
+
+  if (fieldItems.length > 0) {
+    return {
+      items: fieldItems,
+      isFieldPreview: true,
+    };
+  }
+
+  return {
+    items: deck.items.filter((item) => item.slotType === "MAIN").slice(0, 3),
+    isFieldPreview: false,
+  };
+}
+
 function DeckListCard({ deck }: { deck: DeckListItem }) {
   const authorLabel = deck.author.displayName || deck.author.loginId;
+  const preview = getPreviewItems(deck);
 
   return (
     <article className="deck-list-card">
@@ -59,9 +95,9 @@ function DeckListCard({ deck }: { deck: DeckListItem }) {
           <span>{authorLabel}</span>
         </div>
 
-        <div className="deck-list-preview" aria-hidden="true">
-          {deck.items.length > 0 ? (
-            deck.items.map((item) => (
+        <div className={preview.isFieldPreview ? "deck-list-preview field-preview" : "deck-list-preview"} aria-hidden="true">
+          {preview.items.length > 0 ? (
+            preview.items.map((item) => (
               <div className="deck-list-preview-card" key={item.id}>
                 <CardImage src={getRepresentativeCardImageUrl(item.card, "list")} alt={item.card.name} />
               </div>
@@ -75,8 +111,21 @@ function DeckListCard({ deck }: { deck: DeckListItem }) {
   );
 }
 
-export default async function DeckListPage() {
-  const decks = await getDecks();
+type DeckListPageProps = {
+  searchParams: Promise<{
+    q?: string | string[];
+  }>;
+};
+
+function getQuery(value: string | string[] | undefined) {
+  return Array.isArray(value) ? value[0]?.trim() ?? "" : value?.trim() ?? "";
+}
+
+export default async function DeckListPage({ searchParams }: DeckListPageProps) {
+  const { q } = await searchParams;
+  const query = getQuery(q);
+  const decks = await getDecks(query);
+  const hasQuery = query.length > 0;
 
   return (
     <>
@@ -90,11 +139,28 @@ export default async function DeckListPage() {
             <p>등록된 스태커배틀 덱을 확인하고 상세 구성으로 이동합니다.</p>
           </div>
           <div className="head-chips">
-            <span>총 {decks.length}개</span>
+            <span>{hasQuery ? `검색 ${decks.length}개` : `총 ${decks.length}개`}</span>
             <a className="button primary-button" href="/decks/new">
               덱 작성
             </a>
           </div>
+        </section>
+
+        <section className="search-panel" aria-label="덱 검색">
+          <form className="search-row simple-search-row" action="/decks" method="get">
+            <label className="search-input">
+              <span className="sr-only">덱 이름 검색</span>
+              <input defaultValue={query} name="q" placeholder="덱 이름 검색" type="search" />
+            </label>
+            <button className="button primary-button" type="submit">
+              검색
+            </button>
+            {hasQuery ? (
+              <a className="button ghost-button" href="/decks">
+                초기화
+              </a>
+            ) : null}
+          </form>
         </section>
 
         {decks.length > 0 ? (
@@ -105,11 +171,17 @@ export default async function DeckListPage() {
           </section>
         ) : (
           <section className="empty-panel">
-            <strong>등록된 덱이 없습니다.</strong>
-            <p>첫 덱을 작성하면 이곳에 표시됩니다.</p>
-            <a className="button primary-button" href="/decks/new">
-              덱 작성
-            </a>
+            <strong>{hasQuery ? "검색 결과가 없습니다." : "등록된 덱이 없습니다."}</strong>
+            <p>{hasQuery ? "다른 덱 이름으로 검색해보세요." : "첫 덱을 작성하면 이곳에 표시됩니다."}</p>
+            {hasQuery ? (
+              <a className="button ghost-button" href="/decks">
+                전체 덱 보기
+              </a>
+            ) : (
+              <a className="button primary-button" href="/decks/new">
+                덱 작성
+              </a>
+            )}
           </section>
         )}
       </main>

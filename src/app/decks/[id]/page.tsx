@@ -124,10 +124,41 @@ function getCostLabel(card: { cardType: string; activeCost: string; mainCost: st
   return getCardCost(card);
 }
 
+function getActiveCostLabel(card: { activeCost: string }) {
+  return card.activeCost.trim() || "0";
+}
+
+function compareCardsByDetailSort(
+  a: {
+    cardType: string;
+    activeCost: string;
+    mainCost: string | null;
+    subCost: string | null;
+    collectionNumber: string;
+    name: string;
+  },
+  b: {
+    cardType: string;
+    activeCost: string;
+    mainCost: string | null;
+    subCost: string | null;
+    collectionNumber: string;
+    name: string;
+  },
+) {
+  return (
+    compareCosts(getCardCost(a), getCardCost(b)) ||
+    compareCosts(getActiveCostLabel(a), getActiveCostLabel(b)) ||
+    a.name.localeCompare(b.name, "ko-KR") ||
+    a.collectionNumber.localeCompare(b.collectionNumber)
+  );
+}
+
 function getItemsByType<
   T extends {
     slotType: string;
     displayOrder: number;
+    isField: boolean;
     card: {
       cardType: string;
       activeCost: string;
@@ -142,9 +173,8 @@ function getItemsByType<
     .filter((item) => item.slotType === type)
     .sort(
       (a, b) =>
-        compareCosts(getCardCost(a.card), getCardCost(b.card)) ||
-        a.card.collectionNumber.localeCompare(b.card.collectionNumber) ||
-        a.card.name.localeCompare(b.card.name) ||
+        Number(b.isField) - Number(a.isField) ||
+        compareCardsByDetailSort(a.card, b.card) ||
         a.displayOrder - b.displayOrder,
     );
 }
@@ -154,6 +184,7 @@ function getCostDistribution<
     slotType: string;
     displayOrder: number;
     quantity: number;
+    isField: boolean;
     card: {
       cardType: string;
       activeCost: string;
@@ -274,11 +305,12 @@ export default async function DeckDetailPage({ params }: { params: Promise<Route
                 {getItemsByType(deck.items, type).map((item) => {
                   const imageUrl = getRepresentativeCardImageUrl(item.card, "list");
                   const cost = getCostLabel(item.card);
+                  const activeCost = getActiveCostLabel(item.card);
 
                   return (
                     <a
-                      aria-label={`${item.card.name} 상세 보기`}
-                      className="deck-detail-card"
+                      aria-label={`${item.card.name} 상세 보기${item.isField ? ", 필드 카드" : ""}`}
+                      className={item.isField ? "deck-detail-card field-card" : "deck-detail-card"}
                       data-card-type={type}
                       href={`/cards/${encodeURIComponent(item.card.collectionNumber)}`}
                       key={item.id}
@@ -286,6 +318,8 @@ export default async function DeckDetailPage({ params }: { params: Promise<Route
                       <div className="card-image-frame">
                         <CardImage src={imageUrl} alt={item.card.name} />
                         <span className="deck-detail-cost-badge">{cost}</span>
+                        {type !== "ACTIVE" ? <span className="deck-detail-active-cost-badge">{activeCost}</span> : null}
+                        {item.isField ? <span className="deck-detail-field-badge">필드</span> : null}
                         {type === "ACTIVE" ? <span className="deck-detail-quantity-badge">×{item.quantity}</span> : null}
                       </div>
                     </a>

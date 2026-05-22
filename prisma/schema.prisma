@@ -39,12 +39,13 @@ model Deck {
 }
 
 model DeckCard {
-  id           String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  deckId       String @map("deck_id") @db.Uuid
-  cardId       String @map("card_id") @db.Uuid
-  slotType     String @map("slot_type")
-  quantity     Int    @default(1)
-  displayOrder Int    @default(0) @map("display_order")
+  id           String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  deckId       String  @map("deck_id") @db.Uuid
+  cardId       String  @map("card_id") @db.Uuid
+  slotType     String  @map("slot_type")
+  quantity     Int     @default(1)
+  displayOrder Int     @default(0) @map("display_order")
+  isField      Boolean @default(false) @map("is_field")
 
   deck Deck @relation(fields: [deckId], references: [id], onDelete: Cascade)
   card Card @relation(fields: [cardId], references: [id], onDelete: Restrict)
@@ -53,6 +54,7 @@ model DeckCard {
   @@index([deckId], map: "deck_cards_deck_id_idx")
   @@index([cardId], map: "deck_cards_card_id_idx")
   @@index([slotType], map: "deck_cards_slot_type_idx")
+  @@index([isField], map: "deck_cards_is_field_idx")
   @@map("deck_cards")
 }
 
@@ -123,12 +125,12 @@ model Pack {
 }
 
 model CardRelease {
-  id               String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  cardName         String   @map("card_name")
-  cardId           String   @map("card_id") @db.Uuid
+  id               String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  cardName         String @map("card_name")
+  cardId           String @map("card_id") @db.Uuid
   rarity           String
-  packId           String   @map("pack_id") @db.Uuid
-  collectionNumber String   @map("collection_number")
+  packId           String @map("pack_id") @db.Uuid
+  collectionNumber String @map("collection_number")
 
   card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
   pack Pack @relation(fields: [packId], references: [id], onDelete: Restrict)

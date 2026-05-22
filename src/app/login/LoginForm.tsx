@@ -8,8 +8,9 @@ const initialState: LoginFormState = {
   message: "",
 };
 
-export function LoginForm() {
+export function LoginForm({ nextPath = "/" }: { nextPath?: string }) {
   const [state, formAction, pending] = useActionState(loginAction, initialState);
+  const googleHref = nextPath === "/" ? "/auth/google" : `/auth/google?next=${encodeURIComponent(nextPath)}`;
 
   return (
     <form className="auth-panel" action={formAction}>
@@ -30,11 +31,13 @@ export function LoginForm() {
         <input autoComplete="current-password" name="password" required type="password" />
       </label>
 
+      <input name="next" type="hidden" value={nextPath} />
+
       <button className="button primary-button" disabled={pending} type="submit">
         {pending ? "로그인 중" : "로그인"}
       </button>
 
-      <a className="button ghost-button" href="/auth/google">
+      <a className="button ghost-button" href={googleHref}>
         Google로 로그인
       </a>
 

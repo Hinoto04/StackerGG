@@ -1,10 +1,14 @@
+import { headers } from "next/headers";
 import { getCurrentUser, isAdmin } from "@/lib/auth";
+import { createLoginHref } from "@/lib/redirect";
 
 type ActiveNav = "cards" | "card-new" | "decks" | "login";
 
 export async function SiteHeader({ active }: { active?: ActiveNav }) {
   const user = await getCurrentUser();
   const admin = isAdmin(user);
+  const headerStore = await headers();
+  const loginHref = createLoginHref(headerStore.get("x-current-path"));
 
   return (
     <header className="site-shell site-header">
@@ -37,7 +41,7 @@ export async function SiteHeader({ active }: { active?: ActiveNav }) {
             </form>
           </>
         ) : (
-          <a aria-current={active === "login" ? "page" : undefined} href="/login">
+          <a aria-current={active === "login" ? "page" : undefined} href={loginHref}>
             로그인
           </a>
         )}

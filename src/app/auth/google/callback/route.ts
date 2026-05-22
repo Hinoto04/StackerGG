@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createSession } from "@/lib/auth";
 import { GOOGLE_OAUTH_COOKIE_NAME } from "@/lib/oauth";
 import { prisma } from "@/lib/prisma";
+import { createLoginHref, getSafeRedirectPath } from "@/lib/redirect";
 
 type GoogleUserInfo = {
   sub: string;
@@ -93,17 +94,22 @@ export async function GET(request: NextRequest) {
 
   let storedState = "";
   let codeVerifier = "";
+  let nextPath = "/";
 
   try {
     const parsed = JSON.parse(cookieValue);
     storedState = parsed.state;
     codeVerifier = parsed.codeVerifier;
+    nextPath = getSafeRedirectPath(parsed.nextPath);
   } catch {
     return NextResponse.redirect(new URL("/login?oauth=invalid_google_state", getBaseUrl()));
   }
 
   if (state !== storedState || !codeVerifier) {
-    return NextResponse.redirect(new URL("/login?oauth=invalid_google_state", getBaseUrl()));
+    const loginUrl = new URL(createLoginHref(nextPath), getBaseUrl());
+    loginUrl.searchParams.set("oauth", "invalid_google_state");
+
+    return NextResponse.redirect(loginUrl);
   }
 
   try {
@@ -163,9 +169,12 @@ export async function GET(request: NextRequest) {
     }
 
     await createSession(userId);
-    return NextResponse.redirect(new URL("/", getBaseUrl()));
+    return NextResponse.redirect(new URL(nextPath, getBaseUrl()));
   } catch (error) {
     console.error("Google OAuth failed", error);
-    return NextResponse.redirect(new URL("/login?oauth=google_failed", getBaseUrl()));
+    const loginUrl = new URL(createLoginHref(nextPath), getBaseUrl());
+    loginUrl.searchParams.set("oauth", "google_failed");
+
+    return NextResponse.redirect(loginUrl);
   }
 }

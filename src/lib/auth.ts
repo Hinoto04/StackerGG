@@ -1,7 +1,8 @@
 import { createHash, randomBytes } from "node:crypto";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+import { createLoginHref } from "@/lib/redirect";
 
 export const SESSION_COOKIE_NAME = "stacker_session";
 const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 30;
@@ -112,7 +113,8 @@ export async function requireUser() {
   const user = await getCurrentUser();
 
   if (!user) {
-    redirect("/login");
+    const headerStore = await headers();
+    redirect(createLoginHref(headerStore.get("x-current-path")));
   }
 
   return user;

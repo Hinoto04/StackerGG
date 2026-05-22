@@ -1,15 +1,24 @@
 import { LoginForm } from "./LoginForm";
 import { getCurrentUser } from "@/lib/auth";
 import { SiteHeader } from "@/components/SiteHeader";
+import { getSafeRedirectPath } from "@/lib/redirect";
 import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
-export default async function LoginPage() {
+type LoginPageProps = {
+  searchParams: Promise<{
+    next?: string | string[];
+  }>;
+};
+
+export default async function LoginPage({ searchParams }: LoginPageProps) {
+  const { next } = await searchParams;
+  const nextPath = getSafeRedirectPath(next);
   const user = await getCurrentUser();
 
   if (user) {
-    redirect("/");
+    redirect(nextPath);
   }
 
   return (
@@ -23,7 +32,7 @@ export default async function LoginPage() {
             <p>아이디와 비밀번호 또는 외부 계정으로 로그인합니다.</p>
           </div>
         </section>
-        <LoginForm />
+        <LoginForm nextPath={nextPath} />
       </main>
     </>
   );

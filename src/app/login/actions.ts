@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { createSession } from "@/lib/auth";
 import { verifyPassword } from "@/lib/password";
 import { prisma } from "@/lib/prisma";
+import { getSafeRedirectPath } from "@/lib/redirect";
 
 export interface LoginFormState {
   status: "idle" | "error";
@@ -18,6 +19,7 @@ function getText(formData: FormData, key: string) {
 export async function loginAction(_previousState: LoginFormState, formData: FormData): Promise<LoginFormState> {
   const loginId = getText(formData, "loginId");
   const password = getText(formData, "password");
+  const nextPath = getSafeRedirectPath(formData.get("next"));
 
   if (!loginId || !password) {
     return {
@@ -42,5 +44,5 @@ export async function loginAction(_previousState: LoginFormState, formData: Form
   }
 
   await createSession(user.id);
-  redirect("/");
+  redirect(nextPath);
 }

@@ -18,6 +18,7 @@ type DeckPayloadItem = {
   cardId: string;
   slotType: CardType;
   quantity: number;
+  isField: boolean;
 };
 
 const DECK_LIMITS: Record<CardType, number> = {
@@ -49,6 +50,7 @@ function parseDeckItems(rawItems: string): DeckPayloadItem[] | null {
       cardId: typeof item?.cardId === "string" ? item.cardId : "",
       slotType: typeof item?.slotType === "string" && isCardType(item.slotType) ? item.slotType : ("" as CardType),
       quantity: Number(item?.quantity),
+      isField: item?.isField === true,
     }));
   } catch {
     return null;
@@ -128,6 +130,11 @@ export async function createDeckAction(_previousState: DeckFormState, formData: 
     SUB: 0,
     ACTIVE: 0,
   };
+  const fieldCounts: Record<CardType, number> = {
+    MAIN: 0,
+    SUB: 0,
+    ACTIVE: 0,
+  };
 
   for (const item of parsedItems) {
     const card = cardsById.get(item.cardId);
@@ -152,6 +159,15 @@ export async function createDeckAction(_previousState: DeckFormState, formData: 
       break;
     }
 
+    if (item.isField) {
+      if (item.slotType === "ACTIVE") {
+        fieldErrors.items = "액티브 카드는 필드 카드로 설정할 수 없습니다.";
+        break;
+      }
+
+      fieldCounts[item.slotType] += 1;
+    }
+
     counts[item.slotType] += item.quantity;
   }
 
@@ -160,6 +176,14 @@ export async function createDeckAction(_previousState: DeckFormState, formData: 
       fieldErrors.items = `덱은 MAIN ${DECK_LIMITS.MAIN}장, SUB ${DECK_LIMITS.SUB}장, ACTIVE ${DECK_LIMITS.ACTIVE}장으로 구성해야 합니다.`;
       break;
     }
+  }
+
+  if (!fieldErrors.items && fieldCounts.MAIN > 1) {
+    fieldErrors.items = "필드 메인 카드는 최대 1장까지 설정할 수 있습니다.";
+  }
+
+  if (!fieldErrors.items && fieldCounts.SUB > 3) {
+    fieldErrors.items = "필드 서브 카드는 최대 3장까지 설정할 수 있습니다.";
   }
 
   if (Object.keys(fieldErrors).length > 0) {
@@ -180,6 +204,7 @@ export async function createDeckAction(_previousState: DeckFormState, formData: 
             slotType: item.slotType,
             quantity: item.quantity,
             displayOrder: index,
+            isField: item.isField,
           })),
         },
       },
