@@ -2,7 +2,7 @@ import { headers } from "next/headers";
 import { getCurrentUser, isAdmin } from "@/lib/auth";
 import { createLoginHref } from "@/lib/redirect";
 
-type ActiveNav = "cards" | "card-new" | "decks" | "login";
+type ActiveNav = "cards" | "card-new" | "decks" | "simulator" | "login";
 
 export async function SiteHeader({ active }: { active?: ActiveNav }) {
   const user = await getCurrentUser();
@@ -30,6 +30,9 @@ export async function SiteHeader({ active }: { active?: ActiveNav }) {
         ) : null}
         <a aria-current={active === "decks" ? "page" : undefined} href="/decks">
           덱
+        </a>
+        <a aria-current={active === "simulator" ? "page" : undefined} href="/simulator">
+          시뮬레이터
         </a>
       </nav>
       <div className="account-actions">

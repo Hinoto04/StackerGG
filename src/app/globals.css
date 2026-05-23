@@ -1193,6 +1193,456 @@ textarea {
   white-space: nowrap;
 }
 
+.simulator-shell {
+  display: grid;
+  gap: 18px;
+}
+
+.simulator-setup-panel,
+.simulator-control-panel,
+.sim-player-board,
+.sim-selected-card,
+.sim-log-panel,
+.sim-share-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(27, 27, 27, 0.94);
+  box-shadow: var(--shadow);
+}
+
+.simulator-setup-panel {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.simulator-select-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 150px auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.simulator-select-grid label {
+  display: grid;
+  gap: 6px;
+}
+
+.simulator-select-grid label span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.simulator-select-grid select,
+.sim-share-panel textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: var(--surface-strong);
+  color-scheme: dark;
+  outline: none;
+}
+
+.simulator-select-grid select {
+  min-height: 42px;
+  padding: 0 12px;
+}
+
+.sim-rule-note {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 6px 10px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.sim-rule-note strong {
+  color: var(--accent);
+}
+
+.simulator-control-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+}
+
+.simulator-control-panel h2,
+.sim-player-head h2,
+.sim-selected-card h2,
+.sim-log-panel h2,
+.sim-share-panel h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 950;
+}
+
+.simulator-control-panel p,
+.sim-selected-card p,
+.sim-share-panel p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.simulator-control-actions,
+.sim-sub-effect-actions,
+.sim-quick-actions,
+.sim-hand-actions,
+.sim-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.simulator-control-actions button,
+.sim-sub-effect-actions button,
+.sim-quick-actions button,
+.sim-hand-actions button,
+.sim-share-actions button,
+.sim-inline-button {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 5px 9px;
+  color: var(--text);
+  background: var(--surface-strong);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 850;
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.simulator-control-actions button:hover,
+.sim-sub-effect-actions button:hover,
+.sim-quick-actions button:hover,
+.sim-hand-actions button:hover,
+.sim-share-actions button:hover,
+.sim-inline-button:hover {
+  border-color: rgba(228, 184, 95, 0.78);
+  color: var(--accent);
+}
+
+.simulator-control-actions button:disabled,
+.sim-sub-effect-actions button:disabled,
+.sim-hand-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.sim-sub-effect-actions {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.simulator-board-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.sim-player-board {
+  display: grid;
+  gap: 14px;
+  padding: 14px;
+}
+
+.sim-player-board.active-player {
+  border-color: rgba(228, 184, 95, 0.72);
+}
+
+.sim-player-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sim-player-head > div:first-child {
+  min-width: 0;
+}
+
+.sim-player-head h2 {
+  overflow-wrap: anywhere;
+}
+
+.sim-player-head span {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.sim-player-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.sim-player-metrics span,
+.sim-zone-title strong {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 4px 8px;
+  color: var(--accent);
+  background: var(--surface-strong);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.sim-field-area {
+  display: grid;
+  grid-template-columns: minmax(126px, 0.7fr) minmax(0, 2fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.sim-main-slot,
+.sim-sub-slot,
+.sim-zone-pile,
+.sim-hand-section {
+  display: grid;
+  gap: 8px;
+}
+
+.sim-main-slot > span,
+.sim-sub-slot > span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.sim-sub-slots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.sim-card {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  gap: 5px;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 2px);
+  padding: 6px;
+  color: var(--text);
+  background: var(--surface);
+  cursor: pointer;
+  text-align: left;
+}
+
+.sim-card:hover {
+  border-color: rgba(94, 196, 180, 0.72);
+}
+
+.sim-card-image {
+  overflow: hidden;
+  border-radius: 6px;
+  aspect-ratio: var(--card-image-aspect-ratio);
+  background: var(--surface-strong);
+}
+
+.sim-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sim-card > span {
+  overflow: hidden;
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sim-card-compact {
+  padding: 5px;
+}
+
+.sim-card-back {
+  min-height: 154px;
+  place-items: center;
+  color: var(--faint);
+  background:
+    linear-gradient(135deg, rgba(117, 167, 255, 0.16), transparent 34%),
+    var(--surface-strong);
+}
+
+.sim-card-back span {
+  color: var(--faint);
+  font-weight: 950;
+  letter-spacing: 0.08em;
+}
+
+.sim-zone-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.sim-zone-title {
+  display: flex;
+  min-height: 30px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sim-zone-title span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.sim-empty-slot,
+.sim-empty-panel {
+  display: grid;
+  min-height: 112px;
+  place-items: center;
+  border: 1px dashed var(--line);
+  border-radius: calc(var(--radius) - 2px);
+  color: var(--faint);
+  background: var(--surface-soft);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.sim-quick-actions {
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.sim-hand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+  gap: 8px;
+}
+
+.sim-hand-card {
+  display: grid;
+  gap: 6px;
+}
+
+.sim-hand-actions {
+  justify-content: center;
+}
+
+.sim-hand-actions button {
+  min-height: 28px;
+  padding: 4px 7px;
+  font-size: 0.76rem;
+}
+
+.simulator-bottom-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 14px;
+}
+
+.sim-selected-card,
+.sim-log-panel,
+.sim-share-panel {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 14px;
+}
+
+.sim-card-text-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.sim-card-text-grid div {
+  display: grid;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px;
+  background: var(--surface);
+}
+
+.sim-card-text-grid strong {
+  color: var(--accent);
+  font-size: 0.88rem;
+}
+
+.sim-card-text-grid p {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.sim-log-list {
+  display: grid;
+  max-height: 360px;
+  overflow: auto;
+  gap: 6px;
+}
+
+.sim-log-list span {
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 2px);
+  padding: 8px;
+  color: var(--muted);
+  background: var(--surface);
+  font-size: 0.83rem;
+  line-height: 1.45;
+}
+
+.sim-share-panel textarea {
+  resize: vertical;
+  min-height: 130px;
+  padding: 10px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.78rem;
+}
+
+@media (max-width: 980px) {
+  .simulator-select-grid,
+  .simulator-control-panel,
+  .simulator-board-grid,
+  .simulator-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .simulator-control-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 720px) {
+  .sim-rule-note,
+  .sim-field-area,
+  .sim-zone-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sim-sub-slots {
+    grid-template-columns: repeat(3, minmax(82px, 1fr));
+    overflow-x: auto;
+  }
+}
+
 .rarity-chip {
   color: var(--accent);
 }
