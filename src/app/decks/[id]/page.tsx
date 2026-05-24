@@ -244,6 +244,9 @@ export default async function DeckDetailPage({ params }: { params: Promise<Route
                 {type} {counts[type]}/{DECK_LIMITS[type]}
               </span>
             ))}
+            <a className="button primary-button" href={`/decks/${deck.id}/simulator`}>
+              시뮬레이터
+            </a>
             {canEdit ? (
               <a className="button ghost-button" href={`/decks/${deck.id}/edit`}>
                 덱 수정

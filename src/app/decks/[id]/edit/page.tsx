@@ -32,6 +32,7 @@ async function getDeckBuilderCards(): Promise<BuilderCard[]> {
       mainCost: true,
       subCost: true,
       collectionNumber: true,
+      tags: true,
       releases: {
         select: {
           collectionNumber: true,

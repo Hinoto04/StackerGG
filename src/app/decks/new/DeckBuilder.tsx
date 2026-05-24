@@ -19,6 +19,7 @@ export type BuilderCard = {
   mainCost: string | null;
   subCost: string | null;
   collectionNumber: string;
+  tags: string;
   releases: BuilderCardRelease[];
 };
 
@@ -212,7 +213,7 @@ export function DeckBuilder({
     return cards
       .filter((card) => {
         if (normalizedKeyword) {
-          const text = [card.name, card.collectionNumber, card.cardType].join(" ").toLowerCase();
+          const text = [card.name, card.collectionNumber, card.cardType, card.tags].join(" ").toLowerCase();
 
           if (!text.includes(normalizedKeyword)) {
             return false;
@@ -455,7 +456,7 @@ export function DeckBuilder({
           <div className="deck-toolbar">
             <label className="search-input">
               <span className="sr-only">카드 검색</span>
-              <input onChange={(event) => setKeyword(event.target.value)} placeholder="카드명, 수록 번호 검색" type="search" value={keyword} />
+              <input onChange={(event) => setKeyword(event.target.value)} placeholder="카드명, 수록 번호, 태그 검색" type="search" value={keyword} />
             </label>
             <select onChange={(event) => setCardTypeFilter(event.target.value as CardType | "")} value={cardTypeFilter}>
               <option value="">전체 타입</option>
