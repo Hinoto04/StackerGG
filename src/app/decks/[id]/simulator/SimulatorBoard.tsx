@@ -280,8 +280,6 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
         setDeckPeekOpen(false);
         setDrawerCard(null);
         setBatchMove(null);
-        setPendingEffectChoice(null);
-        setPendingEffectInput(null);
         return;
       }
 
@@ -1981,9 +1979,7 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
               <p>선택 가능한 카드가 부족해 가능한 수량만 처리합니다.</p>
             ) : null}
           </div>
-          <button aria-label="선택 효과 닫기" onClick={() => setPendingEffectChoice(null)} type="button">
-            ×
-          </button>
+          <span className="simulator-effect-required-label">필수 처리</span>
         </div>
 
         {availableCards.length > 0 ? (
@@ -2029,7 +2025,7 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     }
 
     return (
-      <div className="simulator-modal-layer simulator-effect-input-layer" onClick={() => setPendingEffectInput(null)}>
+      <div className="simulator-modal-layer simulator-effect-input-layer">
         <section className="simulator-effect-input-modal" onClick={(event) => event.stopPropagation()}>
           <div className="simulator-modal-head">
             <div>
@@ -2037,9 +2033,7 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
               <h2>{pendingEffectInput.label}</h2>
               <p>{pendingEffectInput.prompt}</p>
             </div>
-            <button aria-label="입력 모달 닫기" onClick={() => setPendingEffectInput(null)} type="button">
-              ×
-            </button>
+            <span className="simulator-effect-required-label">필수 처리</span>
           </div>
 
           {pendingEffectInput.type === "inputNumber" ? (
