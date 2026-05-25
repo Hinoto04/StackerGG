@@ -2442,6 +2442,42 @@ textarea {
   --simulator-cost-shadow: #3b2600;
 }
 
+.simulator-card-power-badge {
+  position: absolute;
+  top: 4%;
+  right: 4%;
+  z-index: 4;
+  display: inline-grid;
+  min-width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  color: #fff4f4;
+  background:
+    radial-gradient(circle at 34% 24%, rgba(255, 255, 255, 0.28), transparent 36%),
+    #b52c35;
+  box-shadow:
+    inset 0 0 0 3px rgba(0, 0, 0, 0.16),
+    0 8px 18px rgba(0, 0, 0, 0.28);
+  font-size: clamp(0.78rem, 7cqi, 1rem);
+  font-weight: 950;
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.simulator-card-power-badge[data-boosted="true"] {
+  border-color: rgba(174, 255, 214, 0.62);
+  color: #eafff3;
+  background:
+    radial-gradient(circle at 34% 24%, rgba(255, 255, 255, 0.34), transparent 36%),
+    #1f9d5b;
+  box-shadow:
+    inset 0 0 0 3px rgba(0, 0, 0, 0.16),
+    0 0 0 3px rgba(63, 214, 134, 0.18),
+    0 8px 22px rgba(20, 120, 72, 0.3);
+}
+
 .simulator-empty-zone {
   display: grid;
   min-height: 150px;
@@ -2782,6 +2818,77 @@ textarea {
 .simulator-field-pile-grid .simulator-card {
   align-self: start;
   min-width: 0;
+}
+
+.simulator-effect-choice-overlay {
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.simulator-effect-choice-card {
+  display: grid;
+  align-self: start;
+  min-width: 0;
+  gap: 7px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 7px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.simulator-effect-choice-card:hover,
+.simulator-effect-choice-card:focus-visible {
+  border-color: rgba(228, 184, 95, 0.78);
+  outline: none;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.simulator-effect-choice-card.selected {
+  border-color: rgba(94, 196, 180, 0.86);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(94, 196, 180, 0.2), transparent 46%),
+    rgba(94, 196, 180, 0.1);
+  box-shadow: 0 0 0 3px rgba(94, 196, 180, 0.12);
+}
+
+.simulator-effect-choice-card strong,
+.simulator-effect-choice-check {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.simulator-effect-choice-check {
+  color: var(--accent-strong);
+}
+
+.simulator-effect-choice-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.simulator-effect-choice-actions button {
+  min-height: 38px;
+  border: 1px solid rgba(94, 196, 180, 0.56);
+  border-radius: var(--radius);
+  padding: 0 16px;
+  color: #08231f;
+  background: var(--accent-strong);
+  cursor: pointer;
+  font-weight: 950;
+}
+
+.simulator-effect-choice-actions button:disabled {
+  border-color: var(--line);
+  color: var(--faint);
+  background: rgba(255, 255, 255, 0.04);
+  cursor: not-allowed;
 }
 
 .simulator-deck-bottom-zone {
@@ -3320,6 +3427,197 @@ textarea {
   color: var(--text);
   line-height: 1.55;
   white-space: pre-line;
+}
+
+.simulator-effect-runner {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.simulator-effect-runner section {
+  display: grid;
+  gap: 8px;
+  border: 1px solid rgba(228, 184, 95, 0.28);
+  border-radius: var(--radius);
+  padding: 12px;
+  background: rgba(228, 184, 95, 0.055);
+}
+
+.simulator-effect-runner section > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.simulator-effect-runner strong {
+  font-weight: 950;
+}
+
+.simulator-effect-runner span {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 850;
+}
+
+.simulator-effect-runner button {
+  min-height: 34px;
+  border: 1px solid rgba(228, 184, 95, 0.52);
+  border-radius: var(--radius);
+  color: #17130c;
+  background: var(--accent);
+  cursor: pointer;
+  font-weight: 950;
+}
+
+.simulator-effect-runner button:disabled {
+  border-color: var(--line);
+  color: var(--faint);
+  background: rgba(255, 255, 255, 0.04);
+  cursor: not-allowed;
+}
+
+.simulator-effect-runner ul {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.simulator-effect-runner kbd {
+  display: inline-flex;
+  min-height: 20px;
+  align-items: center;
+  border: 1px solid rgba(23, 19, 12, 0.28);
+  border-radius: 6px;
+  padding: 1px 6px;
+  background: rgba(255, 255, 255, 0.3);
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 950;
+}
+
+.simulator-effect-runner-help {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.simulator-effect-input-layer {
+  z-index: 145;
+}
+
+.simulator-effect-input-modal {
+  width: min(460px, 100%);
+  border: 1px solid rgba(94, 196, 180, 0.56);
+  border-radius: var(--radius);
+  padding: 16px;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 16% 0%, rgba(94, 196, 180, 0.14), transparent 42%),
+    var(--surface);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.52);
+}
+
+.simulator-effect-input-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.simulator-effect-input-form label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.simulator-effect-input-form input {
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 8px 11px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.simulator-effect-input-form button {
+  min-height: 40px;
+  border: 1px solid rgba(94, 196, 180, 0.56);
+  border-radius: var(--radius);
+  color: #08231f;
+  background: var(--accent-strong);
+  cursor: pointer;
+  font-weight: 950;
+}
+
+.simulator-effect-input-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.simulator-effect-input-actions[data-layout="three"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.simulator-effect-input-actions button {
+  min-height: 42px;
+  border: 1px solid rgba(94, 196, 180, 0.56);
+  border-radius: var(--radius);
+  color: #08231f;
+  background: var(--accent-strong);
+  cursor: pointer;
+  font-weight: 950;
+}
+
+.simulator-effect-input-actions button + button {
+  border-color: var(--line);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.simulator-effect-notice {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 130;
+  display: flex;
+  max-width: min(520px, calc(100% - 36px));
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(94, 196, 180, 0.56);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  color: #eafffb;
+  background: rgba(20, 64, 58, 0.95);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.38);
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+.simulator-effect-notice button {
+  display: inline-grid;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(221, 255, 248, 0.28);
+  border-radius: 999px;
+  color: #eafffb;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  font-weight: 950;
 }
 
 .simulator-pile-modal {

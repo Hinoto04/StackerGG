@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type DragEvent, type MouseEvent, type PointerEvent, type TouchEvent } from "react";
 import { CardImage } from "@/components/CardImage";
+import { compileEffectText, type EffectAction, type EffectCardFilter, type EffectChoiceAction, type EffectInputAction } from "@/game/effectEngine";
 
 export type SimulatorZoneId = "deck" | "hand" | "stack" | "trash" | "mainField" | "subField1" | "subField2" | "subField3";
 
@@ -45,6 +46,24 @@ type CardVisualState = {
 type OverlapLayout = {
   cardSize: number;
   step: number;
+};
+type PendingEffectChoice = EffectChoiceAction & {
+  label: string;
+  remainingActions: EffectAction[];
+  selectedIds: string[];
+  candidateIds?: string[];
+};
+type PendingEffectInput = EffectInputAction & {
+  label: string;
+  remainingActions: EffectAction[];
+  value: string;
+};
+type EffectKind = "active" | "main" | "sub";
+type EffectRunnerEntry = {
+  label: string;
+  text: string | null;
+  cost: string | null;
+  kind: EffectKind;
 };
 
 const INITIAL_HAND_SIZE = 4;
@@ -165,6 +184,12 @@ function getActiveCost(card: SimulatorCard) {
   return card.activeCost.trim() || "0";
 }
 
+function getEffectCostValue(cost: string | null | undefined) {
+  const parsedCost = Number.parseInt(cost?.trim() || "0", 10);
+
+  return Number.isFinite(parsedCost) ? Math.max(0, parsedCost) : 0;
+}
+
 function getCardDisplayCost(card: SimulatorCard, zoneId?: SimulatorZoneId) {
   if (zoneId && isFieldZone(zoneId)) {
     return getCardCost(card);
@@ -181,6 +206,30 @@ function getCostBadgeType(card: SimulatorCard, zoneId?: SimulatorZoneId) {
   return "ACTIVE";
 }
 
+function getCardTypeLabel(cardType: string) {
+  if (cardType === "MAIN") {
+    return "메인";
+  }
+
+  if (cardType === "SUB") {
+    return "서브";
+  }
+
+  if (cardType === "ACTIVE") {
+    return "액티브";
+  }
+
+  return cardType;
+}
+
+function isEditableKeyTarget(target: EventTarget | null) {
+  if (!(target instanceof HTMLElement)) {
+    return false;
+  }
+
+  return target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName);
+}
+
 export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault }: SimulatorBoardProps) {
   const touchHoldTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const longPressTriggeredRef = useRef(false);
@@ -188,6 +237,7 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
   const handListRef = useRef<HTMLDivElement | null>(null);
   const [zones, setZones] = useState<ZoneState>(() => createInitialZones(cards, (deckCards) => shuffleCardsWithSeed(deckCards, initialShuffleSeed)));
   const [cardVisualStates, setCardVisualStates] = useState<Record<string, CardVisualState>>(() => createInitialCardVisualStates(cards));
+  const [powerModifiers, setPowerModifiers] = useState<Record<string, number>>({});
   const [opponentLife, setOpponentLife] = useState(opponentLifeDefault);
   const [draggedCardId, setDraggedCardId] = useState<string | null>(null);
   const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
@@ -202,6 +252,9 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
   const [handLayout, setHandLayout] = useState<OverlapLayout>({ cardSize: 0, step: 0 });
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [batchMove, setBatchMove] = useState<BatchMoveState | null>(null);
+  const [effectNotice, setEffectNotice] = useState<string | null>(null);
+  const [pendingEffectChoice, setPendingEffectChoice] = useState<PendingEffectChoice | null>(null);
+  const [pendingEffectInput, setPendingEffectInput] = useState<PendingEffectInput | null>(null);
 
   const selectedCard = useMemo(() => cards.find((card) => card.id === selectedCardId) ?? null, [cards, selectedCardId]);
   const deckTopCard = zones.deck[0] ?? null;
@@ -222,13 +275,20 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
-      if (event.key !== "Escape") {
+      if (event.key === "Escape") {
+        setPileModalSource(null);
+        setDeckPeekOpen(false);
+        setDrawerCard(null);
+        setBatchMove(null);
+        setPendingEffectChoice(null);
+        setPendingEffectInput(null);
         return;
       }
 
-      setPileModalSource(null);
-      setDeckPeekOpen(false);
-      setBatchMove(null);
+      if ((event.code === "Space" || event.key === " ") && drawerCard && !pendingEffectChoice && !pendingEffectInput && !isEditableKeyTarget(event.target)) {
+        event.preventDefault();
+        activateDrawerCardEffect(drawerCard);
+      }
     }
 
     window.addEventListener("keydown", handleKeyDown);
@@ -236,7 +296,7 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [drawerCard, pendingEffectChoice, pendingEffectInput, zones]);
 
   useEffect(() => {
     function calculateOverlapLayouts() {
@@ -306,8 +366,65 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     return null;
   }
 
+  function findCardZoneIn(zoneState: ZoneState, cardId: string) {
+    for (const zoneId of Object.keys(zoneState) as SimulatorZoneId[]) {
+      if (zoneState[zoneId].some((zoneCard) => zoneCard.id === cardId)) {
+        return zoneId;
+      }
+    }
+
+    return null;
+  }
+
+  function getPlayableEffectEntry(card: SimulatorCard): EffectRunnerEntry | null {
+    const cardZone = findCardZoneIn(zones, card.id);
+
+    if (cardZone === "hand") {
+      return {
+        label: "액티브 효과",
+        text: card.activeEffect,
+        cost: card.activeCost,
+        kind: "active",
+      };
+    }
+
+    if (cardZone === "mainField") {
+      return {
+        label: "메인 효과",
+        text: card.mainEffect,
+        cost: card.mainCost,
+        kind: "main",
+      };
+    }
+
+    if (cardZone && isSubFieldZone(cardZone)) {
+      return {
+        label: "서브 효과",
+        text: card.subEffect,
+        cost: card.subCost,
+        kind: "sub",
+      };
+    }
+
+    return null;
+  }
+
+  function getDisplayPower(card: SimulatorCard) {
+    if (card.power === null) {
+      return null;
+    }
+
+    return card.power + (powerModifiers[card.id] ?? 0);
+  }
+
   function canMoveTo(card: SimulatorCard | null, targetZone: SimulatorZoneId) {
     if (!card) {
+      return false;
+    }
+
+    const sourceZone = findCardZoneIn(zones, card.id);
+
+    if (sourceZone === "mainField" || targetZone === "mainField") {
       return false;
     }
 
@@ -438,13 +555,13 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
       if (currentState.faceDown) {
         return {
           ...current,
-          [card.id]: { ...currentState, faceDown: false },
+          [card.id]: { faceDown: false, rotated: false },
         };
       }
 
       return {
         ...current,
-        [card.id]: { ...currentState, rotated: !currentState.rotated },
+        [card.id]: { faceDown: true, rotated: false },
       };
     });
   }
@@ -460,6 +577,10 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
   }
 
   function startOrIncrementBatchMove(event: MouseEvent<HTMLElement>, source: SimulatorZoneId) {
+    if (source === "mainField") {
+      return;
+    }
+
     const sourceCount = getBatchSourceCount(source);
 
     if (sourceCount === 0) {
@@ -486,6 +607,10 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
   }
 
   function moveBatchCards(source: SimulatorZoneId, targetZone: SimulatorZoneId, count: number, deckPlacement: DeckPlacement = "bottom") {
+    if (source === "mainField" || targetZone === "mainField") {
+      return;
+    }
+
     setZones((current) => {
       const sourceCards = current[source];
       const candidateCards = source === "trash" ? sourceCards.slice(Math.max(sourceCards.length - count, 0)) : sourceCards.slice(0, count);
@@ -513,6 +638,808 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
       return nextZones;
     });
     setSelectedCardId(null);
+  }
+
+  function takeTopCardsForEffect(zoneCards: SimulatorCard[], count: number, source: "deck" | "stack" | "trash") {
+    if (source === "trash") {
+      return zoneCards.slice(Math.max(zoneCards.length - count, 0));
+    }
+
+    return zoneCards.slice(0, count);
+  }
+
+  function cloneZones(zoneState: ZoneState): ZoneState {
+    return {
+      deck: [...zoneState.deck],
+      hand: [...zoneState.hand],
+      stack: [...zoneState.stack],
+      trash: [...zoneState.trash],
+      mainField: [...zoneState.mainField],
+      subField1: [...zoneState.subField1],
+      subField2: [...zoneState.subField2],
+      subField3: [...zoneState.subField3],
+    };
+  }
+
+  function buildPreparedEffectZones(zoneState: ZoneState, card: SimulatorCard, cost: number, moveUsedCardToStack: boolean) {
+    const cardZone = findCardZoneIn(zoneState, card.id);
+    const payableStackCount = moveUsedCardToStack ? zoneState.stack.filter((stackCard) => stackCard.id !== card.id).length : zoneState.stack.length;
+
+    if (!cardZone) {
+      return { error: "사용한 카드를 현재 보드에서 찾을 수 없습니다." };
+    }
+
+    if (payableStackCount < cost) {
+      return { error: `코스트 부족 (필요 ${cost}, 스택 ${payableStackCount})` };
+    }
+
+    const usedCard = zoneState[cardZone].find((zoneCard) => zoneCard.id === card.id);
+
+    if (!usedCard) {
+      return { error: "사용한 카드를 현재 보드에서 찾을 수 없습니다." };
+    }
+
+    const nextZones = cloneZones(zoneState);
+    const costCards = nextZones.stack.filter((stackCard) => !moveUsedCardToStack || stackCard.id !== card.id).slice(0, cost);
+    const costCardIds = new Set(costCards.map((costCard) => costCard.id));
+
+    if (moveUsedCardToStack) {
+      for (const zoneId of Object.keys(nextZones) as SimulatorZoneId[]) {
+        nextZones[zoneId] = nextZones[zoneId].filter((zoneCard) => zoneCard.id !== card.id);
+      }
+    }
+
+    nextZones.stack = nextZones.stack.filter((stackCard) => !costCardIds.has(stackCard.id));
+    nextZones.trash.push(...costCards);
+
+    if (moveUsedCardToStack) {
+      nextZones.stack.push(usedCard);
+    }
+
+    return { zones: nextZones };
+  }
+
+  function addCardsToEffectTarget(zoneState: ZoneState, target: "deckBottom" | "hand" | "stack" | "trash", movingCards: SimulatorCard[]) {
+    if (target === "deckBottom") {
+      zoneState.deck.push(...movingCards);
+    } else {
+      zoneState[target].push(...movingCards);
+    }
+  }
+
+  function validateEffectActions(actions: EffectAction[], baseZones: ZoneState): { ok: true; zones: ZoneState } | { ok: false; error: string } {
+    const nextZones = cloneZones(baseZones);
+
+    for (const action of actions) {
+      if (action.type === "draw") {
+        if (nextZones.deck.length < action.count) {
+          return { ok: false, error: `드로우할 카드가 부족합니다. (필요 ${action.count}, 덱 ${nextZones.deck.length})` };
+        }
+
+        nextZones.hand.push(...nextZones.deck.splice(0, action.count));
+        continue;
+      }
+
+      if (action.type === "drawThenTrashNonActive") {
+        if (nextZones.deck.length < action.count) {
+          return { ok: false, error: `드로우할 카드가 부족합니다. (필요 ${action.count}, 덱 ${nextZones.deck.length})` };
+        }
+
+        const drawnCards = nextZones.deck.splice(0, action.count);
+        nextZones.hand.push(...drawnCards.filter((card) => card.cardType === "ACTIVE"));
+        nextZones.trash.push(...drawnCards.filter((card) => card.cardType !== "ACTIVE"));
+        continue;
+      }
+
+      if (action.type === "drawThenChooseCards") {
+        if (nextZones.deck.length < action.drawCount) {
+          return { ok: false, error: `드로우할 카드가 부족합니다. (필요 ${action.drawCount}, 덱 ${nextZones.deck.length})` };
+        }
+
+        const drawnCards = nextZones.deck.splice(0, action.drawCount);
+        const selectableCards = drawnCards.filter((card) => cardMatchesEffectFilter(card, action.filter));
+
+        if (selectableCards.length < action.chooseCount) {
+          return { ok: false, error: `드로우한 카드 중 선택 가능한 카드가 부족합니다. (필요 ${action.chooseCount}, 현재 ${selectableCards.length})` };
+        }
+
+        const movingCards = selectableCards.slice(0, action.chooseCount);
+        const movingIds = new Set(movingCards.map((movingCard) => movingCard.id));
+        nextZones.hand.push(...drawnCards.filter((card) => !movingIds.has(card.id)));
+        addCardsToEffectTarget(nextZones, action.target, movingCards);
+        continue;
+      }
+
+      if (action.type === "moveTop") {
+        if (nextZones[action.from].length < action.count) {
+          return { ok: false, error: `${action.from}에 옮길 카드가 부족합니다. (필요 ${action.count}, 현재 ${nextZones[action.from].length})` };
+        }
+
+        const movingCards = takeTopCardsForEffect(nextZones[action.from], action.count, action.from);
+        const movingIds = new Set(movingCards.map((movingCard) => movingCard.id));
+        nextZones[action.from] = nextZones[action.from].filter((zoneCard) => !movingIds.has(zoneCard.id));
+        addCardsToEffectTarget(nextZones, action.to, movingCards);
+        continue;
+      }
+
+      if (action.type === "damageSelf") {
+        if (nextZones.deck.length < action.amount) {
+          return { ok: false, error: `자신이 받을 대미지를 처리할 덱 카드가 부족합니다. (필요 ${action.amount}, 덱 ${nextZones.deck.length})` };
+        }
+
+        nextZones.trash.push(...nextZones.deck.splice(0, action.amount));
+        continue;
+      }
+
+      if (action.type === "chooseCards") {
+        const selectableCards = nextZones[action.source].filter((zoneCard) => cardMatchesEffectFilter(zoneCard, action.filter));
+
+        if (selectableCards.length < action.count) {
+          return { ok: false, error: `${action.source}에 선택 가능한 카드가 부족합니다. (필요 ${action.count}, 현재 ${selectableCards.length})` };
+        }
+
+        const movingCards = selectableCards.slice(0, action.count);
+        const movingIds = new Set(movingCards.map((movingCard) => movingCard.id));
+
+        if (action.selectedPowerResult === "modifyMainPower") {
+          if (nextZones.mainField.length === 0) {
+            return { ok: false, error: "파워를 올릴 메인 스태커가 없습니다." };
+          }
+
+          const powerlessCard = movingCards.find((movingCard) => movingCard.power === null);
+
+          if (powerlessCard) {
+            return { ok: false, error: `${powerlessCard.name}의 파워 수치가 없어 파워 상승을 처리할 수 없습니다.` };
+          }
+        }
+
+        nextZones[action.source] = nextZones[action.source].filter((zoneCard) => !movingIds.has(zoneCard.id));
+        addCardsToEffectTarget(nextZones, action.target, movingCards);
+
+        if (action.afterActions?.length) {
+          const afterValidation = validateEffectActions(action.afterActions, nextZones);
+
+          if (!afterValidation.ok) {
+            return afterValidation;
+          }
+
+          Object.assign(nextZones, afterValidation.zones);
+        }
+
+        continue;
+      }
+
+      if (action.type === "inputCardType") {
+        if (nextZones.deck.length < 1) {
+          return { ok: false, error: "선언 효과로 드로우할 카드가 덱에 없습니다." };
+        }
+
+        const afterDrawZones = cloneZones(nextZones);
+        const [drawnCard, ...deckRest] = afterDrawZones.deck;
+        afterDrawZones.deck = deckRest;
+        afterDrawZones.hand.push(drawnCard);
+
+        const trueValidation = validateEffectActions(action.trueActions ?? [], afterDrawZones);
+
+        if (!trueValidation.ok) {
+          return trueValidation;
+        }
+
+        const falseValidation = validateEffectActions(action.falseActions ?? [], afterDrawZones);
+
+        if (!falseValidation.ok) {
+          return falseValidation;
+        }
+
+        nextZones.deck = afterDrawZones.deck;
+        nextZones.hand = afterDrawZones.hand;
+        continue;
+      }
+
+      if (action.type === "inputBoolean") {
+        const trueValidation = validateEffectActions(action.trueActions ?? [], nextZones);
+
+        if (!trueValidation.ok) {
+          return trueValidation;
+        }
+
+        const falseValidation = validateEffectActions(action.falseActions ?? [], nextZones);
+
+        if (!falseValidation.ok) {
+          return falseValidation;
+        }
+
+        continue;
+      }
+
+      if (action.type === "modifyMainPower" && nextZones.mainField.length === 0) {
+        return { ok: false, error: "파워를 올릴 메인 스태커가 없습니다." };
+      }
+    }
+
+    return { ok: true, zones: nextZones };
+  }
+
+  function payEffectCostAndPrepareUsedCard(card: SimulatorCard, cost: number, effectLabel: string, moveUsedCardToStack: boolean) {
+    const cardZone = findCardZoneIn(zones, card.id);
+    const payableStackCount = moveUsedCardToStack ? zones.stack.filter((stackCard) => stackCard.id !== card.id).length : zones.stack.length;
+
+    if (!cardZone) {
+      setEffectNotice(`${effectLabel}: 사용한 카드를 현재 보드에서 찾을 수 없습니다.`);
+      return false;
+    }
+
+    if (payableStackCount < cost) {
+      setEffectNotice(`${effectLabel}: 코스트 부족 (필요 ${cost}, 스택 ${payableStackCount})`);
+      return false;
+    }
+
+    setZones((current) => {
+      const currentCardZone = findCardZoneIn(current, card.id);
+
+      if (!currentCardZone) {
+        return current;
+      }
+
+      const usedCard = current[currentCardZone].find((zoneCard) => zoneCard.id === card.id);
+
+      if (!usedCard) {
+        return current;
+      }
+
+      const nextZones: ZoneState = {
+        deck: [...current.deck],
+        hand: [...current.hand],
+        stack: [...current.stack],
+        trash: [...current.trash],
+        mainField: [...current.mainField],
+        subField1: [...current.subField1],
+        subField2: [...current.subField2],
+        subField3: [...current.subField3],
+      };
+      const costCards = nextZones.stack.filter((stackCard) => !moveUsedCardToStack || stackCard.id !== card.id).slice(0, cost);
+      const costCardIds = new Set(costCards.map((costCard) => costCard.id));
+
+      if (moveUsedCardToStack) {
+        for (const zoneId of Object.keys(nextZones) as SimulatorZoneId[]) {
+          nextZones[zoneId] = nextZones[zoneId].filter((zoneCard) => zoneCard.id !== card.id);
+        }
+      }
+
+      nextZones.stack = nextZones.stack.filter((stackCard) => !costCardIds.has(stackCard.id));
+      nextZones.trash.push(...costCards);
+
+      if (moveUsedCardToStack) {
+        nextZones.stack.push(usedCard);
+      }
+
+      return nextZones;
+    });
+
+    if (moveUsedCardToStack) {
+      setCardVisualStates((current) => ({
+        ...current,
+        [card.id]: {
+          faceDown: false,
+          rotated: false,
+        },
+      }));
+    }
+
+    setSelectedCardId(null);
+
+    return true;
+  }
+
+  function applyEffectActions(actions: EffectAction[]) {
+    const damageAmount = actions.reduce((sum, action) => (action.type === "damageOpponent" ? sum + action.amount : sum), 0);
+    const opponentLifeChange = actions.reduce((sum, action) => (action.type === "changeOpponentLife" ? sum + action.amount : sum), 0);
+    const mainPowerChange = actions.reduce((sum, action) => (action.type === "modifyMainPower" ? sum + action.amount : sum), 0);
+    const mainCardId = zones.mainField[0]?.id ?? null;
+
+    setZones((current) => {
+      const nextZones: ZoneState = {
+        deck: [...current.deck],
+        hand: [...current.hand],
+        stack: [...current.stack],
+        trash: [...current.trash],
+        mainField: [...current.mainField],
+        subField1: [...current.subField1],
+        subField2: [...current.subField2],
+        subField3: [...current.subField3],
+      };
+
+      for (const action of actions) {
+        if (action.type === "damageOpponent") {
+          continue;
+        }
+
+        if (action.type === "damageSelf") {
+          nextZones.trash.push(...nextZones.deck.splice(0, action.amount));
+          continue;
+        }
+
+        if (action.type === "changeOpponentLife") {
+          continue;
+        }
+
+        if (action.type === "modifyMainPower") {
+          continue;
+        }
+
+        if (action.type === "chooseCards") {
+          continue;
+        }
+
+        if (action.type === "inputNumber" || action.type === "inputBoolean" || action.type === "inputCardType" || action.type === "drawThenChooseCards") {
+          continue;
+        }
+
+        if (action.type === "mulliganHand") {
+          const drawCount = nextZones.hand.length;
+          const shuffledDeck = shuffleCards([...nextZones.deck, ...nextZones.hand]);
+          nextZones.hand = shuffledDeck.slice(0, drawCount);
+          nextZones.deck = shuffledDeck.slice(drawCount);
+          continue;
+        }
+
+        if (action.type === "drawThenTrashNonActive") {
+          const drawnCards = nextZones.deck.splice(0, action.count);
+          const activeCards = drawnCards.filter((card) => card.cardType === "ACTIVE");
+          const nonActiveCards = drawnCards.filter((card) => card.cardType !== "ACTIVE");
+          nextZones.hand.push(...activeCards);
+          nextZones.trash.push(...nonActiveCards);
+          continue;
+        }
+
+        if (action.type === "draw") {
+          const drawnCards = nextZones.deck.splice(0, action.count);
+          nextZones.hand.push(...drawnCards);
+          continue;
+        }
+
+        const sourceCards = nextZones[action.from];
+        const movingCards = takeTopCardsForEffect(sourceCards, action.count, action.from);
+        const movingIds = new Set(movingCards.map((card) => card.id));
+        nextZones[action.from] = sourceCards.filter((card) => !movingIds.has(card.id));
+
+        if (action.to === "deckBottom") {
+          nextZones.deck.push(...movingCards);
+        } else {
+          nextZones[action.to].push(...movingCards);
+        }
+      }
+
+      return nextZones;
+    });
+
+    const totalOpponentLifeChange = opponentLifeChange - damageAmount;
+
+    if (totalOpponentLifeChange !== 0) {
+      setOpponentLife((current) => Math.max(0, current + totalOpponentLifeChange));
+    }
+
+    if (mainPowerChange !== 0 && mainCardId) {
+      setPowerModifiers((current) => ({
+        ...current,
+        [mainCardId]: (current[mainCardId] ?? 0) + mainPowerChange,
+      }));
+    }
+  }
+
+  function executeEffectActions(actions: EffectAction[], effectLabel: string) {
+    const immediateActions: EffectAction[] = [];
+
+    for (let index = 0; index < actions.length; index += 1) {
+      const action = actions[index];
+
+      if (
+        action.type !== "chooseCards" &&
+        action.type !== "inputNumber" &&
+        action.type !== "inputBoolean" &&
+        action.type !== "inputCardType" &&
+        action.type !== "drawThenChooseCards"
+      ) {
+        immediateActions.push(action);
+        continue;
+      }
+
+      if (immediateActions.length > 0) {
+        applyEffectActions(immediateActions);
+      }
+
+      if (action.type === "inputNumber" || action.type === "inputBoolean" || action.type === "inputCardType") {
+        setPileModalSource(null);
+        setDeckPeekOpen(false);
+        setSelectedCardId(null);
+        setPendingEffectInput({
+          ...action,
+          label: effectLabel,
+          remainingActions: actions.slice(index + 1),
+          value: action.type === "inputNumber" ? String(action.defaultValue ?? action.min ?? 0) : action.type === "inputCardType" ? "ACTIVE" : "true",
+        });
+        return "pending";
+      }
+
+      if (action.type === "drawThenChooseCards") {
+        const drawnCards = zones.deck.slice(0, action.drawCount);
+
+        setZones((current) => {
+          const drawnCardIds = new Set(drawnCards.map((card) => card.id));
+
+          return {
+            ...current,
+            deck: current.deck.filter((card) => !drawnCardIds.has(card.id)),
+            hand: [...current.hand, ...drawnCards],
+          };
+        });
+        setPileModalSource(null);
+        setDeckPeekOpen(false);
+        setSelectedCardId(null);
+        setPendingEffectChoice({
+          type: "chooseCards",
+          source: "hand",
+          target: action.target,
+          count: action.chooseCount,
+          filter: action.filter,
+          prompt: action.prompt,
+          label: effectLabel,
+          remainingActions: actions.slice(index + 1),
+          selectedIds: [],
+          candidateIds: drawnCards.map((card) => card.id),
+        });
+        return "pending";
+      }
+
+      setPileModalSource(null);
+      setDeckPeekOpen(false);
+      setSelectedCardId(null);
+      setPendingEffectChoice({
+        ...action,
+        label: effectLabel,
+        remainingActions: [...(action.afterActions ?? []), ...actions.slice(index + 1)],
+        selectedIds: [],
+      });
+      return "pending";
+    }
+
+    if (immediateActions.length > 0) {
+      applyEffectActions(immediateActions);
+    }
+
+    return "done";
+  }
+
+  function createActionsFromEffectInput(action: EffectInputAction, value: string): { actions: EffectAction[]; notice?: string } {
+    if (action.type === "inputBoolean") {
+      const selectedTrue = value === "true";
+
+      return {
+        actions: selectedTrue ? (action.trueActions ?? []) : (action.falseActions ?? []),
+        notice: selectedTrue ? action.trueNotice : action.falseNotice,
+      };
+    }
+
+    if (action.type === "inputCardType") {
+      return { actions: [] };
+    }
+
+    const numericValue = Number.parseInt(value, 10);
+    const inputValue = Number.isFinite(numericValue) ? Math.max(action.min ?? 0, numericValue) : Number.NaN;
+
+    if (action.result === "draw") {
+      return { actions: [{ type: "draw", count: inputValue }] };
+    }
+
+    if (action.result === "damageOpponent") {
+      return { actions: [{ type: "damageOpponent", amount: inputValue }] };
+    }
+
+    if (action.result === "modifyMainPower") {
+      return { actions: [{ type: "modifyMainPower", amount: inputValue }] };
+    }
+
+    return {
+      actions: [
+        {
+          type: "moveTop",
+          from: "trash",
+          to: "deckBottom",
+          count: inputValue,
+        },
+      ],
+    };
+  }
+
+  function resolvePendingEffectInput(valueOverride?: string) {
+    if (!pendingEffectInput) {
+      return;
+    }
+
+    const submittedValue = valueOverride ?? pendingEffectInput.value;
+
+    if (pendingEffectInput.type === "inputCardType") {
+      const declaredType = submittedValue;
+      const drawnCard = zones.deck[0] ?? null;
+
+      if (!["ACTIVE", "MAIN", "SUB"].includes(declaredType)) {
+        setEffectNotice(`${pendingEffectInput.label}: 선언할 카드 타입을 선택하세요.`);
+        return;
+      }
+
+      if (!drawnCard) {
+        setEffectNotice(`${pendingEffectInput.label}: 드로우할 카드가 덱에 없습니다.`);
+        return;
+      }
+
+      const matched = drawnCard.cardType === declaredType;
+      const choice = pendingEffectInput;
+      const branchActions = matched ? (choice.trueActions ?? []) : (choice.falseActions ?? []);
+      const branchNotice = matched ? choice.trueNotice : choice.falseNotice;
+      const afterDrawZones = cloneZones(zones);
+      afterDrawZones.deck = afterDrawZones.deck.slice(1);
+      afterDrawZones.hand.push(drawnCard);
+      const validation = validateEffectActions([...branchActions, ...choice.remainingActions], afterDrawZones);
+
+      if (!validation.ok) {
+        setEffectNotice(`${choice.label}: ${validation.error}`);
+        return;
+      }
+
+      setZones((current) => {
+        const [topCard, ...deckRest] = current.deck;
+
+        if (!topCard || topCard.id !== drawnCard.id) {
+          return current;
+        }
+
+        return {
+          ...current,
+          deck: deckRest,
+          hand: [...current.hand, topCard],
+        };
+      });
+      setPendingEffectInput(null);
+      const executionStatus = executeEffectActions([...branchActions, ...choice.remainingActions], choice.label);
+      setEffectNotice(
+        [
+          `${choice.label}: ${getCardTypeLabel(declaredType)} 선언 · ${drawnCard.name}(${getCardTypeLabel(drawnCard.cardType)}) 드로우 · ${matched ? "성공" : "실패"}`,
+          executionStatus === "pending" ? "다음 선택 대기 중" : null,
+          branchNotice,
+        ]
+          .filter(Boolean)
+          .join(" · "),
+      );
+      return;
+    }
+
+    if (pendingEffectInput.type === "inputNumber") {
+      const numericValue = Number.parseInt(submittedValue, 10);
+
+      if (!Number.isFinite(numericValue)) {
+        setEffectNotice(`${pendingEffectInput.label}: 숫자를 입력하세요.`);
+        return;
+      }
+    }
+
+    const choice = pendingEffectInput;
+    const resolvedInput = createActionsFromEffectInput(choice, submittedValue);
+    const nextActions = [...resolvedInput.actions, ...choice.remainingActions];
+    const validation = validateEffectActions(nextActions, zones);
+
+    if (!validation.ok) {
+      setEffectNotice(`${choice.label}: ${validation.error}`);
+      return;
+    }
+
+    setPendingEffectInput(null);
+    const executionStatus = executeEffectActions(nextActions, choice.label);
+    setEffectNotice(
+      [
+        executionStatus === "pending" ? `${choice.label}: 입력 처리 완료 · 다음 선택 대기 중` : `${choice.label}: 입력 처리 완료`,
+        resolvedInput.notice,
+      ]
+        .filter(Boolean)
+        .join(" · "),
+    );
+  }
+
+  function runEffect(effectLabel: string, effectText: string, sourceCard: SimulatorCard, effectCost: string | null, effectKind: EffectKind) {
+    const cost = getEffectCostValue(effectCost);
+    const moveUsedCardToStack = effectKind === "active";
+    const compiled = compileEffectText(effectText);
+    const preparedZones = buildPreparedEffectZones(zones, sourceCard, cost, moveUsedCardToStack);
+
+    if (preparedZones.error || !preparedZones.zones) {
+      setEffectNotice(`${effectLabel}: ${preparedZones.error}`);
+      return;
+    }
+
+    const validation = validateEffectActions(compiled.actions, preparedZones.zones);
+
+    if (!validation.ok) {
+      setEffectNotice(`${effectLabel}: ${validation.error}`);
+      return;
+    }
+
+    if (!payEffectCostAndPrepareUsedCard(sourceCard, cost, effectLabel, moveUsedCardToStack)) {
+      return;
+    }
+
+    setDrawerCard(null);
+    const executionStatus = executeEffectActions(compiled.actions, effectLabel);
+    const messageParts = [
+      `${effectLabel}: 코스트 ${cost} 지불`,
+      moveUsedCardToStack ? "사용 카드 스택 이동" : "사용 카드 위치 유지",
+      `자동 처리 ${compiled.actions.length}개`,
+    ];
+
+    if (executionStatus === "pending") {
+      messageParts.push("선택 대기 중");
+    }
+
+    if (compiled.manualSteps.length > 0) {
+      messageParts.push(`수동 처리 필요 ${compiled.manualSteps.length}개`);
+    }
+
+    setEffectNotice(messageParts.join(" · "));
+  }
+
+  function activateDrawerCardEffect(card: SimulatorCard) {
+    if (pendingEffectChoice || pendingEffectInput) {
+      setEffectNotice("먼저 진행 중인 효과 입력/선택을 완료하세요.");
+      return;
+    }
+
+    const playableEffect = getPlayableEffectEntry(card);
+
+    if (!playableEffect?.text) {
+      setEffectNotice("현재 위치에서 발동 가능한 효과가 없습니다.");
+      return;
+    }
+
+    if (card.name === "부활의 손짓" && zones.trash.length < 1) {
+      setEffectNotice("부활의 손짓: 트래시 존에 카드가 1장 이상 있어야 사용할 수 있습니다.");
+      return;
+    }
+
+    runEffect(playableEffect.label, playableEffect.text, card, playableEffect.cost, playableEffect.kind);
+  }
+
+  function cardMatchesEffectFilter(card: SimulatorCard, filter?: EffectCardFilter) {
+    if (!filter?.cardType) {
+      return true;
+    }
+
+    return card.cardType === filter.cardType;
+  }
+
+  function getPendingEffectChoiceCards(choice: PendingEffectChoice) {
+    const candidateIds = choice.candidateIds ? new Set(choice.candidateIds) : null;
+
+    return zones[choice.source].filter((card) => (!candidateIds || candidateIds.has(card.id)) && cardMatchesEffectFilter(card, choice.filter));
+  }
+
+  function getPendingEffectChoiceRequiredCount(choice: PendingEffectChoice) {
+    return Math.min(choice.count, getPendingEffectChoiceCards(choice).length);
+  }
+
+  function togglePendingEffectChoiceCard(cardId: string) {
+    setPendingEffectChoice((current) => {
+      if (!current) {
+        return current;
+      }
+
+      if (current.selectedIds.includes(cardId)) {
+        return {
+          ...current,
+          selectedIds: current.selectedIds.filter((selectedId) => selectedId !== cardId),
+        };
+      }
+
+      const candidateIds = current.candidateIds ? new Set(current.candidateIds) : null;
+      const selectableCount = zones[current.source].filter((card) => (!candidateIds || candidateIds.has(card.id)) && cardMatchesEffectFilter(card, current.filter)).length;
+      const requiredCount = Math.min(current.count, selectableCount);
+
+      if (current.selectedIds.length >= requiredCount) {
+        return current;
+      }
+
+      return {
+        ...current,
+        selectedIds: [...current.selectedIds, cardId],
+      };
+    });
+  }
+
+  function resolvePendingEffectChoice() {
+    if (!pendingEffectChoice) {
+      return;
+    }
+
+    const choice = pendingEffectChoice;
+    const requiredCount = getPendingEffectChoiceRequiredCount(choice);
+
+    if (choice.selectedIds.length !== requiredCount) {
+      return;
+    }
+
+    const selectedIds = new Set(choice.selectedIds);
+    const selectedCards = zones[choice.source].filter((card) => selectedIds.has(card.id));
+    const selectedPowerAmount =
+      choice.selectedPowerResult === "modifyMainPower" ? selectedCards.reduce((sum, card) => sum + (card.power ?? 0), 0) : 0;
+    const powerResultMainCardId = choice.selectedPowerResult === "modifyMainPower" ? zones.mainField[0]?.id ?? null : null;
+
+    if (selectedCards.length !== requiredCount) {
+      setEffectNotice(`${choice.label}: 선택한 카드를 현재 영역에서 찾을 수 없습니다.`);
+      return;
+    }
+
+    if (choice.selectedPowerResult === "modifyMainPower") {
+      if (!powerResultMainCardId) {
+        setEffectNotice(`${choice.label}: 파워를 올릴 메인 스태커가 없습니다.`);
+        return;
+      }
+
+      const powerlessCard = selectedCards.find((card) => card.power === null);
+
+      if (powerlessCard) {
+        setEffectNotice(`${choice.label}: ${powerlessCard.name}의 파워 수치가 없어 파워 상승을 처리할 수 없습니다.`);
+        return;
+      }
+    }
+
+    setZones((current) => {
+      const currentSelectedCards = current[choice.source].filter((card) => selectedIds.has(card.id));
+
+      if (currentSelectedCards.length !== requiredCount) {
+        return current;
+      }
+
+      const nextZones: ZoneState = {
+        ...current,
+        deck: [...current.deck],
+        hand: [...current.hand],
+        stack: [...current.stack],
+        trash: [...current.trash],
+        mainField: [...current.mainField],
+        subField1: [...current.subField1],
+        subField2: [...current.subField2],
+        subField3: [...current.subField3],
+      };
+
+      nextZones[choice.source] = nextZones[choice.source].filter((card) => !selectedIds.has(card.id));
+
+      if (choice.target === "deckBottom") {
+        nextZones.deck.push(...currentSelectedCards);
+      } else {
+        nextZones[choice.target].push(...currentSelectedCards);
+      }
+
+      if (choice.shuffleDeckAfter) {
+        nextZones.deck = shuffleCards(nextZones.deck);
+      }
+
+      return nextZones;
+    });
+
+    if (choice.selectedPowerResult === "modifyMainPower" && powerResultMainCardId) {
+      setPowerModifiers((current) => ({
+        ...current,
+        [powerResultMainCardId]: (current[powerResultMainCardId] ?? 0) + selectedPowerAmount,
+      }));
+    }
+
+    setPendingEffectChoice(null);
+    const executionStatus = executeEffectActions(choice.remainingActions, choice.label);
+    setEffectNotice(
+      [
+        executionStatus === "pending" ? `${choice.label}: 다음 선택 대기 중` : `${choice.label}: 선택 처리 완료`,
+        choice.selectedPowerResult === "modifyMainPower" ? `메인 파워 +${selectedPowerAmount}` : null,
+      ]
+        .filter(Boolean)
+        .join(" · "),
+    );
   }
 
   function handleZoneBackgroundClick(event: MouseEvent<HTMLElement>, targetZone: SimulatorZoneId, deckPlacement: DeckPlacement = "bottom") {
@@ -599,12 +1526,16 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
   function resetBoard() {
     setZones(createInitialZones(cards, shuffleCards));
     setCardVisualStates(createInitialCardVisualStates(cards));
+    setPowerModifiers({});
     setOpponentLife(opponentLifeDefault);
     setSelectedCardId(null);
     setDraggedCardId(null);
     setActiveDropTarget(null);
     setDeckPeekOpen(false);
     setDrawerCard(null);
+    setPendingEffectChoice(null);
+    setPendingEffectInput(null);
+    setEffectNotice(null);
   }
 
   function reorderDeckTop(fromIndex: number, toIndex: number) {
@@ -731,6 +1662,8 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     const visualState = cardVisualStates[card.id] ?? { faceDown: false, rotated: false };
     const isFaceDown = visualState.faceDown && !forceFaceUp;
     const isSubFieldCard = zoneId ? isSubFieldZone(zoneId) : false;
+    const displayPower = zoneId === "mainField" ? getDisplayPower(card) : null;
+    const isPowerBoosted = (powerModifiers[card.id] ?? 0) > 0;
     const classNames = [
       "simulator-card",
       isSelected ? "selected" : "",
@@ -773,6 +1706,11 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
           <span className="simulator-card-cost-badge" data-cost-type={getCostBadgeType(card, zoneId)}>
             {getCardDisplayCost(card, zoneId)}
           </span>
+          {displayPower !== null ? (
+            <span className="simulator-card-power-badge" data-boosted={isPowerBoosted ? "true" : undefined}>
+              {displayPower}
+            </span>
+          ) : null}
         </div>
         <div className="simulator-card-caption">
           <strong>{card.name}</strong>
@@ -859,6 +1797,14 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
       return null;
     }
 
+    const playableEffect = getPlayableEffectEntry(drawerCard);
+    const compiledPlayableEffect = playableEffect?.text ? compileEffectText(playableEffect.text) : null;
+    const choiceActionCount = compiledPlayableEffect?.actions.filter((action) => action.type === "chooseCards").length ?? 0;
+    const inputActionCount =
+      compiledPlayableEffect?.actions.filter((action) => action.type === "inputNumber" || action.type === "inputBoolean" || action.type === "inputCardType").length ?? 0;
+    const automaticActionCount = compiledPlayableEffect ? compiledPlayableEffect.actions.length - choiceActionCount - inputActionCount : 0;
+    const effectCost = getEffectCostValue(playableEffect?.cost);
+
     return (
       <div className="simulator-drawer-layer" onClick={() => setDrawerCard(null)}>
         <aside className="simulator-card-drawer" onClick={(event) => event.stopPropagation()}>
@@ -901,6 +1847,38 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
                 <p>{drawerCard.subEffect}</p>
               </section>
             ) : null}
+          </div>
+
+          <div className="simulator-effect-runner">
+            {playableEffect?.text && compiledPlayableEffect ? (
+              <section>
+                <div>
+                  <strong>{playableEffect.label}</strong>
+                  <span>
+                    코스트 {effectCost} · 자동 {automaticActionCount} · 선택 {choiceActionCount} · 입력 {inputActionCount} · 수동{" "}
+                    {compiledPlayableEffect.manualSteps.length}
+                  </span>
+                </div>
+                <button onClick={() => activateDrawerCardEffect(drawerCard)} type="button">
+                  효과 사용 <kbd>Space</kbd>
+                </button>
+                {compiledPlayableEffect.manualSteps.length > 0 ? (
+                  <ul>
+                    {compiledPlayableEffect.manualSteps.map((step, index) => (
+                      <li key={`${playableEffect.label}-${index}`}>{step.reason}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </section>
+            ) : (
+              <section>
+                <div>
+                  <strong>효과 발동</strong>
+                  <span>현재 위치에서 발동 불가</span>
+                </div>
+                <p className="simulator-effect-runner-help">손패에서는 액티브 효과, 메인 필드에서는 메인 효과, 서브 필드에서는 서브 효과만 발동할 수 있습니다.</p>
+              </section>
+            )}
           </div>
         </aside>
       </div>
@@ -965,6 +1943,146 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
           <p className="simulator-empty-message">{pileModalSource === "deck" ? "덱" : "트래시"}에 카드가 없습니다.</p>
         )}
       </section>
+    );
+  }
+
+  function renderPendingEffectChoiceOverlay() {
+    if (!pendingEffectChoice) {
+      return null;
+    }
+
+    const availableCards = getPendingEffectChoiceCards(pendingEffectChoice);
+    const requiredCount = getPendingEffectChoiceRequiredCount(pendingEffectChoice);
+    const isSelectionComplete = pendingEffectChoice.selectedIds.length === requiredCount;
+
+    return (
+      <section className="simulator-field-pile-overlay simulator-effect-choice-overlay">
+        <div className="simulator-field-pile-head">
+          <div>
+            <span>CHOICE</span>
+            <h2>{pendingEffectChoice.label}</h2>
+            <p>
+              {pendingEffectChoice.prompt} ({pendingEffectChoice.selectedIds.length}/{requiredCount})
+            </p>
+            {availableCards.length < pendingEffectChoice.count ? (
+              <p>선택 가능한 카드가 부족해 가능한 수량만 처리합니다.</p>
+            ) : null}
+          </div>
+          <button aria-label="선택 효과 닫기" onClick={() => setPendingEffectChoice(null)} type="button">
+            ×
+          </button>
+        </div>
+
+        {availableCards.length > 0 ? (
+          <div className="simulator-field-pile-grid">
+            {availableCards.map((card) => {
+              const isSelected = pendingEffectChoice.selectedIds.includes(card.id);
+
+              return (
+                <button
+                  className={isSelected ? "simulator-effect-choice-card selected" : "simulator-effect-choice-card"}
+                  key={card.id}
+                  onClick={() => togglePendingEffectChoiceCard(card.id)}
+                  type="button"
+                >
+                  <div className="simulator-card-image">
+                    <CardImage src={card.imageUrl} alt={card.name} />
+                    <span className="simulator-card-cost-badge" data-cost-type="ACTIVE">
+                      {getActiveCost(card)}
+                    </span>
+                  </div>
+                  <strong>{card.name}</strong>
+                  {isSelected ? <span className="simulator-effect-choice-check">선택됨</span> : null}
+                </button>
+              );
+            })}
+          </div>
+        ) : (
+          <p className="simulator-empty-message">선택 가능한 카드가 없습니다.</p>
+        )}
+
+        <div className="simulator-effect-choice-actions">
+          <button disabled={!isSelectionComplete} onClick={resolvePendingEffectChoice} type="button">
+            {requiredCount === 0 ? "처리 계속" : "선택 완료"}
+          </button>
+        </div>
+      </section>
+    );
+  }
+
+  function renderEffectInputModal() {
+    if (!pendingEffectInput) {
+      return null;
+    }
+
+    return (
+      <div className="simulator-modal-layer simulator-effect-input-layer" onClick={() => setPendingEffectInput(null)}>
+        <section className="simulator-effect-input-modal" onClick={(event) => event.stopPropagation()}>
+          <div className="simulator-modal-head">
+            <div>
+              <span>INPUT</span>
+              <h2>{pendingEffectInput.label}</h2>
+              <p>{pendingEffectInput.prompt}</p>
+            </div>
+            <button aria-label="입력 모달 닫기" onClick={() => setPendingEffectInput(null)} type="button">
+              ×
+            </button>
+          </div>
+
+          {pendingEffectInput.type === "inputNumber" ? (
+            <form
+              className="simulator-effect-input-form"
+              onSubmit={(event) => {
+                event.preventDefault();
+                resolvePendingEffectInput();
+              }}
+            >
+              <label>
+                <span>입력값</span>
+                <input
+                  autoFocus
+                  min={pendingEffectInput.min ?? 0}
+                  onChange={(event) =>
+                    setPendingEffectInput((current) =>
+                      current
+                        ? {
+                            ...current,
+                            value: event.target.value,
+                          }
+                        : current,
+                    )
+                  }
+                  step={1}
+                  type="number"
+                  value={pendingEffectInput.value}
+                />
+              </label>
+              <button type="submit">입력 적용</button>
+            </form>
+          ) : pendingEffectInput.type === "inputCardType" ? (
+            <div className="simulator-effect-input-actions" data-layout="three">
+              {[
+                { label: "액티브", value: "ACTIVE" },
+                { label: "메인", value: "MAIN" },
+                { label: "서브", value: "SUB" },
+              ].map((option) => (
+                <button autoFocus={option.value === "ACTIVE"} key={option.value} onClick={() => resolvePendingEffectInput(option.value)} type="button">
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="simulator-effect-input-actions">
+              <button autoFocus onClick={() => resolvePendingEffectInput("true")} type="button">
+                {pendingEffectInput.trueLabel ?? "예"}
+              </button>
+              <button onClick={() => resolvePendingEffectInput("false")} type="button">
+                {pendingEffectInput.falseLabel ?? "아니오"}
+              </button>
+            </div>
+          )}
+        </section>
+      </div>
     );
   }
 
@@ -1092,6 +2210,7 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
         {renderFieldSlot("subField2", "서브")}
         {renderFieldSlot("subField3", "서브")}
         {renderPileOverlay()}
+        {renderPendingEffectChoiceOverlay()}
 
         <div className="simulator-deck-bottom-zone">
           <button className="simulator-deck-peek-button" onClick={() => setDeckPeekOpen(true)} type="button">
@@ -1171,6 +2290,15 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
 
       {renderDeckPeekModal()}
       {renderCardDrawer()}
+      {renderEffectInputModal()}
+      {effectNotice ? (
+        <div className="simulator-effect-notice">
+          <span>{effectNotice}</span>
+          <button aria-label="효과 처리 알림 닫기" onClick={() => setEffectNotice(null)} type="button">
+            ×
+          </button>
+        </div>
+      ) : null}
       {batchMove ? (
         <div className="simulator-batch-cursor" style={{ left: batchMove.x + 14, top: batchMove.y + 14 }}>
           ×{batchMove.count}
