@@ -412,11 +412,9 @@ async function renderDeckCaptureJpeg(deck: Parameters<typeof renderDeckCaptureSv
 
 function createJpegDownloadResponse(body: Buffer, deckName: string) {
   const fileName = encodeURIComponent(`${deckName}-deck.jpg`);
-  const arrayBuffer = new ArrayBuffer(body.byteLength);
-  new Uint8Array(arrayBuffer).set(body);
-  const blob = new Blob([arrayBuffer], { type: "image/jpeg" });
+  const responseBody = Uint8Array.from(body);
 
-  return new Response(blob, {
+  return new Response(responseBody, {
     headers: {
       "Cache-Control": "private, no-store, no-cache, max-age=0, must-revalidate, no-transform",
       "CDN-Cache-Control": "no-store",
