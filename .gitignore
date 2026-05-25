@@ -31,3 +31,6 @@ pnpm-debug.log*
 
 # local runtime logs
 .runtime-logs/
+
+# uploaded reference files
+photo_*.jpg

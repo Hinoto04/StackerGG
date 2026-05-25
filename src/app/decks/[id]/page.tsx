@@ -247,6 +247,9 @@ export default async function DeckDetailPage({ params }: { params: Promise<Route
             <a className="button primary-button" href={`/decks/${deck.id}/simulator`}>
               시뮬레이터
             </a>
+            <a className="button ghost-button" href={`/decks/${deck.id}/capture?format=jpg`} target="_blank" rel="noopener noreferrer">
+              덱 캡쳐
+            </a>
             {canEdit ? (
               <a className="button ghost-button" href={`/decks/${deck.id}/edit`}>
                 덱 수정

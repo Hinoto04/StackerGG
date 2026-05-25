@@ -1,4 +1,5 @@
 import { CardImage } from "@/components/CardImage";
+import { Pagination } from "@/components/Pagination";
 import { SiteHeader } from "@/components/SiteHeader";
 import { CARD_TYPES, getRepresentativeCardImageUrl, type CardRecord, type CardReleaseRecord } from "@/data/cards";
 import { getCurrentUser, isAdmin } from "@/lib/auth";
@@ -31,9 +32,43 @@ interface CardQueryItem extends Omit<CardListItem, "releases"> {
 
 export const dynamic = "force-dynamic";
 
+const CARD_PAGE_SIZE = 48;
+
 function getParam(params: SearchParams, key: string) {
   const value = params[key];
   return Array.isArray(value) ? value[0] ?? "" : value ?? "";
+}
+
+function getPageParam(params: SearchParams) {
+  const page = Number(getParam(params, "page"));
+
+  return Number.isInteger(page) && page > 0 ? page : 1;
+}
+
+function buildPageHref(pathname: string, params: SearchParams, page: number) {
+  const searchParams = new URLSearchParams();
+
+  for (const [key, value] of Object.entries(params)) {
+    if (key === "page") {
+      continue;
+    }
+
+    const values = Array.isArray(value) ? value : [value];
+
+    for (const item of values) {
+      if (item) {
+        searchParams.append(key, item);
+      }
+    }
+  }
+
+  if (page > 1) {
+    searchParams.set("page", String(page));
+  }
+
+  const queryString = searchParams.toString();
+
+  return queryString ? `${pathname}?${queryString}` : pathname;
 }
 
 function getSortKey(params: SearchParams): SortKey {
@@ -162,6 +197,7 @@ async function getCards(params: SearchParams) {
   const power = getParam(params, "power").trim();
   const sort = getSortKey(params);
   const direction = sort === "default" ? "asc" : getSortDirection(params);
+  const requestedPage = getPageParam(params);
   const and: Prisma.CardWhereInput[] = [];
 
   if (keyword) {
@@ -202,7 +238,7 @@ async function getCards(params: SearchParams) {
 
   const where: Prisma.CardWhereInput = and.length > 0 ? { AND: and } : {};
 
-  const [items, total] = await Promise.all([
+  const [items, overallTotal] = await Promise.all([
     prisma.card.findMany({
       where,
       select: {
@@ -230,10 +266,19 @@ async function getCards(params: SearchParams) {
     }),
     prisma.card.count(),
   ]);
+  const sortedItems = sortCards(items, sort, direction);
+  const matchingTotal = sortedItems.length;
+  const totalPages = Math.max(1, Math.ceil(matchingTotal / CARD_PAGE_SIZE));
+  const currentPage = Math.min(requestedPage, totalPages);
+  const pageStart = (currentPage - 1) * CARD_PAGE_SIZE;
 
   return {
-    items: sortCards(items, sort, direction),
-    total,
+    currentPage,
+    items: sortedItems.slice(pageStart, pageStart + CARD_PAGE_SIZE),
+    matchingTotal,
+    overallTotal,
+    pageSize: CARD_PAGE_SIZE,
+    totalPages,
   };
 }
 
@@ -307,8 +352,14 @@ export default async function HomePage({
     selectedSort !== "default" ? selectedSort : "",
     selectedSort !== "default" && selectedDirection !== "asc" ? selectedDirection : "",
   ].filter(Boolean).length;
-  const [{ items: filteredCards, total }, { packs, powers, costs }, user] = await Promise.all([getCards(params), getFilterOptions(), getCurrentUser()]);
+  const [{ currentPage, items: filteredCards, matchingTotal, overallTotal, pageSize, totalPages }, { packs, powers, costs }, user] = await Promise.all([
+    getCards(params),
+    getFilterOptions(),
+    getCurrentUser(),
+  ]);
   const admin = isAdmin(user);
+  const pageStart = matchingTotal === 0 ? 0 : (currentPage - 1) * pageSize + 1;
+  const pageEnd = Math.min(currentPage * pageSize, matchingTotal);
 
   return (
     <>
@@ -322,8 +373,9 @@ export default async function HomePage({
             <p>카드를 선택하면 코스트, 효과, 수록 팩, 레어도 정보를 상세히 확인할 수 있습니다.</p>
           </div>
           <div className="head-chips">
-            <span>총 {total}장</span>
-            <span>검색 결과 {filteredCards.length}장</span>
+            <span>총 {overallTotal}장</span>
+            <span>검색 결과 {matchingTotal}장</span>
+            {matchingTotal > 0 ? <span>{`${pageStart}-${pageEnd}장 표시`}</span> : null}
           </div>
         </section>
 
@@ -419,11 +471,14 @@ export default async function HomePage({
         </form>
 
         {filteredCards.length > 0 ? (
-          <section className="card-grid" aria-label="카드 목록">
-            {filteredCards.map((card) => (
-              <CardTile canEdit={admin} card={card} key={card.id} />
-            ))}
-          </section>
+          <>
+            <section className="card-grid" aria-label="카드 목록">
+              {filteredCards.map((card) => (
+                <CardTile canEdit={admin} card={card} key={card.id} />
+              ))}
+            </section>
+            <Pagination currentPage={currentPage} totalPages={totalPages} getPageHref={(page) => buildPageHref("/", params, page)} label="카드 목록 페이지" />
+          </>
         ) : (
           <section className="empty-panel">
             <strong>{keyword ? "검색 결과가 없습니다." : "등록된 카드가 없습니다."}</strong>

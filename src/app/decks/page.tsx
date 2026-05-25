@@ -1,25 +1,34 @@
 import { CardImage } from "@/components/CardImage";
+import { Pagination } from "@/components/Pagination";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getRepresentativeCardImageUrl } from "@/data/cards";
 import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
 
-type DeckListItem = Awaited<ReturnType<typeof getDecks>>[number];
+const DECK_PAGE_SIZE = 12;
 
-async function getDecks(query: string) {
+type DeckListItem = Awaited<ReturnType<typeof getDecks>>["items"][number];
+
+async function getDecks(query: string, requestedPage: number) {
   const keyword = query.trim();
+  const where = keyword
+    ? {
+        name: {
+          contains: keyword,
+          mode: "insensitive" as const,
+        },
+      }
+    : undefined;
+  const total = await prisma.deck.count({ where });
+  const totalPages = Math.max(1, Math.ceil(total / DECK_PAGE_SIZE));
+  const currentPage = Math.min(requestedPage, totalPages);
 
-  return prisma.deck.findMany({
-    where: keyword
-      ? {
-          name: {
-            contains: keyword,
-            mode: "insensitive",
-          },
-        }
-      : undefined,
+  const items = await prisma.deck.findMany({
+    where,
     orderBy: [{ name: "asc" }, { id: "asc" }],
+    skip: (currentPage - 1) * DECK_PAGE_SIZE,
+    take: DECK_PAGE_SIZE,
     select: {
       id: true,
       name: true,
@@ -58,6 +67,14 @@ async function getDecks(query: string) {
       },
     },
   });
+
+  return {
+    currentPage,
+    items,
+    pageSize: DECK_PAGE_SIZE,
+    total,
+    totalPages,
+  };
 }
 
 function getPreviewItems(deck: DeckListItem) {
@@ -113,6 +130,7 @@ function DeckListCard({ deck }: { deck: DeckListItem }) {
 
 type DeckListPageProps = {
   searchParams: Promise<{
+    page?: string | string[];
     q?: string | string[];
   }>;
 };
@@ -121,11 +139,35 @@ function getQuery(value: string | string[] | undefined) {
   return Array.isArray(value) ? value[0]?.trim() ?? "" : value?.trim() ?? "";
 }
 
+function getPage(value: string | string[] | undefined) {
+  const page = Number(getQuery(value));
+
+  return Number.isInteger(page) && page > 0 ? page : 1;
+}
+
+function buildDeckPageHref(query: string, page: number) {
+  const searchParams = new URLSearchParams();
+
+  if (query) {
+    searchParams.set("q", query);
+  }
+
+  if (page > 1) {
+    searchParams.set("page", String(page));
+  }
+
+  const queryString = searchParams.toString();
+
+  return queryString ? `/decks?${queryString}` : "/decks";
+}
+
 export default async function DeckListPage({ searchParams }: DeckListPageProps) {
-  const { q } = await searchParams;
+  const { page, q } = await searchParams;
   const query = getQuery(q);
-  const decks = await getDecks(query);
+  const { currentPage, items: decks, pageSize, total, totalPages } = await getDecks(query, getPage(page));
   const hasQuery = query.length > 0;
+  const pageStart = total === 0 ? 0 : (currentPage - 1) * pageSize + 1;
+  const pageEnd = Math.min(currentPage * pageSize, total);
 
   return (
     <>
@@ -139,7 +181,8 @@ export default async function DeckListPage({ searchParams }: DeckListPageProps) 
             <p>등록된 스태커배틀 덱을 확인하고 상세 구성으로 이동합니다.</p>
           </div>
           <div className="head-chips">
-            <span>{hasQuery ? `검색 ${decks.length}개` : `총 ${decks.length}개`}</span>
+            <span>{hasQuery ? `검색 ${total}개` : `총 ${total}개`}</span>
+            {total > 0 ? <span>{`${pageStart}-${pageEnd}개 표시`}</span> : null}
             <a className="button primary-button" href="/decks/new">
               덱 작성
             </a>
@@ -164,11 +207,14 @@ export default async function DeckListPage({ searchParams }: DeckListPageProps) 
         </section>
 
         {decks.length > 0 ? (
-          <section className="deck-list-grid" aria-label="덱 목록">
-            {decks.map((deck) => (
-              <DeckListCard deck={deck} key={deck.id} />
-            ))}
-          </section>
+          <>
+            <section className="deck-list-grid" aria-label="덱 목록">
+              {decks.map((deck) => (
+                <DeckListCard deck={deck} key={deck.id} />
+              ))}
+            </section>
+            <Pagination currentPage={currentPage} totalPages={totalPages} getPageHref={(nextPage) => buildDeckPageHref(query, nextPage)} label="덱 목록 페이지" />
+          </>
         ) : (
           <section className="empty-panel">
             <strong>{hasQuery ? "검색 결과가 없습니다." : "등록된 덱이 없습니다."}</strong>
