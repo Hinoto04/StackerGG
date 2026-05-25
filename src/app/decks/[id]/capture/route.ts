@@ -30,13 +30,13 @@ const CARD_GAP = 20;
 const CAPTURE_CACHE_TTL_MS = 60 * 60 * 1000;
 const IMAGE_FETCH_TIMEOUT_MS = 15 * 1000;
 const CAPTURE_CACHE_DIR = path.join(/*turbopackIgnore: true*/ process.cwd(), ".runtime-logs", "deck-captures");
-const PRETENDARD_STATIC_FONT_DIR = path.join(/*turbopackIgnore: true*/ process.cwd(), "node_modules", "pretendard", "dist", "web", "static", "woff2");
-const PRETENDARD_VARIABLE_FONT_DIR = path.join(/*turbopackIgnore: true*/ process.cwd(), "node_modules", "pretendard", "dist", "web", "variable", "woff2");
+const PRETENDARD_STATIC_FONT_DIR = path.join(/*turbopackIgnore: true*/ process.cwd(), "node_modules", "pretendard", "dist", "public", "static");
+const PRETENDARD_VARIABLE_FONT_DIR = path.join(/*turbopackIgnore: true*/ process.cwd(), "node_modules", "pretendard", "dist", "public", "variable");
 const PRETENDARD_FONT_FILES = [
-  { fileName: "PretendardVariable.woff2", fontDir: PRETENDARD_VARIABLE_FONT_DIR },
-  { fileName: "Pretendard-Regular.woff2", fontDir: PRETENDARD_STATIC_FONT_DIR },
-  { fileName: "Pretendard-Bold.woff2", fontDir: PRETENDARD_STATIC_FONT_DIR },
-  { fileName: "Pretendard-Black.woff2", fontDir: PRETENDARD_STATIC_FONT_DIR },
+  { fileName: "PretendardVariable.ttf", fontDir: PRETENDARD_VARIABLE_FONT_DIR },
+  { fileName: "Pretendard-Regular.otf", fontDir: PRETENDARD_STATIC_FONT_DIR },
+  { fileName: "Pretendard-ExtraBold.otf", fontDir: PRETENDARD_STATIC_FONT_DIR },
+  { fileName: "Pretendard-Black.otf", fontDir: PRETENDARD_STATIC_FONT_DIR },
 ];
 const captureDeleteTimers = new Map<string, ReturnType<typeof setTimeout>>();
 
@@ -66,25 +66,25 @@ function getPretendardFontFaceCss() {
   return `
     @font-face {
       font-family: 'Pretendard';
-      src: url('${getFontFileUrl(PRETENDARD_VARIABLE_FONT_DIR, "PretendardVariable.woff2")}') format('woff2');
-      font-weight: 400 900;
+      src: url('${getFontFileUrl(PRETENDARD_VARIABLE_FONT_DIR, "PretendardVariable.ttf")}') format('truetype');
+      font-weight: 100 900;
       font-style: normal;
     }
     @font-face {
       font-family: 'Pretendard';
-      src: url('${getFontFileUrl(PRETENDARD_STATIC_FONT_DIR, "Pretendard-Regular.woff2")}') format('woff2');
+      src: url('${getFontFileUrl(PRETENDARD_STATIC_FONT_DIR, "Pretendard-Regular.otf")}') format('opentype');
       font-weight: 400;
       font-style: normal;
     }
     @font-face {
       font-family: 'Pretendard';
-      src: url('${getFontFileUrl(PRETENDARD_STATIC_FONT_DIR, "Pretendard-Bold.woff2")}') format('woff2');
+      src: url('${getFontFileUrl(PRETENDARD_STATIC_FONT_DIR, "Pretendard-ExtraBold.otf")}') format('opentype');
       font-weight: 800;
       font-style: normal;
     }
     @font-face {
       font-family: 'Pretendard';
-      src: url('${getFontFileUrl(PRETENDARD_STATIC_FONT_DIR, "Pretendard-Black.woff2")}') format('woff2');
+      src: url('${getFontFileUrl(PRETENDARD_STATIC_FONT_DIR, "Pretendard-Black.otf")}') format('opentype');
       font-weight: 900;
       font-style: normal;
     }
