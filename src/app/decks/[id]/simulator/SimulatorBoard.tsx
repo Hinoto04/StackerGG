@@ -285,9 +285,22 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
         return;
       }
 
-      if ((event.code === "Space" || event.key === " ") && drawerCard && !pendingEffectChoice && !pendingEffectInput && !isEditableKeyTarget(event.target)) {
-        event.preventDefault();
-        activateDrawerCardEffect(drawerCard);
+      if ((event.code === "Space" || event.key === " ") && !event.repeat && !isEditableKeyTarget(event.target)) {
+        if (pendingEffectChoice) {
+          const requiredCount = getPendingEffectChoiceRequiredCount(pendingEffectChoice);
+
+          if (pendingEffectChoice.selectedIds.length === requiredCount) {
+            event.preventDefault();
+            resolvePendingEffectChoice();
+          }
+
+          return;
+        }
+
+        if (drawerCard && !pendingEffectInput) {
+          event.preventDefault();
+          activateDrawerCardEffect(drawerCard);
+        }
       }
     }
 
