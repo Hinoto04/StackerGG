@@ -28,6 +28,7 @@ const CARD_WIDTH = 145;
 const CARD_HEIGHT = 203;
 const CARD_GAP = 20;
 const CAPTURE_CACHE_TTL_MS = 60 * 60 * 1000;
+const IMAGE_FETCH_TIMEOUT_MS = 15 * 1000;
 const CAPTURE_CACHE_DIR = path.join(/*turbopackIgnore: true*/ process.cwd(), ".runtime-logs", "deck-captures");
 const PRETENDARD_STATIC_FONT_DIR = path.join(/*turbopackIgnore: true*/ process.cwd(), "node_modules", "pretendard", "dist", "web", "static", "woff2");
 const PRETENDARD_VARIABLE_FONT_DIR = path.join(/*turbopackIgnore: true*/ process.cwd(), "node_modules", "pretendard", "dist", "web", "variable", "woff2");
@@ -46,6 +47,7 @@ const ROW_LAYOUTS: Record<CardType, { color: string; label: string; rows: number
 };
 
 export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 function escapeXml(value: string) {
   return value
@@ -295,23 +297,27 @@ ${getPretendardFontFaceCss()}
 }
 
 async function cleanupExpiredCaptures() {
-  await mkdir(CAPTURE_CACHE_DIR, { recursive: true });
+  try {
+    await mkdir(CAPTURE_CACHE_DIR, { recursive: true });
 
-  const now = Date.now();
-  const entries = await readdir(CAPTURE_CACHE_DIR, { withFileTypes: true });
+    const now = Date.now();
+    const entries = await readdir(CAPTURE_CACHE_DIR, { withFileTypes: true });
 
-  await Promise.all(
-    entries
-      .filter((entry) => entry.isFile() && (entry.name.endsWith(".jpg") || entry.name.endsWith(".svg")))
-      .map(async (entry) => {
-        const filePath = path.join(CAPTURE_CACHE_DIR, entry.name);
-        const fileStat = await stat(filePath).catch(() => null);
+    await Promise.all(
+      entries
+        .filter((entry) => entry.isFile() && (entry.name.endsWith(".jpg") || entry.name.endsWith(".svg")))
+        .map(async (entry) => {
+          const filePath = path.join(CAPTURE_CACHE_DIR, entry.name);
+          const fileStat = await stat(filePath).catch(() => null);
 
-        if (fileStat && now - fileStat.mtimeMs > CAPTURE_CACHE_TTL_MS) {
-          await unlink(filePath).catch(() => undefined);
-        }
-      }),
-  );
+          if (fileStat && now - fileStat.mtimeMs > CAPTURE_CACHE_TTL_MS) {
+            await unlink(filePath).catch(() => undefined);
+          }
+        }),
+    );
+  } catch (error) {
+    console.warn("Deck capture cache cleanup failed. Continuing without cleanup.", error);
+  }
 }
 
 function scheduleCaptureDeletion(filePath: string) {
@@ -343,11 +349,26 @@ async function readFreshCaptureCache(filePath: string) {
     return null;
   }
 
-  return readFile(filePath);
+  return readFile(filePath).catch((error) => {
+    console.warn("Deck capture cache read failed. Rendering a fresh image.", error);
+    return null;
+  });
+}
+
+async function writeCaptureCache(filePath: string, body: Buffer) {
+  try {
+    await mkdir(CAPTURE_CACHE_DIR, { recursive: true });
+    await writeFile(filePath, body);
+    scheduleCaptureDeletion(filePath);
+  } catch (error) {
+    console.warn("Deck capture cache write failed. Returning the generated image without cache.", error);
+  }
 }
 
 async function fetchImageDataUri(url: string) {
-  const response = await fetch(url);
+  const abortController = new AbortController();
+  const timeout = setTimeout(() => abortController.abort(), IMAGE_FETCH_TIMEOUT_MS);
+  const response = await fetch(url, { signal: abortController.signal }).finally(() => clearTimeout(timeout));
 
   if (!response.ok) {
     throw new Error(`카드 이미지를 불러오지 못했습니다. (${response.status})`);
@@ -397,9 +418,13 @@ function createJpegDownloadResponse(body: Buffer, deckName: string) {
 
   return new Response(blob, {
     headers: {
-      "Cache-Control": "no-store, max-age=0",
-      "Content-Disposition": `attachment; filename*=UTF-8''${fileName}`,
+      "Cache-Control": "private, no-store, no-cache, max-age=0, must-revalidate, no-transform",
+      "CDN-Cache-Control": "no-store",
+      "Cloudflare-CDN-Cache-Control": "no-store",
+      "Content-Disposition": `attachment; filename="deck-capture.jpg"; filename*=UTF-8''${fileName}`,
+      "Content-Length": body.byteLength.toString(),
       "Content-Type": "image/jpeg",
+      "X-Content-Type-Options": "nosniff",
       Expires: "0",
       Pragma: "no-cache",
     },
@@ -468,8 +493,7 @@ export async function GET(_: Request, { params }: { params: Promise<RouteParams>
   }
 
   const jpeg = await renderDeckCaptureJpeg(deck);
-  await writeFile(cachePath, jpeg);
-  scheduleCaptureDeletion(cachePath);
+  await writeCaptureCache(cachePath, jpeg);
 
   return createJpegDownloadResponse(jpeg, deck.name);
 }
