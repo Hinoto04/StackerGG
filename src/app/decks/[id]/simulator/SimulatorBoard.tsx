@@ -1,6 +1,17 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type DragEvent, type MouseEvent, type PointerEvent, type TouchEvent } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type DragEvent,
+  type MouseEvent,
+  type PointerEvent,
+  type ReactNode,
+  type TouchEvent,
+} from "react";
 import { CardImage } from "@/components/CardImage";
 import { compileEffectText, type EffectAction, type EffectCardFilter, type EffectChoiceAction, type EffectInputAction } from "@/game/effectEngine";
 
@@ -25,11 +36,31 @@ export type SimulatorCard = {
 
 type SimulatorBoardProps = {
   cards: SimulatorCard[];
+  effectCostModifier?: number;
+  effectCostModifierScope?: "all" | "main";
   initialShuffleSeed: string;
+  initialSnapshot?: SimulatorBoardSnapshot | null;
+  externalSnapshot?: SimulatorBoardSnapshot | null;
+  fieldOverlay?: ReactNode;
+  onActionLog?: (message: string) => void;
+  onOncePerTurnEffectUsed?: (cardName: string, effectLabel: string) => void;
+  onOpponentActions?: (actions: EffectAction[], effectLabel: string) => void;
+  onSnapshotChange?: (snapshot: SimulatorBoardSnapshot) => void;
+  onTurnLimitedEffectUsed?: (payload: TurnLimitedEffectPayload) => void;
+  opponentMainPower?: number | null;
+  opponentLifeControls?: boolean;
   opponentLifeDefault: number;
+  opponentLifeLabel?: string;
+  opponentLifeValue?: number;
 };
 
-type ZoneState = Record<SimulatorZoneId, SimulatorCard[]>;
+type TurnLimitedEffectPayload = {
+  cardName: string;
+  effectLabel: string;
+  effectText: string;
+};
+
+export type ZoneState = Record<SimulatorZoneId, SimulatorCard[]>;
 type DeckPlacement = "top" | "bottom";
 type DropTarget = SimulatorZoneId | "deck-bottom";
 type PileModalSource = "deck" | "trash";
@@ -39,9 +70,16 @@ type BatchMoveState = {
   x: number;
   y: number;
 };
-type CardVisualState = {
+export type CardVisualState = {
   faceDown: boolean;
   rotated: boolean;
+};
+export type SimulatorBoardSnapshot = {
+  cardVisualStates: Record<string, CardVisualState>;
+  opponentLife: number;
+  powerModifiers: Record<string, number>;
+  updatedAt?: number;
+  zones: ZoneState;
 };
 type OverlapLayout = {
   cardSize: number;
@@ -67,6 +105,15 @@ type EffectRunnerEntry = {
 };
 
 const INITIAL_HAND_SIZE = 4;
+const CARD_WIDTH_STORAGE_KEY = "stacker_simulator_card_width";
+const CARD_SIZE_PRESETS = [
+  { label: "최소", width: 88 },
+  { label: "작게", width: 104 },
+  { label: "보통", width: 118 },
+  { label: "크게", width: 136 },
+  { label: "매우 크게", width: 156 },
+] as const;
+const DEFAULT_CARD_SIZE_INDEX = 2;
 
 const FIELD_ZONE_TYPES: Partial<Record<SimulatorZoneId, string>> = {
   mainField: "MAIN",
@@ -160,12 +207,54 @@ function shuffleCardsWithSeed(cards: SimulatorCard[], seed: string) {
   return shuffled;
 }
 
+export function createInitialSimulatorSnapshot(cards: SimulatorCard[], initialShuffleSeed: string, opponentLifeDefault: number): SimulatorBoardSnapshot {
+  return {
+    cardVisualStates: createInitialCardVisualStates(cards),
+    opponentLife: opponentLifeDefault,
+    powerModifiers: {},
+    updatedAt: Date.now(),
+    zones: createInitialZones(cards, (deckCards) => shuffleCardsWithSeed(deckCards, initialShuffleSeed)),
+  };
+}
+
 function isFieldZone(zoneId: SimulatorZoneId) {
   return Boolean(FIELD_ZONE_TYPES[zoneId]);
 }
 
 function isSubFieldZone(zoneId: SimulatorZoneId) {
   return zoneId === "subField1" || zoneId === "subField2" || zoneId === "subField3";
+}
+
+function getZoneLabel(zoneId: SimulatorZoneId) {
+  if (zoneId === "deck") {
+    return "덱";
+  }
+
+  if (zoneId === "hand") {
+    return "손패";
+  }
+
+  if (zoneId === "stack") {
+    return "스택";
+  }
+
+  if (zoneId === "trash") {
+    return "트래시";
+  }
+
+  if (zoneId === "mainField") {
+    return "MAIN";
+  }
+
+  if (zoneId === "subField1") {
+    return "SUB 1";
+  }
+
+  if (zoneId === "subField2") {
+    return "SUB 2";
+  }
+
+  return "SUB 3";
 }
 
 function getCardCost(card: SimulatorCard) {
@@ -188,6 +277,29 @@ function getEffectCostValue(cost: string | null | undefined) {
   const parsedCost = Number.parseInt(cost?.trim() || "0", 10);
 
   return Number.isFinite(parsedCost) ? Math.max(0, parsedCost) : 0;
+}
+
+function isOncePerTurnEffect(effectText: string) {
+  const normalizedText = effectText.replace(/\s+/g, " ");
+  return /(?:한|1)\s*턴에\s*(?:한|1)\s*번/.test(normalizedText);
+}
+
+function getRequiredTrashCount(effectText: string) {
+  const normalizedText = effectText.replace(/\s+/g, " ");
+  const match = normalizedText.match(/트래시\s*존(?:에|의)?(?:\s*카드(?:가|를)?)?\s*(\d+)\s*장\s*이상/);
+  return match ? Number(match[1]) : null;
+}
+
+function getEffectKindLabel(effectKind: EffectKind) {
+  if (effectKind === "main") {
+    return "메인";
+  }
+
+  if (effectKind === "sub") {
+    return "서브";
+  }
+
+  return "액티브";
 }
 
 function getCardDisplayCost(card: SimulatorCard, zoneId?: SimulatorZoneId) {
@@ -230,15 +342,91 @@ function isEditableKeyTarget(target: EventTarget | null) {
   return target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName);
 }
 
-export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault }: SimulatorBoardProps) {
+function isPointInsideElement(event: Pick<globalThis.MouseEvent, "clientX" | "clientY">, element: HTMLElement | null) {
+  if (!element) {
+    return false;
+  }
+
+  const rect = element.getBoundingClientRect();
+
+  return event.clientX >= rect.left && event.clientX <= rect.right && event.clientY >= rect.top && event.clientY <= rect.bottom;
+}
+
+function isInsideSimulatorModalSurface(target: EventTarget | null) {
+  return (
+    target instanceof Element &&
+    Boolean(target.closest(".simulator-deck-peek-modal, .simulator-field-pile-overlay, .simulator-effect-input-modal, .simulator-card-drawer"))
+  );
+}
+
+function getNearestCardSizeIndex(width: number) {
+  return CARD_SIZE_PRESETS.reduce((nearestIndex, preset, index) => {
+    const nearestDistance = Math.abs(CARD_SIZE_PRESETS[nearestIndex].width - width);
+    const nextDistance = Math.abs(preset.width - width);
+
+    return nextDistance < nearestDistance ? index : nearestIndex;
+  }, DEFAULT_CARD_SIZE_INDEX);
+}
+
+function isOpponentEffectAction(action: EffectAction) {
+  return action.type === "damageOpponent" || action.type === "changeOpponentLife" || action.type === "moveOpponentTop" || action.type === "modifyOpponentMainPower";
+}
+
+function getOpponentDeckDelta(action: EffectAction) {
+  if (action.type === "damageOpponent") {
+    return -action.amount;
+  }
+
+  if (action.type === "changeOpponentLife") {
+    return action.amount;
+  }
+
+  if (action.type !== "moveOpponentTop") {
+    return 0;
+  }
+
+  if (action.from === "deck" && action.to !== "deckBottom") {
+    return -action.count;
+  }
+
+  if (action.from !== "deck" && action.to === "deckBottom") {
+    return action.count;
+  }
+
+  return 0;
+}
+
+export function SimulatorBoard({
+  cards,
+  effectCostModifier = 0,
+  effectCostModifierScope = "all",
+  externalSnapshot,
+  fieldOverlay,
+  initialShuffleSeed,
+  initialSnapshot,
+  onActionLog,
+  onOncePerTurnEffectUsed,
+  onOpponentActions,
+  onSnapshotChange,
+  onTurnLimitedEffectUsed,
+  opponentMainPower,
+  opponentLifeControls = true,
+  opponentLifeDefault,
+  opponentLifeLabel = "상대 라이프",
+  opponentLifeValue,
+}: SimulatorBoardProps) {
+  const boardRef = useRef<HTMLElement | null>(null);
   const touchHoldTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const longPressTriggeredRef = useRef(false);
   const stackListRef = useRef<HTMLDivElement | null>(null);
   const handListRef = useRef<HTMLDivElement | null>(null);
-  const [zones, setZones] = useState<ZoneState>(() => createInitialZones(cards, (deckCards) => shuffleCardsWithSeed(deckCards, initialShuffleSeed)));
-  const [cardVisualStates, setCardVisualStates] = useState<Record<string, CardVisualState>>(() => createInitialCardVisualStates(cards));
-  const [powerModifiers, setPowerModifiers] = useState<Record<string, number>>({});
-  const [opponentLife, setOpponentLife] = useState(opponentLifeDefault);
+  const [zones, setZones] = useState<ZoneState>(() => initialSnapshot?.zones ?? createInitialZones(cards, (deckCards) => shuffleCardsWithSeed(deckCards, initialShuffleSeed)));
+  const [cardVisualStates, setCardVisualStates] = useState<Record<string, CardVisualState>>(() => ({
+    ...createInitialCardVisualStates(cards),
+    ...(initialSnapshot?.cardVisualStates ?? {}),
+  }));
+  const [powerModifiers, setPowerModifiers] = useState<Record<string, number>>(() => initialSnapshot?.powerModifiers ?? {});
+  const [opponentLife, setOpponentLife] = useState(initialSnapshot?.opponentLife ?? opponentLifeDefault);
   const [draggedCardId, setDraggedCardId] = useState<string | null>(null);
   const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
   const [activeDropTarget, setActiveDropTarget] = useState<DropTarget | null>(null);
@@ -251,6 +439,7 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
   const [stackLayout, setStackLayout] = useState<OverlapLayout>({ cardSize: 0, step: 0 });
   const [handLayout, setHandLayout] = useState<OverlapLayout>({ cardSize: 0, step: 0 });
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [cardSizeIndex, setCardSizeIndex] = useState(DEFAULT_CARD_SIZE_INDEX);
   const [batchMove, setBatchMove] = useState<BatchMoveState | null>(null);
   const [effectNotice, setEffectNotice] = useState<string | null>(null);
   const [pendingEffectChoice, setPendingEffectChoice] = useState<PendingEffectChoice | null>(null);
@@ -259,26 +448,157 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
   const selectedCard = useMemo(() => cards.find((card) => card.id === selectedCardId) ?? null, [cards, selectedCardId]);
   const deckTopCard = zones.deck[0] ?? null;
   const deckPeekCards = zones.deck.slice(0, 3);
+  const displayedOpponentLife = opponentLifeValue ?? opponentLife;
   const trashTopCard = zones.trash.at(-1) ?? null;
+  const cardSizePreset = CARD_SIZE_PRESETS[cardSizeIndex] ?? CARD_SIZE_PRESETS[DEFAULT_CARD_SIZE_INDEX];
+  const cardWidth = cardSizePreset.width;
+  const effectCompileOptions = { handledTimedRules: Boolean(onTurnLimitedEffectUsed) };
 
-  useEffect(() => {
-    if (isFullscreen) {
-      document.body.dataset.simulatorFullscreen = "true";
-    } else {
-      delete document.body.dataset.simulatorFullscreen;
+  function logAction(message: string) {
+    onActionLog?.(message);
+  }
+
+  function getApplicableEffectCostModifier(effectKind?: EffectKind) {
+    if (effectCostModifierScope === "main" && effectKind !== "main") {
+      return 0;
     }
 
+    return effectCostModifier;
+  }
+
+  function getEffectKindForZone(zoneId?: SimulatorZoneId): EffectKind {
+    if (zoneId === "mainField") {
+      return "main";
+    }
+
+    if (zoneId && isSubFieldZone(zoneId)) {
+      return "sub";
+    }
+
+    return "active";
+  }
+
+  function getModifiedEffectCostValue(cost: string | null | undefined, effectKind?: EffectKind) {
+    return Math.max(0, getEffectCostValue(cost) + getApplicableEffectCostModifier(effectKind));
+  }
+
+  function formatModifiedEffectCost(cost: string | null | undefined, effectKind?: EffectKind) {
+    const baseCost = getEffectCostValue(cost);
+    const modifiedCost = getModifiedEffectCostValue(cost, effectKind);
+    const modifier = modifiedCost - baseCost;
+
+    if (modifier === 0) {
+      return String(modifiedCost);
+    }
+
+    return `${modifiedCost} (${modifier > 0 ? "+" : ""}${modifier})`;
+  }
+
+  function getModifiedCardDisplayCost(card: SimulatorCard, zoneId?: SimulatorZoneId) {
+    return String(getModifiedEffectCostValue(zoneId && isFieldZone(zoneId) ? getCardCost(card) : getActiveCost(card), getEffectKindForZone(zoneId)));
+  }
+
+  function getCostModifierState(cost: string | null | undefined, effectKind?: EffectKind) {
+    const modifier = getModifiedEffectCostValue(cost, effectKind) - getEffectCostValue(cost);
+
+    if (modifier > 0) {
+      return "increased";
+    }
+
+    if (modifier < 0) {
+      return "decreased";
+    }
+
+    return undefined;
+  }
+
+  function getCardCostModifierState(card: SimulatorCard, zoneId?: SimulatorZoneId) {
+    return getCostModifierState(zoneId && isFieldZone(zoneId) ? getCardCost(card) : getActiveCost(card), getEffectKindForZone(zoneId));
+  }
+
+  const boardStyle = {
+    "--simulator-card-height": `${Math.round(cardWidth * 1.4)}px`,
+    "--simulator-card-width": `${cardWidth}px`,
+    "--simulator-modal-card-width": `${Math.round(cardWidth * 0.52)}px`,
+  } as CSSProperties;
+
+  useEffect(() => {
+    onSnapshotChange?.({
+      cardVisualStates,
+      opponentLife,
+      powerModifiers,
+      zones,
+    });
+  }, [cardVisualStates, onSnapshotChange, opponentLife, powerModifiers, zones]);
+
+  useEffect(() => {
+    if (!externalSnapshot) {
+      return;
+    }
+
+    setZones(externalSnapshot.zones);
+    setCardVisualStates({
+      ...createInitialCardVisualStates(cards),
+      ...(externalSnapshot.cardVisualStates ?? {}),
+    });
+    setPowerModifiers(externalSnapshot.powerModifiers ?? {});
+    setOpponentLife(externalSnapshot.opponentLife ?? opponentLifeDefault);
+    setSelectedCardId(null);
+    setDraggedCardId(null);
+    setActiveDropTarget(null);
+    setBatchMove(null);
+  }, [cards, externalSnapshot, opponentLifeDefault]);
+
+  useEffect(() => {
+    const storedCardWidth = Number(window.localStorage.getItem(CARD_WIDTH_STORAGE_KEY));
+
+    if (Number.isFinite(storedCardWidth)) {
+      setCardSizeIndex(getNearestCardSizeIndex(storedCardWidth));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem(CARD_WIDTH_STORAGE_KEY, String(cardWidth));
+  }, [cardWidth]);
+
+  useEffect(() => {
+    function handleFullscreenChange() {
+      const isBoardFullscreen = Boolean(document.fullscreenElement);
+
+      setIsFullscreen(isBoardFullscreen);
+
+      if (isBoardFullscreen) {
+        document.body.dataset.simulatorFullscreen = "true";
+      } else {
+        delete document.body.dataset.simulatorFullscreen;
+      }
+    }
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+
     return () => {
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
       delete document.body.dataset.simulatorFullscreen;
     };
-  }, [isFullscreen]);
+  }, []);
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
+        const hasActiveSelection = Boolean(selectedCardId || draggedCardId || activeDropTarget || batchMove);
+        const hasOpenSurface = Boolean(pileModalSource || deckPeekOpen || drawerCard || pendingEffectChoice || pendingEffectInput);
+
+        if (document.fullscreenElement && (hasActiveSelection || hasOpenSurface)) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+
         setPileModalSource(null);
         setDeckPeekOpen(false);
         setDrawerCard(null);
+        setSelectedCardId(null);
+        setDraggedCardId(null);
+        setActiveDropTarget(null);
         setBatchMove(null);
         return;
       }
@@ -302,12 +622,63 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
       }
     }
 
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown, true);
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown, true);
     };
-  }, [drawerCard, pendingEffectChoice, pendingEffectInput, zones]);
+  }, [activeDropTarget, batchMove, deckPeekOpen, drawerCard, draggedCardId, pendingEffectChoice, pendingEffectInput, pileModalSource, selectedCardId, zones]);
+
+  useEffect(() => {
+    const hasOpenFieldModal = Boolean(pileModalSource || deckPeekOpen);
+    const hasMoveAttempt = Boolean(selectedCardId || draggedCardId || activeDropTarget || batchMove);
+
+    if (!hasOpenFieldModal && !hasMoveAttempt) {
+      return;
+    }
+
+    function handlePointerDown(event: globalThis.PointerEvent) {
+      if (event.button !== 0 || isPointInsideElement(event, boardRef.current) || isInsideSimulatorModalSurface(event.target)) {
+        return;
+      }
+
+      if (hasOpenFieldModal) {
+        closeFieldModals();
+      }
+
+      if (hasMoveAttempt) {
+        clearMoveAttempt();
+      }
+    }
+
+    function handleContextMenu(event: globalThis.MouseEvent) {
+      const isInsideBoard = isPointInsideElement(event, boardRef.current);
+      const shouldCloseFieldModal = hasOpenFieldModal && !isInsideBoard && !isInsideSimulatorModalSurface(event.target);
+
+      if (!hasMoveAttempt && !shouldCloseFieldModal) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
+      if (hasMoveAttempt) {
+        clearMoveAttempt();
+      }
+
+      if (shouldCloseFieldModal) {
+        closeFieldModals();
+      }
+    }
+
+    window.addEventListener("pointerdown", handlePointerDown, true);
+    window.addEventListener("contextmenu", handleContextMenu, true);
+
+    return () => {
+      window.removeEventListener("pointerdown", handlePointerDown, true);
+      window.removeEventListener("contextmenu", handleContextMenu, true);
+    };
+  }, [activeDropTarget, batchMove, deckPeekOpen, draggedCardId, pileModalSource, selectedCardId]);
 
   useEffect(() => {
     function calculateOverlapLayouts() {
@@ -363,7 +734,7 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
       resizeObserver.disconnect();
       window.removeEventListener("resize", calculateOverlapLayouts);
     };
-  }, [zones.hand.length, zones.stack.length, isFullscreen]);
+  }, [cardWidth, zones.hand.length, zones.stack.length, isFullscreen]);
 
   function findCard(cardId: string) {
     for (const zoneId of Object.keys(zones) as SimulatorZoneId[]) {
@@ -428,6 +799,29 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     return card.power + (powerModifiers[card.id] ?? 0);
   }
 
+  function adjustMainPower(amount: number) {
+    const mainCard = zones.mainField[0] ?? null;
+
+    if (!mainCard) {
+      setEffectNotice("메인 스태커가 없어 파워를 조정할 수 없습니다.");
+      return;
+    }
+
+    setPowerModifiers((current) => {
+      const nextValue = (current[mainCard.id] ?? 0) + amount;
+      const nextModifiers = { ...current };
+
+      if (nextValue === 0) {
+        delete nextModifiers[mainCard.id];
+      } else {
+        nextModifiers[mainCard.id] = nextValue;
+      }
+
+      return nextModifiers;
+    });
+    logAction(`${mainCard.name} 파워 ${amount > 0 ? `+${amount}` : amount}`);
+  }
+
   function canMoveTo(card: SimulatorCard | null, targetZone: SimulatorZoneId) {
     if (!card) {
       return false;
@@ -446,6 +840,12 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
 
   function moveCard(cardId: string, targetZone: SimulatorZoneId, deckPlacement: DeckPlacement = "bottom") {
     const card = findCard(cardId);
+    const sourceZone = card ? findCardZoneIn(zones, card.id) : null;
+
+    if (sourceZone === targetZone && !(targetZone === "deck" && deckPlacement === "bottom")) {
+      setSelectedCardId(null);
+      return;
+    }
 
     if (!canMoveTo(card, targetZone)) {
       setSelectedCardId(null);
@@ -482,6 +882,9 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
 
       return nextZones;
     });
+    if (card && sourceZone && sourceZone !== targetZone) {
+      logAction(`${card.name} · ${getZoneLabel(sourceZone)} --(1)-> ${getZoneLabel(targetZone)}${targetZone === "deck" && deckPlacement === "bottom" ? " 아래" : ""}`);
+    }
     setSelectedCardId(null);
   }
 
@@ -547,6 +950,16 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
       return;
     }
 
+    if (selectedCardId && selectedCardId !== cardId) {
+      const targetZone = findCardZoneIn(zones, cardId);
+
+      if (targetZone) {
+        moveCard(selectedCardId, targetZone);
+      }
+
+      return;
+    }
+
     setSelectedCardId((current) => (current === cardId ? null : cardId));
   }
 
@@ -556,6 +969,21 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     if (longPressTriggeredRef.current) {
       event.preventDefault();
       longPressTriggeredRef.current = false;
+      return;
+    }
+
+    if (selectedCardId === card.id) {
+      setSelectedCardId(null);
+      return;
+    }
+
+    if (selectedCardId && selectedCardId !== card.id) {
+      const targetZone = findCardZoneIn(zones, card.id);
+
+      if (targetZone) {
+        moveCard(selectedCardId, targetZone);
+      }
+
       return;
     }
 
@@ -581,6 +1009,18 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     if (selectedCardId) {
       moveCard(selectedCardId, targetZone, deckPlacement);
     }
+  }
+
+  function clearMoveAttempt() {
+    setSelectedCardId(null);
+    setDraggedCardId(null);
+    setActiveDropTarget(null);
+    setBatchMove(null);
+  }
+
+  function closeFieldModals() {
+    setPileModalSource(null);
+    setDeckPeekOpen(false);
   }
 
   function getBatchSourceCount(source: SimulatorZoneId) {
@@ -620,6 +1060,10 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
   function moveBatchCards(source: SimulatorZoneId, targetZone: SimulatorZoneId, count: number, deckPlacement: DeckPlacement = "bottom") {
     if (source === "mainField" || targetZone === "mainField") {
       return;
+    }
+
+    if (source !== targetZone && count > 0) {
+      logAction(`${getZoneLabel(source)} --(${count})-> ${getZoneLabel(targetZone)}${targetZone === "deck" && deckPlacement === "bottom" ? " 아래" : ""}`);
     }
 
     setZones((current) => {
@@ -820,6 +1264,26 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
         continue;
       }
 
+      if (action.type === "moveOpponentTop") {
+        continue;
+      }
+
+      if (action.type === "modifyOpponentMainPower") {
+        continue;
+      }
+
+      if (action.type === "requireOpponentMainPowerAtLeast") {
+        if (typeof opponentMainPower !== "number" && onOpponentActions) {
+          return { ok: false, error: "상대 메인 스태커의 파워를 확인할 수 없어 발동할 수 없습니다." };
+        }
+
+        if (typeof opponentMainPower === "number" && opponentMainPower < action.amount) {
+          return { ok: false, error: `상대 메인 스태커의 파워가 ${action.amount} 이상이어야 발동할 수 있습니다. (현재 ${opponentMainPower})` };
+        }
+
+        continue;
+      }
+
       if (action.type === "inputCardType") {
         if (nextZones.deck.length < 1) {
           return { ok: false, error: "선언 효과로 드로우할 카드가 덱에 없습니다." };
@@ -942,11 +1406,15 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     return true;
   }
 
-  function applyEffectActions(actions: EffectAction[]) {
-    const damageAmount = actions.reduce((sum, action) => (action.type === "damageOpponent" ? sum + action.amount : sum), 0);
-    const opponentLifeChange = actions.reduce((sum, action) => (action.type === "changeOpponentLife" ? sum + action.amount : sum), 0);
+  function applyEffectActions(actions: EffectAction[], effectLabel: string) {
+    const opponentActions = actions.filter(isOpponentEffectAction);
+    const opponentLifeChange = opponentActions.reduce((sum, action) => sum + getOpponentDeckDelta(action), 0);
     const mainPowerChange = actions.reduce((sum, action) => (action.type === "modifyMainPower" ? sum + action.amount : sum), 0);
     const mainCardId = zones.mainField[0]?.id ?? null;
+
+    if (opponentActions.length > 0 && onOpponentActions) {
+      onOpponentActions(opponentActions, effectLabel);
+    }
 
     setZones((current) => {
       const nextZones: ZoneState = {
@@ -971,6 +1439,18 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
         }
 
         if (action.type === "changeOpponentLife") {
+          continue;
+        }
+
+        if (action.type === "moveOpponentTop") {
+          continue;
+        }
+
+        if (action.type === "modifyOpponentMainPower") {
+          continue;
+        }
+
+        if (action.type === "requireOpponentMainPowerAtLeast") {
           continue;
         }
 
@@ -1024,7 +1504,7 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
       return nextZones;
     });
 
-    const totalOpponentLifeChange = opponentLifeChange - damageAmount;
+    const totalOpponentLifeChange = onOpponentActions ? 0 : opponentLifeChange;
 
     if (totalOpponentLifeChange !== 0) {
       setOpponentLife((current) => Math.max(0, current + totalOpponentLifeChange));
@@ -1056,7 +1536,7 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
       }
 
       if (immediateActions.length > 0) {
-        applyEffectActions(immediateActions);
+        applyEffectActions(immediateActions, effectLabel);
       }
 
       if (action.type === "inputNumber" || action.type === "inputBoolean" || action.type === "inputCardType") {
@@ -1115,7 +1595,7 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     }
 
     if (immediateActions.length > 0) {
-      applyEffectActions(immediateActions);
+      applyEffectActions(immediateActions, effectLabel);
     }
 
     return "done";
@@ -1256,13 +1736,20 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
   }
 
   function runEffect(effectLabel: string, effectText: string, sourceCard: SimulatorCard, effectCost: string | null, effectKind: EffectKind) {
-    const cost = getEffectCostValue(effectCost);
+    const cost = getModifiedEffectCostValue(effectCost, effectKind);
     const moveUsedCardToStack = effectKind === "active";
-    const compiled = compileEffectText(effectText);
+    const compiled = compileEffectText(effectText, effectCompileOptions);
     const preparedZones = buildPreparedEffectZones(zones, sourceCard, cost, moveUsedCardToStack);
 
     if (preparedZones.error || !preparedZones.zones) {
       setEffectNotice(`${effectLabel}: ${preparedZones.error}`);
+      return;
+    }
+
+    const requiredTrashCount = getRequiredTrashCount(effectText);
+
+    if (requiredTrashCount !== null && preparedZones.zones.trash.length < requiredTrashCount) {
+      setEffectNotice(`${effectLabel}: 트래시 존 카드가 부족합니다. (필요 ${requiredTrashCount}, 현재 ${preparedZones.zones.trash.length})`);
       return;
     }
 
@@ -1276,6 +1763,18 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     if (!payEffectCostAndPrepareUsedCard(sourceCard, cost, effectLabel, moveUsedCardToStack)) {
       return;
     }
+
+    logAction(`${sourceCard.name} - ${getEffectKindLabel(effectKind)} 효과 사용`);
+
+    if (isOncePerTurnEffect(effectText)) {
+      onOncePerTurnEffectUsed?.(sourceCard.name, effectLabel);
+    }
+
+    onTurnLimitedEffectUsed?.({
+      cardName: sourceCard.name,
+      effectLabel,
+      effectText,
+    });
 
     setDrawerCard(null);
     const executionStatus = executeEffectActions(compiled.actions, effectLabel);
@@ -1306,11 +1805,6 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
 
     if (!playableEffect?.text) {
       setEffectNotice("현재 위치에서 발동 가능한 효과가 없습니다.");
-      return;
-    }
-
-    if (card.name === "부활의 손짓" && zones.trash.length < 1) {
-      setEffectNotice("부활의 손짓: 트래시 존에 카드가 1장 이상 있어야 사용할 수 있습니다.");
       return;
     }
 
@@ -1473,7 +1967,17 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     startOrIncrementBatchMove(event, targetZone);
   }
 
+  function handleBoardClick() {
+    if (selectedCardId) {
+      setSelectedCardId(null);
+    }
+  }
+
   function drawOneCard() {
+    if (deckTopCard) {
+      logAction("덱 --(1)-> 손패");
+    }
+
     setZones((current) => {
       const [topCard, ...deckRest] = current.deck;
 
@@ -1491,6 +1995,10 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
   }
 
   function shuffleDeck() {
+    if (zones.deck.length > 1) {
+      logAction("덱 셔플");
+    }
+
     setZones((current) => ({
       ...current,
       deck: shuffleCards(current.deck),
@@ -1499,6 +2007,10 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
   }
 
   function mulliganHand() {
+    if (zones.hand.length > 0) {
+      logAction(`멀리건 ${zones.hand.length}장`);
+    }
+
     setZones((current) => {
       const drawCount = current.hand.length;
 
@@ -1517,24 +2029,8 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     setSelectedCardId(null);
   }
 
-  function moveStackTopCardsToTrash(count: number) {
-    setZones((current) => {
-      const movingCards = current.stack.slice(0, count);
-
-      if (movingCards.length === 0) {
-        return current;
-      }
-
-      return {
-        ...current,
-        stack: current.stack.slice(movingCards.length),
-        trash: [...current.trash, ...movingCards],
-      };
-    });
-    setSelectedCardId(null);
-  }
-
   function resetBoard() {
+    logAction("보드 초기화");
     setZones(createInitialZones(cards, shuffleCards));
     setCardVisualStates(createInitialCardVisualStates(cards));
     setPowerModifiers({});
@@ -1550,6 +2046,7 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
   }
 
   function reorderDeckTop(fromIndex: number, toIndex: number) {
+    logAction("덱 위 3장 순서 변경");
     setZones((current) => {
       const topCards = current.deck.slice(0, 3);
       const restCards = current.deck.slice(3);
@@ -1566,6 +2063,32 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
         deck: [...topCards, ...restCards],
       };
     });
+  }
+
+  function openDeckPeek() {
+    logAction("덱 위 3장 확인");
+    setDeckPeekOpen(true);
+  }
+
+  async function toggleFullscreen() {
+    try {
+      const fullscreenElement = document.fullscreenElement;
+
+      if (fullscreenElement) {
+        await document.exitFullscreen();
+        return;
+      }
+
+      const boardElement = boardRef.current;
+      const fullscreenTarget = (boardElement?.closest(".simulator-content") as HTMLElement | null) ?? boardElement ?? document.documentElement;
+
+      if (fullscreenTarget.requestFullscreen) {
+        await fullscreenTarget.requestFullscreen();
+      }
+    } catch {
+      setIsFullscreen(false);
+      delete document.body.dataset.simulatorFullscreen;
+    }
   }
 
   function openCardDrawer(event: MouseEvent<HTMLElement>, card: SimulatorCard) {
@@ -1714,8 +2237,8 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
           ) : (
               <CardImage src={card.imageUrl} alt={card.name} />
           )}
-          <span className="simulator-card-cost-badge" data-cost-type={getCostBadgeType(card, zoneId)}>
-            {getCardDisplayCost(card, zoneId)}
+          <span className="simulator-card-cost-badge" data-cost-modifier={getCardCostModifierState(card, zoneId)} data-cost-type={getCostBadgeType(card, zoneId)}>
+            {getModifiedCardDisplayCost(card, zoneId)}
           </span>
           {displayPower !== null ? (
             <span className="simulator-card-power-badge" data-boosted={isPowerBoosted ? "true" : undefined}>
@@ -1768,8 +2291,8 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
         <span>{index === 0 ? "맨 위" : `${index + 1}번째`}</span>
         <div className="simulator-card-image">
           <CardImage src={card.imageUrl} alt={card.name} />
-          <span className="simulator-card-cost-badge" data-cost-type="ACTIVE">
-            {getActiveCost(card)}
+          <span className="simulator-card-cost-badge" data-cost-modifier={getCardCostModifierState(card)} data-cost-type="ACTIVE">
+            {getModifiedCardDisplayCost(card)}
           </span>
         </div>
         <strong>{card.name}</strong>
@@ -1809,12 +2332,12 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     }
 
     const playableEffect = getPlayableEffectEntry(drawerCard);
-    const compiledPlayableEffect = playableEffect?.text ? compileEffectText(playableEffect.text) : null;
+    const compiledPlayableEffect = playableEffect?.text ? compileEffectText(playableEffect.text, effectCompileOptions) : null;
     const choiceActionCount = compiledPlayableEffect?.actions.filter((action) => action.type === "chooseCards").length ?? 0;
     const inputActionCount =
       compiledPlayableEffect?.actions.filter((action) => action.type === "inputNumber" || action.type === "inputBoolean" || action.type === "inputCardType").length ?? 0;
     const automaticActionCount = compiledPlayableEffect ? compiledPlayableEffect.actions.length - choiceActionCount - inputActionCount : 0;
-    const effectCost = getEffectCostValue(playableEffect?.cost);
+    const effectCost = formatModifiedEffectCost(playableEffect?.cost, playableEffect?.kind);
 
     return (
       <div className="simulator-drawer-layer" onClick={() => setDrawerCard(null)}>
@@ -1841,19 +2364,19 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
 
           <div className="simulator-effect-list">
             {drawerCard.activeEffect ? (
-              <section>
+              <section data-effect-kind="active">
                 <h3>액티브 효과 · {drawerCard.activeCost.trim() || "0"}</h3>
                 <p>{drawerCard.activeEffect}</p>
               </section>
             ) : null}
             {drawerCard.mainEffect ? (
-              <section>
+              <section data-effect-kind="main">
                 <h3>메인 효과 · {drawerCard.mainCost?.trim() || "0"}</h3>
                 <p>{drawerCard.mainEffect}</p>
               </section>
             ) : null}
             {drawerCard.subEffect ? (
-              <section>
+              <section data-effect-kind="sub">
                 <h3>서브 효과 · {drawerCard.subCost?.trim() || "0"}</h3>
                 <p>{drawerCard.subEffect}</p>
               </section>
@@ -1902,7 +2425,7 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     }
 
     return (
-      <div className="simulator-modal-layer" onClick={() => setDeckPeekOpen(false)}>
+      <div className="simulator-modal-layer">
         <section className="simulator-deck-peek-modal" onClick={(event) => event.stopPropagation()}>
           <div className="simulator-modal-head">
             <div>
@@ -1929,12 +2452,12 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
       return null;
     }
 
-    const sourceCards = zones[pileModalSource];
+    const sourceCards = pileModalSource === "trash" ? [...zones[pileModalSource]].reverse() : zones[pileModalSource];
     const title = pileModalSource === "deck" ? "덱 전체" : "트래시 전체";
     const description = "카드를 드래그해서 원하는 영역으로 옮기세요.";
 
     return (
-      <section className="simulator-field-pile-overlay">
+      <section className="simulator-field-pile-overlay" onClick={(event) => event.stopPropagation()}>
         <div className="simulator-field-pile-head">
           <div>
             <span>{pileModalSource.toUpperCase()}</span>
@@ -2097,14 +2620,17 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     <section
       className="simulator-board compact-simulator-board"
       aria-label="덱 시뮬레이터"
+      ref={boardRef}
+      style={boardStyle}
+      onClick={handleBoardClick}
       onContextMenuCapture={(event) => {
-        if (!batchMove) {
+        if (!selectedCardId && !batchMove && !draggedCardId && !activeDropTarget) {
           return;
         }
 
         event.preventDefault();
         event.stopPropagation();
-        setBatchMove(null);
+        clearMoveAttempt();
       }}
       onMouseMove={(event) => {
         if (!batchMove) {
@@ -2116,32 +2642,54 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
     >
       <div className="simulator-topbar">
         <div className="simulator-opponent-life">
-          <span>상대 라이프</span>
-          <strong>{opponentLife}</strong>
-          <div className="simulator-counter-controls">
-            <button aria-label="상대 라이프 5 감소" onClick={() => setOpponentLife((current) => Math.max(0, current - 5))} type="button">
-              -5
-            </button>
-            <button aria-label="상대 라이프 1 감소" onClick={() => setOpponentLife((current) => Math.max(0, current - 1))} type="button">
-              -
-            </button>
-            <button aria-label="상대 라이프 1 증가" onClick={() => setOpponentLife((current) => current + 1)} type="button">
-              +
-            </button>
-            <button aria-label="상대 라이프 5 증가" onClick={() => setOpponentLife((current) => current + 5)} type="button">
-              +5
-            </button>
-          </div>
+          <span>{opponentLifeLabel}</span>
+          <strong>{displayedOpponentLife}</strong>
+          {opponentLifeControls ? (
+            <div className="simulator-counter-controls">
+              <button aria-label="상대 라이프 5 감소" onClick={() => setOpponentLife((current) => Math.max(0, current - 5))} type="button">
+                -5
+              </button>
+              <button aria-label="상대 라이프 1 감소" onClick={() => setOpponentLife((current) => Math.max(0, current - 1))} type="button">
+                -
+              </button>
+              <button aria-label="상대 라이프 1 증가" onClick={() => setOpponentLife((current) => current + 1)} type="button">
+                +
+              </button>
+              <button aria-label="상대 라이프 5 증가" onClick={() => setOpponentLife((current) => current + 5)} type="button">
+                +5
+              </button>
+            </div>
+          ) : null}
         </div>
 
         <div className="simulator-action-row">
+          <div className="simulator-card-size-control">
+            <span>카드 크기</span>
+            <button
+              aria-label="카드 크기 줄이기"
+              disabled={cardSizeIndex <= 0}
+              onClick={() => setCardSizeIndex((current) => Math.max(0, current - 1))}
+              type="button"
+            >
+              -
+            </button>
+            <output>{cardSizePreset.label}</output>
+            <button
+              aria-label="카드 크기 키우기"
+              disabled={cardSizeIndex >= CARD_SIZE_PRESETS.length - 1}
+              onClick={() => setCardSizeIndex((current) => Math.min(CARD_SIZE_PRESETS.length - 1, current + 1))}
+              type="button"
+            >
+              +
+            </button>
+          </div>
           <button className="button primary-button" disabled={zones.deck.length === 0} onClick={drawOneCard} type="button">
             드로우
           </button>
           <button className="button ghost-button" disabled={zones.deck.length < 2} onClick={shuffleDeck} type="button">
             셔플
           </button>
-          <button className="button ghost-button" onClick={() => setIsFullscreen((current) => !current)} type="button">
+          <button className="button ghost-button" onClick={() => void toggleFullscreen()} type="button">
             {isFullscreen ? "창모드" : "전체화면"}
           </button>
           <button className="button ghost-button" onClick={resetBoard} type="button">
@@ -2159,18 +2707,6 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
           onDrop={(event) => handleDrop(event, "stack")}
         >
           <span className="simulator-zone-label">스택</span>
-          <div className="simulator-stack-buttons" onClick={(event) => event.stopPropagation()}>
-            {[1, 2, 3, 4, 5].map((count) => (
-              <button
-                disabled={zones.stack.length < count}
-                key={count}
-                onClick={() => moveStackTopCardsToTrash(count)}
-                type="button"
-              >
-                {count}
-              </button>
-            ))}
-          </div>
           <div className="simulator-stack-list positioned-overlap" ref={stackListRef}>
             {zones.stack.map((card, index) =>
               renderFaceCard(card, true, "stack", getStackCardStyle(index), {
@@ -2189,6 +2725,14 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
           onDrop={(event) => handleDrop(event, "mainField")}
         >
           <span className="simulator-zone-label">메인 필드</span>
+          <div className="simulator-main-power-controls" onClick={(event) => event.stopPropagation()}>
+            <button aria-label="메인 스태커 파워 1 감소" disabled={!zones.mainField[0]} onClick={() => adjustMainPower(-1)} type="button">
+              -
+            </button>
+            <button aria-label="메인 스태커 파워 1 증가" disabled={!zones.mainField[0]} onClick={() => adjustMainPower(1)} type="button">
+              +
+            </button>
+          </div>
           <div className="simulator-main-field-card">
             {zones.mainField[0] ? renderFaceCard(zones.mainField[0], true, "mainField") : <div className="simulator-empty-card">MAIN</div>}
           </div>
@@ -2218,9 +2762,10 @@ export function SimulatorBoard({ cards, initialShuffleSeed, opponentLifeDefault 
         {renderFieldSlot("subField3", "서브")}
         {renderPileOverlay()}
         {renderPendingEffectChoiceOverlay()}
+        {fieldOverlay}
 
         <div className="simulator-deck-bottom-zone">
-          <button className="simulator-deck-peek-button" onClick={() => setDeckPeekOpen(true)} type="button">
+          <button className="simulator-deck-peek-button" onClick={openDeckPeek} type="button">
             덱 확인
           </button>
           <div

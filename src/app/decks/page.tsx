@@ -2,7 +2,11 @@ import { CardImage } from "@/components/CardImage";
 import { Pagination } from "@/components/Pagination";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getRepresentativeCardImageUrl } from "@/data/cards";
+import { getCurrentUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { createLoginHref } from "@/lib/redirect";
+import type { Prisma } from "@prisma/client";
+import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
@@ -10,23 +14,28 @@ const DECK_PAGE_SIZE = 12;
 
 type DeckListItem = Awaited<ReturnType<typeof getDecks>>["items"][number];
 
-async function getDecks(query: string, requestedPage: number) {
+async function getDecks(query: string, requestedPage: number, authorId?: string) {
   const keyword = query.trim();
-  const where = keyword
-    ? {
-        name: {
-          contains: keyword,
-          mode: "insensitive" as const,
-        },
-      }
-    : undefined;
+  const where: Prisma.DeckWhereInput = {};
+
+  if (keyword) {
+    where.name = {
+      contains: keyword,
+      mode: "insensitive",
+    };
+  }
+
+  if (authorId) {
+    where.authorId = authorId;
+  }
+
   const total = await prisma.deck.count({ where });
   const totalPages = Math.max(1, Math.ceil(total / DECK_PAGE_SIZE));
   const currentPage = Math.min(requestedPage, totalPages);
 
   const items = await prisma.deck.findMany({
     where,
-    orderBy: [{ name: "asc" }, { id: "asc" }],
+    orderBy: [{ createdAt: "desc" }, { id: "desc" }],
     skip: (currentPage - 1) * DECK_PAGE_SIZE,
     take: DECK_PAGE_SIZE,
     select: {
@@ -130,6 +139,7 @@ function DeckListCard({ deck }: { deck: DeckListItem }) {
 
 type DeckListPageProps = {
   searchParams: Promise<{
+    mine?: string | string[];
     page?: string | string[];
     q?: string | string[];
   }>;
@@ -145,11 +155,19 @@ function getPage(value: string | string[] | undefined) {
   return Number.isInteger(page) && page > 0 ? page : 1;
 }
 
-function buildDeckPageHref(query: string, page: number) {
+function getMineOnly(value: string | string[] | undefined) {
+  return getQuery(value) === "1";
+}
+
+function buildDeckPageHref(query: string, mineOnly: boolean, page: number) {
   const searchParams = new URLSearchParams();
 
   if (query) {
     searchParams.set("q", query);
+  }
+
+  if (mineOnly) {
+    searchParams.set("mine", "1");
   }
 
   if (page > 1) {
@@ -162,12 +180,36 @@ function buildDeckPageHref(query: string, page: number) {
 }
 
 export default async function DeckListPage({ searchParams }: DeckListPageProps) {
-  const { page, q } = await searchParams;
+  const { mine, page, q } = await searchParams;
   const query = getQuery(q);
-  const { currentPage, items: decks, pageSize, total, totalPages } = await getDecks(query, getPage(page));
+  const mineOnly = getMineOnly(mine);
+  const currentUser = await getCurrentUser();
+
+  if (mineOnly && !currentUser) {
+    redirect(createLoginHref(buildDeckPageHref(query, true, getPage(page))));
+  }
+
+  const { currentPage, items: decks, pageSize, total, totalPages } = await getDecks(
+    query,
+    getPage(page),
+    mineOnly ? currentUser?.id : undefined,
+  );
   const hasQuery = query.length > 0;
+  const hasActiveFilter = hasQuery || mineOnly;
   const pageStart = total === 0 ? 0 : (currentPage - 1) * pageSize + 1;
   const pageEnd = Math.min(currentPage * pageSize, total);
+  const emptyTitle = mineOnly
+    ? hasQuery
+      ? "내 덱 중 검색 결과가 없습니다."
+      : "작성한 덱이 없습니다."
+    : hasQuery
+      ? "검색 결과가 없습니다."
+      : "등록된 덱이 없습니다.";
+  const emptyDescription = hasQuery
+    ? "다른 덱 이름으로 검색해보세요."
+    : mineOnly
+      ? "덱을 작성하면 내 덱 필터에서 확인할 수 있습니다."
+      : "첫 덱을 작성하면 이곳에 표시됩니다.";
 
   return (
     <>
@@ -181,7 +223,7 @@ export default async function DeckListPage({ searchParams }: DeckListPageProps) 
             <p>등록된 스태커배틀 덱을 확인하고 상세 구성으로 이동합니다.</p>
           </div>
           <div className="head-chips">
-            <span>{hasQuery ? `검색 ${total}개` : `총 ${total}개`}</span>
+            <span>{mineOnly ? `내 덱 ${total}개` : hasQuery ? `검색 ${total}개` : `총 ${total}개`}</span>
             {total > 0 ? <span>{`${pageStart}-${pageEnd}개 표시`}</span> : null}
             <a className="button primary-button" href="/decks/new">
               덱 작성
@@ -190,15 +232,19 @@ export default async function DeckListPage({ searchParams }: DeckListPageProps) 
         </section>
 
         <section className="search-panel" aria-label="덱 검색">
-          <form className="search-row simple-search-row" action="/decks" method="get">
+          <form className="search-row deck-search-row" action="/decks" method="get">
             <label className="search-input">
               <span className="sr-only">덱 이름 검색</span>
               <input defaultValue={query} name="q" placeholder="덱 이름 검색" type="search" />
             </label>
+            <label className="deck-filter-toggle">
+              <input defaultChecked={mineOnly} name="mine" type="checkbox" value="1" />
+              <span>내 덱만</span>
+            </label>
             <button className="button primary-button" type="submit">
               검색
             </button>
-            {hasQuery ? (
+            {hasActiveFilter ? (
               <a className="button ghost-button" href="/decks">
                 초기화
               </a>
@@ -213,13 +259,18 @@ export default async function DeckListPage({ searchParams }: DeckListPageProps) 
                 <DeckListCard deck={deck} key={deck.id} />
               ))}
             </section>
-            <Pagination currentPage={currentPage} totalPages={totalPages} getPageHref={(nextPage) => buildDeckPageHref(query, nextPage)} label="덱 목록 페이지" />
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              getPageHref={(nextPage) => buildDeckPageHref(query, mineOnly, nextPage)}
+              label="덱 목록 페이지"
+            />
           </>
         ) : (
           <section className="empty-panel">
-            <strong>{hasQuery ? "검색 결과가 없습니다." : "등록된 덱이 없습니다."}</strong>
-            <p>{hasQuery ? "다른 덱 이름으로 검색해보세요." : "첫 덱을 작성하면 이곳에 표시됩니다."}</p>
-            {hasQuery ? (
+            <strong>{emptyTitle}</strong>
+            <p>{emptyDescription}</p>
+            {hasActiveFilter ? (
               <a className="button ghost-button" href="/decks">
                 전체 덱 보기
               </a>

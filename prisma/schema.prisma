@@ -32,10 +32,12 @@ model Deck {
   name        String
   authorId    String     @map("author_id") @db.Uuid
   description String?
+  createdAt   DateTime   @default(now()) @map("created_at")
   items       DeckCard[]
   author      User       @relation(fields: [authorId], references: [id], onDelete: Restrict)
 
   @@index([authorId], map: "decks_author_id_idx")
+  @@index([createdAt], map: "decks_created_at_idx")
   @@map("decks")
 }
 

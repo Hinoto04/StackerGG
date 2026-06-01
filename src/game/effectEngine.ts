@@ -1,5 +1,6 @@
 export type EffectSourceZone = "deck" | "stack" | "trash";
 export type EffectChoiceSourceZone = "deck" | "hand" | "stack" | "trash";
+export type EffectOpponentSourceZone = EffectChoiceSourceZone;
 export type EffectTargetZone = "deckBottom" | "hand" | "stack" | "trash";
 export type EffectCardType = "ACTIVE" | "MAIN" | "SUB";
 
@@ -78,6 +79,12 @@ export type EffectAction =
       count: number;
     }
   | {
+      type: "moveOpponentTop";
+      from: EffectOpponentSourceZone;
+      to: EffectTargetZone;
+      count: number;
+    }
+  | {
       type: "damageOpponent";
       amount: number;
     }
@@ -93,6 +100,14 @@ export type EffectAction =
       type: "modifyMainPower";
       amount: number;
     }
+  | {
+      type: "modifyOpponentMainPower";
+      amount: number;
+    }
+  | {
+      type: "requireOpponentMainPowerAtLeast";
+      amount: number;
+    }
   | EffectInputAction
   | EffectChoiceAction;
 
@@ -104,6 +119,10 @@ export type ManualEffectStep = {
 export type CompiledEffect = {
   actions: EffectAction[];
   manualSteps: ManualEffectStep[];
+};
+
+export type CompileEffectOptions = {
+  handledTimedRules?: boolean;
 };
 
 function getFirstCount(text: string, fallback = 1) {
@@ -213,6 +232,27 @@ function hasOnlyManualRuleText(sentence: string) {
   );
 }
 
+function isHandledTimedRule(sentence: string) {
+  const isNextOwnTurn = /(?:다음\s*자신(?:의)?\s*턴|자신(?:의)?\s*다음\s*턴)/.test(sentence);
+
+  return (
+    (/다음\s*턴/.test(sentence) && /상대/.test(sentence) && /효과/.test(sentence) && /코스트/.test(sentence) && /(?:증가|올)/.test(sentence)) ||
+    (/다음\s*턴/.test(sentence) && /상대/.test(sentence) && /공격하려면/.test(sentence)) ||
+    (/다음\s*턴/.test(sentence) && /상대/.test(sentence) && /공격할 수 없/.test(sentence)) ||
+    (/다음\s*턴/.test(sentence) && /상대/.test(sentence) && /액티브 효과/.test(sentence) && /발동할 수 없/.test(sentence)) ||
+    (/다음\s*턴/.test(sentence) && /상대/.test(sentence) && /메인\s*스태커/.test(sentence) && /(?:파워|공격력)/.test(sentence) && /(?:감소|하락|내려|[-−－]\s*\d+)/.test(sentence)) ||
+    (/다음\s*턴/.test(sentence) && /상대.*발동.*효과/.test(sentence) && /자신.*받는\s*(?:대미지|데미지).*0/.test(sentence)) ||
+    (/이번\s*턴/.test(sentence) && /자신.*메인\s*스태커/.test(sentence) && /(?:2|두)\s*번/.test(sentence) && /공격/.test(sentence)) ||
+    (isNextOwnTurn && /자신.*메인\s*스태커/.test(sentence) && /(?:파워|공격력)/.test(sentence) && /(?:상승|증가|올)/.test(sentence)) ||
+    (isNextOwnTurn && /자신.*메인\s*효과/.test(sentence) && /코스트/.test(sentence) && /(?:감소|내리|내려|낮)/.test(sentence)) ||
+    (isNextOwnTurn && /드로우\s*페이즈/.test(sentence) && /(?:추가\s*드로우|스킵|추가로?\s*\d+\s*장\s*드로우|\d+\s*장\s*추가)/.test(sentence))
+  );
+}
+
+function isHandledManualRule(sentence: string) {
+  return /한 턴에 한 번/.test(sentence);
+}
+
 function getHandChoiceTarget(sentence: string): EffectTargetZone | null {
   if (/트래시/.test(sentence)) {
     return "trash";
@@ -276,7 +316,7 @@ function compileSequentialOwnDrawThenHandChoice(sentence: string): EffectAction[
   ];
 }
 
-function compileSentence(sentence: string): { actions: EffectAction[]; manualSteps: ManualEffectStep[] } {
+function compileSentence(sentence: string, options: CompileEffectOptions = {}): { actions: EffectAction[]; manualSteps: ManualEffectStep[] } {
   const actions: EffectAction[] = [];
   const manualSteps: ManualEffectStep[] = [];
 
@@ -285,6 +325,19 @@ function compileSentence(sentence: string): { actions: EffectAction[]; manualSte
   }
 
   if (/덱에 넣은 수만큼\s*드로우/.test(sentence)) {
+    return { actions, manualSteps };
+  }
+
+  if (/상대(?:의)?\s*메인 스태커의 파워가\s*\d+\s*이상일 때\s*발동할 수 있다/.test(sentence)) {
+    actions.push({
+      type: "requireOpponentMainPowerAtLeast",
+      amount: Number(sentence.match(/파워가\s*(\d+)\s*이상/)?.[1] ?? 0),
+    });
+
+    return { actions, manualSteps };
+  }
+
+  if (options.handledTimedRules && isHandledTimedRule(sentence)) {
     return { actions, manualSteps };
   }
 
@@ -403,6 +456,15 @@ function compileSentence(sentence: string): { actions: EffectAction[]; manualSte
     return { actions, manualSteps };
   }
 
+  if (/상대(?:의)?\s*메인 스태커의 파워를\s*\d+\s*(?:하락|감소|내려)/.test(sentence)) {
+    actions.push({
+      type: "modifyOpponentMainPower",
+      amount: -Number(sentence.match(/파워를\s*(\d+)\s*(?:하락|감소|내려)/)?.[1] ?? 0),
+    });
+
+    return { actions, manualSteps };
+  }
+
   if (/패에서\s*메인 스태커\s*\d+\s*장을?\s*트래시.*트래시한 메인 스태커의 파워만큼.*자신(?:의)?\s*메인 스태커의 파워를 상승/.test(sentence)) {
     actions.push(
       choiceAction("hand", "trash", getFirstCount(sentence), "트래시할 메인 스태커를 선택하세요.", sentence, {
@@ -439,12 +501,14 @@ function compileSentence(sentence: string): { actions: EffectAction[]; manualSte
 
   if (/상대.*덱 맨 위.*트래시/.test(sentence)) {
     actions.push({
-      type: "changeOpponentLife",
-      amount: -getSelectedCount(sentence),
+      type: "moveOpponentTop",
+      from: "deck",
+      to: "trash",
+      count: getSelectedCount(sentence),
     });
 
     if (/확인|보고/.test(sentence)) {
-      manualSteps.push(manual("상대 덱 확인/선택은 실제 카드 내용 대신 상대 라이프 감소로만 처리했습니다.", sentence));
+      manualSteps.push(manual("상대 덱 확인/선택이 필요한 경우 실제 선택은 플레이어가 확인하세요.", sentence));
     }
 
     return { actions, manualSteps };
@@ -452,17 +516,20 @@ function compileSentence(sentence: string): { actions: EffectAction[]; manualSte
 
   if (/상대.*덱 맨 위.*스택 존/.test(sentence)) {
     actions.push({
-      type: "changeOpponentLife",
-      amount: -getFirstCount(sentence),
+      type: "moveOpponentTop",
+      from: "deck",
+      to: "stack",
+      count: getFirstCount(sentence),
     });
-    manualSteps.push(manual("상대 스택 존은 별도 영역이 없어 상대 덱 매수 감소만 처리했습니다.", sentence));
     return { actions, manualSteps };
   }
 
   if (/상대는\s*\d+\s*장\s*드로우/.test(sentence)) {
     actions.push({
-      type: "changeOpponentLife",
-      amount: -getFirstCount(sentence),
+      type: "moveOpponentTop",
+      from: "deck",
+      to: "hand",
+      count: getFirstCount(sentence),
     });
 
     if (/액티브|덱 맨 아래|트래시|서로 확인/.test(sentence)) {
@@ -474,10 +541,11 @@ function compileSentence(sentence: string): { actions: EffectAction[]; manualSte
 
   if (/상대.*트래시 존.*(?:상대.*덱|덱 맨 아래|덱 맨 위|덱에 넣)/.test(sentence)) {
     actions.push({
-      type: "changeOpponentLife",
-      amount: getSelectedCount(sentence),
+      type: "moveOpponentTop",
+      from: "trash",
+      to: "deckBottom",
+      count: getSelectedCount(sentence),
     });
-    manualSteps.push(manual("상대 트래시에서 상대 덱으로 돌아가는 카드는 상대 라이프 회복으로 처리했습니다.", sentence));
     return { actions, manualSteps };
   }
 
@@ -491,8 +559,10 @@ function compileSentence(sentence: string): { actions: EffectAction[]; manualSte
         count,
       },
       {
-        type: "changeOpponentLife",
-        amount: count,
+        type: "moveOpponentTop",
+        from: "trash",
+        to: "deckBottom",
+        count,
       },
     );
     return { actions, manualSteps };
@@ -508,8 +578,10 @@ function compileSentence(sentence: string): { actions: EffectAction[]; manualSte
         count,
       },
       {
-        type: "changeOpponentLife",
-        amount: -count,
+        type: "moveOpponentTop",
+        from: "deck",
+        to: "trash",
+        count,
       },
     );
     return { actions, manualSteps };
@@ -525,8 +597,10 @@ function compileSentence(sentence: string): { actions: EffectAction[]; manualSte
         count,
       },
       {
-        type: "changeOpponentLife",
-        amount: -count,
+        type: "moveOpponentTop",
+        from: "deck",
+        to: "stack",
+        count,
       },
     );
     return { actions, manualSteps };
@@ -574,8 +648,10 @@ function compileSentence(sentence: string): { actions: EffectAction[]; manualSte
     actions.push(
       choiceAction("hand", "deckBottom", count, "덱 맨 아래로 보낼 손패를 선택하세요.", sentence),
       {
-        type: "changeOpponentLife",
-        amount: count,
+        type: "moveOpponentTop",
+        from: "hand",
+        to: "deckBottom",
+        count,
       },
     );
 
@@ -736,6 +812,10 @@ function compileSentence(sentence: string): { actions: EffectAction[]; manualSte
     return { actions, manualSteps };
   }
 
+  if (options.handledTimedRules && isHandledManualRule(sentence)) {
+    return { actions, manualSteps };
+  }
+
   if (hasOnlyManualRuleText(sentence)) {
     manualSteps.push(manual("상태 변경, 제한, 확인 또는 정렬 효과라서 현재 자동 처리 범위 밖입니다.", sentence));
     return { actions, manualSteps };
@@ -745,7 +825,7 @@ function compileSentence(sentence: string): { actions: EffectAction[]; manualSte
   return { actions, manualSteps };
 }
 
-export function compileEffectText(text: string): CompiledEffect {
+export function compileEffectText(text: string, options: CompileEffectOptions = {}): CompiledEffect {
   const actions: EffectAction[] = [];
   const manualSteps: ManualEffectStep[] = [];
   const sentences = splitEffectSentences(text);
@@ -774,7 +854,7 @@ export function compileEffectText(text: string): CompiledEffect {
       }
     }
 
-    const compiled = compileSentence(sentence);
+    const compiled = compileSentence(sentence, options);
     actions.push(...compiled.actions);
     manualSteps.push(...compiled.manualSteps);
   }
