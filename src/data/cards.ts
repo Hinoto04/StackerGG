@@ -3,11 +3,11 @@ export const CARD_TYPES = ["MAIN", "SUB", "ACTIVE"] as const;
 export type CardType = (typeof CARD_TYPES)[number];
 
 export const DEFAULT_LIST_RARITY = "N";
-export const RARITY_SORT_ORDER = ["N", "R", "SR", "UR", "SP", "HI"] as const;
+export const RARITY_SORT_ORDER = ["N", "R", "SR", "UR", "SP", "ER", "HI"] as const;
 const CARD_TYPE_EXTRA_RARITIES: Record<CardType, readonly string[]> = {
-  MAIN: ["UR", "MSP"],
+  MAIN: ["UR", "MSP", "ER"],
   SUB: ["UR", "SSP"],
-  ACTIVE: ["ASP"],
+  ACTIVE: ["UR", "ASP"],
 };
 
 export function normalizeCardType(cardType: string) {
@@ -177,6 +177,22 @@ export function getCardImageUrl(collectionNumber: string, rarity: string, qualit
   const fileName = encodeURIComponent(`${collectionNumber}-${rarity}`);
 
   return `${STACKER_IMAGE_BASE_URL}/${folder}/${fileName}.webp`;
+}
+
+export function getOfficialCardImageFallbackUrl(src: string) {
+  try {
+    const source = new URL(src);
+    const base = new URL(STACKER_IMAGE_BASE_URL);
+    const basePath = base.pathname.replace(/\/$/, "");
+    if (source.origin !== base.origin || !source.pathname.startsWith(`${basePath}/`)) {
+      return null;
+    }
+    const relativePath = decodeURIComponent(source.pathname.slice(basePath.length));
+    const match = relativePath.match(/^\/(?:webp|webpsm)\/([A-Z0-9]+-(?:KR)?\d+-[A-Z]+)\.webp$/);
+    return match ? `https://d2pib0jdcv060g.cloudfront.net/cards/face/${encodeURIComponent(match[1])}.png` : null;
+  } catch {
+    return null;
+  }
 }
 
 export function getRepresentativeCardRelease(

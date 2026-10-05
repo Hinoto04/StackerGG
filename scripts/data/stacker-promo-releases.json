@@ -1,0 +1,49 @@
+{
+  "source": "https://stackerbattle.com/card/",
+  "packs": [
+    { "name": "SNS 이벤트", "codePrefix": "26PR-SNS", "releaseDate": null },
+    { "name": "2026 KCCF 이벤트 한정 배포", "codePrefix": "26PR-KCCF", "releaseDate": "2026-06-06", "dateSource": "https://stackerbattle.com/news/01KT0D3Q6T5CKBC3WP7V5PSA3G" },
+    { "name": "2026 Weekly Arena", "codePrefix": "26PR-WEEKLY", "releaseDate": null },
+    { "name": "프로모션 팩 2026 Vol. 1", "codePrefix": "26PR-VOL1", "releaseDate": null },
+    { "name": "2026 Raid Battle", "codePrefix": "26PR-RAID", "releaseDate": null },
+    { "name": "프로모션 팩 2026 Vol. 2", "codePrefix": "26PR-VOL2", "releaseDate": null },
+    { "name": "2026 개발진을 이겨라!", "codePrefix": "2026-DEVELOPERS", "releaseDate": null },
+    { "name": "2026 서포터즈", "codePrefix": "2026-SUPPORTERS", "releaseDate": null }
+  ],
+  "releases": [
+    { "collectionNumber": "26PR-001", "rarity": "SR", "cardCollectionNumber": "SD01-KR01", "packCode": "26PR-SNS" },
+    { "collectionNumber": "26PR-002", "rarity": "SR", "cardCollectionNumber": "SD01-KR05", "packCode": "26PR-KCCF" },
+    { "collectionNumber": "26PR-003", "rarity": "SR", "cardCollectionNumber": "SD01-KR09", "packCode": "26PR-KCCF" },
+    { "collectionNumber": "26PR-004", "rarity": "SR", "cardCollectionNumber": "SD01-KR23", "packCode": "26PR-WEEKLY" },
+    { "collectionNumber": "26PR-005", "rarity": "ASP", "cardCollectionNumber": "SD01-KR20", "packCode": "26PR-VOL1" },
+    { "collectionNumber": "26PR-006", "rarity": "SR", "cardCollectionNumber": "SD01-KR17", "packCode": "26PR-VOL1" },
+    { "collectionNumber": "26PR-007", "rarity": "N", "cardCollectionNumber": "SD01-KR15", "packCode": "26PR-VOL1" },
+    { "collectionNumber": "26PR-008", "rarity": "N", "cardCollectionNumber": "SD01-KR24", "packCode": "26PR-VOL1" },
+    { "collectionNumber": "26PR-009", "rarity": "N", "cardCollectionNumber": "SD01-KR13", "packCode": "26PR-VOL1" },
+    { "collectionNumber": "26PR-010", "rarity": "N", "cardCollectionNumber": "BP01-KR14", "packCode": "26PR-VOL1" },
+    { "collectionNumber": "26PR-012", "rarity": "UR", "cardCollectionNumber": "BP01-KR05", "packCode": "26PR-RAID" },
+    { "collectionNumber": "26PR-013", "rarity": "SR", "cardCollectionNumber": "SD01-KR14", "packCode": "26PR-RAID" },
+    { "collectionNumber": "26PR-014", "rarity": "SR", "cardCollectionNumber": "SD01-KR22", "packCode": "26PR-WEEKLY" },
+    { "collectionNumber": "26PR-015", "rarity": "ASP", "cardCollectionNumber": "BP01-KR54", "packCode": "26PR-VOL2" },
+    { "collectionNumber": "26PR-016", "rarity": "SR", "cardCollectionNumber": "BP01-KR16", "packCode": "26PR-VOL2" },
+    { "collectionNumber": "26PR-017", "rarity": "SR", "cardCollectionNumber": "BP01-KR39", "packCode": "26PR-VOL2" },
+    { "collectionNumber": "26PR-018", "rarity": "SR", "cardCollectionNumber": "BP02-KR54", "packCode": "26PR-VOL2" },
+    { "collectionNumber": "26PR-019", "rarity": "SR", "cardCollectionNumber": "BP02-KR41", "packCode": "26PR-VOL2" },
+    { "collectionNumber": "26PR-021", "rarity": "UR", "cardCollectionNumber": "BP02-KR01", "packCode": "26PR-RAID" },
+    { "collectionNumber": "SD01-KR02", "rarity": "SSP", "cardCollectionNumber": "SD01-KR02", "packCode": "2026-DEVELOPERS" },
+    { "collectionNumber": "SD01-KR03", "rarity": "SSP", "cardCollectionNumber": "SD01-KR03", "packCode": "2026-DEVELOPERS" },
+    { "collectionNumber": "SD01-KR06", "rarity": "SSP", "cardCollectionNumber": "SD01-KR06", "packCode": "2026-DEVELOPERS" },
+    { "collectionNumber": "SD01-KR07", "rarity": "SSP", "cardCollectionNumber": "SD01-KR07", "packCode": "2026-DEVELOPERS" },
+    { "collectionNumber": "SD01-KR10", "rarity": "SSP", "cardCollectionNumber": "SD01-KR10", "packCode": "2026-DEVELOPERS" },
+    { "collectionNumber": "SD01-KR12", "rarity": "SSP", "cardCollectionNumber": "SD01-KR12", "packCode": "2026-DEVELOPERS" },
+    { "collectionNumber": "SD01-KR14", "rarity": "ASP", "cardCollectionNumber": "SD01-KR14", "packCode": "2026-SUPPORTERS" }
+  ],
+  "excluded": [
+    { "collectionNumber": "26PR-011", "reason": "Power Tracker is an auxiliary card, not a playable ACTIVE card." },
+    { "collectionNumber": "26PR-020", "reason": "Power Tracker is an auxiliary card, not a playable ACTIVE card." }
+  ],
+  "pending": [
+    { "collectionNumber": "26PR-022", "reason": "The official detail has no release metadata." },
+    { "collectionNumber": "26PR-023", "reason": "The official detail has no release metadata." }
+  ]
+}

@@ -1,0 +1,4650 @@
+{
+  "source": "https://stackerbattle.com/card/",
+  "startedAt": "2026-10-05T10:39:24.589Z",
+  "outputDirectory": "C:\\Hinoto\\img\\stacker",
+  "prefix": "BP02",
+  "byPrefix": {
+    "BP02": 157
+  },
+  "targets": [
+    {
+      "cardId": "BP02-KR01",
+      "rarity": "ER",
+      "filename": "BP02-KR01-ER.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR01-ER.png"
+    },
+    {
+      "cardId": "BP02-KR01",
+      "rarity": "HI",
+      "filename": "BP02-KR01-HI.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR01-HI.png"
+    },
+    {
+      "cardId": "BP02-KR01",
+      "rarity": "MSP",
+      "filename": "BP02-KR01-MSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR01-MSP.png"
+    },
+    {
+      "cardId": "BP02-KR01",
+      "rarity": "SR",
+      "filename": "BP02-KR01-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR01-SR.png"
+    },
+    {
+      "cardId": "BP02-KR01",
+      "rarity": "UR",
+      "filename": "BP02-KR01-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR01-UR.png"
+    },
+    {
+      "cardId": "BP02-KR02",
+      "rarity": "SR",
+      "filename": "BP02-KR02-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR02-SR.png"
+    },
+    {
+      "cardId": "BP02-KR02",
+      "rarity": "SSP",
+      "filename": "BP02-KR02-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR02-SSP.png"
+    },
+    {
+      "cardId": "BP02-KR02",
+      "rarity": "UR",
+      "filename": "BP02-KR02-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR02-UR.png"
+    },
+    {
+      "cardId": "BP02-KR03",
+      "rarity": "SR",
+      "filename": "BP02-KR03-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR03-SR.png"
+    },
+    {
+      "cardId": "BP02-KR03",
+      "rarity": "SSP",
+      "filename": "BP02-KR03-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR03-SSP.png"
+    },
+    {
+      "cardId": "BP02-KR03",
+      "rarity": "UR",
+      "filename": "BP02-KR03-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR03-UR.png"
+    },
+    {
+      "cardId": "BP02-KR04",
+      "rarity": "SR",
+      "filename": "BP02-KR04-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR04-SR.png"
+    },
+    {
+      "cardId": "BP02-KR04",
+      "rarity": "SSP",
+      "filename": "BP02-KR04-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR04-SSP.png"
+    },
+    {
+      "cardId": "BP02-KR04",
+      "rarity": "UR",
+      "filename": "BP02-KR04-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR04-UR.png"
+    },
+    {
+      "cardId": "BP02-KR05",
+      "rarity": "ER",
+      "filename": "BP02-KR05-ER.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR05-ER.png"
+    },
+    {
+      "cardId": "BP02-KR05",
+      "rarity": "HI",
+      "filename": "BP02-KR05-HI.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR05-HI.png"
+    },
+    {
+      "cardId": "BP02-KR05",
+      "rarity": "MSP",
+      "filename": "BP02-KR05-MSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR05-MSP.png"
+    },
+    {
+      "cardId": "BP02-KR05",
+      "rarity": "SR",
+      "filename": "BP02-KR05-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR05-SR.png"
+    },
+    {
+      "cardId": "BP02-KR05",
+      "rarity": "UR",
+      "filename": "BP02-KR05-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR05-UR.png"
+    },
+    {
+      "cardId": "BP02-KR06",
+      "rarity": "SR",
+      "filename": "BP02-KR06-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR06-SR.png"
+    },
+    {
+      "cardId": "BP02-KR06",
+      "rarity": "SSP",
+      "filename": "BP02-KR06-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR06-SSP.png"
+    },
+    {
+      "cardId": "BP02-KR06",
+      "rarity": "UR",
+      "filename": "BP02-KR06-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR06-UR.png"
+    },
+    {
+      "cardId": "BP02-KR07",
+      "rarity": "SR",
+      "filename": "BP02-KR07-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR07-SR.png"
+    },
+    {
+      "cardId": "BP02-KR07",
+      "rarity": "SSP",
+      "filename": "BP02-KR07-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR07-SSP.png"
+    },
+    {
+      "cardId": "BP02-KR07",
+      "rarity": "UR",
+      "filename": "BP02-KR07-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR07-UR.png"
+    },
+    {
+      "cardId": "BP02-KR08",
+      "rarity": "SR",
+      "filename": "BP02-KR08-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR08-SR.png"
+    },
+    {
+      "cardId": "BP02-KR08",
+      "rarity": "SSP",
+      "filename": "BP02-KR08-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR08-SSP.png"
+    },
+    {
+      "cardId": "BP02-KR08",
+      "rarity": "UR",
+      "filename": "BP02-KR08-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR08-UR.png"
+    },
+    {
+      "cardId": "BP02-KR09",
+      "rarity": "ER",
+      "filename": "BP02-KR09-ER.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR09-ER.png"
+    },
+    {
+      "cardId": "BP02-KR09",
+      "rarity": "HI",
+      "filename": "BP02-KR09-HI.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR09-HI.png"
+    },
+    {
+      "cardId": "BP02-KR09",
+      "rarity": "MSP",
+      "filename": "BP02-KR09-MSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR09-MSP.png"
+    },
+    {
+      "cardId": "BP02-KR09",
+      "rarity": "SR",
+      "filename": "BP02-KR09-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR09-SR.png"
+    },
+    {
+      "cardId": "BP02-KR09",
+      "rarity": "UR",
+      "filename": "BP02-KR09-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR09-UR.png"
+    },
+    {
+      "cardId": "BP02-KR10",
+      "rarity": "SR",
+      "filename": "BP02-KR10-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR10-SR.png"
+    },
+    {
+      "cardId": "BP02-KR10",
+      "rarity": "SSP",
+      "filename": "BP02-KR10-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR10-SSP.png"
+    },
+    {
+      "cardId": "BP02-KR10",
+      "rarity": "UR",
+      "filename": "BP02-KR10-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR10-UR.png"
+    },
+    {
+      "cardId": "BP02-KR11",
+      "rarity": "SR",
+      "filename": "BP02-KR11-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR11-SR.png"
+    },
+    {
+      "cardId": "BP02-KR11",
+      "rarity": "SSP",
+      "filename": "BP02-KR11-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR11-SSP.png"
+    },
+    {
+      "cardId": "BP02-KR11",
+      "rarity": "UR",
+      "filename": "BP02-KR11-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR11-UR.png"
+    },
+    {
+      "cardId": "BP02-KR12",
+      "rarity": "SR",
+      "filename": "BP02-KR12-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR12-SR.png"
+    },
+    {
+      "cardId": "BP02-KR12",
+      "rarity": "SSP",
+      "filename": "BP02-KR12-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR12-SSP.png"
+    },
+    {
+      "cardId": "BP02-KR12",
+      "rarity": "UR",
+      "filename": "BP02-KR12-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR12-UR.png"
+    },
+    {
+      "cardId": "BP02-KR13",
+      "rarity": "N",
+      "filename": "BP02-KR13-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR13-N.png"
+    },
+    {
+      "cardId": "BP02-KR13",
+      "rarity": "R",
+      "filename": "BP02-KR13-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR13-R.png"
+    },
+    {
+      "cardId": "BP02-KR14",
+      "rarity": "N",
+      "filename": "BP02-KR14-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR14-N.png"
+    },
+    {
+      "cardId": "BP02-KR14",
+      "rarity": "R",
+      "filename": "BP02-KR14-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR14-R.png"
+    },
+    {
+      "cardId": "BP02-KR15",
+      "rarity": "N",
+      "filename": "BP02-KR15-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR15-N.png"
+    },
+    {
+      "cardId": "BP02-KR15",
+      "rarity": "R",
+      "filename": "BP02-KR15-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR15-R.png"
+    },
+    {
+      "cardId": "BP02-KR16",
+      "rarity": "ASP",
+      "filename": "BP02-KR16-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR16-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR16",
+      "rarity": "R",
+      "filename": "BP02-KR16-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR16-R.png"
+    },
+    {
+      "cardId": "BP02-KR16",
+      "rarity": "UR",
+      "filename": "BP02-KR16-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR16-UR.png"
+    },
+    {
+      "cardId": "BP02-KR17",
+      "rarity": "N",
+      "filename": "BP02-KR17-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR17-N.png"
+    },
+    {
+      "cardId": "BP02-KR17",
+      "rarity": "SR",
+      "filename": "BP02-KR17-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR17-SR.png"
+    },
+    {
+      "cardId": "BP02-KR18",
+      "rarity": "N",
+      "filename": "BP02-KR18-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR18-N.png"
+    },
+    {
+      "cardId": "BP02-KR18",
+      "rarity": "R",
+      "filename": "BP02-KR18-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR18-R.png"
+    },
+    {
+      "cardId": "BP02-KR19",
+      "rarity": "ASP",
+      "filename": "BP02-KR19-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR19-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR19",
+      "rarity": "R",
+      "filename": "BP02-KR19-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR19-R.png"
+    },
+    {
+      "cardId": "BP02-KR19",
+      "rarity": "UR",
+      "filename": "BP02-KR19-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR19-UR.png"
+    },
+    {
+      "cardId": "BP02-KR20",
+      "rarity": "N",
+      "filename": "BP02-KR20-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR20-N.png"
+    },
+    {
+      "cardId": "BP02-KR20",
+      "rarity": "SR",
+      "filename": "BP02-KR20-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR20-SR.png"
+    },
+    {
+      "cardId": "BP02-KR21",
+      "rarity": "N",
+      "filename": "BP02-KR21-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR21-N.png"
+    },
+    {
+      "cardId": "BP02-KR21",
+      "rarity": "SR",
+      "filename": "BP02-KR21-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR21-SR.png"
+    },
+    {
+      "cardId": "BP02-KR22",
+      "rarity": "N",
+      "filename": "BP02-KR22-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR22-N.png"
+    },
+    {
+      "cardId": "BP02-KR22",
+      "rarity": "SR",
+      "filename": "BP02-KR22-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR22-SR.png"
+    },
+    {
+      "cardId": "BP02-KR23",
+      "rarity": "ASP",
+      "filename": "BP02-KR23-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR23-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR23",
+      "rarity": "SR",
+      "filename": "BP02-KR23-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR23-SR.png"
+    },
+    {
+      "cardId": "BP02-KR23",
+      "rarity": "UR",
+      "filename": "BP02-KR23-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR23-UR.png"
+    },
+    {
+      "cardId": "BP02-KR24",
+      "rarity": "N",
+      "filename": "BP02-KR24-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR24-N.png"
+    },
+    {
+      "cardId": "BP02-KR24",
+      "rarity": "SR",
+      "filename": "BP02-KR24-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR24-SR.png"
+    },
+    {
+      "cardId": "BP02-KR25",
+      "rarity": "N",
+      "filename": "BP02-KR25-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR25-N.png"
+    },
+    {
+      "cardId": "BP02-KR25",
+      "rarity": "R",
+      "filename": "BP02-KR25-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR25-R.png"
+    },
+    {
+      "cardId": "BP02-KR26",
+      "rarity": "ASP",
+      "filename": "BP02-KR26-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR26-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR26",
+      "rarity": "R",
+      "filename": "BP02-KR26-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR26-R.png"
+    },
+    {
+      "cardId": "BP02-KR26",
+      "rarity": "UR",
+      "filename": "BP02-KR26-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR26-UR.png"
+    },
+    {
+      "cardId": "BP02-KR27",
+      "rarity": "N",
+      "filename": "BP02-KR27-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR27-N.png"
+    },
+    {
+      "cardId": "BP02-KR27",
+      "rarity": "R",
+      "filename": "BP02-KR27-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR27-R.png"
+    },
+    {
+      "cardId": "BP02-KR28",
+      "rarity": "ASP",
+      "filename": "BP02-KR28-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR28-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR28",
+      "rarity": "R",
+      "filename": "BP02-KR28-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR28-R.png"
+    },
+    {
+      "cardId": "BP02-KR28",
+      "rarity": "UR",
+      "filename": "BP02-KR28-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR28-UR.png"
+    },
+    {
+      "cardId": "BP02-KR29",
+      "rarity": "ASP",
+      "filename": "BP02-KR29-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR29-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR29",
+      "rarity": "R",
+      "filename": "BP02-KR29-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR29-R.png"
+    },
+    {
+      "cardId": "BP02-KR29",
+      "rarity": "UR",
+      "filename": "BP02-KR29-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR29-UR.png"
+    },
+    {
+      "cardId": "BP02-KR30",
+      "rarity": "N",
+      "filename": "BP02-KR30-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR30-N.png"
+    },
+    {
+      "cardId": "BP02-KR30",
+      "rarity": "R",
+      "filename": "BP02-KR30-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR30-R.png"
+    },
+    {
+      "cardId": "BP02-KR31",
+      "rarity": "ASP",
+      "filename": "BP02-KR31-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR31-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR31",
+      "rarity": "R",
+      "filename": "BP02-KR31-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR31-R.png"
+    },
+    {
+      "cardId": "BP02-KR31",
+      "rarity": "UR",
+      "filename": "BP02-KR31-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR31-UR.png"
+    },
+    {
+      "cardId": "BP02-KR32",
+      "rarity": "ASP",
+      "filename": "BP02-KR32-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR32-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR32",
+      "rarity": "R",
+      "filename": "BP02-KR32-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR32-R.png"
+    },
+    {
+      "cardId": "BP02-KR32",
+      "rarity": "UR",
+      "filename": "BP02-KR32-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR32-UR.png"
+    },
+    {
+      "cardId": "BP02-KR33",
+      "rarity": "ASP",
+      "filename": "BP02-KR33-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR33-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR33",
+      "rarity": "SR",
+      "filename": "BP02-KR33-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR33-SR.png"
+    },
+    {
+      "cardId": "BP02-KR33",
+      "rarity": "UR",
+      "filename": "BP02-KR33-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR33-UR.png"
+    },
+    {
+      "cardId": "BP02-KR34",
+      "rarity": "N",
+      "filename": "BP02-KR34-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR34-N.png"
+    },
+    {
+      "cardId": "BP02-KR34",
+      "rarity": "SR",
+      "filename": "BP02-KR34-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR34-SR.png"
+    },
+    {
+      "cardId": "BP02-KR35",
+      "rarity": "ASP",
+      "filename": "BP02-KR35-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR35-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR35",
+      "rarity": "R",
+      "filename": "BP02-KR35-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR35-R.png"
+    },
+    {
+      "cardId": "BP02-KR35",
+      "rarity": "UR",
+      "filename": "BP02-KR35-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR35-UR.png"
+    },
+    {
+      "cardId": "BP02-KR36",
+      "rarity": "N",
+      "filename": "BP02-KR36-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR36-N.png"
+    },
+    {
+      "cardId": "BP02-KR36",
+      "rarity": "SR",
+      "filename": "BP02-KR36-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR36-SR.png"
+    },
+    {
+      "cardId": "BP02-KR37",
+      "rarity": "N",
+      "filename": "BP02-KR37-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR37-N.png"
+    },
+    {
+      "cardId": "BP02-KR37",
+      "rarity": "SR",
+      "filename": "BP02-KR37-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR37-SR.png"
+    },
+    {
+      "cardId": "BP02-KR38",
+      "rarity": "N",
+      "filename": "BP02-KR38-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR38-N.png"
+    },
+    {
+      "cardId": "BP02-KR38",
+      "rarity": "R",
+      "filename": "BP02-KR38-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR38-R.png"
+    },
+    {
+      "cardId": "BP02-KR39",
+      "rarity": "N",
+      "filename": "BP02-KR39-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR39-N.png"
+    },
+    {
+      "cardId": "BP02-KR39",
+      "rarity": "R",
+      "filename": "BP02-KR39-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR39-R.png"
+    },
+    {
+      "cardId": "BP02-KR40",
+      "rarity": "ASP",
+      "filename": "BP02-KR40-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR40-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR40",
+      "rarity": "R",
+      "filename": "BP02-KR40-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR40-R.png"
+    },
+    {
+      "cardId": "BP02-KR40",
+      "rarity": "UR",
+      "filename": "BP02-KR40-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR40-UR.png"
+    },
+    {
+      "cardId": "BP02-KR41",
+      "rarity": "ASP",
+      "filename": "BP02-KR41-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR41-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR41",
+      "rarity": "R",
+      "filename": "BP02-KR41-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR41-R.png"
+    },
+    {
+      "cardId": "BP02-KR41",
+      "rarity": "UR",
+      "filename": "BP02-KR41-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR41-UR.png"
+    },
+    {
+      "cardId": "BP02-KR42",
+      "rarity": "N",
+      "filename": "BP02-KR42-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR42-N.png"
+    },
+    {
+      "cardId": "BP02-KR42",
+      "rarity": "R",
+      "filename": "BP02-KR42-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR42-R.png"
+    },
+    {
+      "cardId": "BP02-KR43",
+      "rarity": "N",
+      "filename": "BP02-KR43-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR43-N.png"
+    },
+    {
+      "cardId": "BP02-KR43",
+      "rarity": "R",
+      "filename": "BP02-KR43-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR43-R.png"
+    },
+    {
+      "cardId": "BP02-KR44",
+      "rarity": "ASP",
+      "filename": "BP02-KR44-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR44-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR44",
+      "rarity": "R",
+      "filename": "BP02-KR44-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR44-R.png"
+    },
+    {
+      "cardId": "BP02-KR44",
+      "rarity": "UR",
+      "filename": "BP02-KR44-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR44-UR.png"
+    },
+    {
+      "cardId": "BP02-KR45",
+      "rarity": "N",
+      "filename": "BP02-KR45-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR45-N.png"
+    },
+    {
+      "cardId": "BP02-KR45",
+      "rarity": "R",
+      "filename": "BP02-KR45-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR45-R.png"
+    },
+    {
+      "cardId": "BP02-KR46",
+      "rarity": "N",
+      "filename": "BP02-KR46-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR46-N.png"
+    },
+    {
+      "cardId": "BP02-KR46",
+      "rarity": "SR",
+      "filename": "BP02-KR46-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR46-SR.png"
+    },
+    {
+      "cardId": "BP02-KR47",
+      "rarity": "N",
+      "filename": "BP02-KR47-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR47-N.png"
+    },
+    {
+      "cardId": "BP02-KR47",
+      "rarity": "R",
+      "filename": "BP02-KR47-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR47-R.png"
+    },
+    {
+      "cardId": "BP02-KR48",
+      "rarity": "N",
+      "filename": "BP02-KR48-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR48-N.png"
+    },
+    {
+      "cardId": "BP02-KR48",
+      "rarity": "SR",
+      "filename": "BP02-KR48-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR48-SR.png"
+    },
+    {
+      "cardId": "BP02-KR49",
+      "rarity": "N",
+      "filename": "BP02-KR49-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR49-N.png"
+    },
+    {
+      "cardId": "BP02-KR49",
+      "rarity": "R",
+      "filename": "BP02-KR49-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR49-R.png"
+    },
+    {
+      "cardId": "BP02-KR50",
+      "rarity": "ASP",
+      "filename": "BP02-KR50-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR50-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR50",
+      "rarity": "SR",
+      "filename": "BP02-KR50-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR50-SR.png"
+    },
+    {
+      "cardId": "BP02-KR50",
+      "rarity": "UR",
+      "filename": "BP02-KR50-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR50-UR.png"
+    },
+    {
+      "cardId": "BP02-KR51",
+      "rarity": "N",
+      "filename": "BP02-KR51-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR51-N.png"
+    },
+    {
+      "cardId": "BP02-KR51",
+      "rarity": "SR",
+      "filename": "BP02-KR51-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR51-SR.png"
+    },
+    {
+      "cardId": "BP02-KR52",
+      "rarity": "N",
+      "filename": "BP02-KR52-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR52-N.png"
+    },
+    {
+      "cardId": "BP02-KR52",
+      "rarity": "SR",
+      "filename": "BP02-KR52-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR52-SR.png"
+    },
+    {
+      "cardId": "BP02-KR53",
+      "rarity": "N",
+      "filename": "BP02-KR53-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR53-N.png"
+    },
+    {
+      "cardId": "BP02-KR53",
+      "rarity": "R",
+      "filename": "BP02-KR53-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR53-R.png"
+    },
+    {
+      "cardId": "BP02-KR54",
+      "rarity": "ASP",
+      "filename": "BP02-KR54-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR54-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR54",
+      "rarity": "R",
+      "filename": "BP02-KR54-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR54-R.png"
+    },
+    {
+      "cardId": "BP02-KR54",
+      "rarity": "UR",
+      "filename": "BP02-KR54-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR54-UR.png"
+    },
+    {
+      "cardId": "BP02-KR55",
+      "rarity": "R",
+      "filename": "BP02-KR55-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR55-R.png"
+    },
+    {
+      "cardId": "BP02-KR55",
+      "rarity": "UR",
+      "filename": "BP02-KR55-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR55-UR.png"
+    },
+    {
+      "cardId": "BP02-KR56",
+      "rarity": "R",
+      "filename": "BP02-KR56-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR56-R.png"
+    },
+    {
+      "cardId": "BP02-KR56",
+      "rarity": "UR",
+      "filename": "BP02-KR56-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR56-UR.png"
+    },
+    {
+      "cardId": "BP02-KR57",
+      "rarity": "ASP",
+      "filename": "BP02-KR57-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR57-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR57",
+      "rarity": "R",
+      "filename": "BP02-KR57-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR57-R.png"
+    },
+    {
+      "cardId": "BP02-KR57",
+      "rarity": "UR",
+      "filename": "BP02-KR57-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR57-UR.png"
+    },
+    {
+      "cardId": "BP02-KR58",
+      "rarity": "ASP",
+      "filename": "BP02-KR58-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR58-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR58",
+      "rarity": "R",
+      "filename": "BP02-KR58-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR58-R.png"
+    },
+    {
+      "cardId": "BP02-KR58",
+      "rarity": "UR",
+      "filename": "BP02-KR58-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR58-UR.png"
+    },
+    {
+      "cardId": "BP02-KR59",
+      "rarity": "ASP",
+      "filename": "BP02-KR59-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR59-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR59",
+      "rarity": "R",
+      "filename": "BP02-KR59-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR59-R.png"
+    },
+    {
+      "cardId": "BP02-KR59",
+      "rarity": "UR",
+      "filename": "BP02-KR59-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR59-UR.png"
+    },
+    {
+      "cardId": "BP02-KR60",
+      "rarity": "ASP",
+      "filename": "BP02-KR60-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR60-ASP.png"
+    },
+    {
+      "cardId": "BP02-KR60",
+      "rarity": "R",
+      "filename": "BP02-KR60-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR60-R.png"
+    },
+    {
+      "cardId": "BP02-KR60",
+      "rarity": "UR",
+      "filename": "BP02-KR60-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR60-UR.png"
+    }
+  ],
+  "details": [
+    {
+      "card_id": "BP02-KR01",
+      "name": "구원의 탄환-카엔",
+      "rarity": "HI",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "MSP",
+            "ER",
+            "HI"
+          ]
+        }
+      ],
+      "stacker_type": "main",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR01-HI.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR01-HI.png",
+      "foil_layer": null,
+      "gold_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/gold/BP02-KR01-HI.png",
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR01-HI.png",
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": 2,
+      "main_cost": 1,
+      "main_effect": "자신 스택 존의 카드를 8장까지 트래시한다. 이 효과로 트래시한 카드의 수만큼 상대에게 대미지를 준다.",
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": null,
+      "active_effect": "자신 스택 존의 카드가 2장 이하일 때 발동할 수 있다. 자신 스택 존의 카드를 모두 트래시한다. 이 효과로 트래시한 카드의 수만큼 상대에게 대미지를 준다.",
+      "illustrator": "MAVAAM"
+    },
+    {
+      "card_id": "BP02-KR02",
+      "name": "실드 프로토콜",
+      "rarity": "SSP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "SSP"
+          ]
+        }
+      ],
+      "stacker_type": "sub",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR02-SSP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR02-SSP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR02-SSP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR02-SSP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR02-SSP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": 1,
+      "sub_effect": "다음 턴 상대 효과로 자신 스택 존의 카드를 트래시하지 않는다. 다음 자신의 턴 이 카드를 발동할 수 없다.",
+      "active_cost": 2,
+      "active_effect": "서로 서브 스태커 존의 앞면 서브 스태커를 모두 뒷면으로 뒤집는다.",
+      "illustrator": "MAVAAM"
+    },
+    {
+      "card_id": "BP02-KR03",
+      "name": "비장의 한 발",
+      "rarity": "SSP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "SSP"
+          ]
+        }
+      ],
+      "stacker_type": "sub",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR03-SSP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR03-SSP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR03-SSP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR03-SSP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR03-SSP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": 1,
+      "sub_effect": "상대의 덱 맨 아래 카드 1장을 트래시한다. 다음 자신의 턴 이 카드를 발동할 수 없다.",
+      "active_cost": 1,
+      "active_effect": "자신의 패에서 액티브 스태커 1장을 트래시한다. 상대 스택 존에서 같은 이름의 카드를 모두 트래시한다.",
+      "illustrator": "MAVAAM"
+    },
+    {
+      "card_id": "BP02-KR04",
+      "name": "장전 완료",
+      "rarity": "SSP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "SSP"
+          ]
+        }
+      ],
+      "stacker_type": "sub",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR04-SSP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR04-SSP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR04-SSP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR04-SSP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR04-SSP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": 1,
+      "sub_effect": "자신의 패에서 액티브 스태커 2장을 스택 존으로 보낸다. [비장의 한 발]에 기재된 발동 제한을 무시하고 [비장의 한 발]를 발동할 수 있다. 다음 자신의 턴, 이 카드를 발동할 수 없다.",
+      "active_cost": 1,
+      "active_effect": "자신의 패에서 액티브 스태커를 3장까지 선택하여 스택 존으로 보낸다.",
+      "illustrator": "MAVAAM"
+    },
+    {
+      "card_id": "BP02-KR05",
+      "name": "역사의 전승자-라사라",
+      "rarity": "HI",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "MSP",
+            "ER",
+            "HI"
+          ]
+        }
+      ],
+      "stacker_type": "main",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR05-HI.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR05-HI.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR05-HI.png",
+      "gold_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/gold/BP02-KR05-HI.png",
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR05-HI.png",
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": 2,
+      "main_cost": 4,
+      "main_effect": "상대의 패를 확인하고 서로 다른 이름의 카드를 2장까지 선택하여 트래시한다. 이 효과로 트래시하는 카드와 같은 이름의 카드가 이미 상대의 트래시 존에 있다면 상대에게 2 대미지를 준다.",
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 2,
+      "active_effect": "상대의 패를 확인하고 1장을 선택하여 트래시한다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR06",
+      "name": "끊어진 운명",
+      "rarity": "SSP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "SSP"
+          ]
+        }
+      ],
+      "stacker_type": "sub",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR06-SSP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR06-SSP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR06-SSP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR06-SSP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR06-SSP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": 2,
+      "sub_effect": "상대의 패 2장을 무작위로 상대의 덱 맨 아래로 보낸다. 상대는 1장 드로우한다",
+      "active_cost": 1,
+      "active_effect": "상대의 패 1장을 무작위로 트래시한다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR07",
+      "name": "태양의 무희",
+      "rarity": "SSP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "SSP"
+          ]
+        }
+      ],
+      "stacker_type": "sub",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR07-SSP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR07-SSP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR07-SSP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR07-SSP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR07-SSP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": 2,
+      "sub_effect": "서로는 패를 모두 덱에 넣고 셔플한다. 서로는 4장 드로우한다. 다음 자신의 턴 서브 효과를 사용할 수 없다.",
+      "active_cost": 2,
+      "active_effect": "자신의 덱이 10장 이하이고, 상대의 패가 자신보다 많을 때 발동할 수 있다. 다음 턴 종료 시까지 상대 메인 스태커의 파워를 상대 패의 수만큼 하락시킨다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR08",
+      "name": "제물의 서",
+      "rarity": "SSP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "SSP"
+          ]
+        }
+      ],
+      "stacker_type": "sub",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR08-SSP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR08-SSP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR08-SSP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR08-SSP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR08-SSP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": 1,
+      "sub_effect": "서로는 패 1장을 선택하여 트래시한다.",
+      "active_cost": 1,
+      "active_effect": "자신의 패 2장을 선택하여 스택 존으로 보낸다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR09",
+      "name": "황홀한 파멸-로타벨라",
+      "rarity": "HI",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "MSP",
+            "ER",
+            "HI"
+          ]
+        }
+      ],
+      "stacker_type": "main",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR09-HI.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR09-HI.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR09-HI.png",
+      "gold_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/gold/BP02-KR09-HI.png",
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR09-HI.png",
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": 2,
+      "main_cost": 4,
+      "main_effect": "이번 턴 자신이 드로우하는 카드의 수만큼 상대에게 최대 8까지 대미지를 준다. 다음 자신의 턴 이 카드를 발동할 수 없다.",
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 3,
+      "active_effect": "다음 턴 자신이 받는 효과 대미지만큼 상대에게 최대 8까지 대미지를 준다.",
+      "illustrator": "Flippy"
+    },
+    {
+      "card_id": "BP02-KR10",
+      "name": "마지막 속삭임",
+      "rarity": "SSP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "SSP"
+          ]
+        }
+      ],
+      "stacker_type": "sub",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR10-SSP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR10-SSP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR10-SSP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR10-SSP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR10-SSP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": 1,
+      "sub_effect": "다음 턴 상대는 이 카드와 같은 세로열에 있는 서브 스태커의 효과를 발동할 수 없다.",
+      "active_cost": 2,
+      "active_effect": "상대 서브 스태커 존의 앞면 서브 스태커 2장을 선택한다. 다음 턴 상대는 선택한 카드의 서브 효과를 발동할 수 없다.",
+      "illustrator": "Flippy"
+    },
+    {
+      "card_id": "BP02-KR11",
+      "name": "눈부신 매혹",
+      "rarity": "SSP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "SSP"
+          ]
+        }
+      ],
+      "stacker_type": "sub",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR11-SSP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR11-SSP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR11-SSP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR11-SSP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR11-SSP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": 1,
+      "sub_effect": "이전 턴 상대가 발동한 서브 효과의 수만큼 카드를 트래시 존 맨 위에서 스택 존으로 보낸다.",
+      "active_cost": 1,
+      "active_effect": "자신의 서브 스태커 존에 뒷면인 서브 스태커가 없을 때 발동할 수 있다. 상대의 스택 존 맨 위에서 카드 2장을 트래시한다. 다음 자신의 턴 드로우 페이즈를 스킵한다.",
+      "illustrator": "Flippy"
+    },
+    {
+      "card_id": "BP02-KR12",
+      "name": "라 도미나",
+      "rarity": "SSP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "SSP"
+          ]
+        }
+      ],
+      "stacker_type": "sub",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR12-SSP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR12-SSP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR12-SSP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR12-SSP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR12-SSP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": 1,
+      "sub_effect": "상대 서브 스태커 존의 뒷면 서브 스태커 1장을 선택한다. 다음 턴 스타트 페이즈에 상대는 선택된 서브 스태커만 앞면으로 돌릴 수 있다.",
+      "active_cost": 2,
+      "active_effect": "다음 턴 종료 시까지 서로 메인 스태커의 파워를 맞바꾼다. ",
+      "illustrator": "Flippy"
+    },
+    {
+      "card_id": "BP02-KR13",
+      "name": "강제된 겸손",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR13-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "이전 턴 상대가 발동한 모든 액티브 효과에 의한 파워 상승을 무효로 한다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR14",
+      "name": "가려진 성역",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR14-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "다음 턴 상대는 코스트로 스택을 최대 5장까지 트래시할 수 있다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR15",
+      "name": "시기와 축복 사이",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR15-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "다음 턴 종료 시까지, 서로 메인 스태커의 파워를 서로의 트래시 존에 있는 메인 스태커 수의 합만큼 하락시킨다.",
+      "illustrator": "FOXI"
+    },
+    {
+      "card_id": "BP02-KR16",
+      "name": "무심한 사냥꾼",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR16-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR16-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR16-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR16-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR16-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신은 카드 종류를 선언하고 상대의 패 1장을 확인한다. 맞으면 그 카드를 트래시한다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "illustrator": "Mil"
+    },
+    {
+      "card_id": "BP02-KR17",
+      "name": "리프레쉬",
+      "rarity": "SR",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "SR"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR17-SR.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR17-SR.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 패를 모두 덱에 넣고 셔플한다. 자신은 3장 드로우한다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR18",
+      "name": "다크 포지",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR18-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "서로는 스택 존 맨 위에서 카드 3장을 트래시한다.",
+      "illustrator": "jejoilja"
+    },
+    {
+      "card_id": "BP02-KR19",
+      "name": "무고의 주술",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR19-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR19-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR19-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR19-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR19-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 패가 3장 이하일 때 발동할 수 있다. 자신의 패를 모두 트래시하고 상대에게 2 대미지를 준다. 이번 턴 공격할 수 없다.",
+      "illustrator": "snacks00"
+    },
+    {
+      "card_id": "BP02-KR20",
+      "name": "사건의 지평선",
+      "rarity": "SR",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "SR"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR20-SR.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR20-SR.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 2,
+      "active_effect": "다음 턴 종료 시까지 자신 서브 스태커 존의 앞면 서브 스태커 1장당 상대 메인 스태커의 파워를 1 하락시킨다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR21",
+      "name": "재생의 보석",
+      "rarity": "SR",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "SR"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR21-SR.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR21-SR.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신 메인 스태커의 파워를 원래대로 되돌린다.",
+      "illustrator": "JIMALAND"
+    },
+    {
+      "card_id": "BP02-KR22",
+      "name": "커지는 마음",
+      "rarity": "SR",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "SR"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR22-SR.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR22-SR.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "다음 턴 종료 시까지 상대는 같은 이름의 카드를 한 번만 발동할 수 있다.",
+      "illustrator": "jejoilja"
+    },
+    {
+      "card_id": "BP02-KR23",
+      "name": "보이니치 마도서",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR23-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR23-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR23-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR23-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR23-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": null,
+      "active_effect": "자신의 덱에서 2 코스트 이상의 액티브 스태커 1장을 선택하여 스택 존에 두고 덱을 셔플한다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "illustrator": "yulmu"
+    },
+    {
+      "card_id": "BP02-KR24",
+      "name": "광휘의 분출",
+      "rarity": "SR",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "SR"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR24-SR.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR24-SR.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": null,
+      "active_effect": "자신의 패에서 액티브 스태커 1장을 선택하여 트래시한다. 다음 턴 상대는 같은 이름의 카드를 발동할 수 없다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "illustrator": "yulmu"
+    },
+    {
+      "card_id": "BP02-KR25",
+      "name": "봄날의 햇살",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR25-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 패가 1장일 때 발동할 수 있다. 자신은 2장 드로우한다",
+      "illustrator": "Blu"
+    },
+    {
+      "card_id": "BP02-KR26",
+      "name": "끈질긴 열쇠지기",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR26-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR26-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR26-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR26-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR26-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "이전 턴 상대에 의해 덱이 3장 이상 줄었을 때 발동할 수 있다. 자신의 덱에서 메인 스태커 1장을 선택하여 자신의 패에 추가하고 덱을 셔플한다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR27",
+      "name": "구조 요청",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR27-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "이번 턴 상대 효과에 의해 공격할 수 없을 때 발동할 수 있다. 자신 메인 스태커의 파워만큼 상대에게 대미지를 준다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "illustrator": "Flippy"
+    },
+    {
+      "card_id": "BP02-KR28",
+      "name": "공멸의 시간",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR28-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR28-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR28-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR28-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR28-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 패에서 액티브 스태커 1장을 선택하여 트래시한다. 서로의 덱을 확인하여 이 효과로 트래시한 카드와 같은 이름이 카드가 있을 경우, 그 카드를 모두 트래시하고 덱을 셔플한다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR29",
+      "name": "전술교란",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR29-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR29-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR29-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR29-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR29-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "상대 서브 스태커 존의 앞면 서브 스태커 1장을 뒷면으로 뒤집는다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR30",
+      "name": "태고의 모래장벽",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR30-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "서로 메인 스태커의 파워가 같을 때 발동할 수 있다. 다음 턴 종료 시까지 서로는 공격할 수 없다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR31",
+      "name": "수줍은 만남",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR31-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR31-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR31-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR31-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR31-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 패에 있는 서브 스태커 1장을 트래시한다. 자신의 트래시 존에서 액티브 스태커 1장을 선택하여 자신의 패에 추가한다. ",
+      "illustrator": "Mil"
+    },
+    {
+      "card_id": "BP02-KR32",
+      "name": "반항의 색채",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR32-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR32-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR32-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR32-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR32-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": null,
+      "active_effect": "자신의 덱이 상대보다 적을 때 발동할 수 있다. 자신의 덱 맨 위에서 카드 2장을 자신의 스택 존으로 보낸다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR33",
+      "name": "흔들리는 마음",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR33-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR33-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR33-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR33-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR33-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": null,
+      "active_effect": "이전 턴 상대가 공격했을 때 발동할 수 있다. 자신은 이번 턴 상대 메인 스태커의 파워만큼 드로우한다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "illustrator": "yulmu"
+    },
+    {
+      "card_id": "BP02-KR34",
+      "name": "점성술",
+      "rarity": "SR",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "SR"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR34-SR.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR34-SR.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": null,
+      "active_effect": "이 카드를 덱으로 되돌리고 셔플한다. 한 턴에 한 번, 이 카드가 상대에 의해 덱에서 트래시 되었을 때 이 카드를 스택 존 맨 위로 보낸다.",
+      "illustrator": "JIMALAND"
+    },
+    {
+      "card_id": "BP02-KR35",
+      "name": "독의 왈츠",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR35-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR35-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR35-ASP.png",
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR35-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 트래시 존 맨 위 카드 2장을 스택 존으로 보낸다. 자신의 스택 존에서 카드 2장을 선택하여 트래시한다.",
+      "illustrator": "Kangshi"
+    },
+    {
+      "card_id": "BP02-KR36",
+      "name": "단탈의 방문",
+      "rarity": "SR",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "SR"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR36-SR.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR36-SR.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 패가 1장일 때 발동할 수 있다. 상대에게 2 대미지를 준다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR37",
+      "name": "어딜 감히",
+      "rarity": "SR",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "SR"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR37-SR.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR37-SR.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": null,
+      "active_effect": "이전 턴 상대가 드로우 이외의 방법으로 카드를 패에 추가했을 때 발동할 수 있다. 상대의 패 1장을 무작위로 트래시한다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "illustrator": "MAVAAM"
+    },
+    {
+      "card_id": "BP02-KR38",
+      "name": "사멸의 개화",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR38-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 2,
+      "active_effect": "상대의 패 2장을 무작위로 트래시한다. 다음 턴 종료 시까지 자신 메인 스태커의 파워를 2 하락시킨다.",
+      "illustrator": "Blu"
+    },
+    {
+      "card_id": "BP02-KR39",
+      "name": "생체 강화",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR39-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "이번 턴 발동하지 않은 자신 서브 스태커 존의 앞면 서브 스태커 2장을 뒷면으로 뒤집는다. 상대 메인 스태커의 파워를 1 하락시킨다.",
+      "illustrator": "Flippy"
+    },
+    {
+      "card_id": "BP02-KR40",
+      "name": "VIP 테이블",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR40-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR40-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR40-ASP.png",
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR40-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 덱 맨 위에서 카드 3장을 보고 그 중 1장을 상대에게 보여주고 자신의 패에 추가한다. 나머지 2장은 자신의 덱 맨 아래로 보낸다.",
+      "illustrator": "snacks00"
+    },
+    {
+      "card_id": "BP02-KR41",
+      "name": "용의 관심",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR41-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR41-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR41-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR41-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR41-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "이번 턴 자신이 발동하는 메인 효과의 코스트를 이전 턴 상대가 효과로 드로우한 카드의 수만큼 감소시킨다. 이 카드는 게임 중 한 번만 발동할 수 있다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR42",
+      "name": "백합의 환영",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR42-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 트래시 존에서 이전 턴 배틀 대미지로 트래시 된 카드 중 1장을 선택하여 자신의 패에 추가한다. 추가한 카드와 같은 이름의 카드는 이번 턴 발동할 수 없다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR43",
+      "name": "데이터 구축",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR43-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 트래시 존에서 카드 1장을 선택하여 자신의 트래시 존 맨 위로 보낸다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR44",
+      "name": "실렌투스 경비병",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR44-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR44-ASP.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR44-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR44-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 패에서 코스트가 1 이상인 액티브 스태커 1장을 트래시한다. 자신의 덱에서 이 효과로 트래시한 카드와 같은 코스트의 액티브 스태커 1장을 패에 추가하고 덱을 셔플한다.",
+      "illustrator": "MAVAAM"
+    },
+    {
+      "card_id": "BP02-KR45",
+      "name": "양의 최면",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR45-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 2,
+      "active_effect": "다음 자신의 턴 종료 시까지 자신은 상대 효과로 드로우하지 않는다.",
+      "illustrator": "Blu"
+    },
+    {
+      "card_id": "BP02-KR46",
+      "name": "융해된 심연",
+      "rarity": "SR",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "SR"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR46-SR.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR46-SR.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "상대의 스택이 4장 이상일 때 발동할 수 있다. 상대의 스택 존 맨 위에서 카드 2장을 트래시한다.",
+      "illustrator": "Flippy"
+    },
+    {
+      "card_id": "BP02-KR47",
+      "name": "귀화의 관문",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR47-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 덱 맨 위에서 카드 3장을 보고 그 중 1장을 선택하여 자신의 패에 추가한다. 이번 턴 자신은 카드의 효과로 드로우할 수 없다.",
+      "illustrator": "yulmu"
+    },
+    {
+      "card_id": "BP02-KR48",
+      "name": "실추된 명예",
+      "rarity": "SR",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "SR"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR48-SR.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR48-SR.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "상대는 1장 드로우한다. 상대는 자신의 트래시 존에 있는 [실추된 명예]의 수만큼 추가로 드로우한다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "illustrator": "snacks00"
+    },
+    {
+      "card_id": "BP02-KR49",
+      "name": "기워진 마음",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR49-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 트래시 존에 같은 이름의 액티브 스태커가 3장 있을 때 발동할 수 있다. 그 중 1장을 선택하여 자신의 패에 추가한다.",
+      "illustrator": "pippen"
+    },
+    {
+      "card_id": "BP02-KR50",
+      "name": "명계의 늪",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "SR",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR50-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR50-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR50-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR50-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR50-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 패에서 서브 스태커 1장을 트래시한다. 자신의 트래시 존에서 코스트가 0인 액티브 스태커 2장을 선택하여 자신의 패에 추가한다.",
+      "illustrator": "pippen"
+    },
+    {
+      "card_id": "BP02-KR51",
+      "name": "감정 과부하",
+      "rarity": "SR",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "SR"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR51-SR.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR51-SR.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신 메인 스태커의 파워를 0으로 만든다. 이 효과로 감소한 파워 수치만큼 자신 트래시 존 맨 위의 카드를 자신의 덱 맨 아래로 보낸다.",
+      "illustrator": "snacks00"
+    },
+    {
+      "card_id": "BP02-KR52",
+      "name": "트레이닝 데이",
+      "rarity": "SR",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "SR"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR52-SR.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR52-SR.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신 메인 스태커의 파워가 0일 때 발동할 수 있다. 이번 턴 자신 메인 스태커의 파워를 3 상승시킨다.",
+      "illustrator": "snacks00"
+    },
+    {
+      "card_id": "BP02-KR53",
+      "name": "나비 위령제",
+      "rarity": "R",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR53-R.png",
+      "holo_layer": null,
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": null,
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 2,
+      "active_effect": "상대의 덱 맨 위에서 카드 5장을 보고 원하는 순서대로 덱 위 또는 아래로 모두 되돌린다.",
+      "illustrator": "Blu"
+    },
+    {
+      "card_id": "BP02-KR54",
+      "name": "이나리의 미소",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR54-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR54-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR54-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR54-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR54-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "서로의 트래시 존 맨 위에서 카드 2장을 덱 맨 아래로 보낸다. 다음 턴 종료 시까지 서로는 공격할 수 없다.",
+      "illustrator": "yulmu"
+    },
+    {
+      "card_id": "BP02-KR55",
+      "name": "심연의 족쇄",
+      "rarity": "UR",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR55-UR.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR55-UR.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR55-UR.png",
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 메인 스태커가 란일 때 발동할 수 있다. 이전 턴 상대가 드로우 이외의 방법으로 패에 추가한 카드의 수만큼 상대에게 대미지를 준다.",
+      "illustrator": "Flippy"
+    },
+    {
+      "card_id": "BP02-KR56",
+      "name": "유성의 눈동자",
+      "rarity": "UR",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR56-UR.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR56-UR.png",
+      "foil_layer": null,
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR56-UR.png",
+      "holo_lami_layer": null,
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 메인 스태커가 아스트라일 때 발동할 수 있다. 상대의 트래시 존에서 메인 스태커를 2장까지 상대의 패에 추가한다. 이번 턴 종료 시까지 이 효과로 추가한 카드의 수만큼 자신 메인 스태커의 파워를 상승시킨다.",
+      "illustrator": "snacks00"
+    },
+    {
+      "card_id": "BP02-KR57",
+      "name": "상실의 꽃잎",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR57-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR57-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR57-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR57-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR57-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": null,
+      "active_effect": "자신의 메인 스태커가 아넬리아일 때 발동할 수 있다. 이 카드를 스택 존 맨 아래로 보내고 아래의 효과를 적용한다. 이 카드가 4 이상의 코스트로 사용될 때, 2 스택으로 취급할 수 있다. ",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR58",
+      "name": "프로토콜 : 나노 리페어",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR58-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR58-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR58-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR58-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR58-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 메인 스태커가 카엔일 때 발동할 수 있다. 자신의 패에 있는 메인 스태커 1장을 트래시한다. 자신 트래시 존의 맨 위에서 카드 3장을 스택 존으로 보낸다.",
+      "illustrator": "MAVAAM"
+    },
+    {
+      "card_id": "BP02-KR59",
+      "name": "역사의 알현실",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR59-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR59-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR59-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR59-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR59-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 2,
+      "active_effect": "자신의 메인 스태커가 라사라일 때 발동할 수 있다. 상대는 패가 4장이 되도록 드로우한다. 상대는 이 효과로 드로우한 카드의 수만큼 대미지를 받는다.",
+      "illustrator": "ANIZI"
+    },
+    {
+      "card_id": "BP02-KR60",
+      "name": "죽음의 연꽃",
+      "rarity": "ASP",
+      "releases": [
+        {
+          "release_name": "BP-02 디 아키텍트",
+          "description": "부스터 2탄입니다.",
+          "rarities": [
+            "R",
+            "UR",
+            "ASP"
+          ]
+        }
+      ],
+      "stacker_type": "active",
+      "description": null,
+      "face_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR60-ASP.png",
+      "holo_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo/BP02-KR60-ASP.png",
+      "foil_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/foil/BP02-KR60-ASP.png",
+      "gold_layer": null,
+      "lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/lami/BP02-KR60-ASP.png",
+      "holo_lami_layer": "https://d2pib0jdcv060g.cloudfront.net/cards/holo_lami/BP02-KR60-ASP.png",
+      "pattern_lami_layer": null,
+      "main_power": null,
+      "main_cost": null,
+      "main_effect": null,
+      "sub_cost": null,
+      "sub_effect": null,
+      "active_cost": 1,
+      "active_effect": "자신의 메인 스태커가 로타벨라일 때 발동할 수 있다. 자신 서브 스태커 존의 앞면 서브 스태커를 3장까지 뒷면으로 뒤집는다. 자신은 이 효과로 뒤집은 카드의 수만큼 드로우한다.",
+      "illustrator": "Flippy"
+    }
+  ],
+  "results": [
+    {
+      "cardId": "BP02-KR01",
+      "rarity": "ER",
+      "filename": "BP02-KR01-ER.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR01-ER.png",
+      "status": "downloaded",
+      "bytes": 802264,
+      "width": 800,
+      "height": 1117,
+      "sha256": "5c423d9819ab75edfe0928ff53097c3351337db0c6fa5b05aa9aecd7f8ccc39f"
+    },
+    {
+      "cardId": "BP02-KR01",
+      "rarity": "HI",
+      "filename": "BP02-KR01-HI.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR01-HI.png",
+      "status": "downloaded",
+      "bytes": 428244,
+      "width": 800,
+      "height": 1117,
+      "sha256": "24396e37309ab8464cbcdcb2342e629a015a362ea084a8b443eb02bc31808b4c"
+    },
+    {
+      "cardId": "BP02-KR01",
+      "rarity": "MSP",
+      "filename": "BP02-KR01-MSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR01-MSP.png",
+      "status": "downloaded",
+      "bytes": 1259871,
+      "width": 800,
+      "height": 1117,
+      "sha256": "029e48e82651247599ed61729b5cff079cc5a2d496a9e34f293e49175ff193b7"
+    },
+    {
+      "cardId": "BP02-KR01",
+      "rarity": "SR",
+      "filename": "BP02-KR01-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR01-SR.png",
+      "status": "downloaded",
+      "bytes": 994226,
+      "width": 800,
+      "height": 1117,
+      "sha256": "1503991decd568e9425ac97aa9b220ea3be37091a63ec773821265678384c00d"
+    },
+    {
+      "cardId": "BP02-KR01",
+      "rarity": "UR",
+      "filename": "BP02-KR01-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR01-UR.png",
+      "status": "downloaded",
+      "bytes": 1165818,
+      "width": 800,
+      "height": 1117,
+      "sha256": "85250b7e1f6f09aa9934a9db7de4c268c6c1734491a3e0fea4b1a3a5d3db88d4"
+    },
+    {
+      "cardId": "BP02-KR02",
+      "rarity": "SR",
+      "filename": "BP02-KR02-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR02-SR.png",
+      "status": "downloaded",
+      "bytes": 1019360,
+      "width": 800,
+      "height": 1117,
+      "sha256": "39a291e010b1877e8080ee902cf3ae6fc59be2adb34715d1d1c4cffedd4135f8"
+    },
+    {
+      "cardId": "BP02-KR02",
+      "rarity": "SSP",
+      "filename": "BP02-KR02-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR02-SSP.png",
+      "status": "downloaded",
+      "bytes": 1273756,
+      "width": 800,
+      "height": 1117,
+      "sha256": "2e93ca19ec7dfe2de101fe284a1aee59d81cd132be5b561bb71451743a041d99"
+    },
+    {
+      "cardId": "BP02-KR02",
+      "rarity": "UR",
+      "filename": "BP02-KR02-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR02-UR.png",
+      "status": "downloaded",
+      "bytes": 1173029,
+      "width": 800,
+      "height": 1117,
+      "sha256": "d8111e24aa2739c8d2fad2dc278e8747db80028a38525747a01d91db509d1b0a"
+    },
+    {
+      "cardId": "BP02-KR03",
+      "rarity": "SR",
+      "filename": "BP02-KR03-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR03-SR.png",
+      "status": "downloaded",
+      "bytes": 1146241,
+      "width": 800,
+      "height": 1117,
+      "sha256": "4f74fed31b4f4cacb9f0b6df79f0643dba4df4d8e3363eca84c925408970536b"
+    },
+    {
+      "cardId": "BP02-KR03",
+      "rarity": "SSP",
+      "filename": "BP02-KR03-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR03-SSP.png",
+      "status": "downloaded",
+      "bytes": 1423562,
+      "width": 800,
+      "height": 1117,
+      "sha256": "a0ac56d97304e95ec421575176c523f83d445fceab7acdaf80e5ea07a6b6c6a0"
+    },
+    {
+      "cardId": "BP02-KR03",
+      "rarity": "UR",
+      "filename": "BP02-KR03-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR03-UR.png",
+      "status": "downloaded",
+      "bytes": 1334263,
+      "width": 800,
+      "height": 1117,
+      "sha256": "1085d0b7cc53a82ddfba27570e0d5391a9bb66f6b341ae8b52b3dec17e3c9d96"
+    },
+    {
+      "cardId": "BP02-KR04",
+      "rarity": "SR",
+      "filename": "BP02-KR04-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR04-SR.png",
+      "status": "downloaded",
+      "bytes": 1132761,
+      "width": 800,
+      "height": 1117,
+      "sha256": "2ad061ec7397d213b0db58a25965f76a964259925fe784c5ad13410a0393504e"
+    },
+    {
+      "cardId": "BP02-KR04",
+      "rarity": "SSP",
+      "filename": "BP02-KR04-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR04-SSP.png",
+      "status": "downloaded",
+      "bytes": 1415190,
+      "width": 800,
+      "height": 1117,
+      "sha256": "4b5a57f24ce9b23a734028764022b3f024708f2f12ee4d511d8e3f4c70830cca"
+    },
+    {
+      "cardId": "BP02-KR04",
+      "rarity": "UR",
+      "filename": "BP02-KR04-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR04-UR.png",
+      "status": "downloaded",
+      "bytes": 1343004,
+      "width": 800,
+      "height": 1117,
+      "sha256": "59812dc816ce794509f31ecbc2c979580e21592266f8803fd89d6078da7c4064"
+    },
+    {
+      "cardId": "BP02-KR05",
+      "rarity": "ER",
+      "filename": "BP02-KR05-ER.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR05-ER.png",
+      "status": "downloaded",
+      "bytes": 973157,
+      "width": 800,
+      "height": 1117,
+      "sha256": "3f1fccc4742460ebf510de83d3ba702005a697354d04c38a73165b96db93cc2b"
+    },
+    {
+      "cardId": "BP02-KR05",
+      "rarity": "HI",
+      "filename": "BP02-KR05-HI.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR05-HI.png",
+      "status": "downloaded",
+      "bytes": 486463,
+      "width": 800,
+      "height": 1117,
+      "sha256": "46f92ed7d34336c0babe87216d49707bdb26c9c85b2b1a32323b2d78b54b9398"
+    },
+    {
+      "cardId": "BP02-KR05",
+      "rarity": "MSP",
+      "filename": "BP02-KR05-MSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR05-MSP.png",
+      "status": "downloaded",
+      "bytes": 1380384,
+      "width": 800,
+      "height": 1117,
+      "sha256": "b43eb7f9e5c64f5f9cd355677a29beb366ec73c1369a71fd3833798ea6fc8c7f"
+    },
+    {
+      "cardId": "BP02-KR05",
+      "rarity": "SR",
+      "filename": "BP02-KR05-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR05-SR.png",
+      "status": "downloaded",
+      "bytes": 1098923,
+      "width": 800,
+      "height": 1117,
+      "sha256": "a8c4396b0d26a9cfc0f68db2d578d71e7c833e58d7df3307381767421035dbc6"
+    },
+    {
+      "cardId": "BP02-KR05",
+      "rarity": "UR",
+      "filename": "BP02-KR05-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR05-UR.png",
+      "status": "downloaded",
+      "bytes": 1297216,
+      "width": 800,
+      "height": 1117,
+      "sha256": "cb1d0bd56d88effed38d2dcad161e60354b44487111bb1bbc3c93f9048e9134f"
+    },
+    {
+      "cardId": "BP02-KR06",
+      "rarity": "SR",
+      "filename": "BP02-KR06-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR06-SR.png",
+      "status": "downloaded",
+      "bytes": 1040898,
+      "width": 800,
+      "height": 1117,
+      "sha256": "e74d02c3e2e8c3c19117e6528cf6c3a5612926deffd029a8545784a59f949064"
+    },
+    {
+      "cardId": "BP02-KR06",
+      "rarity": "SSP",
+      "filename": "BP02-KR06-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR06-SSP.png",
+      "status": "downloaded",
+      "bytes": 1357625,
+      "width": 800,
+      "height": 1117,
+      "sha256": "c5b40bd010f1a5fccc5c23b37e9f715b07fd8988a728ff35bc99fb2a35bc575d"
+    },
+    {
+      "cardId": "BP02-KR06",
+      "rarity": "UR",
+      "filename": "BP02-KR06-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR06-UR.png",
+      "status": "downloaded",
+      "bytes": 1244119,
+      "width": 800,
+      "height": 1117,
+      "sha256": "a77d04e969024d1bc36b75d9564ed43e15d7212231e39ab7d8e9c5a8f0f05d40"
+    },
+    {
+      "cardId": "BP02-KR07",
+      "rarity": "SR",
+      "filename": "BP02-KR07-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR07-SR.png",
+      "status": "downloaded",
+      "bytes": 901292,
+      "width": 800,
+      "height": 1117,
+      "sha256": "e048d7eb47f8b392a96c0046b79a93b2451013d662277bdd5a3a628880be0fa7"
+    },
+    {
+      "cardId": "BP02-KR07",
+      "rarity": "SSP",
+      "filename": "BP02-KR07-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR07-SSP.png",
+      "status": "downloaded",
+      "bytes": 1143352,
+      "width": 800,
+      "height": 1117,
+      "sha256": "2ef00502f720799582aa2ea07efa7e00436272deca827fc1063e7902f12891f3"
+    },
+    {
+      "cardId": "BP02-KR07",
+      "rarity": "UR",
+      "filename": "BP02-KR07-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR07-UR.png",
+      "status": "downloaded",
+      "bytes": 1071571,
+      "width": 800,
+      "height": 1117,
+      "sha256": "b5b2f196d0d9a4f1d517cef7bffe8a0b5bf8f4fd977e4e6e8657804ce2967e69"
+    },
+    {
+      "cardId": "BP02-KR08",
+      "rarity": "SR",
+      "filename": "BP02-KR08-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR08-SR.png",
+      "status": "downloaded",
+      "bytes": 898600,
+      "width": 800,
+      "height": 1117,
+      "sha256": "26a6673fafc9d0bd8b416c9cf094a137dbe5944f74adfc99a9f2327b86dc9eab"
+    },
+    {
+      "cardId": "BP02-KR08",
+      "rarity": "SSP",
+      "filename": "BP02-KR08-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR08-SSP.png",
+      "status": "downloaded",
+      "bytes": 1142935,
+      "width": 800,
+      "height": 1117,
+      "sha256": "e8f510ebfc87a571b8f1afd58f72246d7eb33fda91b80e131aa1f6c3b9c2871f"
+    },
+    {
+      "cardId": "BP02-KR08",
+      "rarity": "UR",
+      "filename": "BP02-KR08-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR08-UR.png",
+      "status": "downloaded",
+      "bytes": 1053586,
+      "width": 800,
+      "height": 1117,
+      "sha256": "72c794afb62efd0650b19b82468fe27020cca2f7747c29406cba9bb067c277d7"
+    },
+    {
+      "cardId": "BP02-KR09",
+      "rarity": "ER",
+      "filename": "BP02-KR09-ER.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR09-ER.png",
+      "status": "downloaded",
+      "bytes": 1068543,
+      "width": 800,
+      "height": 1117,
+      "sha256": "e268156b1e487cb231af56b6e98439bf102d0b2057fe672320d1d0d5196b5526"
+    },
+    {
+      "cardId": "BP02-KR09",
+      "rarity": "HI",
+      "filename": "BP02-KR09-HI.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR09-HI.png",
+      "status": "downloaded",
+      "bytes": 591689,
+      "width": 800,
+      "height": 1117,
+      "sha256": "784b393b6f4f6f4beeab7505309717c95e43368db9c74e3c33f502d3e87a8065"
+    },
+    {
+      "cardId": "BP02-KR09",
+      "rarity": "MSP",
+      "filename": "BP02-KR09-MSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR09-MSP.png",
+      "status": "downloaded",
+      "bytes": 1643282,
+      "width": 800,
+      "height": 1117,
+      "sha256": "5473ec6258c916f3e9c944876136d0227873d2f4632f835ce06cff48d5167896"
+    },
+    {
+      "cardId": "BP02-KR09",
+      "rarity": "SR",
+      "filename": "BP02-KR09-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR09-SR.png",
+      "status": "downloaded",
+      "bytes": 1285593,
+      "width": 800,
+      "height": 1117,
+      "sha256": "a7ee218f5412696173cd45a22c15750dbec21edc1aa8482cfa2776e547801252"
+    },
+    {
+      "cardId": "BP02-KR09",
+      "rarity": "UR",
+      "filename": "BP02-KR09-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR09-UR.png",
+      "status": "downloaded",
+      "bytes": 1555275,
+      "width": 800,
+      "height": 1117,
+      "sha256": "f1332928f8b57c991f7d95cf69eccb6be90e021819f324227421f7bc42b4bc51"
+    },
+    {
+      "cardId": "BP02-KR10",
+      "rarity": "SR",
+      "filename": "BP02-KR10-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR10-SR.png",
+      "status": "downloaded",
+      "bytes": 1221360,
+      "width": 800,
+      "height": 1117,
+      "sha256": "5e7ccd59d93af343a373ddae75743df9150b3ae97f5a565889252076f9906408"
+    },
+    {
+      "cardId": "BP02-KR10",
+      "rarity": "SSP",
+      "filename": "BP02-KR10-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR10-SSP.png",
+      "status": "downloaded",
+      "bytes": 1545701,
+      "width": 800,
+      "height": 1117,
+      "sha256": "fb917adb499a975cddcdcf22260cdc2c8316829602844868b83e0552d51bef1d"
+    },
+    {
+      "cardId": "BP02-KR10",
+      "rarity": "UR",
+      "filename": "BP02-KR10-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR10-UR.png",
+      "status": "downloaded",
+      "bytes": 1469194,
+      "width": 800,
+      "height": 1117,
+      "sha256": "46786c7f7a1d6b4ee160e3fd078350bc2ff6bee54676787fb5d64d7db0d7ef39"
+    },
+    {
+      "cardId": "BP02-KR11",
+      "rarity": "SR",
+      "filename": "BP02-KR11-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR11-SR.png",
+      "status": "downloaded",
+      "bytes": 1250597,
+      "width": 800,
+      "height": 1117,
+      "sha256": "2a7153f9c8fd0cf80142ff478e3efd42d34dc4edc5fd31e69688233819015180"
+    },
+    {
+      "cardId": "BP02-KR11",
+      "rarity": "SSP",
+      "filename": "BP02-KR11-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR11-SSP.png",
+      "status": "downloaded",
+      "bytes": 1542082,
+      "width": 800,
+      "height": 1117,
+      "sha256": "9298e540ad969b1296399577ca4ca24ac5a750fec945400455d569b5576f0bcc"
+    },
+    {
+      "cardId": "BP02-KR11",
+      "rarity": "UR",
+      "filename": "BP02-KR11-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR11-UR.png",
+      "status": "downloaded",
+      "bytes": 1470440,
+      "width": 800,
+      "height": 1117,
+      "sha256": "8d85c08eb5418452b3195d0c4bc3ae9faefb144d36a482cbc1d8b2cbe8812350"
+    },
+    {
+      "cardId": "BP02-KR12",
+      "rarity": "SR",
+      "filename": "BP02-KR12-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR12-SR.png",
+      "status": "downloaded",
+      "bytes": 1171625,
+      "width": 800,
+      "height": 1117,
+      "sha256": "71b45c1d2dba182ebc630e0a0ab8f9e8c154bc00afbdac0eb106bdb79b859693"
+    },
+    {
+      "cardId": "BP02-KR12",
+      "rarity": "SSP",
+      "filename": "BP02-KR12-SSP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR12-SSP.png",
+      "status": "downloaded",
+      "bytes": 1482095,
+      "width": 800,
+      "height": 1117,
+      "sha256": "91dbae7e080fa030a78f2b186140d4ed7f8ba00d4c74f260319a39d9f1f22a26"
+    },
+    {
+      "cardId": "BP02-KR12",
+      "rarity": "UR",
+      "filename": "BP02-KR12-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR12-UR.png",
+      "status": "downloaded",
+      "bytes": 1384017,
+      "width": 800,
+      "height": 1117,
+      "sha256": "6d75a0818494d61bd9c5560530a060d296189538f8cf201793fc66189d5c4e5c"
+    },
+    {
+      "cardId": "BP02-KR13",
+      "rarity": "N",
+      "filename": "BP02-KR13-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR13-N.png",
+      "status": "downloaded",
+      "bytes": 913937,
+      "width": 800,
+      "height": 1117,
+      "sha256": "03c43210dc8cd3f7cd87e93f41d16d8b9a1eb1123a76e97bbbffc74b8aa1ecd1"
+    },
+    {
+      "cardId": "BP02-KR13",
+      "rarity": "R",
+      "filename": "BP02-KR13-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR13-R.png",
+      "status": "downloaded",
+      "bytes": 914045,
+      "width": 800,
+      "height": 1117,
+      "sha256": "f73c7f5dc91525b04d94835886a028d4b4e5e1d72e7d9c1e1589f12d89693c4e"
+    },
+    {
+      "cardId": "BP02-KR14",
+      "rarity": "N",
+      "filename": "BP02-KR14-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR14-N.png",
+      "status": "downloaded",
+      "bytes": 570251,
+      "width": 800,
+      "height": 1117,
+      "sha256": "c670929aa0027a2039ec69fdb61f1a2059233965f216f5b4156c84d464de9cfc"
+    },
+    {
+      "cardId": "BP02-KR14",
+      "rarity": "R",
+      "filename": "BP02-KR14-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR14-R.png",
+      "status": "downloaded",
+      "bytes": 570213,
+      "width": 800,
+      "height": 1117,
+      "sha256": "1f984bb3cbf9bbe22365f007bfe977608e66a7f76c1ece1864d160962552796f"
+    },
+    {
+      "cardId": "BP02-KR15",
+      "rarity": "N",
+      "filename": "BP02-KR15-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR15-N.png",
+      "status": "downloaded",
+      "bytes": 777908,
+      "width": 800,
+      "height": 1117,
+      "sha256": "339f732c26d700965289ded2c0bf036aa3d622da9fe2cdf9df641934d86adb3c"
+    },
+    {
+      "cardId": "BP02-KR15",
+      "rarity": "R",
+      "filename": "BP02-KR15-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR15-R.png",
+      "status": "downloaded",
+      "bytes": 777704,
+      "width": 800,
+      "height": 1117,
+      "sha256": "24c18af11a043aabafbda5852b707c257da5911d88fd38cd37f49093af301a89"
+    },
+    {
+      "cardId": "BP02-KR16",
+      "rarity": "ASP",
+      "filename": "BP02-KR16-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR16-ASP.png",
+      "status": "downloaded",
+      "bytes": 1658132,
+      "width": 800,
+      "height": 1117,
+      "sha256": "1ddefb71f851d5b6b34447f3423f4b2bedba4bd06d6ce1c16d3c93f8c9c6c69a"
+    },
+    {
+      "cardId": "BP02-KR16",
+      "rarity": "R",
+      "filename": "BP02-KR16-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR16-R.png",
+      "status": "downloaded",
+      "bytes": 1270115,
+      "width": 800,
+      "height": 1117,
+      "sha256": "760c6db284405c700ca6875d9f8e0c80793c5cc981d0c4225e29224ffb40640d"
+    },
+    {
+      "cardId": "BP02-KR16",
+      "rarity": "UR",
+      "filename": "BP02-KR16-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR16-UR.png",
+      "status": "downloaded",
+      "bytes": 1615355,
+      "width": 800,
+      "height": 1117,
+      "sha256": "cd6073decacb9bffb6888d2a67845b6297edc00fcec985346ec1e2080b735f5e"
+    },
+    {
+      "cardId": "BP02-KR17",
+      "rarity": "N",
+      "filename": "BP02-KR17-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR17-N.png",
+      "status": "downloaded",
+      "bytes": 788986,
+      "width": 800,
+      "height": 1117,
+      "sha256": "4765e61ae5f6c8d89871d1757b4fc91b9ca1b8b6e14040a7e52cb0d96ba5dd14"
+    },
+    {
+      "cardId": "BP02-KR17",
+      "rarity": "SR",
+      "filename": "BP02-KR17-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR17-SR.png",
+      "status": "downloaded",
+      "bytes": 824862,
+      "width": 800,
+      "height": 1117,
+      "sha256": "57cfc598893550d0b116082a0689d479835bd615ded3dab5d2ba05451ff7ff5c"
+    },
+    {
+      "cardId": "BP02-KR18",
+      "rarity": "N",
+      "filename": "BP02-KR18-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR18-N.png",
+      "status": "downloaded",
+      "bytes": 890463,
+      "width": 800,
+      "height": 1117,
+      "sha256": "ad98a135a359d33a9eaa8efc22bcd966c9f48f9677de8cabea7da072f9ac5d62"
+    },
+    {
+      "cardId": "BP02-KR18",
+      "rarity": "R",
+      "filename": "BP02-KR18-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR18-R.png",
+      "status": "downloaded",
+      "bytes": 891016,
+      "width": 800,
+      "height": 1117,
+      "sha256": "e0e30b0182e03caeabd3147250c9a7ea65c4a9dfcaf6fb5ade0facd15343233f"
+    },
+    {
+      "cardId": "BP02-KR19",
+      "rarity": "ASP",
+      "filename": "BP02-KR19-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR19-ASP.png",
+      "status": "downloaded",
+      "bytes": 1680958,
+      "width": 800,
+      "height": 1117,
+      "sha256": "17e069effd2878ace81407d5843c8b464c13f20b2f7bff2f76c4f81eba00d9ee"
+    },
+    {
+      "cardId": "BP02-KR19",
+      "rarity": "R",
+      "filename": "BP02-KR19-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR19-R.png",
+      "status": "downloaded",
+      "bytes": 1311060,
+      "width": 800,
+      "height": 1117,
+      "sha256": "875588c475a0d7acd38f32f096dfa8bae08b996db9c2c4605a17df7c7a10a1d3"
+    },
+    {
+      "cardId": "BP02-KR19",
+      "rarity": "UR",
+      "filename": "BP02-KR19-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR19-UR.png",
+      "status": "downloaded",
+      "bytes": 1624004,
+      "width": 800,
+      "height": 1117,
+      "sha256": "82d91cd1f6c7d883cb43283e4d21841e41d271c82e9bdbb209aed2b1b41f1b6c"
+    },
+    {
+      "cardId": "BP02-KR20",
+      "rarity": "N",
+      "filename": "BP02-KR20-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR20-N.png",
+      "status": "downloaded",
+      "bytes": 467188,
+      "width": 800,
+      "height": 1117,
+      "sha256": "cb50d2725aab2b616f899c457e70c572c0715c254a2bbbccb3d1ee1a86a00a23"
+    },
+    {
+      "cardId": "BP02-KR20",
+      "rarity": "SR",
+      "filename": "BP02-KR20-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR20-SR.png",
+      "status": "downloaded",
+      "bytes": 579105,
+      "width": 800,
+      "height": 1117,
+      "sha256": "92481b40ec5c593aa60828150574a5394a1248de033431a8064505e0173d8ad0"
+    },
+    {
+      "cardId": "BP02-KR21",
+      "rarity": "N",
+      "filename": "BP02-KR21-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR21-N.png",
+      "status": "downloaded",
+      "bytes": 1197837,
+      "width": 800,
+      "height": 1117,
+      "sha256": "2c9ad3237919ba7c35c2f3b719449022d51042834aa80bdd77ddca97230b5892"
+    },
+    {
+      "cardId": "BP02-KR21",
+      "rarity": "SR",
+      "filename": "BP02-KR21-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR21-SR.png",
+      "status": "downloaded",
+      "bytes": 1263725,
+      "width": 800,
+      "height": 1117,
+      "sha256": "1709ba107c98a4dd878dbdf8196b6eca07d326fb399ab813bf19878c859e74f8"
+    },
+    {
+      "cardId": "BP02-KR22",
+      "rarity": "N",
+      "filename": "BP02-KR22-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR22-N.png",
+      "status": "downloaded",
+      "bytes": 710537,
+      "width": 800,
+      "height": 1117,
+      "sha256": "14ff7929ce78fa82326c0bcea4bbeb8c414f3df3854912a1adb468cdd8c3ef8b"
+    },
+    {
+      "cardId": "BP02-KR22",
+      "rarity": "SR",
+      "filename": "BP02-KR22-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR22-SR.png",
+      "status": "downloaded",
+      "bytes": 775609,
+      "width": 800,
+      "height": 1117,
+      "sha256": "ff4767e4d6e06c4fa6945e05b4825eced25a07a689f52a1cdf46c1c5490e0f43"
+    },
+    {
+      "cardId": "BP02-KR23",
+      "rarity": "ASP",
+      "filename": "BP02-KR23-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR23-ASP.png",
+      "status": "downloaded",
+      "bytes": 1529877,
+      "width": 800,
+      "height": 1117,
+      "sha256": "c3351e7ebb9145c869907a4610ea6df2d21b6b4075966a4f6223ee684bcae7ea"
+    },
+    {
+      "cardId": "BP02-KR23",
+      "rarity": "SR",
+      "filename": "BP02-KR23-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR23-SR.png",
+      "status": "downloaded",
+      "bytes": 1239668,
+      "width": 800,
+      "height": 1117,
+      "sha256": "db21c7882fc0bd4722c75bb3b9afc00f23ba81c739cab2f2dce0870eb96d2eee"
+    },
+    {
+      "cardId": "BP02-KR23",
+      "rarity": "UR",
+      "filename": "BP02-KR23-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR23-UR.png",
+      "status": "downloaded",
+      "bytes": 1442817,
+      "width": 800,
+      "height": 1117,
+      "sha256": "e4a726c65942d75bd5022d8d70bdd1e54e4bd7355cfd6a8bce8a3d2d2ca974d4"
+    },
+    {
+      "cardId": "BP02-KR24",
+      "rarity": "N",
+      "filename": "BP02-KR24-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR24-N.png",
+      "status": "downloaded",
+      "bytes": 1090313,
+      "width": 800,
+      "height": 1117,
+      "sha256": "227611368fdb61ee230607e99f89096157ef1be612b2851a57436ed273fada0b"
+    },
+    {
+      "cardId": "BP02-KR24",
+      "rarity": "SR",
+      "filename": "BP02-KR24-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR24-SR.png",
+      "status": "downloaded",
+      "bytes": 1158940,
+      "width": 800,
+      "height": 1117,
+      "sha256": "49d1590c812133e58e6289f6b68181c4eaa4b64278e00279b938e28a56e603a0"
+    },
+    {
+      "cardId": "BP02-KR25",
+      "rarity": "N",
+      "filename": "BP02-KR25-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR25-N.png",
+      "status": "downloaded",
+      "bytes": 1034769,
+      "width": 800,
+      "height": 1117,
+      "sha256": "27e1a8a0e93cf604907d635f8f7c6978c2e91799f118c87706123e8ca41fee72"
+    },
+    {
+      "cardId": "BP02-KR25",
+      "rarity": "R",
+      "filename": "BP02-KR25-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR25-R.png",
+      "status": "downloaded",
+      "bytes": 1034734,
+      "width": 800,
+      "height": 1117,
+      "sha256": "dcf7cf3f58a863121bf2030bbb29ada17df997634917754136f88ae8c06d55c7"
+    },
+    {
+      "cardId": "BP02-KR26",
+      "rarity": "ASP",
+      "filename": "BP02-KR26-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR26-ASP.png",
+      "status": "downloaded",
+      "bytes": 1468164,
+      "width": 800,
+      "height": 1117,
+      "sha256": "b686b2d8af9b1e7a65dcc942f643a19a4a4648a9cf5bbf146607fa2b8e12a146"
+    },
+    {
+      "cardId": "BP02-KR26",
+      "rarity": "R",
+      "filename": "BP02-KR26-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR26-R.png",
+      "status": "downloaded",
+      "bytes": 1113108,
+      "width": 800,
+      "height": 1117,
+      "sha256": "1bb74e884f0df1e75c550b92cd465e53361d5679c5b4a2d5929fb0d8c26d5104"
+    },
+    {
+      "cardId": "BP02-KR26",
+      "rarity": "UR",
+      "filename": "BP02-KR26-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR26-UR.png",
+      "status": "downloaded",
+      "bytes": 1417007,
+      "width": 800,
+      "height": 1117,
+      "sha256": "b76a33a32e8fd902544b38555ce0eb1e033a0aabed0675815fd68bb751cc59b0"
+    },
+    {
+      "cardId": "BP02-KR27",
+      "rarity": "N",
+      "filename": "BP02-KR27-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR27-N.png",
+      "status": "downloaded",
+      "bytes": 1025020,
+      "width": 800,
+      "height": 1117,
+      "sha256": "4e74bfff7681435f45a98b168ce9fe513236a18ddc8452b20b0f3fbfbee7c69c"
+    },
+    {
+      "cardId": "BP02-KR27",
+      "rarity": "R",
+      "filename": "BP02-KR27-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR27-R.png",
+      "status": "downloaded",
+      "bytes": 1025079,
+      "width": 800,
+      "height": 1117,
+      "sha256": "0a40a5079bc0ee838c9ef941ecb3be2dc86dea04f2d4f3c8843d5b106e877531"
+    },
+    {
+      "cardId": "BP02-KR28",
+      "rarity": "ASP",
+      "filename": "BP02-KR28-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR28-ASP.png",
+      "status": "downloaded",
+      "bytes": 1355119,
+      "width": 800,
+      "height": 1117,
+      "sha256": "92901426585f065a389c93eaebaa3d7ba0b7c137c4ce7a7b4890bcb2eaeffe19"
+    },
+    {
+      "cardId": "BP02-KR28",
+      "rarity": "R",
+      "filename": "BP02-KR28-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR28-R.png",
+      "status": "downloaded",
+      "bytes": 1067620,
+      "width": 800,
+      "height": 1117,
+      "sha256": "fd653ad4423e52cc8e0350af7fcbbcb34f4106d1e1f87d1d7ad1d654eb42a83c"
+    },
+    {
+      "cardId": "BP02-KR28",
+      "rarity": "UR",
+      "filename": "BP02-KR28-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR28-UR.png",
+      "status": "downloaded",
+      "bytes": 1321692,
+      "width": 800,
+      "height": 1117,
+      "sha256": "9fd14c3eccd94dbb02f1c0e8ea7f0b9b1bceddd17ef634ac17119b2c54028d2b"
+    },
+    {
+      "cardId": "BP02-KR29",
+      "rarity": "ASP",
+      "filename": "BP02-KR29-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR29-ASP.png",
+      "status": "downloaded",
+      "bytes": 1469622,
+      "width": 800,
+      "height": 1117,
+      "sha256": "c9e0e8e05bb3a4f7904e3dd94b94ea84cea96e50d765e340a4d35436ed21eb58"
+    },
+    {
+      "cardId": "BP02-KR29",
+      "rarity": "R",
+      "filename": "BP02-KR29-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR29-R.png",
+      "status": "downloaded",
+      "bytes": 1077600,
+      "width": 800,
+      "height": 1117,
+      "sha256": "47a6dcccf1601b320e757a55eb63858a6fa7e6216ee709562381b0a3d49b5463"
+    },
+    {
+      "cardId": "BP02-KR29",
+      "rarity": "UR",
+      "filename": "BP02-KR29-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR29-UR.png",
+      "status": "downloaded",
+      "bytes": 1411556,
+      "width": 800,
+      "height": 1117,
+      "sha256": "5437e96336b5c8f06f8fe37b889de8f78f3d1848304e5b2f49d32075edc986dc"
+    },
+    {
+      "cardId": "BP02-KR30",
+      "rarity": "N",
+      "filename": "BP02-KR30-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR30-N.png",
+      "status": "downloaded",
+      "bytes": 1005014,
+      "width": 800,
+      "height": 1117,
+      "sha256": "c10ecc43760a98af105c13251c793c1dbe3964803776295b1de32d63e384cc6e"
+    },
+    {
+      "cardId": "BP02-KR30",
+      "rarity": "R",
+      "filename": "BP02-KR30-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR30-R.png",
+      "status": "downloaded",
+      "bytes": 1005290,
+      "width": 800,
+      "height": 1117,
+      "sha256": "96456c6a202bc384f267a05ed83cedac46c56099235dc83001d770fd7dee2d7c"
+    },
+    {
+      "cardId": "BP02-KR31",
+      "rarity": "ASP",
+      "filename": "BP02-KR31-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR31-ASP.png",
+      "status": "downloaded",
+      "bytes": 1571499,
+      "width": 800,
+      "height": 1117,
+      "sha256": "4df421f673155e132a690b6d433f38aa6efc98309cd7102c7a4789781ee537f3"
+    },
+    {
+      "cardId": "BP02-KR31",
+      "rarity": "R",
+      "filename": "BP02-KR31-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR31-R.png",
+      "status": "downloaded",
+      "bytes": 1289693,
+      "width": 800,
+      "height": 1117,
+      "sha256": "8c993556df1052b8f73f3831e391feda649ef75277a595195f71ddbceee5ec19"
+    },
+    {
+      "cardId": "BP02-KR31",
+      "rarity": "UR",
+      "filename": "BP02-KR31-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR31-UR.png",
+      "status": "downloaded",
+      "bytes": 1513397,
+      "width": 800,
+      "height": 1117,
+      "sha256": "c6f134e206cd391694ea8ef993450eacccadedf88af76f8053dba70ad4bf3d75"
+    },
+    {
+      "cardId": "BP02-KR32",
+      "rarity": "ASP",
+      "filename": "BP02-KR32-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR32-ASP.png",
+      "status": "downloaded",
+      "bytes": 1487572,
+      "width": 800,
+      "height": 1117,
+      "sha256": "e28018f2c821167c07bc8c266b4d76b09f2f0c9ac474d8df998d43c36f2b1e90"
+    },
+    {
+      "cardId": "BP02-KR32",
+      "rarity": "R",
+      "filename": "BP02-KR32-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR32-R.png",
+      "status": "downloaded",
+      "bytes": 1214262,
+      "width": 800,
+      "height": 1117,
+      "sha256": "99dbfdbd07e9d800810ca33195beac0952a58627207e3a819b71ee7cb06ecf0d"
+    },
+    {
+      "cardId": "BP02-KR32",
+      "rarity": "UR",
+      "filename": "BP02-KR32-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR32-UR.png",
+      "status": "downloaded",
+      "bytes": 1446907,
+      "width": 800,
+      "height": 1117,
+      "sha256": "25d87287cedf7fc1919f81f90feaacce962b322e83863b1fb79d35b9002b95a6"
+    },
+    {
+      "cardId": "BP02-KR33",
+      "rarity": "ASP",
+      "filename": "BP02-KR33-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR33-ASP.png",
+      "status": "downloaded",
+      "bytes": 1854606,
+      "width": 800,
+      "height": 1117,
+      "sha256": "635e2bf2156af5b3a3a6645912badf827aa88abbcba908ab84b08b19be62eb8a"
+    },
+    {
+      "cardId": "BP02-KR33",
+      "rarity": "SR",
+      "filename": "BP02-KR33-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR33-SR.png",
+      "status": "downloaded",
+      "bytes": 1471394,
+      "width": 800,
+      "height": 1117,
+      "sha256": "4f10b834e4aad7ed4b22b21a84c6b0875b882653ea0a52051ef6ee85e4fa065f"
+    },
+    {
+      "cardId": "BP02-KR33",
+      "rarity": "UR",
+      "filename": "BP02-KR33-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR33-UR.png",
+      "status": "downloaded",
+      "bytes": 1771032,
+      "width": 800,
+      "height": 1117,
+      "sha256": "f73121c9dd5f1ff4d9ff32cf3aa9ca52a2bebd711460b66ca87cecc5bf9e2ce3"
+    },
+    {
+      "cardId": "BP02-KR34",
+      "rarity": "N",
+      "filename": "BP02-KR34-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR34-N.png",
+      "status": "downloaded",
+      "bytes": 1229494,
+      "width": 800,
+      "height": 1117,
+      "sha256": "18aac5815abbf442403a1f98006422b77993af91028f12605f1fe5337f07a71b"
+    },
+    {
+      "cardId": "BP02-KR34",
+      "rarity": "SR",
+      "filename": "BP02-KR34-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR34-SR.png",
+      "status": "downloaded",
+      "bytes": 1229665,
+      "width": 800,
+      "height": 1117,
+      "sha256": "673cd9181a69cfe96bb90e247c870a471a7d1ffc09bb9fa7a35cb0a0d9ab1109"
+    },
+    {
+      "cardId": "BP02-KR35",
+      "rarity": "ASP",
+      "filename": "BP02-KR35-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR35-ASP.png",
+      "status": "downloaded",
+      "bytes": 1301813,
+      "width": 800,
+      "height": 1117,
+      "sha256": "923f29d36c67bb535d052c6273eb3e496fed44ace7fc8d90c530c45784c31aa4"
+    },
+    {
+      "cardId": "BP02-KR35",
+      "rarity": "R",
+      "filename": "BP02-KR35-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR35-R.png",
+      "status": "downloaded",
+      "bytes": 1125663,
+      "width": 800,
+      "height": 1117,
+      "sha256": "3a49dcfc5affe5ff5290f8541c1fa76bbcfe2f160e73905bde1ed5b05097cc76"
+    },
+    {
+      "cardId": "BP02-KR35",
+      "rarity": "UR",
+      "filename": "BP02-KR35-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR35-UR.png",
+      "status": "downloaded",
+      "bytes": 1240541,
+      "width": 800,
+      "height": 1117,
+      "sha256": "7021209ce994865dfce48a2c51038030b0884bc66648bcc0272b190a36180f57"
+    },
+    {
+      "cardId": "BP02-KR36",
+      "rarity": "N",
+      "filename": "BP02-KR36-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR36-N.png",
+      "status": "downloaded",
+      "bytes": 1094614,
+      "width": 800,
+      "height": 1117,
+      "sha256": "571a0dd1d7d22a32dfb8497d7cdd346b3d29ae55228fe41b5c197190644b66a0"
+    },
+    {
+      "cardId": "BP02-KR36",
+      "rarity": "SR",
+      "filename": "BP02-KR36-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR36-SR.png",
+      "status": "downloaded",
+      "bytes": 1094869,
+      "width": 800,
+      "height": 1117,
+      "sha256": "af9bef07886572c9994526f2cbed30c03d7a13388b35099bdd57b7446d97710f"
+    },
+    {
+      "cardId": "BP02-KR37",
+      "rarity": "N",
+      "filename": "BP02-KR37-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR37-N.png",
+      "status": "downloaded",
+      "bytes": 1120894,
+      "width": 800,
+      "height": 1117,
+      "sha256": "1bfed2bf9f2c4e0556d124f927413bf1963b7726c8811beb49c6a19b14ba3182"
+    },
+    {
+      "cardId": "BP02-KR37",
+      "rarity": "SR",
+      "filename": "BP02-KR37-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR37-SR.png",
+      "status": "downloaded",
+      "bytes": 1121058,
+      "width": 800,
+      "height": 1117,
+      "sha256": "f21d6b9940ba998bd80b37f9604bca0602931c48235ee639b779e1c83cdc4b35"
+    },
+    {
+      "cardId": "BP02-KR38",
+      "rarity": "N",
+      "filename": "BP02-KR38-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR38-N.png",
+      "status": "downloaded",
+      "bytes": 1104492,
+      "width": 800,
+      "height": 1117,
+      "sha256": "4fe5a1f72f57bda595a40ce04be08bf63e38e1c4efa73b1bf84f9deba22d8b20"
+    },
+    {
+      "cardId": "BP02-KR38",
+      "rarity": "R",
+      "filename": "BP02-KR38-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR38-R.png",
+      "status": "downloaded",
+      "bytes": 1104537,
+      "width": 800,
+      "height": 1117,
+      "sha256": "1da75f1677030757cebe43b7cef8caa236d41a9ec3461865e07482131d793f2a"
+    },
+    {
+      "cardId": "BP02-KR39",
+      "rarity": "N",
+      "filename": "BP02-KR39-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR39-N.png",
+      "status": "downloaded",
+      "bytes": 1201978,
+      "width": 800,
+      "height": 1117,
+      "sha256": "f9925d9114a24f7d12f9b38bca823e191e2dfd78bb5865bba2649a0f6fcec73f"
+    },
+    {
+      "cardId": "BP02-KR39",
+      "rarity": "R",
+      "filename": "BP02-KR39-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR39-R.png",
+      "status": "downloaded",
+      "bytes": 1201905,
+      "width": 800,
+      "height": 1117,
+      "sha256": "0cc7cf01dc4c7c1588a0e67168fcac4bb2265e888180a08219d323a65c7e02b4"
+    },
+    {
+      "cardId": "BP02-KR40",
+      "rarity": "ASP",
+      "filename": "BP02-KR40-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR40-ASP.png",
+      "status": "downloaded",
+      "bytes": 1439931,
+      "width": 800,
+      "height": 1117,
+      "sha256": "977f40d24f250fbb92dcaf04f7f479074a57d861dfdcb77a5517ac9388217124"
+    },
+    {
+      "cardId": "BP02-KR40",
+      "rarity": "R",
+      "filename": "BP02-KR40-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR40-R.png",
+      "status": "downloaded",
+      "bytes": 1212442,
+      "width": 800,
+      "height": 1117,
+      "sha256": "4896f8a272c40cfc91dca6048d6dec7c3e675a8a421a1177fc2db2b7bd32dff8"
+    },
+    {
+      "cardId": "BP02-KR40",
+      "rarity": "UR",
+      "filename": "BP02-KR40-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR40-UR.png",
+      "status": "downloaded",
+      "bytes": 1395039,
+      "width": 800,
+      "height": 1117,
+      "sha256": "cc779e6c61e592efc492b8eb9fcd76a32610600d391785cd543b85d50936dc5d"
+    },
+    {
+      "cardId": "BP02-KR41",
+      "rarity": "ASP",
+      "filename": "BP02-KR41-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR41-ASP.png",
+      "status": "downloaded",
+      "bytes": 1216664,
+      "width": 800,
+      "height": 1117,
+      "sha256": "7db76e993207ae754ea6ae984926ae3f13135f93af22b507ad541e665e13fcaf"
+    },
+    {
+      "cardId": "BP02-KR41",
+      "rarity": "R",
+      "filename": "BP02-KR41-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR41-R.png",
+      "status": "downloaded",
+      "bytes": 998667,
+      "width": 800,
+      "height": 1117,
+      "sha256": "9ced71794b8a6c8bb3c1abc6982c5861aa1d0cfe31afe44aeb3ef300a782cc4f"
+    },
+    {
+      "cardId": "BP02-KR41",
+      "rarity": "UR",
+      "filename": "BP02-KR41-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR41-UR.png",
+      "status": "downloaded",
+      "bytes": 1183571,
+      "width": 800,
+      "height": 1117,
+      "sha256": "60a2c97ad086b3c2990859fbc392cbfa3a53e34c77ac98a0cc96a9d0528d619b"
+    },
+    {
+      "cardId": "BP02-KR42",
+      "rarity": "N",
+      "filename": "BP02-KR42-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR42-N.png",
+      "status": "downloaded",
+      "bytes": 607122,
+      "width": 800,
+      "height": 1117,
+      "sha256": "9a1dc09388aa3eb29e3ca88fe0d75c2a0c6e9b51c6a8f6ea18f4a8dff8cbf4ee"
+    },
+    {
+      "cardId": "BP02-KR42",
+      "rarity": "R",
+      "filename": "BP02-KR42-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR42-R.png",
+      "status": "downloaded",
+      "bytes": 607122,
+      "width": 800,
+      "height": 1117,
+      "sha256": "e92816cc386f628e9331960acd0ab1b83f9a2135f96faa90e401df2d97c2f205"
+    },
+    {
+      "cardId": "BP02-KR43",
+      "rarity": "N",
+      "filename": "BP02-KR43-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR43-N.png",
+      "status": "downloaded",
+      "bytes": 961124,
+      "width": 800,
+      "height": 1117,
+      "sha256": "dd12caf283ede1de81b0681c490767d0eac68398bcf64f3f8797186fa37fc504"
+    },
+    {
+      "cardId": "BP02-KR43",
+      "rarity": "R",
+      "filename": "BP02-KR43-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR43-R.png",
+      "status": "downloaded",
+      "bytes": 961149,
+      "width": 800,
+      "height": 1117,
+      "sha256": "7078fe8a5821a0162dd5c608bc51cbf521925a95d263ca5618dd4fbd26f5ffe1"
+    },
+    {
+      "cardId": "BP02-KR44",
+      "rarity": "ASP",
+      "filename": "BP02-KR44-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR44-ASP.png",
+      "status": "downloaded",
+      "bytes": 1294929,
+      "width": 800,
+      "height": 1117,
+      "sha256": "10939af17efe34b69255142ef20e604cadc63b0b0ffe212775d8a53d1fa3de4a"
+    },
+    {
+      "cardId": "BP02-KR44",
+      "rarity": "R",
+      "filename": "BP02-KR44-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR44-R.png",
+      "status": "downloaded",
+      "bytes": 1068177,
+      "width": 800,
+      "height": 1117,
+      "sha256": "722d3a806413a5ee455a25ed218c640fa4aed4d84519c7ac7cd0ecc525dfca8c"
+    },
+    {
+      "cardId": "BP02-KR44",
+      "rarity": "UR",
+      "filename": "BP02-KR44-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR44-UR.png",
+      "status": "downloaded",
+      "bytes": 1250893,
+      "width": 800,
+      "height": 1117,
+      "sha256": "63f427b3dc190984d7e22b4ec940dfc1dab297e3a37af89efb54f319747ed279"
+    },
+    {
+      "cardId": "BP02-KR45",
+      "rarity": "N",
+      "filename": "BP02-KR45-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR45-N.png",
+      "status": "downloaded",
+      "bytes": 1050123,
+      "width": 800,
+      "height": 1117,
+      "sha256": "2d1e4cd13dec040330a51be10e10fd74a8445a942d97af8239a2b052d2546d33"
+    },
+    {
+      "cardId": "BP02-KR45",
+      "rarity": "R",
+      "filename": "BP02-KR45-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR45-R.png",
+      "status": "downloaded",
+      "bytes": 1050210,
+      "width": 800,
+      "height": 1117,
+      "sha256": "b653e1af944f045f5042e1f3940a52c0c94c50530d13517ffc3e4e34286bd5fc"
+    },
+    {
+      "cardId": "BP02-KR46",
+      "rarity": "N",
+      "filename": "BP02-KR46-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR46-N.png",
+      "status": "downloaded",
+      "bytes": 1523139,
+      "width": 800,
+      "height": 1117,
+      "sha256": "65394acc7c100cb9c76562779a1a6bca3e78b3e99bf20b7f56168deced892364"
+    },
+    {
+      "cardId": "BP02-KR46",
+      "rarity": "SR",
+      "filename": "BP02-KR46-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR46-SR.png",
+      "status": "downloaded",
+      "bytes": 1523289,
+      "width": 800,
+      "height": 1117,
+      "sha256": "a97d2dfe58172df2cbbe78e1ebc946312d020f27802b3f58244656150dd0991f"
+    },
+    {
+      "cardId": "BP02-KR47",
+      "rarity": "N",
+      "filename": "BP02-KR47-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR47-N.png",
+      "status": "downloaded",
+      "bytes": 928083,
+      "width": 800,
+      "height": 1117,
+      "sha256": "3cc22b29294cfdb5745abbb9ca0a1bf102ba8e74219a267d390d0fa685d08bd6"
+    },
+    {
+      "cardId": "BP02-KR47",
+      "rarity": "R",
+      "filename": "BP02-KR47-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR47-R.png",
+      "status": "downloaded",
+      "bytes": 928640,
+      "width": 800,
+      "height": 1117,
+      "sha256": "c22f90c1924aeaa819dbdd798a0001551d819430012b6a47b5d9e417c3618050"
+    },
+    {
+      "cardId": "BP02-KR48",
+      "rarity": "N",
+      "filename": "BP02-KR48-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR48-N.png",
+      "status": "downloaded",
+      "bytes": 1067028,
+      "width": 800,
+      "height": 1117,
+      "sha256": "4486d9239838d534f0ebd8cbf2484c997a4e6fd4aa669ebe838147a50522b618"
+    },
+    {
+      "cardId": "BP02-KR48",
+      "rarity": "SR",
+      "filename": "BP02-KR48-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR48-SR.png",
+      "status": "downloaded",
+      "bytes": 1067285,
+      "width": 800,
+      "height": 1117,
+      "sha256": "f6d96b63817168de1c171cd93866fee760efee48289be80a7d4d4d1cd423c165"
+    },
+    {
+      "cardId": "BP02-KR49",
+      "rarity": "N",
+      "filename": "BP02-KR49-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR49-N.png",
+      "status": "downloaded",
+      "bytes": 980213,
+      "width": 800,
+      "height": 1117,
+      "sha256": "a70cff4ea210c5ed05b4bc1cfd4617fa70f8de4c0415a50dd48553fa1caade42"
+    },
+    {
+      "cardId": "BP02-KR49",
+      "rarity": "R",
+      "filename": "BP02-KR49-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR49-R.png",
+      "status": "downloaded",
+      "bytes": 980053,
+      "width": 800,
+      "height": 1117,
+      "sha256": "d98e8d48b58eb5b9726afca5c48caf71994f82530db427df57d960cb405fd20a"
+    },
+    {
+      "cardId": "BP02-KR50",
+      "rarity": "ASP",
+      "filename": "BP02-KR50-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR50-ASP.png",
+      "status": "downloaded",
+      "bytes": 918367,
+      "width": 800,
+      "height": 1117,
+      "sha256": "1a245b7fd69c65c46302c899946beb72df14d3eaff643b14524e146d60c5ede3"
+    },
+    {
+      "cardId": "BP02-KR50",
+      "rarity": "SR",
+      "filename": "BP02-KR50-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR50-SR.png",
+      "status": "downloaded",
+      "bytes": 785302,
+      "width": 800,
+      "height": 1117,
+      "sha256": "255b0f4b326063d71f44cdfafe5629f73b74fafeed1f8040e1bf114165fe7141"
+    },
+    {
+      "cardId": "BP02-KR50",
+      "rarity": "UR",
+      "filename": "BP02-KR50-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR50-UR.png",
+      "status": "downloaded",
+      "bytes": 898922,
+      "width": 800,
+      "height": 1117,
+      "sha256": "b54da0818a998c0f9bef6b62aae84540e1fb8f8f5dcdd4b70d0baf40f1798794"
+    },
+    {
+      "cardId": "BP02-KR51",
+      "rarity": "N",
+      "filename": "BP02-KR51-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR51-N.png",
+      "status": "downloaded",
+      "bytes": 1308535,
+      "width": 800,
+      "height": 1117,
+      "sha256": "beb30681466ec6f91ab00ebb1d6f75fdea38311979f53bd3b507a4b0ee36dbb9"
+    },
+    {
+      "cardId": "BP02-KR51",
+      "rarity": "SR",
+      "filename": "BP02-KR51-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR51-SR.png",
+      "status": "downloaded",
+      "bytes": 1309306,
+      "width": 800,
+      "height": 1117,
+      "sha256": "ece11a222e080840ba041a12b659f6a506f2ec3d234b9366ee36321f66e368b4"
+    },
+    {
+      "cardId": "BP02-KR52",
+      "rarity": "N",
+      "filename": "BP02-KR52-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR52-N.png",
+      "status": "downloaded",
+      "bytes": 809255,
+      "width": 800,
+      "height": 1117,
+      "sha256": "47a50a5c82ed00d70cb01a110685f0336147fcc149c17a403adb44099202b6ca"
+    },
+    {
+      "cardId": "BP02-KR52",
+      "rarity": "SR",
+      "filename": "BP02-KR52-SR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR52-SR.png",
+      "status": "downloaded",
+      "bytes": 809235,
+      "width": 800,
+      "height": 1117,
+      "sha256": "f4fd33ac4ac3c734a24a8382abfb6f0745d62ecace28bbd2b42123be7acf16f7"
+    },
+    {
+      "cardId": "BP02-KR53",
+      "rarity": "N",
+      "filename": "BP02-KR53-N.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR53-N.png",
+      "status": "downloaded",
+      "bytes": 1018555,
+      "width": 800,
+      "height": 1117,
+      "sha256": "1a54c225a691d886e9dd25577dfc6b50cee80ae55ee59bf00be34dc9e3cd8045"
+    },
+    {
+      "cardId": "BP02-KR53",
+      "rarity": "R",
+      "filename": "BP02-KR53-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR53-R.png",
+      "status": "downloaded",
+      "bytes": 1018412,
+      "width": 800,
+      "height": 1117,
+      "sha256": "0244a738732346694188c041cff60c1e79a026a4342c87c05474727a4faa072c"
+    },
+    {
+      "cardId": "BP02-KR54",
+      "rarity": "ASP",
+      "filename": "BP02-KR54-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR54-ASP.png",
+      "status": "downloaded",
+      "bytes": 1693765,
+      "width": 800,
+      "height": 1117,
+      "sha256": "47abd335b761624a378a42ab5af863d1f9dd51dfd568f1ca98e5e3fa98cc36ea"
+    },
+    {
+      "cardId": "BP02-KR54",
+      "rarity": "R",
+      "filename": "BP02-KR54-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR54-R.png",
+      "status": "downloaded",
+      "bytes": 1360570,
+      "width": 800,
+      "height": 1117,
+      "sha256": "a896c27a1134a9f485cb4bd8ce1980767561cb8dba49ca44b7070bdac2a9cfad"
+    },
+    {
+      "cardId": "BP02-KR54",
+      "rarity": "UR",
+      "filename": "BP02-KR54-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR54-UR.png",
+      "status": "downloaded",
+      "bytes": 1620733,
+      "width": 800,
+      "height": 1117,
+      "sha256": "307855f8bd604d53f29f1ae5f2fa631de3e302da5b196bd29ac9f01c33247357"
+    },
+    {
+      "cardId": "BP02-KR55",
+      "rarity": "R",
+      "filename": "BP02-KR55-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR55-R.png",
+      "status": "downloaded",
+      "bytes": 1440776,
+      "width": 800,
+      "height": 1117,
+      "sha256": "c3fda781d3e65b5ce629bd3e7233e4f94d43a332795a28887d64ed633ea0ecef"
+    },
+    {
+      "cardId": "BP02-KR55",
+      "rarity": "UR",
+      "filename": "BP02-KR55-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR55-UR.png",
+      "status": "downloaded",
+      "bytes": 1712183,
+      "width": 800,
+      "height": 1117,
+      "sha256": "c22e91507630f9a537c204c3e659a0deea03506f23ba5920eeaa6adc72932685"
+    },
+    {
+      "cardId": "BP02-KR56",
+      "rarity": "R",
+      "filename": "BP02-KR56-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR56-R.png",
+      "status": "downloaded",
+      "bytes": 1188715,
+      "width": 800,
+      "height": 1117,
+      "sha256": "c583e5aaeb98f3db01b083ebbf57e333984b71393aecabec14ef84ad12c31ecd"
+    },
+    {
+      "cardId": "BP02-KR56",
+      "rarity": "UR",
+      "filename": "BP02-KR56-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR56-UR.png",
+      "status": "downloaded",
+      "bytes": 1371790,
+      "width": 800,
+      "height": 1117,
+      "sha256": "4f23c763b7c5b45d7a3d3c70cf020687aad6408a1779e5f9f0c53df891b99fd5"
+    },
+    {
+      "cardId": "BP02-KR57",
+      "rarity": "ASP",
+      "filename": "BP02-KR57-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR57-ASP.png",
+      "status": "downloaded",
+      "bytes": 886973,
+      "width": 800,
+      "height": 1117,
+      "sha256": "0b9951839a36e034205b8288011cb2bfd0ce97e32cfdf0b2336a6f502a26598b"
+    },
+    {
+      "cardId": "BP02-KR57",
+      "rarity": "R",
+      "filename": "BP02-KR57-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR57-R.png",
+      "status": "downloaded",
+      "bytes": 697226,
+      "width": 800,
+      "height": 1117,
+      "sha256": "27e9aa6d8c546dbe30a12612af881659141200fac6363f33cecd5764954e81ef"
+    },
+    {
+      "cardId": "BP02-KR57",
+      "rarity": "UR",
+      "filename": "BP02-KR57-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR57-UR.png",
+      "status": "downloaded",
+      "bytes": 846948,
+      "width": 800,
+      "height": 1117,
+      "sha256": "1a7d70d524811a23e8e9705b484dc65f87e7c27b52456064347b1f3f20064c56"
+    },
+    {
+      "cardId": "BP02-KR58",
+      "rarity": "ASP",
+      "filename": "BP02-KR58-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR58-ASP.png",
+      "status": "downloaded",
+      "bytes": 1222604,
+      "width": 800,
+      "height": 1117,
+      "sha256": "96142a4881509b253bde9a1ee7304bb58ab316c9dede6eb32cc9e3dd96adc178"
+    },
+    {
+      "cardId": "BP02-KR58",
+      "rarity": "R",
+      "filename": "BP02-KR58-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR58-R.png",
+      "status": "downloaded",
+      "bytes": 1021645,
+      "width": 800,
+      "height": 1117,
+      "sha256": "b29288db00dccc1148db64f555b260c89296c63bde98c3bf29149e8ef4d14362"
+    },
+    {
+      "cardId": "BP02-KR58",
+      "rarity": "UR",
+      "filename": "BP02-KR58-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR58-UR.png",
+      "status": "downloaded",
+      "bytes": 1172844,
+      "width": 800,
+      "height": 1117,
+      "sha256": "27ef2bb5317c0b232070f9406d2a28e7d21ee4d23b74c2328f8383c8adeb5398"
+    },
+    {
+      "cardId": "BP02-KR59",
+      "rarity": "ASP",
+      "filename": "BP02-KR59-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR59-ASP.png",
+      "status": "downloaded",
+      "bytes": 911969,
+      "width": 800,
+      "height": 1117,
+      "sha256": "6d68617d9157a284a84dabb16ba1fd6426a31e9077ba00eddbdc6e008d7c625d"
+    },
+    {
+      "cardId": "BP02-KR59",
+      "rarity": "R",
+      "filename": "BP02-KR59-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR59-R.png",
+      "status": "downloaded",
+      "bytes": 714001,
+      "width": 800,
+      "height": 1117,
+      "sha256": "ef633fcb44485adb6c41baa2027350b663f3c565fd15eacd2890cba1c5c4927f"
+    },
+    {
+      "cardId": "BP02-KR59",
+      "rarity": "UR",
+      "filename": "BP02-KR59-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR59-UR.png",
+      "status": "downloaded",
+      "bytes": 864051,
+      "width": 800,
+      "height": 1117,
+      "sha256": "63eb28f66d0920d4aaab72c871a812470fae27df6e6b2af0e06542023c65d668"
+    },
+    {
+      "cardId": "BP02-KR60",
+      "rarity": "ASP",
+      "filename": "BP02-KR60-ASP.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR60-ASP.png",
+      "status": "downloaded",
+      "bytes": 1326174,
+      "width": 800,
+      "height": 1117,
+      "sha256": "b029743921f6007632f7f58e056768695271ff61fb972833a38defe12a7855e1"
+    },
+    {
+      "cardId": "BP02-KR60",
+      "rarity": "R",
+      "filename": "BP02-KR60-R.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR60-R.png",
+      "status": "downloaded",
+      "bytes": 1167625,
+      "width": 800,
+      "height": 1117,
+      "sha256": "aacaf4dc69b18d031745c477fc4d1f7afb18478d121431526bbf2e29c01d66c4"
+    },
+    {
+      "cardId": "BP02-KR60",
+      "rarity": "UR",
+      "filename": "BP02-KR60-UR.png",
+      "url": "https://d2pib0jdcv060g.cloudfront.net/cards/face/BP02-KR60-UR.png",
+      "status": "downloaded",
+      "bytes": 1311840,
+      "width": 800,
+      "height": 1117,
+      "sha256": "83c6888e0f97181a268c1ff96d0ce3b72ff5f7aed0e6c02cf44be98e67eaf46d"
+    }
+  ],
+  "completedAt": "2026-10-05T10:40:12.997Z",
+  "summary": {
+    "cards": 60,
+    "images": 157,
+    "downloaded": 157,
+    "existing": 0,
+    "failed": 0,
+    "totalBytes": 181544321
+  }
+}

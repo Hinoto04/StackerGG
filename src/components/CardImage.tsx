@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { getOfficialCardImageFallbackUrl } from "@/data/cards";
 
 interface CardImageProps {
   src: string;
@@ -10,10 +11,14 @@ interface CardImageProps {
 export function CardImage({ src, alt }: CardImageProps) {
   const [failed, setFailed] = useState(false);
   const [retryKey, setRetryKey] = useState(0);
+  const [useFallback, setUseFallback] = useState(false);
+  const fallbackSrc = getOfficialCardImageFallbackUrl(src);
+  const imageSrc = useFallback && fallbackSrc ? fallbackSrc : src;
 
   useEffect(() => {
     setFailed(false);
     setRetryKey(0);
+    setUseFallback(false);
   }, [src]);
 
   if (failed) {
@@ -24,6 +29,7 @@ export function CardImage({ src, alt }: CardImageProps) {
         type="button"
         onClick={() => {
           setFailed(false);
+          setUseFallback(false);
           setRetryKey((current) => current + 1);
         }}
       >
@@ -32,5 +38,19 @@ export function CardImage({ src, alt }: CardImageProps) {
     );
   }
 
-  return <img key={`${src}-${retryKey}`} src={src} alt={alt} loading="lazy" onError={() => setFailed(true)} />;
+  return (
+    <img
+      key={`${imageSrc}-${retryKey}`}
+      src={imageSrc}
+      alt={alt}
+      loading="lazy"
+      onError={() => {
+        if (!useFallback && fallbackSrc) {
+          setUseFallback(true);
+        } else {
+          setFailed(true);
+        }
+      }}
+    />
+  );
 }

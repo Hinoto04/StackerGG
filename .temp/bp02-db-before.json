@@ -1,0 +1,2956 @@
+{
+  "cards": [
+    {
+      "id": "da97a858-151b-412c-87be-94e8943a13f2",
+      "name": "망각의 꽃-아넬리아",
+      "cardType": "MAIN",
+      "power": 2,
+      "activeCost": "3",
+      "activeEffect": "다음 턴 상대가 발동한 효과로 자신이 받는 대미지를 0 으로 한다.",
+      "mainCost": "4",
+      "mainEffect": "다음 턴 상대는 공격할 수 없다. 다음 자신의 턴 이 효과를 발동할 수 없다.",
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR01",
+      "tags": "자신 방어/상대 방해/"
+    },
+    {
+      "id": "1b2176fe-cfba-4039-a9a0-f882949959cd",
+      "name": "흩날리는 망각",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "다음 턴 상대는 메인 스태커의 액티브 효과를 발동할 수 없다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "2",
+      "subEffect": "다음 턴 상대는 서브 스태커의 액티브 효과를 발동할 수 없다.",
+      "collectionNumber": "BP01-KR02",
+      "tags": "상대 방해/"
+    },
+    {
+      "id": "4560a018-45c2-488e-8fd5-d784b621ac8d",
+      "name": "기억의 열쇠",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "상대 덱 맨 위에서 카드 3장을 확인하고 1장을 선택하여 트래시한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "0",
+      "subEffect": "서로의 스택 수가 같도록 자신의 덱 맨 위에서 카드를 스택 존으로 보낸다. 스택 존으로 보낸 카드 수만큼 자신의 덱 맨 위에서 트래시한다.",
+      "collectionNumber": "BP01-KR03",
+      "tags": "상대 밀/자신 밀/자신 스택/"
+    },
+    {
+      "id": "444c3553-452a-4ca3-9946-2b88c30d290d",
+      "name": "거부의 돌풍",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "다음 턴 상대가 발동하는 메인 효과의 코스트를 2 증가시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "2",
+      "subEffect": "다음 턴 상대가 발동한 효과로 자신이 받는 대미지를 1 감소시킨다.",
+      "collectionNumber": "BP01-KR04",
+      "tags": "상대 방해/자신 방어/"
+    },
+    {
+      "id": "9d3b357e-8527-469f-b829-2a059babb34a",
+      "name": "유성의 기사-아스트라",
+      "cardType": "MAIN",
+      "power": 2,
+      "activeCost": "4",
+      "activeEffect": "자신의 덱이 10장 이하일 때 발동할 수 있다. 자신의 덱 맨 위에서 카드 2장을 트래시한다. 이번 턴 자신의 메인 스태커는 2번 공격할 수 있다.",
+      "mainCost": "4",
+      "mainEffect": "이번 턴 자신의 메인 스태커는 2번 공격할 수 있다.",
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR05",
+      "tags": "자신 밀/"
+    },
+    {
+      "id": "c01d435a-737a-46cb-8237-85be61842505",
+      "name": "스텔라 임팩트",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "이번 턴 자신의 메인 스태커가 공격할 때마다 자신의 트래시 존 맨 위에서 카드 1장을 스택 존으로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "3",
+      "subEffect": "이번 턴 자신의 메인 스태커가 공격할 때마다 상대에게 1 대미지를 준다.",
+      "collectionNumber": "BP01-KR06",
+      "tags": "자신 스택/상대 효과 피해/"
+    },
+    {
+      "id": "c682839d-6529-4e42-8989-0b1d49926708",
+      "name": "메테오 레인",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "상대는 1장 드로우한다. 액티브 스태커일 때 트래시하고 아닐 때 덱 맨 아래로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "1",
+      "subEffect": "서로는 덱 맨 위에서 카드 1장을 스택 존으로 보낸다.",
+      "collectionNumber": "BP01-KR07",
+      "tags": "상대 드로우/상대 회복/자신 밀/상대 밀/자신 스택/상대 스택/"
+    },
+    {
+      "id": "bd78d508-b874-4c5d-9b41-11a07c855b06",
+      "name": "테스티아스",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신 메인 스태커의 파워를 1 상승시킨다. 자신의 서브 스태커 존에 있는 서브 스태커 1장을 선택한다. 다음 자신의 턴 종료 시까지 선택한 카드의 서브 효과를 발동할 수 없다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "2",
+      "subEffect": "이번 턴 자신 메인 스태커의 파워를 1 상승시킨다. 다음 자신의 턴 자신 메인 스태커의 파워를 1 하락시킨다.",
+      "collectionNumber": "BP01-KR08",
+      "tags": "자신 파워 상승/자신 파워 하락/"
+    },
+    {
+      "id": "bd3e2142-6f4c-4cb6-bdde-760f5047b295",
+      "name": "심연의 포식자-란",
+      "cardType": "MAIN",
+      "power": 3,
+      "activeCost": "2",
+      "activeEffect": "상대 메인 스태커의 파워가 3 이상일 때 발동할 수 있다. 상대 메인 스태커의 파워를 1 하락시킨다.",
+      "mainCost": "4",
+      "mainEffect": "다음 상대 배틀 페이즈 종료 시까지 자신이 받는 배틀 대미지를 3 감소시킨다. 이 효과는 상대 메인 페이즈에도 발동할 수 있다.",
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR09",
+      "tags": "상대 파워 하락/자신 방어/"
+    },
+    {
+      "id": "0cca88d6-51e1-44fd-9259-13bae9cd5c0e",
+      "name": "심연의 덫",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신의 트래시 존에서 액티브 스태커 1장을 선택하여 덱 맨 아래로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "2",
+      "subEffect": "다음 턴 상대는 공격하려면 패 1장을 트래시해야 한다.",
+      "collectionNumber": "BP01-KR10",
+      "tags": "자신 회복/상대 방해/자신 회수/"
+    },
+    {
+      "id": "1e36bbc1-9cc2-42ae-b870-3aaee854069b",
+      "name": "죽음의 올가미",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "다음 턴 상대는 공격하려면 상대의 덱 맨 위에서 카드 1장을 트래시해야 한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "2",
+      "subEffect": "다음 턴 상대는 공격하려면 상대의 스택 존 맨 위에서 카드 1장을 트래시해야 한다.",
+      "collectionNumber": "BP01-KR11",
+      "tags": "상대 방해/상대 밀/"
+    },
+    {
+      "id": "65daba8b-9380-435a-a893-76655f4617f4",
+      "name": "최후의 만찬",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "이번 턴 자신의 메인 스태커가 공격할 때마다 자신의 트래시 존 맨 위에서 카드 1장을 덱 맨 아래로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "2",
+      "subEffect": "이번 턴 자신의 메인 스태커가 공격할 때마다 자신의 트래시 존에서 카드 1장을 선택하여 패로 가져온다.",
+      "collectionNumber": "BP01-KR12",
+      "tags": "자신 회복/자신 회수/"
+    },
+    {
+      "id": "16c69adf-ef8d-4afe-9b74-6538ed5083c1",
+      "name": "오만의 좌",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "상대 메인 스태커의 파워가 4 이상일 때 발동할 수 있다. 다음 턴 종료 시까지 상대 메인 스태커의 파워를 1 하락시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR13",
+      "tags": "상대 파워 하락/"
+    },
+    {
+      "id": "13a934f3-54b7-48e6-a7b6-932c29f26708",
+      "name": "별의 선물",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신의 트래시 존에서 이 카드 이외의 1장을 선택하여 덱 맨 아래로 보낸다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR14",
+      "tags": "자신 회복/자신 회수/"
+    },
+    {
+      "id": "43b50dc4-6cce-494d-8dd3-607f85b0cb0e",
+      "name": "셀레스타이트",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "다음 턴 상대가 처음 발동하는 서브 효과의 코스트를 1 증가시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR15",
+      "tags": "상대 방해/"
+    },
+    {
+      "id": "a435ef8a-cec8-40d8-93b7-9be220cf5e20",
+      "name": "히프노시스",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "다음 턴 상대는 메인 효과를 발동할 수 없다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR16",
+      "tags": "상대 방해/"
+    },
+    {
+      "id": "05c440b0-4fbc-4600-bef3-1480a3952639",
+      "name": "익스체인지",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신 서브 스태커 존의 앞면 서브 스태커 1장을 트래시한다. 자신의 트래시 존에서 다른 서브 스태커 1장을 선택하여 서브 스태커 존에 앞면으로 둔다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR17",
+      "tags": ""
+    },
+    {
+      "id": "6eeff82b-f7aa-4191-8183-5194e7ad68a5",
+      "name": "재구축",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신의 패 2장을 트래시한다. 자신의 트래시 존에서 메인 스태커 1장을 선택하여 자신의 패에 추가한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR18",
+      "tags": "자신 회수/"
+    },
+    {
+      "id": "70ee1ade-1dc4-4d5e-8ea4-d3a3f5028a15",
+      "name": "끝없는 탐욕",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신은 2장 드로우한다. 그 중 액티브 스태커가 아닌 카드를 모두 트래시한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR19",
+      "tags": "자신 드로우/"
+    },
+    {
+      "id": "7bd96081-2be0-434b-94a8-bb4fb1984897",
+      "name": "금지된 실험",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "상대의 트래시 존 맨 위에서 카드 1장을 스택 존으로 보내고 상대에게 1 대미지를 준다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR20",
+      "tags": "상대 스택/상대 효과 피해/"
+    },
+    {
+      "id": "90b52a36-5aef-43d4-b368-196a364173ac",
+      "name": "인큐베이터",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신의 패 1장을 덱 맨 아래로 보내고 1장 드로우한다",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR21",
+      "tags": "자신 회복/자신 드로우/"
+    },
+    {
+      "id": "1e2a5902-9f48-4a7f-99f4-c43fb7abacab",
+      "name": "사냥감의 반격",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신 서브 스태커 존의 뒷면 서브 스태커 1장을 선택하여 앞면으로 돌린다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR22",
+      "tags": ""
+    },
+    {
+      "id": "fff70844-31c7-4a0d-9b30-11a1e32063f9",
+      "name": "영묘의 굿",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "서로는 패 1장을 선택하여 덱 맨 아래로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR23",
+      "tags": "자신 회복/상대 회복/"
+    },
+    {
+      "id": "4a47ebc7-2a8a-42de-8dd8-179dcc87136c",
+      "name": "타감작용",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "3",
+      "activeEffect": "상대 메인 스태커의 파워가 3 이상일 때 발동할 수 있다. 다음 턴 종료 시까지 상대 메인 스태커의 파워를 2 하락시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR24",
+      "tags": "상대 파워 하락/"
+    },
+    {
+      "id": "a9674aa6-7ded-4578-86b5-0146223f2c6b",
+      "name": "사랑의 묘약",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "자신은 2장 드로우한다. 드로우한 카드를 상대에게 보여주고 상대가 선택한 1장을 트래시한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR25",
+      "tags": "자신 드로우/"
+    },
+    {
+      "id": "408f6e60-b398-4baf-9d1b-73e8e8ed04fc",
+      "name": "한 잔 더!",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신의 패 1장을 덱 맨 아래로 보내고 2장 드로우한다",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR26",
+      "tags": "자신 회복/자신 드로우/"
+    },
+    {
+      "id": "16121e5e-ba88-467d-a608-5a28b27d7d7c",
+      "name": "바다의 편지",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신은 덱 맨 위에서 카드 1장을 확인한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR27",
+      "tags": ""
+    },
+    {
+      "id": "ac7ae409-e310-4de8-b270-4b2485f9e066",
+      "name": "죽음의 개화",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "다음 자신의 턴 자신이 발동하는 메인 효과의 코스트를 1 감소시킨다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR28",
+      "tags": ""
+    },
+    {
+      "id": "5747bf70-eb65-45e8-9125-d96b0abb2f7f",
+      "name": "꿰뚫린 봉인",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신의 스택 존에 있는 액티브 스태커 1장을 선택하여 패로 가져온다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR29",
+      "tags": ""
+    },
+    {
+      "id": "465512d5-4a10-4ca2-8e65-8209f67b01bf",
+      "name": "쥬얼 게이즈",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "다음 자신의 턴, 드로우 페이즈에 1장을 추가로 드로우한다. 그 다음 자신의 턴, 드로우 페이즈를 스킵한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR30",
+      "tags": "자신 드로우/"
+    },
+    {
+      "id": "35a16b7f-68d7-404a-9897-aa2fc1775472",
+      "name": "섬뜩한 조우",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "4",
+      "activeEffect": "다음 턴 종료 시까지 상대 메인 스태커의 파워를 3 하락시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR31",
+      "tags": "상대 파워 하락/"
+    },
+    {
+      "id": "117a9125-3662-4e2d-ae47-1060dc43891c",
+      "name": "창공의 징조",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "서로는 트래시 존 맨 위에서 카드 4장을 덱 맨 아래로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR32",
+      "tags": "자신 회복/상대 회복/자신 회수/상대 회수/"
+    },
+    {
+      "id": "953b2a8a-8603-4b9f-9ac5-acfcca5d3aa8",
+      "name": "버려진 도시",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신의 트래시 존에 서브 스태커가 3장 이상일 때 발동할 수 있다. 상대에게 2 대미지를 준다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR33",
+      "tags": "상대 효과 피해/"
+    },
+    {
+      "id": "4588954b-c7d3-4bec-91c0-b149ae14d2e3",
+      "name": "푸른 숲의 속삭임",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신의 메인 페이즈의 첫 효과로만 발동할 수 있다. 다음 턴 종료 시까지 서로는 액티브 효과를 3번까지 발동할 수 있다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR34",
+      "tags": "자신 방해/상대 방해/"
+    },
+    {
+      "id": "3f9ac989-0f75-4f4c-94c0-f327b8657485",
+      "name": "조화의 보석",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신의 트래시 존 맨 위에서 카드 1장을 덱 맨 아래로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR35",
+      "tags": "자신 회복/자신 회수/"
+    },
+    {
+      "id": "4e45a750-6db0-4a21-b5e1-79bdc8309169",
+      "name": "더블 캐치",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "자신의 패에서 메인 스태커 1장을 트래시한다. 자신은 2장 드로우한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR36",
+      "tags": "자신 드로우/"
+    },
+    {
+      "id": "9b9ccc72-983a-4618-a9f3-705bca9d0274",
+      "name": "뒷골목의 오후",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "이번 턴 자신 메인 스태커의 파워를 1 상승시킨다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR37",
+      "tags": "자신 파워 상승/"
+    },
+    {
+      "id": "cf11ff0f-5c6e-458b-81d1-52bf029f22e6",
+      "name": "달콤한 덫",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "다음 턴 종료 시까지 자신 메인 스태커의 파워만큼 상대 메인 스태커의 파워를 하락시킨다. 이번 턴 공격할 수 없다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR38",
+      "tags": "상대 파워 하락/"
+    },
+    {
+      "id": "60525525-f399-4ca0-a8a7-a6f94cebe43b",
+      "name": "사멸의 아틀리에",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신의 패에서 메인 스태커 1장을 트래시한다. 트래시한 메인 스태커의 파워만큼 이번 턴 자신 메인 스태커의 파워를 상승시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR39",
+      "tags": "자신 파워 상승/"
+    },
+    {
+      "id": "fd4fb5af-0737-43f0-8ae3-3859bbe489c6",
+      "name": "금지된 숲",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신의 패를 모두 덱에 넣고 셔플한다. 자신은 덱에 넣은 수만큼 드로우한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR40",
+      "tags": "자신 회복/자신 드로우/"
+    },
+    {
+      "id": "a5387e1d-efcb-41e2-9e2d-07ece3178b80",
+      "name": "화염 스크롤",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "3",
+      "activeEffect": "다음 턴 자신이 받는 배틀 대미지를 1 감소시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR41",
+      "tags": "자신 방어/"
+    },
+    {
+      "id": "e18469a9-bc5f-4227-9a7d-24a93069ed33",
+      "name": "차원 균열",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "상대의 트래시 존에서 메인 스태커 1장을 선택하여 상대 덱 맨 아래로 보낸다. 그 메인 스태커의 파워만큼 자신의 트래시 존 맨 위에서 카드를 덱 맨 아래로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR42",
+      "tags": "상대 회복/자신 회복/상대 회수/자신 회수/"
+    },
+    {
+      "id": "97a7f42b-307c-4d43-a5c0-abd3683f2de0",
+      "name": "설원의 심판",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "다음 자신의 턴 서브 스태커가 앞면이 될 때마다 자신의 트래시 존 맨 위에서 카드 1장을 스택 존으로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR43",
+      "tags": "자신 스택/"
+    },
+    {
+      "id": "595adad0-d035-4f11-8b04-924cd7711da6",
+      "name": "교통정리",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "자신 서브 스태커 존의 앞면 서브 스태커 1장을 스택 존으로 보낸다. 스택 존에서 다른 서브 스태커 1장을 선택하여 서브 스태커 존에 뒷면으로 둔다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR44",
+      "tags": "자신 스택/"
+    },
+    {
+      "id": "5bf3d71e-f1a3-4c81-9a17-ee836798b0fd",
+      "name": "불길한 예감",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신의 덱에서 액티브 스태커 1장을 선택하여 패에 추가하고 덱을 셔플한다. 추가한 카드와 같은 이름의 카드는 이번 턴 발동할 수 없다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR45",
+      "tags": "자신 서치/"
+    },
+    {
+      "id": "d5abd8b2-5b6b-486d-ae2b-01918143098f",
+      "name": "상아의 법전",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "자신의 패 1장을 선택하여 스택 존으로 보낸다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR46",
+      "tags": "자신 스택/"
+    },
+    {
+      "id": "0b4cdd01-456c-49a9-8626-4570d1885ba3",
+      "name": "신약 제조",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "자신의 패 2장을 트래시한다. 다음 턴 종료 시까지 상대 메인 스태커의 파워를 1 하락시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR47",
+      "tags": "상대 파워 하락/"
+    },
+    {
+      "id": "e2726b1a-38df-40d0-8db5-879fcbb9f729",
+      "name": "새벽의 계시",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신은 3장 드로우하고 패 2장을 덱 맨 아래로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR48",
+      "tags": "자신 드로우/자신 회복/"
+    },
+    {
+      "id": "4110bc30-42b8-4307-9570-6f7bc9c14b5d",
+      "name": "애착 인형",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신은 자신 메인 스태커의 파워만큼 드로우한다. 이번 턴 공격할 수 없다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR49",
+      "tags": "자신 드로우/"
+    },
+    {
+      "id": "c7b97ecd-37e2-445e-b368-17a55b0cbbe9",
+      "name": "봄날의 티타임",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신의 패 1장을 트래시한다. 이번 턴 자신 메인 스태커의 파워를 1 상승시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR50",
+      "tags": "자신 파워 상승/"
+    },
+    {
+      "id": "5447b36d-1572-4cee-bfd4-ee2ab479c4ed",
+      "name": "나의 소중한 마리오네트",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "상대의 트래시 존에서 카드 1장을 선택하여 상대의 덱 맨 위로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR51",
+      "tags": "상대 회복/상대 회수/"
+    },
+    {
+      "id": "abcee620-088f-485c-a141-e9289396d5d2",
+      "name": "망자의 욕망",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "자신의 스택이 0장일 때 발동할 수 있다. 덱 맨 위에서 카드 1장을 스택 존으로 보낸다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR52",
+      "tags": "자신 밀/자신 스택/"
+    },
+    {
+      "id": "dc98324f-5881-4f65-af52-b85f2e4ebfb5",
+      "name": "생명의 결속",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "자신의 스택이 0장일 때 발동할 수 있다. 자신은 1장 드로우한다",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR53",
+      "tags": "자신 드로우/"
+    },
+    {
+      "id": "275fd697-fe13-4d2f-91ee-0b84fbef9ecb",
+      "name": "뒷골목의 새벽",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "자신의 스택이 0장일 때 발동할 수 있다. 다음 자신의 턴 자신 메인 스태커의 파워를 1 상승시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR54",
+      "tags": "자신 파워 상승/"
+    },
+    {
+      "id": "7e1676a5-e71a-401f-b0b2-a3305ca684b5",
+      "name": "억눌린 자의 반격",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신의 메인 스태커가 마르베스일 때 발동할 수 있다. 다음 자신의 턴 자신 메인 스태커의 파워를 1 상승시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR55",
+      "tags": "자신 파워 상승/"
+    },
+    {
+      "id": "14d64f8f-624d-45e4-86f5-f37e29172e1f",
+      "name": "공간 구성",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신의 메인 스태커가 세티아일 때 발동할 수 있다. 자신의 트래시 존에서 액티브 스태커 1장을 선택하여 덱에 넣고 셔플한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR56",
+      "tags": "자신 회복/자신 회수/"
+    },
+    {
+      "id": "c89f14c2-36d3-4162-9144-51d30d8cb4a5",
+      "name": "우당탕탕 시간!",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신의 메인 스태커가 모르벨일 때 발동할 수 있다. 자신의 트래시 존 맨 위의 카드 3장 중 상대가 선택한 1장을 자신의 덱 맨 위로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR57",
+      "tags": "자신 회복/자신 회수/"
+    },
+    {
+      "id": "8702c1c0-90ec-4f7b-8f02-58f5ebc3707d",
+      "name": "아스페라",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신의 메인 스태커가 아스트라이고 상대 스택이 5장 이상일 때 발동할 수 있다. 이번 턴 자신 메인 스태커의 파워를 1 상승시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR58",
+      "tags": "자신 파워 상승/"
+    },
+    {
+      "id": "169e4d7e-32de-4d81-b63c-da6c9b8373ed",
+      "name": "다가오는 심연",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "5",
+      "activeEffect": "자신의 메인 스태커가 란일 때 발동할 수 있다. 다음 턴 상대의 공격으로 자신이 받는 배틀 대미지는 상대도 받는다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR59",
+      "tags": "상대 효과 피해/"
+    },
+    {
+      "id": "2cba3ec4-2f54-42b7-baeb-d268f81eb790",
+      "name": "몽환경",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "4",
+      "activeEffect": "자신의 메인 스태커가 아넬리아일 때 발동할 수 있다. 이전 턴 상대 효과에 의해 받은 대미지만큼 상대에게 대미지를 준다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "BP01-KR60",
+      "tags": "상대 효과 피해/"
+    },
+    {
+      "id": "913d3869-ef64-44c6-9f5d-ea6946040315",
+      "name": "인내의 성자-마르베스",
+      "cardType": "MAIN",
+      "power": 2,
+      "activeCost": "2",
+      "activeEffect": "자신 메인 스태커의 파워를 1 상승시킨다.",
+      "mainCost": "4",
+      "mainEffect": "이번 턴 자신 메인 스태커의 파워를 4 상승시킨다.",
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR01",
+      "tags": "자신 파워 상승/"
+    },
+    {
+      "id": "7c46f077-4978-4df5-bafe-31cf3f57fdb9",
+      "name": "오버클럭",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "3",
+      "activeEffect": "이번 턴 자신 메인 스태커의 파워를 3 상승시킨다. 다음 자신의 턴 공격할 수 없다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "1",
+      "subEffect": "이번 턴 자신 메인 스태커의 파워를 1 상승시킨다. 다음 자신의 턴 서브 효과를 발동할 수 없다.",
+      "collectionNumber": "SD01-KR02",
+      "tags": "자신 파워 상승/"
+    },
+    {
+      "id": "0f06cf9b-cd3d-43bb-91c1-3f10b23876ee",
+      "name": "인내의 역설",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신의 덱이 15장 이하일 때 발동할 수 있다. 다음 턴 종료 시까지 상대 메인 스태커의 파워를 2 하락시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "2",
+      "subEffect": "다음 턴 종료 시까지 상대 메인 스태커의 파워를 2 하락시킨다. 다음 자신의 턴 이 카드를 발동할 수 없다.",
+      "collectionNumber": "SD01-KR03",
+      "tags": "상대 파워 하락/"
+    },
+    {
+      "id": "c2cdbc89-655e-406c-a9e8-d89c7b7e4435",
+      "name": "클러치 모드",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신의 패가 3장 이하일 때 발동할 수 있다. 이번 턴 자신 메인 스태커의 파워를 2 상승시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "1",
+      "subEffect": "자신의 덱이 10장 이하일 때 발동할 수 있다. 이번 턴 자신 메인 스태커의 파워를 1 상승시킨다.",
+      "collectionNumber": "SD01-KR04",
+      "tags": "자신 파워 상승/"
+    },
+    {
+      "id": "7ed2378e-6da6-45f9-80b4-dd46a48f1ff1",
+      "name": "영혼의 인도자-모르벨",
+      "cardType": "MAIN",
+      "power": 2,
+      "activeCost": "1",
+      "activeEffect": "상대는 2장 드로우한다",
+      "mainCost": "4",
+      "mainEffect": "상대는 5장 드로우하고 서로 확인한다. 드로우한 카드 중 액티브 스태커를 모두 트래시한다.",
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR05",
+      "tags": "상대 드로우/"
+    },
+    {
+      "id": "c0bc2746-c4b1-47d0-86da-0dda970ef34c",
+      "name": "맛있는 영혼",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신은 카드 종류를 선언하고 드로우한다 맞으면 상대의 패 1장을 무작위로 스택 존으로 보낸다. 틀리면 자신의 패 1장을 무작위로 스택 존으로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "2",
+      "subEffect": "자신은 카드 종류를 선언하고 드로우한다. 맞으면 상대에게 2 대미지를 준다. 틀리면 자신에게 2 대미지를 준다.",
+      "collectionNumber": "SD01-KR06",
+      "tags": "자신 드로우/상대 스택/자신 스택/상대 효과 피해/자신 효과 피해/"
+    },
+    {
+      "id": "90d5eb9d-d48a-4a27-9a6c-9499f8e7ceca",
+      "name": "주인님을 위해",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신은 카드 종류를 선언하고 드로우한다 맞으면 자신의 트래시 존에서 카드 1장을 선택하여 패에 추가한다. 틀리면 상대의 트래시 존에서 카드 1장을 선택하여 덱 맨 아래로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "2",
+      "subEffect": "자신은 카드 종류를 선언하고 드로우한다. 맞으면 자신의 트래시 존 맨 위에서 3장을 스택 존으로 보낸다. 틀리면 자신의 스택 존 맨 위에서 카드 1장을 트래시한다.",
+      "collectionNumber": "SD01-KR07",
+      "tags": "자신 드로우/상대 회복/자신 스택/자신 회수/상대 회수/"
+    },
+    {
+      "id": "c5006cce-b16e-481c-9702-8eb36ed94adc",
+      "name": "명부 확인",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "자신은 카드 종류를 선언하고 드로우한다 맞으면 이번 턴 자신 메인 스태커의 파워를 2 상승시킨다. 틀리면 이번 턴 공격할 수 없다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "1",
+      "subEffect": "자신의 덱 맨 위에서 카드 3장을 보고 원하는 순서대로 덱 위에 올려놓는다.",
+      "collectionNumber": "SD01-KR08",
+      "tags": "자신 드로우/자신 파워 상승/"
+    },
+    {
+      "id": "324825bb-0c04-4895-99d1-dbb4d50610ae",
+      "name": "수수께끼의 영생자-세티아",
+      "cardType": "MAIN",
+      "power": 3,
+      "activeCost": "3",
+      "activeEffect": "자신의 트래시 존 맨 위에서 카드 2장을 덱 맨 아래로 보낸다.",
+      "mainCost": "3",
+      "mainEffect": "자신의 스택 존 맨 위에서 카드 5장까지 덱 맨 아래로 보낸다.",
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR09",
+      "tags": "자신 회복/자신 회수/"
+    },
+    {
+      "id": "79267e20-c68f-49f3-b065-62453a7f8915",
+      "name": "절대적 거부",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신의 트래시 존 맨 위에서 카드 2장을 스택 존으로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "3",
+      "subEffect": "다음 턴 자신이 받는 배틀 대미지를 1 감소시킨다.",
+      "collectionNumber": "SD01-KR10",
+      "tags": "자신 스택/자신 방어/"
+    },
+    {
+      "id": "36635902-ee5a-4678-9521-d0b418f34b6f",
+      "name": "나른한 속삭임",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "다음 턴 시작 시 상대가 드로우한 카드를 확인한다. 드로우한 카드가 서브 스태커일 때, 그 카드를 트래시한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "2",
+      "subEffect": "다음 턴 상대는 액티브 효과를 3번까지 발동할 수 있다.",
+      "collectionNumber": "SD01-KR11",
+      "tags": "상대 방해/"
+    },
+    {
+      "id": "9790e14c-1ca9-4949-b942-383cf940c0cf",
+      "name": "숲의 안식처",
+      "cardType": "SUB",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "상대에게 1 대미지를 준다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": "3",
+      "subEffect": "자신은 덱 맨 위에서 카드 1장을 트래시한다. 상대에게 2 대미지를 준다.",
+      "collectionNumber": "SD01-KR12",
+      "tags": "상대 효과 피해/자신 밀/"
+    },
+    {
+      "id": "5d93271d-38d6-43ad-8595-73a6f5edcbbd",
+      "name": "금단의 서",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신은 3장 드로우하고 패 2장을 트래시한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR13",
+      "tags": "자신 드로우/"
+    },
+    {
+      "id": "689aab62-b5ae-4819-85bd-3c37bbd09db7",
+      "name": "용의 눈",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "상대의 덱 맨 위에서 카드 3장을 보고 원하는 순서대로 덱 위에 올려놓는다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR14",
+      "tags": ""
+    },
+    {
+      "id": "d75e958b-ec70-4829-a38d-08f223601c13",
+      "name": "펌프업",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "3",
+      "activeEffect": "자신 메인 스태커의 파워를 1 상승시킨다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR15",
+      "tags": "자신 파워 상승/"
+    },
+    {
+      "id": "4dbc08f2-f845-4dd7-a54f-8d191a46b4a1",
+      "name": "수상한 그림자",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "서로는 덱 맨 위에서 1장을 트래시한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR16",
+      "tags": "자신 밀/상대 밀/"
+    },
+    {
+      "id": "a183cf69-4fd1-4214-b4e5-da1f8b81d1a9",
+      "name": "운명의 천칭",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "자신은 1장 드로우한다",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR17",
+      "tags": "자신 드로우/"
+    },
+    {
+      "id": "74c1fe4d-b85d-4787-b23b-df18e2cae5ee",
+      "name": "핀아웃",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신의 트래시 존에서 액티브 스태커 1장을 선택하여 패로 가져온다. 자신의 덱 맨 위에서 카드 2장을 트래시한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR18",
+      "tags": "자신 밀/자신 회수/"
+    },
+    {
+      "id": "2653bb31-f58c-4a68-a5b1-b11f1fa6a69c",
+      "name": "인셉션",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "서로는 트래시 존 맨 위 카드 1장을 덱 맨 아래로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR19",
+      "tags": "자신 회복/상대 회복/자신 회수/상대 회수/"
+    },
+    {
+      "id": "31120d0b-6c93-40c1-9cce-af50611bd018",
+      "name": "타임캡슐",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "자신과 상대의 패를 모두 덱에 넣고 셔플한다. 서로는 덱에 넣은 수 만큼 드로우한다",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR20",
+      "tags": "자신 회복/상대 회복/자신 드로우/상대 드로우/"
+    },
+    {
+      "id": "88751c64-fde1-4dba-b115-00560bebc10c",
+      "name": "용의 위협",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "상대의 스택 존 맨 위에서 카드 1장을 트래시한다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR21",
+      "tags": ""
+    },
+    {
+      "id": "8343fc6f-4f67-4420-bf12-997da1df08d2",
+      "name": "용의 무덤",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "1",
+      "activeEffect": "자신은 2장 드로우하고 그 중 1장을 선택하여 스택 존으로 보낸다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR22",
+      "tags": "자신 드로우/자신 스택/"
+    },
+    {
+      "id": "bea2244c-59ce-44a0-a515-90edd0c8a166",
+      "name": "부활의 손짓",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "0",
+      "activeEffect": "자신의 트래시 존 맨 위에서 카드 1장을 스택 존으로 보낸다. 이 카드는 한 턴에 한 번만 발동할 수 있다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR23",
+      "tags": "자신 스택/"
+    },
+    {
+      "id": "5dc53827-e887-42ef-86d0-c191f68a3f40",
+      "name": "억제된 본능",
+      "cardType": "ACTIVE",
+      "power": null,
+      "activeCost": "2",
+      "activeEffect": "다음 턴 종료 시까지 상대 메인 스태커의 파워를 1 하락시킨다.",
+      "mainCost": null,
+      "mainEffect": null,
+      "subCost": null,
+      "subEffect": null,
+      "collectionNumber": "SD01-KR24",
+      "tags": "상대 파워 하락/"
+    }
+  ],
+  "releases": [
+    {
+      "id": "d11f9294-a6f1-4c19-8776-e2df4e5dc15f",
+      "cardName": "망각의 꽃-아넬리아",
+      "cardId": "da97a858-151b-412c-87be-94e8943a13f2",
+      "rarity": "HI",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR01"
+    },
+    {
+      "id": "fdb304e7-df1f-4817-896f-9137eb1b3c31",
+      "cardName": "망각의 꽃-아넬리아",
+      "cardId": "da97a858-151b-412c-87be-94e8943a13f2",
+      "rarity": "MSP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR01"
+    },
+    {
+      "id": "5ed00080-e61c-4d9b-b501-b8c1a4190298",
+      "cardName": "망각의 꽃-아넬리아",
+      "cardId": "da97a858-151b-412c-87be-94e8943a13f2",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR01"
+    },
+    {
+      "id": "980a31b3-3e74-4b56-b788-87d1f6a142e4",
+      "cardName": "망각의 꽃-아넬리아",
+      "cardId": "da97a858-151b-412c-87be-94e8943a13f2",
+      "rarity": "SR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR01"
+    },
+    {
+      "id": "c06117b2-8323-4122-801e-04091d14c7a9",
+      "cardName": "망각의 꽃-아넬리아",
+      "cardId": "da97a858-151b-412c-87be-94e8943a13f2",
+      "rarity": "UR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR01"
+    },
+    {
+      "id": "c2fdf881-8fdb-481c-ad27-07c3a24090d0",
+      "cardName": "흩날리는 망각",
+      "cardId": "1b2176fe-cfba-4039-a9a0-f882949959cd",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR02"
+    },
+    {
+      "id": "2f4c4cf2-455e-49c1-9996-2a0be5143051",
+      "cardName": "흩날리는 망각",
+      "cardId": "1b2176fe-cfba-4039-a9a0-f882949959cd",
+      "rarity": "SR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR02"
+    },
+    {
+      "id": "324e4993-3609-436d-8ca8-35b98f300f07",
+      "cardName": "흩날리는 망각",
+      "cardId": "1b2176fe-cfba-4039-a9a0-f882949959cd",
+      "rarity": "SSP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR02"
+    },
+    {
+      "id": "30314fc2-3919-4440-af60-fb22f00e8eaa",
+      "cardName": "흩날리는 망각",
+      "cardId": "1b2176fe-cfba-4039-a9a0-f882949959cd",
+      "rarity": "UR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR02"
+    },
+    {
+      "id": "9b7cce73-2d78-4633-940e-7bec5796eaef",
+      "cardName": "기억의 열쇠",
+      "cardId": "4560a018-45c2-488e-8fd5-d784b621ac8d",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR03"
+    },
+    {
+      "id": "26ad442a-a78d-4051-987f-fc9c19d74e3f",
+      "cardName": "기억의 열쇠",
+      "cardId": "4560a018-45c2-488e-8fd5-d784b621ac8d",
+      "rarity": "SR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR03"
+    },
+    {
+      "id": "cd967804-4bad-4291-ac47-e3895272010f",
+      "cardName": "기억의 열쇠",
+      "cardId": "4560a018-45c2-488e-8fd5-d784b621ac8d",
+      "rarity": "SSP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR03"
+    },
+    {
+      "id": "9f169d6b-714e-4766-8397-607a6906f410",
+      "cardName": "기억의 열쇠",
+      "cardId": "4560a018-45c2-488e-8fd5-d784b621ac8d",
+      "rarity": "UR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR03"
+    },
+    {
+      "id": "1f4d1414-a25a-4b77-b190-e52cce75fed5",
+      "cardName": "거부의 돌풍",
+      "cardId": "444c3553-452a-4ca3-9946-2b88c30d290d",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR04"
+    },
+    {
+      "id": "410e186c-f0cf-4c84-9ff1-c0d35c2a3356",
+      "cardName": "거부의 돌풍",
+      "cardId": "444c3553-452a-4ca3-9946-2b88c30d290d",
+      "rarity": "SR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR04"
+    },
+    {
+      "id": "949039e7-e3b6-4d2c-8de3-64fca45e3ead",
+      "cardName": "거부의 돌풍",
+      "cardId": "444c3553-452a-4ca3-9946-2b88c30d290d",
+      "rarity": "SSP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR04"
+    },
+    {
+      "id": "eb7e88a5-be89-47c2-abd9-92bfa577193f",
+      "cardName": "거부의 돌풍",
+      "cardId": "444c3553-452a-4ca3-9946-2b88c30d290d",
+      "rarity": "UR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR04"
+    },
+    {
+      "id": "e36eb118-8a05-4de6-9899-1aa045c2feab",
+      "cardName": "유성의 기사-아스트라",
+      "cardId": "9d3b357e-8527-469f-b829-2a059babb34a",
+      "rarity": "HI",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR05"
+    },
+    {
+      "id": "9f0aea86-67f9-4dbd-880d-58b87a54f24c",
+      "cardName": "유성의 기사-아스트라",
+      "cardId": "9d3b357e-8527-469f-b829-2a059babb34a",
+      "rarity": "MSP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR05"
+    },
+    {
+      "id": "aa9de759-5dcc-49dd-a28b-0d7e467ea7a4",
+      "cardName": "유성의 기사-아스트라",
+      "cardId": "9d3b357e-8527-469f-b829-2a059babb34a",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR05"
+    },
+    {
+      "id": "dabc75e2-d338-40eb-94e6-ec67e8fad992",
+      "cardName": "유성의 기사-아스트라",
+      "cardId": "9d3b357e-8527-469f-b829-2a059babb34a",
+      "rarity": "SR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR05"
+    },
+    {
+      "id": "cf4bddd1-de02-401d-a0b5-0db4954ced1d",
+      "cardName": "유성의 기사-아스트라",
+      "cardId": "9d3b357e-8527-469f-b829-2a059babb34a",
+      "rarity": "UR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR05"
+    },
+    {
+      "id": "578f2d5c-3514-4437-a64b-821d92c4185d",
+      "cardName": "스텔라 임팩트",
+      "cardId": "c01d435a-737a-46cb-8237-85be61842505",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR06"
+    },
+    {
+      "id": "dc5bbe4b-6f8d-4c7b-8a14-4b2c9f78cf5d",
+      "cardName": "스텔라 임팩트",
+      "cardId": "c01d435a-737a-46cb-8237-85be61842505",
+      "rarity": "SR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR06"
+    },
+    {
+      "id": "b0459c85-1671-47a6-8671-3f4a5af31e0a",
+      "cardName": "스텔라 임팩트",
+      "cardId": "c01d435a-737a-46cb-8237-85be61842505",
+      "rarity": "SSP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR06"
+    },
+    {
+      "id": "6b9b3caf-ab67-4ca3-ad1c-848810c9e67e",
+      "cardName": "스텔라 임팩트",
+      "cardId": "c01d435a-737a-46cb-8237-85be61842505",
+      "rarity": "UR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR06"
+    },
+    {
+      "id": "fa8e9eea-8dd0-4fc7-8ece-284bd884721c",
+      "cardName": "메테오 레인",
+      "cardId": "c682839d-6529-4e42-8989-0b1d49926708",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR07"
+    },
+    {
+      "id": "f4ea9005-c7b2-4b05-8930-a92f022c1a15",
+      "cardName": "메테오 레인",
+      "cardId": "c682839d-6529-4e42-8989-0b1d49926708",
+      "rarity": "SR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR07"
+    },
+    {
+      "id": "51b381e0-e81e-41bc-bf73-d22fa652c6d0",
+      "cardName": "메테오 레인",
+      "cardId": "c682839d-6529-4e42-8989-0b1d49926708",
+      "rarity": "SSP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR07"
+    },
+    {
+      "id": "2afa8261-21c4-4c2c-beb2-8424dcc68914",
+      "cardName": "메테오 레인",
+      "cardId": "c682839d-6529-4e42-8989-0b1d49926708",
+      "rarity": "UR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR07"
+    },
+    {
+      "id": "26ad7f60-08fe-4dc1-b2c8-8bfdf9da504d",
+      "cardName": "테스티아스",
+      "cardId": "bd78d508-b874-4c5d-9b41-11a07c855b06",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR08"
+    },
+    {
+      "id": "dc7d8835-15e2-4100-90d1-bf26bad989ef",
+      "cardName": "테스티아스",
+      "cardId": "bd78d508-b874-4c5d-9b41-11a07c855b06",
+      "rarity": "SR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR08"
+    },
+    {
+      "id": "50661560-9c9e-4262-94eb-909af5be0de7",
+      "cardName": "테스티아스",
+      "cardId": "bd78d508-b874-4c5d-9b41-11a07c855b06",
+      "rarity": "SSP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR08"
+    },
+    {
+      "id": "13bbedfe-b2cd-4d23-be55-c647fc6e065c",
+      "cardName": "테스티아스",
+      "cardId": "bd78d508-b874-4c5d-9b41-11a07c855b06",
+      "rarity": "UR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR08"
+    },
+    {
+      "id": "4c7f6e54-fcd0-4279-be14-fffca9ddd27e",
+      "cardName": "심연의 포식자-란",
+      "cardId": "bd3e2142-6f4c-4cb6-bdde-760f5047b295",
+      "rarity": "HI",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR09"
+    },
+    {
+      "id": "8cfe51fb-2b77-4afa-b538-a00dcd02a2c0",
+      "cardName": "심연의 포식자-란",
+      "cardId": "bd3e2142-6f4c-4cb6-bdde-760f5047b295",
+      "rarity": "MSP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR09"
+    },
+    {
+      "id": "f4cf9ac8-de74-46d2-8985-b71a3d7d99dc",
+      "cardName": "심연의 포식자-란",
+      "cardId": "bd3e2142-6f4c-4cb6-bdde-760f5047b295",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR09"
+    },
+    {
+      "id": "33dd294a-ae36-4e2c-a431-518d22044256",
+      "cardName": "심연의 포식자-란",
+      "cardId": "bd3e2142-6f4c-4cb6-bdde-760f5047b295",
+      "rarity": "SR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR09"
+    },
+    {
+      "id": "4bc17ed7-7279-4de1-929e-8f4fbc0276e5",
+      "cardName": "심연의 포식자-란",
+      "cardId": "bd3e2142-6f4c-4cb6-bdde-760f5047b295",
+      "rarity": "UR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR09"
+    },
+    {
+      "id": "e9557694-feb3-4563-8784-d4994a6b3592",
+      "cardName": "심연의 덫",
+      "cardId": "0cca88d6-51e1-44fd-9259-13bae9cd5c0e",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR10"
+    },
+    {
+      "id": "c15c90f2-b01f-45a7-b2a2-08bdd724d8b9",
+      "cardName": "심연의 덫",
+      "cardId": "0cca88d6-51e1-44fd-9259-13bae9cd5c0e",
+      "rarity": "SR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR10"
+    },
+    {
+      "id": "6fe57345-94b4-43a3-8a7b-0938b3713cfb",
+      "cardName": "심연의 덫",
+      "cardId": "0cca88d6-51e1-44fd-9259-13bae9cd5c0e",
+      "rarity": "SSP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR10"
+    },
+    {
+      "id": "1cfabfc5-fda2-47a3-a186-8566975531db",
+      "cardName": "심연의 덫",
+      "cardId": "0cca88d6-51e1-44fd-9259-13bae9cd5c0e",
+      "rarity": "UR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR10"
+    },
+    {
+      "id": "83b881ae-290d-4661-8288-f655b06a34f1",
+      "cardName": "죽음의 올가미",
+      "cardId": "1e36bbc1-9cc2-42ae-b870-3aaee854069b",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR11"
+    },
+    {
+      "id": "7cbf1204-e0e8-4d92-902f-1c64440715c6",
+      "cardName": "죽음의 올가미",
+      "cardId": "1e36bbc1-9cc2-42ae-b870-3aaee854069b",
+      "rarity": "SR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR11"
+    },
+    {
+      "id": "04075b79-f6ab-4d75-8010-722497b1accd",
+      "cardName": "죽음의 올가미",
+      "cardId": "1e36bbc1-9cc2-42ae-b870-3aaee854069b",
+      "rarity": "SSP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR11"
+    },
+    {
+      "id": "8d386b78-2552-458f-8120-ece616a82c22",
+      "cardName": "죽음의 올가미",
+      "cardId": "1e36bbc1-9cc2-42ae-b870-3aaee854069b",
+      "rarity": "UR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR11"
+    },
+    {
+      "id": "f98f4650-9651-4c02-8a9e-53b3876d6cff",
+      "cardName": "최후의 만찬",
+      "cardId": "65daba8b-9380-435a-a893-76655f4617f4",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR12"
+    },
+    {
+      "id": "b07735dd-271d-4708-90ea-0b8d5be92077",
+      "cardName": "최후의 만찬",
+      "cardId": "65daba8b-9380-435a-a893-76655f4617f4",
+      "rarity": "SR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR12"
+    },
+    {
+      "id": "a31a4e79-2a00-46a6-9937-3d2f948feeb5",
+      "cardName": "최후의 만찬",
+      "cardId": "65daba8b-9380-435a-a893-76655f4617f4",
+      "rarity": "SSP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR12"
+    },
+    {
+      "id": "85f06190-7902-4593-a171-fcee611126c8",
+      "cardName": "최후의 만찬",
+      "cardId": "65daba8b-9380-435a-a893-76655f4617f4",
+      "rarity": "UR",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR12"
+    },
+    {
+      "id": "e6e675b6-2adc-4b42-ac4c-4b2589f721c5",
+      "cardName": "오만의 좌",
+      "cardId": "16c69adf-ef8d-4afe-9b74-6538ed5083c1",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR13"
+    },
+    {
+      "id": "43bc3ef5-d400-4ecc-a8fb-809edfa57759",
+      "cardName": "오만의 좌",
+      "cardId": "16c69adf-ef8d-4afe-9b74-6538ed5083c1",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR13"
+    },
+    {
+      "id": "95dd7263-6311-4f64-a1c6-eede25fca0b3",
+      "cardName": "별의 선물",
+      "cardId": "13a934f3-54b7-48e6-a7b6-932c29f26708",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR14"
+    },
+    {
+      "id": "c88bbb79-056f-4411-9198-e5058c0e5aa1",
+      "cardName": "별의 선물",
+      "cardId": "13a934f3-54b7-48e6-a7b6-932c29f26708",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR14"
+    },
+    {
+      "id": "a3b4a4f2-d1a2-4d93-84fe-68df5123f732",
+      "cardName": "셀레스타이트",
+      "cardId": "43b50dc4-6cce-494d-8dd3-607f85b0cb0e",
+      "rarity": "ASP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR15"
+    },
+    {
+      "id": "c801b917-1085-4ec8-b671-84024305660e",
+      "cardName": "셀레스타이트",
+      "cardId": "43b50dc4-6cce-494d-8dd3-607f85b0cb0e",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR15"
+    },
+    {
+      "id": "73aaeb08-22e6-40c5-846e-d7b58e907b97",
+      "cardName": "셀레스타이트",
+      "cardId": "43b50dc4-6cce-494d-8dd3-607f85b0cb0e",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR15"
+    },
+    {
+      "id": "f975b7b3-eac0-4270-9291-429511db3caa",
+      "cardName": "히프노시스",
+      "cardId": "a435ef8a-cec8-40d8-93b7-9be220cf5e20",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR16"
+    },
+    {
+      "id": "dec840a0-a243-4c4d-adf2-eb379a0189d9",
+      "cardName": "히프노시스",
+      "cardId": "a435ef8a-cec8-40d8-93b7-9be220cf5e20",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR16"
+    },
+    {
+      "id": "e475784e-f0d0-4365-a847-a718a175f2f2",
+      "cardName": "익스체인지",
+      "cardId": "05c440b0-4fbc-4600-bef3-1480a3952639",
+      "rarity": "ASP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR17"
+    },
+    {
+      "id": "9074a987-9d4c-46f5-a63d-cb44e8838b6e",
+      "cardName": "익스체인지",
+      "cardId": "05c440b0-4fbc-4600-bef3-1480a3952639",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR17"
+    },
+    {
+      "id": "cfe4d92c-96de-4be7-81fd-181ef23f279c",
+      "cardName": "익스체인지",
+      "cardId": "05c440b0-4fbc-4600-bef3-1480a3952639",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR17"
+    },
+    {
+      "id": "da7f948e-dcb2-486a-9ab5-515aac4a8c21",
+      "cardName": "재구축",
+      "cardId": "6eeff82b-f7aa-4191-8183-5194e7ad68a5",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR18"
+    },
+    {
+      "id": "621ae67f-911f-44d6-8bc0-acf8ed514485",
+      "cardName": "재구축",
+      "cardId": "6eeff82b-f7aa-4191-8183-5194e7ad68a5",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR18"
+    },
+    {
+      "id": "8153eeb9-114f-4d35-9835-4302e8b8db55",
+      "cardName": "끝없는 탐욕",
+      "cardId": "70ee1ade-1dc4-4d5e-8ea4-d3a3f5028a15",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR19"
+    },
+    {
+      "id": "71ee771f-676a-4f78-8417-ffb596f33510",
+      "cardName": "끝없는 탐욕",
+      "cardId": "70ee1ade-1dc4-4d5e-8ea4-d3a3f5028a15",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR19"
+    },
+    {
+      "id": "fc604705-8786-47c7-b085-4ca4a67f0a19",
+      "cardName": "금지된 실험",
+      "cardId": "7bd96081-2be0-434b-94a8-bb4fb1984897",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR20"
+    },
+    {
+      "id": "7e0be0a2-60d3-4758-a53e-91c11b62ecbc",
+      "cardName": "금지된 실험",
+      "cardId": "7bd96081-2be0-434b-94a8-bb4fb1984897",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR20"
+    },
+    {
+      "id": "29ae3fba-5e3d-45eb-9554-4cad81e5d3d4",
+      "cardName": "인큐베이터",
+      "cardId": "90b52a36-5aef-43d4-b368-196a364173ac",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR21"
+    },
+    {
+      "id": "4b9f4896-c5ce-47f7-a764-9f1edd73e4cb",
+      "cardName": "인큐베이터",
+      "cardId": "90b52a36-5aef-43d4-b368-196a364173ac",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR21"
+    },
+    {
+      "id": "c5e3d174-1447-4801-8057-4f4391f92634",
+      "cardName": "사냥감의 반격",
+      "cardId": "1e2a5902-9f48-4a7f-99f4-c43fb7abacab",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR22"
+    },
+    {
+      "id": "ee146b49-9ebe-469a-bfa9-05c2b1a0cb36",
+      "cardName": "사냥감의 반격",
+      "cardId": "1e2a5902-9f48-4a7f-99f4-c43fb7abacab",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR22"
+    },
+    {
+      "id": "1c29fd2f-a3bf-4c42-850b-225a8b4ec940",
+      "cardName": "영묘의 굿",
+      "cardId": "fff70844-31c7-4a0d-9b30-11a1e32063f9",
+      "rarity": "ASP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR23"
+    },
+    {
+      "id": "da6e27c9-c8b9-4dcc-8dd0-569c33b9bb89",
+      "cardName": "영묘의 굿",
+      "cardId": "fff70844-31c7-4a0d-9b30-11a1e32063f9",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR23"
+    },
+    {
+      "id": "cb634a6d-e490-461d-98c5-e4d840d8b03c",
+      "cardName": "영묘의 굿",
+      "cardId": "fff70844-31c7-4a0d-9b30-11a1e32063f9",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR23"
+    },
+    {
+      "id": "7c74038d-d2b0-42a4-bddd-1daab37ab120",
+      "cardName": "타감작용",
+      "cardId": "4a47ebc7-2a8a-42de-8dd8-179dcc87136c",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR24"
+    },
+    {
+      "id": "421de4ca-163d-4440-9030-e6a37fb320af",
+      "cardName": "타감작용",
+      "cardId": "4a47ebc7-2a8a-42de-8dd8-179dcc87136c",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR24"
+    },
+    {
+      "id": "198edf38-98f6-4d53-946b-93ceba9f5cd5",
+      "cardName": "사랑의 묘약",
+      "cardId": "a9674aa6-7ded-4578-86b5-0146223f2c6b",
+      "rarity": "ASP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR25"
+    },
+    {
+      "id": "032ff836-8c50-411d-b370-b040e54b7649",
+      "cardName": "사랑의 묘약",
+      "cardId": "a9674aa6-7ded-4578-86b5-0146223f2c6b",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR25"
+    },
+    {
+      "id": "42567b29-fc3a-4f7b-9529-8bf6da26e4bc",
+      "cardName": "사랑의 묘약",
+      "cardId": "a9674aa6-7ded-4578-86b5-0146223f2c6b",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR25"
+    },
+    {
+      "id": "f166af3c-5667-4b5c-b566-f1f3b2776f37",
+      "cardName": "한 잔 더!",
+      "cardId": "408f6e60-b398-4baf-9d1b-73e8e8ed04fc",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR26"
+    },
+    {
+      "id": "8054602b-7347-4d05-af45-28bd9b120f82",
+      "cardName": "한 잔 더!",
+      "cardId": "408f6e60-b398-4baf-9d1b-73e8e8ed04fc",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR26"
+    },
+    {
+      "id": "f3679a92-0c0a-4600-8163-4a0aa106a6fe",
+      "cardName": "바다의 편지",
+      "cardId": "16121e5e-ba88-467d-a608-5a28b27d7d7c",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR27"
+    },
+    {
+      "id": "bf761b84-2623-480f-9e5a-d26d8849c43e",
+      "cardName": "바다의 편지",
+      "cardId": "16121e5e-ba88-467d-a608-5a28b27d7d7c",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR27"
+    },
+    {
+      "id": "c90de2ca-0204-4be3-bde6-c1949468a3bd",
+      "cardName": "죽음의 개화",
+      "cardId": "ac7ae409-e310-4de8-b270-4b2485f9e066",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR28"
+    },
+    {
+      "id": "6002e53a-a17a-44a1-ad3c-4b1a705d807f",
+      "cardName": "죽음의 개화",
+      "cardId": "ac7ae409-e310-4de8-b270-4b2485f9e066",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR28"
+    },
+    {
+      "id": "7f74c011-de2a-4750-839a-fb6ae6d0d37f",
+      "cardName": "꿰뚫린 봉인",
+      "cardId": "5747bf70-eb65-45e8-9125-d96b0abb2f7f",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR29"
+    },
+    {
+      "id": "2d40ee07-7cf2-4e10-9664-9f31304bc333",
+      "cardName": "꿰뚫린 봉인",
+      "cardId": "5747bf70-eb65-45e8-9125-d96b0abb2f7f",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR29"
+    },
+    {
+      "id": "2caae0e5-1db8-4bd6-b587-2211d0a9908f",
+      "cardName": "쥬얼 게이즈",
+      "cardId": "465512d5-4a10-4ca2-8e65-8209f67b01bf",
+      "rarity": "ASP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR30"
+    },
+    {
+      "id": "630e0220-8e0c-4dc8-9228-0d12760d3de9",
+      "cardName": "쥬얼 게이즈",
+      "cardId": "465512d5-4a10-4ca2-8e65-8209f67b01bf",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR30"
+    },
+    {
+      "id": "e98c8e08-7939-4471-9960-d56b39bda9d7",
+      "cardName": "쥬얼 게이즈",
+      "cardId": "465512d5-4a10-4ca2-8e65-8209f67b01bf",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR30"
+    },
+    {
+      "id": "f2327670-8415-400f-a0eb-d476cd268acb",
+      "cardName": "섬뜩한 조우",
+      "cardId": "35a16b7f-68d7-404a-9897-aa2fc1775472",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR31"
+    },
+    {
+      "id": "74dd6ed4-bc2f-4916-b272-ae2c5e643524",
+      "cardName": "섬뜩한 조우",
+      "cardId": "35a16b7f-68d7-404a-9897-aa2fc1775472",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR31"
+    },
+    {
+      "id": "5bd17bec-a81b-4553-be2f-3cf00e643c0b",
+      "cardName": "창공의 징조",
+      "cardId": "117a9125-3662-4e2d-ae47-1060dc43891c",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR32"
+    },
+    {
+      "id": "d5e6eb97-3700-49ed-88d5-bd9888f188ce",
+      "cardName": "창공의 징조",
+      "cardId": "117a9125-3662-4e2d-ae47-1060dc43891c",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR32"
+    },
+    {
+      "id": "943a5252-082e-480c-97fa-6907403a8f96",
+      "cardName": "버려진 도시",
+      "cardId": "953b2a8a-8603-4b9f-9ac5-acfcca5d3aa8",
+      "rarity": "ASP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR33"
+    },
+    {
+      "id": "754226e6-15d6-4749-a6e5-97004136bcb4",
+      "cardName": "버려진 도시",
+      "cardId": "953b2a8a-8603-4b9f-9ac5-acfcca5d3aa8",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR33"
+    },
+    {
+      "id": "d881fc87-a4c6-47ae-8803-4514af064834",
+      "cardName": "버려진 도시",
+      "cardId": "953b2a8a-8603-4b9f-9ac5-acfcca5d3aa8",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR33"
+    },
+    {
+      "id": "084d72b0-d892-49f7-b2f1-0113583d3b44",
+      "cardName": "푸른 숲의 속삭임",
+      "cardId": "4588954b-c7d3-4bec-91c0-b149ae14d2e3",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR34"
+    },
+    {
+      "id": "3193f527-d300-4672-a767-87517fe35255",
+      "cardName": "푸른 숲의 속삭임",
+      "cardId": "4588954b-c7d3-4bec-91c0-b149ae14d2e3",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR34"
+    },
+    {
+      "id": "4572ddf9-8d7d-46cf-82fd-72df77a3cfc1",
+      "cardName": "조화의 보석",
+      "cardId": "3f9ac989-0f75-4f4c-94c0-f327b8657485",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR35"
+    },
+    {
+      "id": "8003219d-7f63-49ba-ba9e-f92aeac38e93",
+      "cardName": "조화의 보석",
+      "cardId": "3f9ac989-0f75-4f4c-94c0-f327b8657485",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR35"
+    },
+    {
+      "id": "8d4b6a74-6607-47ac-8415-2a16d1a9b0f3",
+      "cardName": "더블 캐치",
+      "cardId": "4e45a750-6db0-4a21-b5e1-79bdc8309169",
+      "rarity": "ASP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR36"
+    },
+    {
+      "id": "7e55b410-d5cf-400d-affb-c04b82970c03",
+      "cardName": "더블 캐치",
+      "cardId": "4e45a750-6db0-4a21-b5e1-79bdc8309169",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR36"
+    },
+    {
+      "id": "a058e28c-d268-48aa-8772-53886fac9c23",
+      "cardName": "더블 캐치",
+      "cardId": "4e45a750-6db0-4a21-b5e1-79bdc8309169",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR36"
+    },
+    {
+      "id": "e8662a08-2948-4d3f-a02e-a6eea5194b65",
+      "cardName": "뒷골목의 오후",
+      "cardId": "9b9ccc72-983a-4618-a9f3-705bca9d0274",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR37"
+    },
+    {
+      "id": "d0e02eb8-23d3-4584-9f9f-76d10ffd4fbb",
+      "cardName": "뒷골목의 오후",
+      "cardId": "9b9ccc72-983a-4618-a9f3-705bca9d0274",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR37"
+    },
+    {
+      "id": "629c8e58-54c7-4b31-bb63-5b9a76c8c1ba",
+      "cardName": "달콤한 덫",
+      "cardId": "cf11ff0f-5c6e-458b-81d1-52bf029f22e6",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR38"
+    },
+    {
+      "id": "80260dd8-b46e-4664-8b67-1f9cbaf42853",
+      "cardName": "달콤한 덫",
+      "cardId": "cf11ff0f-5c6e-458b-81d1-52bf029f22e6",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR38"
+    },
+    {
+      "id": "3aba1262-6872-420a-abdb-929c28afcbf9",
+      "cardName": "사멸의 아틀리에",
+      "cardId": "60525525-f399-4ca0-a8a7-a6f94cebe43b",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR39"
+    },
+    {
+      "id": "c2346b97-fc1b-4efd-8ef4-562529e24bed",
+      "cardName": "사멸의 아틀리에",
+      "cardId": "60525525-f399-4ca0-a8a7-a6f94cebe43b",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR39"
+    },
+    {
+      "id": "5e23bb65-3d44-45c1-ae89-23579d0b0433",
+      "cardName": "금지된 숲",
+      "cardId": "fd4fb5af-0737-43f0-8ae3-3859bbe489c6",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR40"
+    },
+    {
+      "id": "cccfc86e-dd01-48a1-9a27-3f0175047ed5",
+      "cardName": "금지된 숲",
+      "cardId": "fd4fb5af-0737-43f0-8ae3-3859bbe489c6",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR40"
+    },
+    {
+      "id": "b243d0e9-6ed6-4315-8c62-d1ca2683f1aa",
+      "cardName": "화염 스크롤",
+      "cardId": "a5387e1d-efcb-41e2-9e2d-07ece3178b80",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR41"
+    },
+    {
+      "id": "d7d1c431-677c-41bc-9027-416f4be9b6de",
+      "cardName": "화염 스크롤",
+      "cardId": "a5387e1d-efcb-41e2-9e2d-07ece3178b80",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR41"
+    },
+    {
+      "id": "3cba53a4-d925-4d51-9584-8370e15e6259",
+      "cardName": "차원 균열",
+      "cardId": "e18469a9-bc5f-4227-9a7d-24a93069ed33",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR42"
+    },
+    {
+      "id": "603ae5ac-20d5-4c48-952e-7efde1de73e8",
+      "cardName": "차원 균열",
+      "cardId": "e18469a9-bc5f-4227-9a7d-24a93069ed33",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR42"
+    },
+    {
+      "id": "33968080-d533-440e-9d0b-b7b2ca6de2d6",
+      "cardName": "설원의 심판",
+      "cardId": "97a7f42b-307c-4d43-a5c0-abd3683f2de0",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR43"
+    },
+    {
+      "id": "b33da848-8fbe-4049-b354-9878f4e85a0b",
+      "cardName": "설원의 심판",
+      "cardId": "97a7f42b-307c-4d43-a5c0-abd3683f2de0",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR43"
+    },
+    {
+      "id": "0428ab67-8a3f-4a57-b2da-003d5d1fcc29",
+      "cardName": "교통정리",
+      "cardId": "595adad0-d035-4f11-8b04-924cd7711da6",
+      "rarity": "ASP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR44"
+    },
+    {
+      "id": "770f1f7d-141b-411e-adf1-168e0e53f089",
+      "cardName": "교통정리",
+      "cardId": "595adad0-d035-4f11-8b04-924cd7711da6",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR44"
+    },
+    {
+      "id": "925bd143-d6ec-4243-ab66-2735eaaf584b",
+      "cardName": "교통정리",
+      "cardId": "595adad0-d035-4f11-8b04-924cd7711da6",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR44"
+    },
+    {
+      "id": "8391b94b-d7b9-4955-8e57-c99d3f1340a1",
+      "cardName": "불길한 예감",
+      "cardId": "5bf3d71e-f1a3-4c81-9a17-ee836798b0fd",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR45"
+    },
+    {
+      "id": "6af87ace-88dd-4732-93b2-fcedc349d2fc",
+      "cardName": "불길한 예감",
+      "cardId": "5bf3d71e-f1a3-4c81-9a17-ee836798b0fd",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR45"
+    },
+    {
+      "id": "06fa55da-2969-4690-97de-008147a827d0",
+      "cardName": "상아의 법전",
+      "cardId": "d5abd8b2-5b6b-486d-ae2b-01918143098f",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR46"
+    },
+    {
+      "id": "8fc2ffcd-f4f4-46a9-ac2d-182c93a41507",
+      "cardName": "상아의 법전",
+      "cardId": "d5abd8b2-5b6b-486d-ae2b-01918143098f",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR46"
+    },
+    {
+      "id": "3f068c14-9d35-45c3-be89-89ed7a44b5fe",
+      "cardName": "신약 제조",
+      "cardId": "0b4cdd01-456c-49a9-8626-4570d1885ba3",
+      "rarity": "ASP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR47"
+    },
+    {
+      "id": "89a6b0ec-0fde-42d4-a454-cbf306d65e83",
+      "cardName": "신약 제조",
+      "cardId": "0b4cdd01-456c-49a9-8626-4570d1885ba3",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR47"
+    },
+    {
+      "id": "db72fdf3-fc92-44c0-98eb-a122991da279",
+      "cardName": "신약 제조",
+      "cardId": "0b4cdd01-456c-49a9-8626-4570d1885ba3",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR47"
+    },
+    {
+      "id": "e850c9b3-6ff4-421c-b825-4816dedbfcc5",
+      "cardName": "새벽의 계시",
+      "cardId": "e2726b1a-38df-40d0-8db5-879fcbb9f729",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR48"
+    },
+    {
+      "id": "a4207fec-c8e0-495b-9136-fcb046eb8c6f",
+      "cardName": "새벽의 계시",
+      "cardId": "e2726b1a-38df-40d0-8db5-879fcbb9f729",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR48"
+    },
+    {
+      "id": "af054bba-960e-4b12-93b9-64b1902fd3c4",
+      "cardName": "애착 인형",
+      "cardId": "4110bc30-42b8-4307-9570-6f7bc9c14b5d",
+      "rarity": "ASP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR49"
+    },
+    {
+      "id": "41452345-3044-4171-8368-0d1b9f08476d",
+      "cardName": "애착 인형",
+      "cardId": "4110bc30-42b8-4307-9570-6f7bc9c14b5d",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR49"
+    },
+    {
+      "id": "ea9449a2-f1fc-42d0-93dd-fd13d7f29dc0",
+      "cardName": "애착 인형",
+      "cardId": "4110bc30-42b8-4307-9570-6f7bc9c14b5d",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR49"
+    },
+    {
+      "id": "c36030f4-6234-428a-964a-e8d452123e4a",
+      "cardName": "봄날의 티타임",
+      "cardId": "c7b97ecd-37e2-445e-b368-17a55b0cbbe9",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR50"
+    },
+    {
+      "id": "3a0ba2b3-d4ef-46fb-8342-f5674d7d2a4b",
+      "cardName": "봄날의 티타임",
+      "cardId": "c7b97ecd-37e2-445e-b368-17a55b0cbbe9",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR50"
+    },
+    {
+      "id": "d2be185d-03eb-4721-abe2-4b4546b3873d",
+      "cardName": "나의 소중한 마리오네트",
+      "cardId": "5447b36d-1572-4cee-bfd4-ee2ab479c4ed",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR51"
+    },
+    {
+      "id": "817d49d2-6704-4506-be6d-7e502261f575",
+      "cardName": "나의 소중한 마리오네트",
+      "cardId": "5447b36d-1572-4cee-bfd4-ee2ab479c4ed",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR51"
+    },
+    {
+      "id": "e4553f4b-768e-404f-ba37-c29d7c18b57c",
+      "cardName": "망자의 욕망",
+      "cardId": "abcee620-088f-485c-a141-e9289396d5d2",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR52"
+    },
+    {
+      "id": "8dd76961-1265-4afa-a82f-d6aaad037e81",
+      "cardName": "망자의 욕망",
+      "cardId": "abcee620-088f-485c-a141-e9289396d5d2",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR52"
+    },
+    {
+      "id": "bd741e14-d285-42d1-87d4-a31d18fc1010",
+      "cardName": "생명의 결속",
+      "cardId": "dc98324f-5881-4f65-af52-b85f2e4ebfb5",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR53"
+    },
+    {
+      "id": "d372f3fa-6bc4-4db8-9d19-46667de8f52b",
+      "cardName": "생명의 결속",
+      "cardId": "dc98324f-5881-4f65-af52-b85f2e4ebfb5",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR53"
+    },
+    {
+      "id": "1a0e9ad4-75b3-4eb8-9416-e42d8a8df036",
+      "cardName": "뒷골목의 새벽",
+      "cardId": "275fd697-fe13-4d2f-91ee-0b84fbef9ecb",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR54"
+    },
+    {
+      "id": "f2577595-8e95-4fd3-8125-e193e2aa2825",
+      "cardName": "뒷골목의 새벽",
+      "cardId": "275fd697-fe13-4d2f-91ee-0b84fbef9ecb",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR54"
+    },
+    {
+      "id": "7caef42d-cdf7-484a-88d2-92f5396ec299",
+      "cardName": "억눌린 자의 반격",
+      "cardId": "7e1676a5-e71a-401f-b0b2-a3305ca684b5",
+      "rarity": "ASP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR55"
+    },
+    {
+      "id": "3ec12a47-0c1e-40b8-be54-67b944cba03f",
+      "cardName": "억눌린 자의 반격",
+      "cardId": "7e1676a5-e71a-401f-b0b2-a3305ca684b5",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR55"
+    },
+    {
+      "id": "6edb40ed-b9b5-42dd-9283-3badc0b1f2d8",
+      "cardName": "억눌린 자의 반격",
+      "cardId": "7e1676a5-e71a-401f-b0b2-a3305ca684b5",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR55"
+    },
+    {
+      "id": "ef52a27d-06f6-47e5-a95e-92ae91743847",
+      "cardName": "공간 구성",
+      "cardId": "14d64f8f-624d-45e4-86f5-f37e29172e1f",
+      "rarity": "ASP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR56"
+    },
+    {
+      "id": "1e7111e2-2b78-4e9b-b73f-427fe1144cf7",
+      "cardName": "공간 구성",
+      "cardId": "14d64f8f-624d-45e4-86f5-f37e29172e1f",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR56"
+    },
+    {
+      "id": "17f6db3d-47e6-4397-8bea-d3534254ae88",
+      "cardName": "공간 구성",
+      "cardId": "14d64f8f-624d-45e4-86f5-f37e29172e1f",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR56"
+    },
+    {
+      "id": "a7662aad-6d02-4a9e-8a83-5587252caf93",
+      "cardName": "우당탕탕 시간!",
+      "cardId": "c89f14c2-36d3-4162-9144-51d30d8cb4a5",
+      "rarity": "ASP",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR57"
+    },
+    {
+      "id": "e81e95ad-009f-45ca-b82d-486077a11a5a",
+      "cardName": "우당탕탕 시간!",
+      "cardId": "c89f14c2-36d3-4162-9144-51d30d8cb4a5",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR57"
+    },
+    {
+      "id": "62fbfabb-e98a-4336-b559-ad515450ec24",
+      "cardName": "우당탕탕 시간!",
+      "cardId": "c89f14c2-36d3-4162-9144-51d30d8cb4a5",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR57"
+    },
+    {
+      "id": "7da475cc-c77c-4182-9a9d-25a829b65c8c",
+      "cardName": "아스페라",
+      "cardId": "8702c1c0-90ec-4f7b-8f02-58f5ebc3707d",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR58"
+    },
+    {
+      "id": "1d1cbd1f-6f35-4d53-9de8-45141b5d5c9b",
+      "cardName": "아스페라",
+      "cardId": "8702c1c0-90ec-4f7b-8f02-58f5ebc3707d",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR58"
+    },
+    {
+      "id": "b72cb1e4-08cb-4833-af54-b60512292b2f",
+      "cardName": "다가오는 심연",
+      "cardId": "169e4d7e-32de-4d81-b63c-da6c9b8373ed",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR59"
+    },
+    {
+      "id": "e7345a2d-335e-4cf1-aeb5-d5d7bbe25291",
+      "cardName": "다가오는 심연",
+      "cardId": "169e4d7e-32de-4d81-b63c-da6c9b8373ed",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR59"
+    },
+    {
+      "id": "5ddd61a7-5ed8-45db-92e3-03f92b57bc7d",
+      "cardName": "몽환경",
+      "cardId": "2cba3ec4-2f54-42b7-baeb-d268f81eb790",
+      "rarity": "N",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR60"
+    },
+    {
+      "id": "8bfcec64-6481-49cd-9a52-d8c302e24ec7",
+      "cardName": "몽환경",
+      "cardId": "2cba3ec4-2f54-42b7-baeb-d268f81eb790",
+      "rarity": "R",
+      "packId": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "collectionNumber": "BP01-KR60"
+    },
+    {
+      "id": "90998e9e-08b4-4b38-8d47-bb31f62c21dc",
+      "cardName": "인내의 성자-마르베스",
+      "cardId": "913d3869-ef64-44c6-9f5d-ea6946040315",
+      "rarity": "MSP",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR01"
+    },
+    {
+      "id": "fad5dc3c-3a1a-4f28-8758-b34afa44605b",
+      "cardName": "인내의 성자-마르베스",
+      "cardId": "913d3869-ef64-44c6-9f5d-ea6946040315",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR01"
+    },
+    {
+      "id": "855a8f3d-027a-425a-9074-d5bd37a487c2",
+      "cardName": "인내의 성자-마르베스",
+      "cardId": "913d3869-ef64-44c6-9f5d-ea6946040315",
+      "rarity": "SR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR01"
+    },
+    {
+      "id": "0f979847-b312-4474-9e29-f0c787991609",
+      "cardName": "인내의 성자-마르베스",
+      "cardId": "913d3869-ef64-44c6-9f5d-ea6946040315",
+      "rarity": "UR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR01"
+    },
+    {
+      "id": "112181db-ca5c-4e54-9a22-7431e4c1a89a",
+      "cardName": "오버클럭",
+      "cardId": "7c46f077-4978-4df5-bafe-31cf3f57fdb9",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR02"
+    },
+    {
+      "id": "a6961a01-ba90-484b-980b-cebf058b1929",
+      "cardName": "오버클럭",
+      "cardId": "7c46f077-4978-4df5-bafe-31cf3f57fdb9",
+      "rarity": "SR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR02"
+    },
+    {
+      "id": "588a6fba-69d7-4989-a2a1-9533bf4fdcd3",
+      "cardName": "오버클럭",
+      "cardId": "7c46f077-4978-4df5-bafe-31cf3f57fdb9",
+      "rarity": "UR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR02"
+    },
+    {
+      "id": "ecd2dc55-d548-4dc8-816c-8cf82ed1d8ed",
+      "cardName": "인내의 역설",
+      "cardId": "0f06cf9b-cd3d-43bb-91c1-3f10b23876ee",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR03"
+    },
+    {
+      "id": "0cd52a18-e1ea-4358-982b-2b4a42ef8bbe",
+      "cardName": "인내의 역설",
+      "cardId": "0f06cf9b-cd3d-43bb-91c1-3f10b23876ee",
+      "rarity": "SR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR03"
+    },
+    {
+      "id": "0a4fff32-bc68-4ecb-b453-3c739524fc24",
+      "cardName": "인내의 역설",
+      "cardId": "0f06cf9b-cd3d-43bb-91c1-3f10b23876ee",
+      "rarity": "UR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR03"
+    },
+    {
+      "id": "1f25f39f-4f3b-4765-87a5-cafad4aca59b",
+      "cardName": "클러치 모드",
+      "cardId": "c2cdbc89-655e-406c-a9e8-d89c7b7e4435",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR04"
+    },
+    {
+      "id": "55bb6106-2f92-495d-9e28-d881c47fcfdc",
+      "cardName": "클러치 모드",
+      "cardId": "c2cdbc89-655e-406c-a9e8-d89c7b7e4435",
+      "rarity": "SR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR04"
+    },
+    {
+      "id": "7fdea4f5-48de-42a0-ba73-8743762915b0",
+      "cardName": "클러치 모드",
+      "cardId": "c2cdbc89-655e-406c-a9e8-d89c7b7e4435",
+      "rarity": "UR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR04"
+    },
+    {
+      "id": "a431c28e-f7ad-47f3-8e69-f8a23403c953",
+      "cardName": "영혼의 인도자-모르벨",
+      "cardId": "7ed2378e-6da6-45f9-80b4-dd46a48f1ff1",
+      "rarity": "MSP",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR05"
+    },
+    {
+      "id": "006de209-0d4a-4489-a7ee-6ff3cc49f4a5",
+      "cardName": "영혼의 인도자-모르벨",
+      "cardId": "7ed2378e-6da6-45f9-80b4-dd46a48f1ff1",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR05"
+    },
+    {
+      "id": "2ab4646e-cd74-41da-bc2c-d6c0e22a899f",
+      "cardName": "영혼의 인도자-모르벨",
+      "cardId": "7ed2378e-6da6-45f9-80b4-dd46a48f1ff1",
+      "rarity": "SR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR05"
+    },
+    {
+      "id": "781c04f8-e123-463d-a068-37d636c10bc1",
+      "cardName": "영혼의 인도자-모르벨",
+      "cardId": "7ed2378e-6da6-45f9-80b4-dd46a48f1ff1",
+      "rarity": "UR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR05"
+    },
+    {
+      "id": "5240d091-1737-48b4-ac9e-50c940cb9fc9",
+      "cardName": "맛있는 영혼",
+      "cardId": "c0bc2746-c4b1-47d0-86da-0dda970ef34c",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR06"
+    },
+    {
+      "id": "d079ec88-2a68-42da-9d95-972501598897",
+      "cardName": "맛있는 영혼",
+      "cardId": "c0bc2746-c4b1-47d0-86da-0dda970ef34c",
+      "rarity": "SR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR06"
+    },
+    {
+      "id": "153b5745-e51d-49d3-8961-cf14d937ae4e",
+      "cardName": "맛있는 영혼",
+      "cardId": "c0bc2746-c4b1-47d0-86da-0dda970ef34c",
+      "rarity": "UR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR06"
+    },
+    {
+      "id": "b069c6e8-77ee-4dc2-b8e8-bbd99692c5c6",
+      "cardName": "주인님을 위해",
+      "cardId": "90d5eb9d-d48a-4a27-9a6c-9499f8e7ceca",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR07"
+    },
+    {
+      "id": "8713f218-a5cb-47af-b4e3-81ae63af0404",
+      "cardName": "주인님을 위해",
+      "cardId": "90d5eb9d-d48a-4a27-9a6c-9499f8e7ceca",
+      "rarity": "SR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR07"
+    },
+    {
+      "id": "9b030166-da71-4fd0-9a1d-ea85fef7bbc5",
+      "cardName": "주인님을 위해",
+      "cardId": "90d5eb9d-d48a-4a27-9a6c-9499f8e7ceca",
+      "rarity": "UR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR07"
+    },
+    {
+      "id": "d77f56b0-ac81-4904-b853-dd98ba0dca90",
+      "cardName": "명부 확인",
+      "cardId": "c5006cce-b16e-481c-9702-8eb36ed94adc",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR08"
+    },
+    {
+      "id": "4fef7f71-c909-424e-8055-85ef07ee1e96",
+      "cardName": "명부 확인",
+      "cardId": "c5006cce-b16e-481c-9702-8eb36ed94adc",
+      "rarity": "SR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR08"
+    },
+    {
+      "id": "d2ffeb56-ea6f-4c88-ac7c-2e327e9688e2",
+      "cardName": "명부 확인",
+      "cardId": "c5006cce-b16e-481c-9702-8eb36ed94adc",
+      "rarity": "UR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR08"
+    },
+    {
+      "id": "a506302a-51b8-43ef-80b9-37eb134dbf65",
+      "cardName": "수수께끼의 영생자-세티아",
+      "cardId": "324825bb-0c04-4895-99d1-dbb4d50610ae",
+      "rarity": "MSP",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR09"
+    },
+    {
+      "id": "14cca36b-b58f-42fa-9c99-0fe1acf6e119",
+      "cardName": "수수께끼의 영생자-세티아",
+      "cardId": "324825bb-0c04-4895-99d1-dbb4d50610ae",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR09"
+    },
+    {
+      "id": "85b42e57-c8a9-4911-bbaa-3b5e568fb0fd",
+      "cardName": "수수께끼의 영생자-세티아",
+      "cardId": "324825bb-0c04-4895-99d1-dbb4d50610ae",
+      "rarity": "SR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR09"
+    },
+    {
+      "id": "51e0161b-4abe-4244-8c09-f8aca5442ada",
+      "cardName": "수수께끼의 영생자-세티아",
+      "cardId": "324825bb-0c04-4895-99d1-dbb4d50610ae",
+      "rarity": "UR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR09"
+    },
+    {
+      "id": "d37c9c9c-b1b3-41b6-a027-a2e5eaab09d3",
+      "cardName": "절대적 거부",
+      "cardId": "79267e20-c68f-49f3-b065-62453a7f8915",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR10"
+    },
+    {
+      "id": "600d2b6c-2d0a-4e46-9c25-44e0b9d19f3a",
+      "cardName": "절대적 거부",
+      "cardId": "79267e20-c68f-49f3-b065-62453a7f8915",
+      "rarity": "SR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR10"
+    },
+    {
+      "id": "bd1d3488-2e2c-4522-8f34-e98d61b40022",
+      "cardName": "절대적 거부",
+      "cardId": "79267e20-c68f-49f3-b065-62453a7f8915",
+      "rarity": "UR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR10"
+    },
+    {
+      "id": "b0632c4b-1ac3-495f-81e8-3234a082330b",
+      "cardName": "나른한 속삭임",
+      "cardId": "36635902-ee5a-4678-9521-d0b418f34b6f",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR11"
+    },
+    {
+      "id": "44e7b50a-8719-4eaf-99d1-d365e0543b17",
+      "cardName": "나른한 속삭임",
+      "cardId": "36635902-ee5a-4678-9521-d0b418f34b6f",
+      "rarity": "SR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR11"
+    },
+    {
+      "id": "74a9e867-2c89-4a9b-b68c-04b43358caef",
+      "cardName": "나른한 속삭임",
+      "cardId": "36635902-ee5a-4678-9521-d0b418f34b6f",
+      "rarity": "UR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR11"
+    },
+    {
+      "id": "d4fe1ec4-4ba5-455f-b08a-0b4f85a55039",
+      "cardName": "숲의 안식처",
+      "cardId": "9790e14c-1ca9-4949-b942-383cf940c0cf",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR12"
+    },
+    {
+      "id": "4d9b84ce-88cb-4064-b21f-66df385d7b5d",
+      "cardName": "숲의 안식처",
+      "cardId": "9790e14c-1ca9-4949-b942-383cf940c0cf",
+      "rarity": "SR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR12"
+    },
+    {
+      "id": "80ba9fd9-1b5e-431a-bdb5-07ab298cd2c9",
+      "cardName": "숲의 안식처",
+      "cardId": "9790e14c-1ca9-4949-b942-383cf940c0cf",
+      "rarity": "UR",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR12"
+    },
+    {
+      "id": "a70f510f-6c88-408f-b5c8-bdde5a08447f",
+      "cardName": "금단의 서",
+      "cardId": "5d93271d-38d6-43ad-8595-73a6f5edcbbd",
+      "rarity": "R",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR13"
+    },
+    {
+      "id": "b01afd78-7932-4672-9530-6f76f5056be9",
+      "cardName": "용의 눈",
+      "cardId": "689aab62-b5ae-4819-85bd-3c37bbd09db7",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR14"
+    },
+    {
+      "id": "e9aae985-ed91-4fc6-9648-2cdbb5e8af6d",
+      "cardName": "용의 눈",
+      "cardId": "689aab62-b5ae-4819-85bd-3c37bbd09db7",
+      "rarity": "R",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR14"
+    },
+    {
+      "id": "028480fa-c194-4048-ae0d-62342024adb2",
+      "cardName": "펌프업",
+      "cardId": "d75e958b-ec70-4829-a38d-08f223601c13",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR15"
+    },
+    {
+      "id": "d275b370-890a-49fb-baaa-5e587d1cc3a5",
+      "cardName": "펌프업",
+      "cardId": "d75e958b-ec70-4829-a38d-08f223601c13",
+      "rarity": "R",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR15"
+    },
+    {
+      "id": "6b0af081-00fb-4a30-8c9a-a75cba4a29e3",
+      "cardName": "수상한 그림자",
+      "cardId": "4dbc08f2-f845-4dd7-a54f-8d191a46b4a1",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR16"
+    },
+    {
+      "id": "e9a8e046-8643-4297-b496-4e866eaa7341",
+      "cardName": "수상한 그림자",
+      "cardId": "4dbc08f2-f845-4dd7-a54f-8d191a46b4a1",
+      "rarity": "R",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR16"
+    },
+    {
+      "id": "537d9e15-2353-4e1f-9682-e4b94902cdc6",
+      "cardName": "운명의 천칭",
+      "cardId": "a183cf69-4fd1-4214-b4e5-da1f8b81d1a9",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR17"
+    },
+    {
+      "id": "36c8a3ab-3372-43d5-877e-e5782efa18b6",
+      "cardName": "운명의 천칭",
+      "cardId": "a183cf69-4fd1-4214-b4e5-da1f8b81d1a9",
+      "rarity": "R",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR17"
+    },
+    {
+      "id": "c9ac01d0-db8c-46be-bcca-83051c69af3d",
+      "cardName": "핀아웃",
+      "cardId": "74c1fe4d-b85d-4787-b23b-df18e2cae5ee",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR18"
+    },
+    {
+      "id": "cfe941ae-7622-4a0e-84b7-279eff997298",
+      "cardName": "핀아웃",
+      "cardId": "74c1fe4d-b85d-4787-b23b-df18e2cae5ee",
+      "rarity": "R",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR18"
+    },
+    {
+      "id": "86981c80-bf31-40d8-8280-243de8107696",
+      "cardName": "인셉션",
+      "cardId": "2653bb31-f58c-4a68-a5b1-b11f1fa6a69c",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR19"
+    },
+    {
+      "id": "0149ab1a-680c-475a-851e-86e801d188f4",
+      "cardName": "인셉션",
+      "cardId": "2653bb31-f58c-4a68-a5b1-b11f1fa6a69c",
+      "rarity": "R",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR19"
+    },
+    {
+      "id": "0a40b258-102e-45f7-9618-3fb216791f87",
+      "cardName": "타임캡슐",
+      "cardId": "31120d0b-6c93-40c1-9cce-af50611bd018",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR20"
+    },
+    {
+      "id": "c054f139-ec51-4149-a348-6258b42efb6f",
+      "cardName": "타임캡슐",
+      "cardId": "31120d0b-6c93-40c1-9cce-af50611bd018",
+      "rarity": "R",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR20"
+    },
+    {
+      "id": "caf3d62c-7230-49e9-acaf-6e12e82c1be9",
+      "cardName": "용의 위협",
+      "cardId": "88751c64-fde1-4dba-b115-00560bebc10c",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR21"
+    },
+    {
+      "id": "0dec9471-8abd-4aa8-a57a-a69a3d7ce390",
+      "cardName": "용의 위협",
+      "cardId": "88751c64-fde1-4dba-b115-00560bebc10c",
+      "rarity": "R",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR21"
+    },
+    {
+      "id": "37e0f96e-d9db-4418-9ace-edf7c1e8e839",
+      "cardName": "용의 무덤",
+      "cardId": "8343fc6f-4f67-4420-bf12-997da1df08d2",
+      "rarity": "R",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR22"
+    },
+    {
+      "id": "66756410-bd54-4c71-a5a7-404ed0efbc02",
+      "cardName": "부활의 손짓",
+      "cardId": "bea2244c-59ce-44a0-a515-90edd0c8a166",
+      "rarity": "R",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR23"
+    },
+    {
+      "id": "a6536320-c525-4901-b2df-012b7c9941a6",
+      "cardName": "억제된 본능",
+      "cardId": "5dc53827-e887-42ef-86d0-c191f68a3f40",
+      "rarity": "N",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR24"
+    },
+    {
+      "id": "f0793005-3cfb-40b3-ae56-eea677039791",
+      "cardName": "억제된 본능",
+      "cardId": "5dc53827-e887-42ef-86d0-c191f68a3f40",
+      "rarity": "R",
+      "packId": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "collectionNumber": "SD01-KR24"
+    }
+  ],
+  "packs": [
+    {
+      "id": "a6e10483-e7f1-4017-bf4c-09b9c82a4e49",
+      "name": "심연에서 피는 꽃",
+      "releaseDate": "2026-05-13T00:00:00.000Z",
+      "codePrefix": "BP01"
+    },
+    {
+      "id": "8feb148c-2fe6-48fb-b733-55d7788341de",
+      "name": "스타터덱 2026",
+      "releaseDate": "2026-04-03T00:00:00.000Z",
+      "codePrefix": "SD01"
+    }
+  ]
+}
